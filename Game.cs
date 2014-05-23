@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Labyrinth
 {
-    class Game
+    class Game              // just test
     {
         public Game(Random rand, Ladder ladder)
         {
