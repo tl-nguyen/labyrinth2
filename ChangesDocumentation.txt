@@ -1,0 +1,13 @@
+﻿Kalina - Ladder.cs: 
+1. Sort and organize usings and move them inside the namespace;
+2. Rename Ladder.cs to ResultsList.cs;
+3. Code formatted with Ctrl + K + D;
+4.Rename: ResultQualifiesInLadder() to IsTopResult()
+		  AddResultInLadder() to AddResult()
+		  int result to int currentMoves
+		  int index to i;
+		  const TOP_RESULTS_CAPACITY to MaxCount (actually it is used everywhere as ResultsList.MaxCount)
+5. Removed method PrintLadder() and added ToString() method;
+6. Added this where needed.
+7. Added documentation to ResultsList.cs;
+8. TODO: Add new class for saving/reading the results to/from file.
