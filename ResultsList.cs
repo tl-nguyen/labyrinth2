@@ -89,7 +89,7 @@ namespace Labyrinth
             {
                 for (int i = 0; i < this.topResults.Count; i++)
                 {
-                    output.Add(string.Format("{0}. {1} --> {2} moves{3}", i + 1, this.topResults[i].PlayerName, this.topResults[i].MovesCount));
+                    output.Add(string.Format("{0}. {1} --> {2} moves", i + 1, this.topResults[i].PlayerName, this.topResults[i].MovesCount));
                 }
             }
 
