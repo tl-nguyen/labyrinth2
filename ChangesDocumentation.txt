@@ -11,3 +11,10 @@
 6. Added this where needed.
 7. Added documentation to ResultsList.cs;
 8. TODO: Add new class for saving/reading the results to/from file.
+
+Stefan - Game.cs:
+1.Rename Result list name "ladder" to "highScores";
+2.Move usings inside the namespace;
+3.Rename class name "Game" to "GameEngine"
+4.Added this where needed
+5.Code formatted using StyleCop

@@ -17,7 +17,7 @@ namespace Labyrinth
             {
 
 
-                Game game = new Game(rand, ladder);
+                GameEngine game = new GameEngine(rand, ladder);
             }
         }
     }
