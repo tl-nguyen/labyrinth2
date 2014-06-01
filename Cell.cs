@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Labyrinth
+﻿namespace Labyrinth
 {
-    class Cell
+    using System;
+
+    public class Cell
     {
         public const char CELL_EMPTY_VALUE = '-';
+
         public const char CELL_WALL_VALUE = 'X';
-        public int Row { get; set; }
-        public int Col { get; set; }
-        public char ValueChar { get; set; }
+
+        private int row;
+        private int col;
 
         public Cell(int row, int col, char value)
         {
@@ -20,12 +18,51 @@ namespace Labyrinth
             this.ValueChar = value;
         }
 
+        public int Row
+        {
+            get
+            {
+                return this.row;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Value of the row must not be negative");
+                }
+
+                this.row = value;
+            }
+        }
+
+        public int Col
+        {
+            get
+            {
+                return this.col;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Value of the col must not be negative");
+                }
+
+                this.col = value;
+            }
+        }
+
+        public char ValueChar { get; set; }
+
         public bool IsEmpty()
         {
-            if(this.ValueChar == CELL_EMPTY_VALUE)
+            if (this.ValueChar == CELL_EMPTY_VALUE)
             {
                 return true;
             }
+
             return false;
         }
     }
