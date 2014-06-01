@@ -18,7 +18,7 @@
 
             while (!this.IsGameOver(labyrinth) && input != "restart")
             {
-                UserInputAndOutput.PrinyLabyrinth(labyrinth);
+                UserInputAndOutput.PrintLabyrinth(labyrinth);
                 input = UserInputAndOutput.GetInput();
                 this.ProccessInput(input, labyrinth, ref movesCount, highScores);
             }

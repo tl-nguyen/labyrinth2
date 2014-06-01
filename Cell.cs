@@ -2,20 +2,16 @@
 {
     using System;
 
-    public class Cell
+    public class Cell : ICell
     {
-        public const char CELL_EMPTY_VALUE = '-';
-
-        public const char CELL_WALL_VALUE = 'X';
-
         private int row;
         private int col;
 
-        public Cell(int row, int col, char value)
+        public Cell(int row, int col, CellState value)
         {
             this.Row = row;
             this.Col = col;
-            this.ValueChar = value;
+            this.CellValue = value;
         }
 
         public int Row
@@ -54,11 +50,11 @@
             }
         }
 
-        public char ValueChar { get; set; }
+        public CellState CellValue { get; set; }
 
         public bool IsEmpty()
         {
-            if (this.ValueChar == CELL_EMPTY_VALUE)
+            if (this.CellValue == CellState.Empty)
             {
                 return true;
             }

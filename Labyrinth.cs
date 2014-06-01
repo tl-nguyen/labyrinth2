@@ -42,8 +42,8 @@
                 return false;
             }
 
-            this.labyrinth[newCell.Row, newCell.Col].ValueChar = newCell.ValueChar;
-            this.labyrinth[currentCell.Row, currentCell.Col].ValueChar = Cell.CELL_EMPTY_VALUE;
+            this.labyrinth[newCell.Row, newCell.Col].CellValue = newCell.CellValue;
+            this.labyrinth[currentCell.Row, currentCell.Col].CellValue = CellState.Empty;
             this.currentCell = labyrinth[newCell.Row, newCell.Col];
 
             return true;
@@ -51,7 +51,7 @@
 
         private Cell FindNewCellCoordinates(Cell currentCell, Direction direction)
         {
-            Cell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.ValueChar);
+            Cell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
 
             switch (direction)
             {
@@ -149,20 +149,20 @@
                 {
                     int cellRandomValue = rand.Next(0, 2);
 
-                    char charValue;
+                    CellState state;
                     if (cellRandomValue == 0)
                     {
-                        charValue = Cell.CELL_EMPTY_VALUE;
+                        state = CellState.Empty;
                     }
                     else
                     {
-                        charValue = Cell.CELL_WALL_VALUE;
+                        state = CellState.Wall;
                     }
-                    this.labyrinth[row, col] = new Cell(row, col, charValue);
+                    this.labyrinth[row, col] = new Cell(row, col, state);
                 }
             }
 
-            this.labyrinth[LabyrintStartRow, LabyrinthStartCol].ValueChar = '*';
+            this.labyrinth[LabyrintStartRow, LabyrinthStartCol].CellValue = CellState.Player;
 
             bool exitPathExists = ExitPathExists();
 

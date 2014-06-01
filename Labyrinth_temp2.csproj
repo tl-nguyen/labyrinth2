@@ -55,8 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
+    <Compile Include="CellState.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="ICell.cs" />
     <Compile Include="LabTest.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="ResultsList.cs" />

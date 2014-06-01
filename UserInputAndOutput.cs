@@ -7,6 +7,10 @@ namespace Labyrinth
 {
     static class UserInputAndOutput
     {
+        private const char EMPTY_CELL = '-';
+        private const char WALL_CELL = 'X';
+        private const char PLAYER_CELL = '*';
+
         public const string INVALID_MOVE_MSG = "Invalid move!";
         public const string INVALID_COMMAND_MSG = "Invalid command!";
         public const string SCOREBOARD_EMPTY_MSG = "The scoreboard is empty.";
@@ -37,7 +41,7 @@ namespace Labyrinth
             return inputLine;
         }
 
-        public static void PrinyLabyrinth(Labyrinth labyrinth)
+        public static void PrintLabyrinth(Labyrinth labyrinth)
         {
             int labyrinthSize = Labyrinth.LABYRINTH_SIZE;
             for (int row = 0; row < labyrinthSize; row++)
@@ -45,7 +49,18 @@ namespace Labyrinth
                 for (int col = 0; col < labyrinthSize; col++)
                 {
                     Cell cell = labyrinth.GetCell(row, col);
-                    Console.Write(cell.ValueChar + " ");
+                    switch (cell.CellValue)
+                    {
+                        case CellState.Empty: Console.Write(EMPTY_CELL + " ");
+                            break;
+                        case CellState.Wall: Console.Write(WALL_CELL + " ");
+                            break;
+                        case CellState.Player: Console.Write(PLAYER_CELL + " ");
+                            break;
+                        default:
+                            throw new ArgumentException("If this happens something is very wrong with the logic of PrintLabyrinth method");
+                            break;
+                    }
                 }
                 Console.WriteLine();
             }
