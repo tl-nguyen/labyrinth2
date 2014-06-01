@@ -41,8 +41,8 @@
         private bool IsGameOver(Labyrinth labyrinth)
         {
             bool isGameOver = false;
-            int currentRow = labyrinth.currentCell.Row;
-            int currentCol = labyrinth.currentCell.Col;
+            int currentRow = labyrinth.CurrentCell.Row;
+            int currentCol = labyrinth.CurrentCell.Col;
             if (currentRow == 0 ||
                 currentCol == 0 ||
                 currentRow == Labyrinth.LABYRINTH_SIZE - 1 ||
@@ -61,19 +61,19 @@
             {
                 case "u":
                     moveDone =
-                        labyrinth.TryMove(labyrinth.currentCell, Direction.Up);
+                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Up);
                     break;
                 case "d":
                     moveDone =
-                        labyrinth.TryMove(labyrinth.currentCell, Direction.Down);
+                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Down);
                     break;
                 case "l":
                     moveDone =
-                        labyrinth.TryMove(labyrinth.currentCell, Direction.Left);
+                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Left);
                     break;
                 case "r":
                     moveDone =
-                        labyrinth.TryMove(labyrinth.currentCell, Direction.Right);
+                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Right);
                     break;
                 default:
                     Console.WriteLine(UserInputAndOutput.INVALID_MOVE_MSG);

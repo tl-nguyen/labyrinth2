@@ -9,15 +9,16 @@
     class Labyrinth
     {
         public const int LABYRINTH_SIZE = 7;
-        private readonly int LabyrintStartRow = LABYRINTH_SIZE / 2;
-        private readonly int LabyrinthStartCol = LABYRINTH_SIZE / 2;
+        private readonly int labyrintStartRow = LABYRINTH_SIZE / 2;
+        private readonly int labyrinthStartCol = LABYRINTH_SIZE / 2;
         private Cell[,] labyrinth;
-        public Cell currentCell;
+
+        public Cell CurrentCell;
 
         public Labyrinth(Random rand)
         {
             GenerateLabyrinth(rand);
-            this.currentCell = labyrinth[LabyrintStartRow, LabyrintStartRow];
+            this.CurrentCell = labyrinth[labyrintStartRow, labyrintStartRow];
         }
 
         public Cell GetCell(int row, int col)
@@ -44,7 +45,7 @@
 
             this.labyrinth[newCell.Row, newCell.Col].CellValue = newCell.CellValue;
             this.labyrinth[currentCell.Row, currentCell.Col].CellValue = CellState.Empty;
-            this.currentCell = labyrinth[newCell.Row, newCell.Col];
+            this.CurrentCell = labyrinth[newCell.Row, newCell.Col];
 
             return true;
         }
@@ -114,7 +115,7 @@
         private bool ExitPathExists()
         {
             Queue<Cell> cellsOrder = new Queue<Cell>();
-            Cell startCell = labyrinth[LabyrintStartRow, LabyrinthStartCol];
+            Cell startCell = labyrinth[labyrintStartRow, labyrinthStartCol];
             cellsOrder.Enqueue(startCell);
             HashSet<Cell> visitedCells = new HashSet<Cell>();
 
@@ -162,7 +163,7 @@
                 }
             }
 
-            this.labyrinth[LabyrintStartRow, LabyrinthStartCol].CellValue = CellState.Player;
+            this.labyrinth[labyrintStartRow, labyrinthStartCol].CellValue = CellState.Player;
 
             bool exitPathExists = ExitPathExists();
 
