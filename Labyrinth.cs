@@ -11,9 +11,9 @@
         public const int LABYRINTH_SIZE = 7;
         private readonly int labyrintStartRow = LABYRINTH_SIZE / 2;
         private readonly int labyrinthStartCol = LABYRINTH_SIZE / 2;
-        private Cell[,] labyrinth;
+        private ICell[,] labyrinth;
 
-        public Cell CurrentCell;
+        public ICell CurrentCell;
 
         public Labyrinth(Random rand)
         {
@@ -21,14 +21,14 @@
             this.CurrentCell = labyrinth[labyrintStartRow, labyrintStartRow];
         }
 
-        public Cell GetCell(int row, int col)
+        public ICell GetCell(int row, int col)
         {
             return labyrinth[row, col];
         }
 
-        public bool TryMove(Cell currentCell, Direction direction)
+        public bool TryMove(ICell currentCell, Direction direction)
         {
-            Cell newCell = FindNewCellCoordinates(currentCell, direction);
+            ICell newCell = FindNewCellCoordinates(currentCell, direction);
 
             if (newCell.Row < 0 ||
                 newCell.Col < 0 ||
@@ -50,9 +50,9 @@
             return true;
         }
 
-        private Cell FindNewCellCoordinates(Cell currentCell, Direction direction)
+        private ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
-            Cell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
+            ICell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
 
             switch (direction)
             {
@@ -73,10 +73,10 @@
             return newCell;
         }
 
-        private void MoveTo(Cell currentCell, Direction direction,
-            Queue<Cell> cellsOrder, HashSet<Cell> visitedCells)
+        private void MoveTo(ICell currentCell, Direction direction,
+            Queue<ICell> cellsOrder, HashSet<ICell> visitedCells)
         {
-            Cell newCell = FindNewCellCoordinates(currentCell, direction);
+            ICell newCell = FindNewCellCoordinates(currentCell, direction);
 
             if (newCell.Row < 0 ||
                 newCell.Col < 0 ||
@@ -97,7 +97,7 @@
             }
         }
 
-        private bool ExitFound(Cell cell)
+        private bool ExitFound(ICell cell)
         {
             bool exitFound = false;
 
@@ -114,15 +114,15 @@
 
         private bool ExitPathExists()
         {
-            Queue<Cell> cellsOrder = new Queue<Cell>();
-            Cell startCell = labyrinth[labyrintStartRow, labyrinthStartCol];
+            Queue<ICell> cellsOrder = new Queue<ICell>();
+            ICell startCell = labyrinth[labyrintStartRow, labyrinthStartCol];
             cellsOrder.Enqueue(startCell);
-            HashSet<Cell> visitedCells = new HashSet<Cell>();
+            HashSet<ICell> visitedCells = new HashSet<ICell>();
 
             bool pathExists = false;
             while (cellsOrder.Count > 0)
             {
-                Cell currentCell = cellsOrder.Dequeue();
+                ICell currentCell = cellsOrder.Dequeue();
                 visitedCells.Add(currentCell);
 
                 if (ExitFound(currentCell))

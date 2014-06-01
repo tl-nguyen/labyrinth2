@@ -48,7 +48,7 @@ namespace Labyrinth
             {
                 for (int col = 0; col < labyrinthSize; col++)
                 {
-                    Cell cell = labyrinth.GetCell(row, col);
+                    ICell cell = labyrinth.GetCell(row, col);
                     switch (cell.CellValue)
                     {
                         case CellState.Empty: Console.Write(EMPTY_CELL + " ");
@@ -59,7 +59,6 @@ namespace Labyrinth
                             break;
                         default:
                             throw new ArgumentException("If this happens something is very wrong with the logic of PrintLabyrinth method");
-                            break;
                     }
                 }
                 Console.WriteLine();
