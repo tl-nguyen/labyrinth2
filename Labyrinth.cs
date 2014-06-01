@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Labyrinth
+﻿namespace Labyrinth
 {
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
     class Labyrinth
     {
         public const int LABYRINTH_SIZE = 7;
@@ -28,8 +29,10 @@ namespace Labyrinth
         {
             Cell newCell = FindNewCellCoordinates(currentCell, direction);
 
-            if (newCell.Row < 0 || newCell.Col < 0 ||
-                newCell.Row >= labyrinth.GetLength(0) || newCell.Col >= labyrinth.GetLength(1))
+            if (newCell.Row < 0 ||
+                newCell.Col < 0 ||
+                newCell.Row >= labyrinth.GetLength(0) ||
+                newCell.Col >= labyrinth.GetLength(1))
             {
                 return false;
             }
@@ -69,13 +72,15 @@ namespace Labyrinth
             return newCell;
         }
 
-        private void moveTo(Cell currentCell, Direction direction,
+        private void MoveTo(Cell currentCell, Direction direction,
             Queue<Cell> cellsOrder, HashSet<Cell> visitedCells)
         {
             Cell newCell = FindNewCellCoordinates(currentCell, direction);
 
-            if (newCell.Row < 0 || newCell.Col < 0 ||
-                newCell.Row >= labyrinth.GetLength(0) || newCell.Col >= labyrinth.GetLength(1))
+            if (newCell.Row < 0 ||
+                newCell.Col < 0 ||
+                newCell.Row >= labyrinth.GetLength(0) ||
+                newCell.Col >= labyrinth.GetLength(1))
             {
                 return;
             }
@@ -125,10 +130,10 @@ namespace Labyrinth
                     break;
                 }
 
-                moveTo(currentCell, Direction.Down, cellsOrder, visitedCells);
-                moveTo(currentCell, Direction.Up, cellsOrder, visitedCells);
-                moveTo(currentCell, Direction.Left, cellsOrder, visitedCells);
-                moveTo(currentCell, Direction.Right, cellsOrder, visitedCells);
+                MoveTo(currentCell, Direction.Down, cellsOrder, visitedCells);
+                MoveTo(currentCell, Direction.Up, cellsOrder, visitedCells);
+                MoveTo(currentCell, Direction.Left, cellsOrder, visitedCells);
+                MoveTo(currentCell, Direction.Right, cellsOrder, visitedCells);
             }
 
             return pathExists;
