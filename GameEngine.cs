@@ -7,9 +7,9 @@
 
     public class GameEngine    
     {
-        public GameEngine(Random rand)
+        public GameEngine()
         {
-            Labyrinth labyrinth = new Labyrinth(rand);
+            Labyrinth labyrinth = new Labyrinth();
 
             UserInputAndOutput.PrintWelcomeMessage();
             int movesCount = 0;

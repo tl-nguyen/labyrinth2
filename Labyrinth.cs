@@ -15,9 +15,9 @@
 
         public ICell CurrentCell;
 
-        public Labyrinth(Random rand)
+        public Labyrinth()
         {
-            GenerateLabyrinth(rand);
+            GenerateLabyrinth();
             this.CurrentCell = labyrinth[labyrintStartRow, labyrintStartRow];
         }
 
@@ -140,8 +140,9 @@
             return pathExists;
         }
 
-        private void GenerateLabyrinth(Random rand)
+        private void GenerateLabyrinth()
         {
+            Random rand = new Random();
             this.labyrinth = new Cell[LABYRINTH_SIZE, LABYRINTH_SIZE];
 
             for (int row = 0; row < LABYRINTH_SIZE; row++)
@@ -169,7 +170,7 @@
 
             if (!exitPathExists)
             {
-                GenerateLabyrinth(rand);
+                GenerateLabyrinth();
             }
         }
     }

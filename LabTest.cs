@@ -11,12 +11,9 @@ namespace Labyrinth
     {
         static void Main()
         {
-            Random rand = new Random();
-            while (1 == 1)
+            while (true)
             {
-
-
-                GameEngine game = new GameEngine(rand);
+                GameEngine game = new GameEngine();
             }
         }
     }

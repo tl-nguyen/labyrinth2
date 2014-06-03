@@ -23,3 +23,6 @@ Stefan - Game.cs:
 3.Rename class name "Game" to "GameEngine"
 4.Added this where needed
 5.Code formatted using StyleCop
+6.Remove the Random passed from LabTest.cs to GameEngine.cs than to Labyrinth.cs. 
+	Random class is instanced in GenerateLabyrinth method in Labyrinth.cs
+7. Change the while loop statement in LabTest.cs from 1 == 1 to true
