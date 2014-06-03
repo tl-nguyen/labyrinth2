@@ -18,6 +18,7 @@
 
             while (!this.IsGameOver(labyrinth) && input != "restart")
             {
+                Console.Clear();
                 UserInputAndOutput.PrintLabyrinth(labyrinth);
                 input = UserInputAndOutput.GetInput();
                 this.ProccessInput(input, labyrinth, ref movesCount);
