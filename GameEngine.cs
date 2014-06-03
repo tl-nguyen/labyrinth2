@@ -12,9 +12,15 @@
             Labyrinth labyrinth = new Labyrinth();
 
             UserInputAndOutput.PrintWelcomeMessage();
-            int movesCount = 0;
 
+            UpdateUserInput(labyrinth);
+
+            Console.WriteLine();
+        }
+        private void UpdateUserInput(Labyrinth labyrinth)
+        {
             string input = string.Empty;
+            int movesCount = 0;
 
             while (!this.IsGameOver(labyrinth) && input != "restart")
             {
@@ -35,10 +41,7 @@
                     TopResults.List.Add(new Result(movesCount, name));
                 }
             }
-
-            Console.WriteLine();
         }
-
         private bool IsGameOver(Labyrinth labyrinth)
         {
             bool isGameOver = false;

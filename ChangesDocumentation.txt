@@ -26,4 +26,5 @@ Stefan - Game.cs:
 6.Remove the Random passed from LabTest.cs to GameEngine.cs than to Labyrinth.cs. 
 	Random class is instanced in GenerateLabyrinth method in Labyrinth.cs
 7. Change the while loop statement in LabTest.cs from 1 == 1 to true
-8.Add Clearing the console after each command for better visualization
+8.Taken out the updating of user input into a private method
+9.Clearing the console after each command for better visualization
