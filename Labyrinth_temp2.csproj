@@ -61,7 +61,9 @@
     <Compile Include="ICell.cs" />
     <Compile Include="LabTest.cs" />
     <Compile Include="Labyrinth.cs" />
-    <Compile Include="ResultsList.cs" />
+    <Compile Include="TopResults.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Result.cs" />
     <Compile Include="UserInputAndOutput.cs" />
   </ItemGroup>

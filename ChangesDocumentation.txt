@@ -10,7 +10,12 @@
 5. Removed method PrintLadder() and added ToString() method;
 6. Added this where needed.
 7. Added documentation to ResultsList.cs;
-8. TODO: Add new class for saving/reading the results to/from file.
+8. Made ResultsList Singleton;
+9. Rename the class from ResultsList to TopResults.
+10. Added documentation for the change.
+11. Changed the argument for AddResult from int and string to Result.
+12. Made Add() and IsTopResult() internal because class Result is currently internal.
+12. TODO: Add new class for saving/reading the results to/from file.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

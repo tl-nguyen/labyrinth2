@@ -1,5 +1,5 @@
 ﻿// ********************************
-// <copyright file="ResultsList.cs" company="Telerik Academy">
+// <copyright file="TopResults.cs" company="Telerik Academy">
 // Copyright (c) 2014 Telerik Academy. All rights reserved.
 // </copyright>
 //
@@ -13,7 +13,7 @@ namespace Labyrinth
     /// <summary>
     /// Represents a table with the top results
     /// </summary>
-    public class ResultsList
+    public class TopResults
     {
         /// <summary>
         /// Maximum count of top results in the table.
@@ -24,55 +24,28 @@ namespace Labyrinth
         /// Holds the sorted list of top results.
         /// </summary>
         private List<Result> topResults;
+       
+        /// <summary>
+        /// Initializes static members of the <see cref="TopResults"/> class.
+        /// </summary>
+        static TopResults()
+        {
+            List = new TopResults();
+        }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResultsList"/> class.
+        /// Prevents a default instance of the <see cref="TopResults"/> class from being created.
         /// </summary>
-        public ResultsList()
+        private TopResults()
         {
             this.topResults = new List<Result>();
-            this.topResults.Capacity = ResultsList.MaxCount;
+            this.topResults.Capacity = TopResults.MaxCount;
         }
 
         /// <summary>
-        /// Checks if a given amount of moves is good enough to enter the results table.
+        /// Gets the list of top results.
         /// </summary>
-        /// <param name="currentMoves">Integer value representing the amount of moves.</param>
-        /// <returns>True if a result is good enough and false if the result is not good enough to enter the results table.</returns>
-        public bool IsTopResult(int currentMoves)
-        {
-            if (this.topResults.Count < ResultsList.MaxCount)
-            {
-                return true;
-            }
-
-            if (currentMoves < this.topResults.Max().MovesCount)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Adds a new result formed form specified moves and player name in the results table.
-        /// </summary>
-        /// <param name="movesCount">Moves to be added.</param>
-        /// <param name="playerName">Player name to be added.</param>
-        public void AddResult(int movesCount, string playerName)
-        {
-            Result result = new Result(movesCount, playerName);
-            if (this.topResults.Count == this.topResults.Capacity)
-            {
-                this.topResults[this.topResults.Count - 1] = result;
-            }
-            else
-            {
-                this.topResults.Add(result);
-            }
-
-            this.topResults.Sort();
-        }
+        public static TopResults List { get; private set; }
 
         /// <summary>
         /// Converts the result table into string.
@@ -94,6 +67,44 @@ namespace Labyrinth
             }
 
             return string.Join(Environment.NewLine, output);
+        }
+
+        /// <summary>
+        /// Checks if a given amount of moves is good enough to enter the results table.
+        /// </summary>
+        /// <param name="currentMoves">Integer value representing the amount of moves.</param>
+        /// <returns>True if a result is good enough and false if the result is not good enough to enter the results table.</returns>
+        internal bool IsTopResult(int currentMoves)
+        {
+            if (this.topResults.Count < TopResults.MaxCount)
+            {
+                return true;
+            }
+
+            if (currentMoves < this.topResults.Max().MovesCount)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Adds a new result formed form specified moves and player name in the results table.
+        /// </summary>
+        /// <param name="result">Player result to be added.</param>
+        internal void Add(Result result)
+        {
+            if (this.topResults.Count == this.topResults.Capacity)
+            {
+                this.topResults[this.topResults.Count - 1] = result;
+            }
+            else
+            {
+                this.topResults.Add(result);
+            }
+
+            this.topResults.Sort();
         }
     }
 }

@@ -7,7 +7,7 @@
 
     public class GameEngine    
     {
-        public GameEngine(Random rand, ResultsList highScores)
+        public GameEngine(Random rand)
         {
             Labyrinth labyrinth = new Labyrinth(rand);
 
@@ -20,18 +20,18 @@
             {
                 UserInputAndOutput.PrintLabyrinth(labyrinth);
                 input = UserInputAndOutput.GetInput();
-                this.ProccessInput(input, labyrinth, ref movesCount, highScores);
+                this.ProccessInput(input, labyrinth, ref movesCount);
             }
 
             if (input != "restart")
             {
                 Console.WriteLine("Congratulations! You escaped in {0} moves.", movesCount);
-                if (highScores.IsTopResult(movesCount))
+                if (TopResults.List.IsTopResult(movesCount))
                 {
                     Console.WriteLine(
                         UserInputAndOutput.ENTER_NAME_FOR_SCOREBOARD_MSG);
                     string name = Console.ReadLine();
-                    highScores.AddResult(movesCount, name);
+                    TopResults.List.Add(new Result(movesCount, name));
                 }
             }
 
@@ -88,7 +88,7 @@
             return moveDone;
         }
 
-        private void ProccessInput(string input, Labyrinth labyrinth, ref int movesCount, ResultsList ladder)
+        private void ProccessInput(string input, Labyrinth labyrinth, ref int movesCount)
         {
             string inputToLower = input.ToLower();
             switch (inputToLower)
@@ -106,7 +106,7 @@
 
                     break;
                 case "top":
-                    Console.WriteLine(ladder);
+                    Console.WriteLine(TopResults.List);
                     break;
                 case "exit":
                     Console.WriteLine(UserInputAndOutput.GOODBYE_MSG);
