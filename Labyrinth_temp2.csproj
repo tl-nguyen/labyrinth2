@@ -57,6 +57,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="FileManager.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="ICell.cs" />
     <Compile Include="LabTest.cs" />

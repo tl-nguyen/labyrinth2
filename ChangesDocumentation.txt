@@ -15,7 +15,8 @@
 10. Added documentation for the change.
 11. Changed the argument for AddResult from int and string to Result.
 12. Made Add() and IsTopResult() internal because class Result is currently internal.
-12. TODO: Add new class for saving/reading the results to/from file.
+13. Added delegate and event for change in the TopResults class.
+14. Created class FileManager and attached its SaveToFile method to the changed event of the TopResults class.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

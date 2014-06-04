@@ -10,11 +10,15 @@ namespace Labyrinth
     using System.Collections.Generic;
     using System.Linq;
 
+    public delegate void ChangedTopResultsEventHandler(object sender, EventArgs e);
+
     /// <summary>
     /// Represents a table with the top results
     /// </summary>
     public class TopResults
     {
+        public event ChangedTopResultsEventHandler Changed;
+
         /// <summary>
         /// Maximum count of top results in the table.
         /// </summary>
@@ -31,6 +35,7 @@ namespace Labyrinth
         static TopResults()
         {
             List = new TopResults();
+            var fm = new FileManager();         // only for test purposes will be removed later
         }
 
         /// <summary>
@@ -104,7 +109,14 @@ namespace Labyrinth
                 this.topResults.Add(result);
             }
 
+            OnChanged(EventArgs.Empty);
             this.topResults.Sort();
+        }
+
+        private void OnChanged(EventArgs e)
+        {
+            if (Changed != null)
+                Changed(this, e);
         }
     }
 }
