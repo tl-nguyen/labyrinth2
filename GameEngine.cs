@@ -13,6 +13,9 @@
 
             UserInputAndOutput.PrintWelcomeMessage();
 
+            TopResults.List.Parse(FileManager.LoadFromFile());
+            TopResults.List.Changed += new ChangedTopResultsEventHandler(FileManager.SaveToFile);
+
             UpdateUserInput(labyrinth);
 
             Console.WriteLine();

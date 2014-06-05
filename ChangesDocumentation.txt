@@ -16,7 +16,9 @@
 11. Changed the argument for AddResult from int and string to Result.
 12. Made Add() and IsTopResult() internal because class Result is currently internal.
 13. Added delegate and event for change in the TopResults class.
-14. Created class FileManager and attached its SaveToFile method to the changed event of the TopResults class.
+14. Created class FileManager and attached its SaveToFile method to the changed event of the TopResults class in the GameEngine.cs.
+15. Created LoadFromFile and TopResults.Parse() for loading the previuosly saved score sheet - for now it uses strings not serialized data. I will try to changed it later.
+16. Added loading the scoresheet in the GameEngine.cs.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

@@ -9,6 +9,7 @@ namespace Labyrinth
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
 
     public delegate void ChangedTopResultsEventHandler(object sender, EventArgs e);
 
@@ -35,7 +36,6 @@ namespace Labyrinth
         static TopResults()
         {
             List = new TopResults();
-            var fm = new FileManager();         // only for test purposes will be removed later
         }
 
         /// <summary>
@@ -109,14 +109,32 @@ namespace Labyrinth
                 this.topResults.Add(result);
             }
 
-            OnChanged(EventArgs.Empty);
             this.topResults.Sort();
+            OnChanged(EventArgs.Empty);
+            
         }
 
         private void OnChanged(EventArgs e)
         {
             if (Changed != null)
                 Changed(this, e);
+        }
+
+        public void Parse(string list)
+        {
+            this.topResults = new List<Result>();
+            this.topResults.Capacity = TopResults.MaxCount;
+            var lines = list.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                var start = lines[i].IndexOf(". ");
+                var middle = lines[i].IndexOf(" --> ");
+                var end = lines[i].IndexOf(" moves");
+                var result = new Result(
+                    int.Parse(lines[i].Substring(middle + 5, end - middle - 5)),
+                    lines[i].Substring(start + 2, middle - start - 2));
+                this.topResults.Add(result);
+            }
         }
     }
 }

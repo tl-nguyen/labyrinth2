@@ -1,26 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.IO;
-using System.Xml.Serialization;
 
 namespace Labyrinth
 {
-    internal class FileManager
+    internal static class FileManager
     {
         private const string FullFileName = "..\\..\\results.txt";
  
-        internal FileManager()
-        {
-            TopResults.List.Changed += new ChangedTopResultsEventHandler(SaveToFile);
-        }
-
         internal static void SaveToFile(object sender, EventArgs e)
         {
-            XmlSerializer ser = new XmlSerializer(sender.GetType());
-            TextWriter writer = new StreamWriter(FileManager.FullFileName);
-            ser.Serialize(writer, sender);
-            writer.Close();
+            var writer = new StreamWriter(FileManager.FullFileName);
+            using (writer)
+            {
+                writer.Write(sender.ToString());
+            }
+        }
+
+        internal static string LoadFromFile()
+        {
+            try
+            {
+                var reader = new StreamReader(FileManager.FullFileName);
+                using (reader)
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+            catch(FileNotFoundException)
+            {
+                return string.Empty;
+            }
         }
     }
 }
