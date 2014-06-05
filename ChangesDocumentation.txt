@@ -19,6 +19,7 @@
 14. Created class FileManager and attached its SaveToFile method to the changed event of the TopResults class in the GameEngine.cs.
 15. Created LoadFromFile and TopResults.Parse() for loading the previously saved score sheet - for now it uses strings not serialized data. I will try to changed it later.
 16. Added loading the scores-sheet in the GameEngine.cs.
+17. Added documentation in the FileManager.cs and TopResults.cs.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

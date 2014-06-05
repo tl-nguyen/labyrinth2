@@ -11,6 +11,11 @@ namespace Labyrinth
     using System.Linq;
     using System.Text;
 
+    /// <summary>
+    /// Delegate to changed event.
+    /// </summary>
+    /// <param name="sender">The object firing the event</param>
+    /// <param name="e">Event arguments</param>
     public delegate void ChangedTopResultsEventHandler(object sender, EventArgs e);
 
     /// <summary>
@@ -18,8 +23,6 @@ namespace Labyrinth
     /// </summary>
     public class TopResults
     {
-        public event ChangedTopResultsEventHandler Changed;
-
         /// <summary>
         /// Maximum count of top results in the table.
         /// </summary>
@@ -29,7 +32,7 @@ namespace Labyrinth
         /// Holds the sorted list of top results.
         /// </summary>
         private List<Result> topResults;
-       
+
         /// <summary>
         /// Initializes static members of the <see cref="TopResults"/> class.
         /// </summary>
@@ -46,6 +49,11 @@ namespace Labyrinth
             this.topResults = new List<Result>();
             this.topResults.Capacity = TopResults.MaxCount;
         }
+
+        /// <summary>
+        /// Event for change in the top results list.
+        /// </summary>
+        public event ChangedTopResultsEventHandler Changed;
 
         /// <summary>
         /// Gets the list of top results.
@@ -110,21 +118,18 @@ namespace Labyrinth
             }
 
             this.topResults.Sort();
-            OnChanged(EventArgs.Empty);
-            
+            this.OnChanged(EventArgs.Empty);
         }
 
-        private void OnChanged(EventArgs e)
-        {
-            if (Changed != null)
-                Changed(this, e);
-        }
-
-        public void Parse(string list)
+        /// <summary>
+        /// Parses the string to this instance of <see cref="TopResults.cs"/> class.
+        /// </summary>
+        /// <param name="list">String representing the top results list converted to string.</param>
+        internal void Parse(string list)
         {
             this.topResults = new List<Result>();
             this.topResults.Capacity = TopResults.MaxCount;
-            var lines = list.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+            var lines = list.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < lines.Length; i++)
             {
                 var start = lines[i].IndexOf(". ");
@@ -134,6 +139,18 @@ namespace Labyrinth
                     int.Parse(lines[i].Substring(middle + 5, end - middle - 5)),
                     lines[i].Substring(start + 2, middle - start - 2));
                 this.topResults.Add(result);
+            }
+        }
+
+        /// <summary>
+        /// This method fires the changed event for change in the top results.
+        /// </summary>
+        /// <param name="e">Event arguments</param>
+        private void OnChanged(EventArgs e)
+        {
+            if (this.Changed != null)
+            {
+                this.Changed(this, e);
             }
         }
     }
