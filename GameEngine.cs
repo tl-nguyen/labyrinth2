@@ -24,10 +24,12 @@
 
             while (!this.IsGameOver(labyrinth) && input != "restart")
             {
-                Console.Clear();
+                
                 UserInputAndOutput.PrintLabyrinth(labyrinth);
                 input = UserInputAndOutput.GetInput();
+                Console.Clear();
                 this.ProccessInput(input, labyrinth, ref movesCount);
+                
             }
 
             if (input != "restart")
@@ -107,7 +109,6 @@
                     {
                         movesCount++;
                     }
-
                     break;
                 case "top":
                     Console.WriteLine(TopResults.List);
