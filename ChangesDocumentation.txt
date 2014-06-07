@@ -32,3 +32,12 @@ Stefan - Game.cs:
 7. Change the while loop statement in LabTest.cs from 1 == 1 to true
 8.Taken out the updating of user input into a private method
 9.Clearing the console after each command for better visualization
+
+Ilian - Cell.cs
+1. Upped abstraction
+2. Created ICell interface. Also created CellState enumeration to keep the current state of the cell
+3. Refactored Labyrinth.cs to work with ICell interface, slight fixes with fuctionality
+4. Encapsulated properties and refactored the class
+5. Cleaned the method IsEmpty(), fixed it to work with CellState 
+6. Small changes to Game engine class
+7. Added documentation

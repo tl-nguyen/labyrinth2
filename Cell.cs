@@ -2,11 +2,20 @@
 {
     using System;
 
+    /// <summary>
+    /// Encapsulates the object that represents a single instance of the ICell interface
+    /// </summary>
     public class Cell : ICell
     {
         private int row;
         private int col;
 
+        /// <summary>
+        /// Creates an instance of the Cell class
+        /// </summary>
+        /// <param name="row">Takes an integer value that is not negative</param>
+        /// <param name="col">Takes an integer value that is not negative</param>
+        /// <param name="value">Choose a value from the CellState enumeration, that will represent the state of the created Cell</param>
         public Cell(int row, int col, CellState value)
         {
             this.Row = row;
@@ -14,6 +23,9 @@
             this.CellValue = value;
         }
 
+        /// <summary>
+        /// Property for the current row. Values are integers that cannot be negative
+        /// </summary>
         public int Row
         {
             get
@@ -32,6 +44,9 @@
             }
         }
 
+        /// <summary>
+        /// Property for the current column. Values are integers that cannot be negative
+        /// </summary>
         public int Col
         {
             get
@@ -52,6 +67,10 @@
 
         public CellState CellValue { get; set; }
 
+        /// <summary>
+        /// Checks if the current cell is empty
+        /// </summary>
+        /// <returns>Returns true if the cell is empty</returns>
         public bool IsEmpty()
         {
             if (this.CellValue == CellState.Empty)
