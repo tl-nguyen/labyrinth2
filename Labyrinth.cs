@@ -24,11 +24,21 @@
             this.CurrentCell = labyrinth[labyrintStartRow, labyrintStartRow];
         }
 
+        /// <summary>
+        /// Return a specific cell from the labyrinth by its row and col positions
+        /// </summary>
+        /// <param name="row">The row of the wanted cell</param>
+        /// <param name="col">The col of the wanted cell</param>
         public ICell GetCell(int row, int col)
         {
             return labyrinth[row, col];
         }
 
+        /// <summary>
+        /// Try the next move to the new cell, if it is valid
+        /// </summary>
+        /// <param name="currentCell">The current cell object, where the player is at</param>
+        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         public bool TryMove(ICell currentCell, Direction direction)
         {
             ICell newCell = FindNewCellCoordinates(currentCell, direction);
@@ -53,6 +63,11 @@
             return true;
         }
 
+        /// <summary>
+        /// Return a new cell object, after the player is moved by a direction
+        /// </summary>
+        /// <param name="currentCell">The current cell object, where the player is at</param>
+        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         private ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
             ICell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
@@ -76,6 +91,13 @@
             return newCell;
         }
 
+        /// <summary>
+        /// Adding the successfuly moved steps to the cellsOrder queue
+        /// </summary>
+        /// <param name="currentCell">The current cell object, where the player is at</param>
+        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
+        /// <param name="cellsOrder">the cells order for all successfully moved steps</param>
+        /// <param name="visitedCells">the already visited positions</param>
         private void MoveTo(ICell currentCell, Direction direction,
             Queue<ICell> cellsOrder, HashSet<ICell> visitedCells)
         {
@@ -100,6 +122,10 @@
             }
         }
 
+        /// <summary>
+        /// Check if a given cell is the at the exit of the labyrinth
+        /// </summary>
+        /// <param name="cell">The given cell to check for if it's at the exit of the labyrinthor not</param>
         private bool ExitFound(ICell cell)
         {
             if (cell.Row == LABYRINTH_SIZE - 1 ||
@@ -113,6 +139,9 @@
             return false;
         }
 
+        /// <summary>
+        /// Check if the generated labyrinth has an exit or not
+        /// </summary>
         private bool ExitPathExists()
         {
             Queue<ICell> cellsOrder = new Queue<ICell>();
@@ -139,6 +168,9 @@
             return false;
         }
 
+        /// <summary>
+        /// Generating the labyrinth for the game
+        /// </summary>
         private void GenerateLabyrinth()
         {
             Random rand = new Random();
