@@ -50,8 +50,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="LabyrinthTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CellTests.cs" />
+    <Compile Include="ConsoleRendererTests.cs" />
+    <Compile Include="FileManagerTests.cs" />
+    <Compile Include="GameEngineTests.cs" />
+    <Compile Include="ResultTests.cs" />
+    <Compile Include="TopResultsTests.cs" />
+    <Compile Include="UserInputAndOutputTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Labyrinth\Labyrinth.csproj">
+      <Project>{810f1946-f8be-4d85-acad-6acd92fd2439}</Project>
+      <Name>Labyrinth</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
