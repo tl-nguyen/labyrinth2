@@ -4,21 +4,21 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-
     public class GameEngine    
     {
-        public GameEngine()
+        private IRenderer renderer;
+        public GameEngine(IRenderer renderer)
         {
+            this.renderer = renderer;
             Labyrinth labyrinth = new Labyrinth();
 
-            UserInputAndOutput.PrintWelcomeMessage();
+            renderer.RenderWelcomeMessage();
 
             TopResults.List.Parse(FileManager.LoadFromFile());
             TopResults.List.Changed += new ChangedTopResultsEventHandler(FileManager.SaveToFile);
 
             UpdateUserInput(labyrinth);
 
-            Console.WriteLine();
         }
         private void UpdateUserInput(Labyrinth labyrinth)
         {
@@ -27,22 +27,21 @@
 
             while (!this.IsGameOver(labyrinth) && input != "restart")
             {
-                
-                UserInputAndOutput.PrintLabyrinth(labyrinth);
+                renderer.RenderLabyrinth(labyrinth);
+                renderer.RenderPromptInput();
                 input = UserInputAndOutput.GetInput();
-                Console.Clear();
+                renderer.Clear();
                 this.ProccessInput(input, labyrinth, ref movesCount);
                 
             }
 
             if (input != "restart")
             {
-                Console.WriteLine("Congratulations! You escaped in {0} moves.", movesCount);
+                renderer.RenderWinMessage(movesCount);
                 if (TopResults.List.IsTopResult(movesCount))
                 {
-                    Console.WriteLine(
-                        UserInputAndOutput.ENTER_NAME_FOR_SCOREBOARD_MSG);
-                    string name = Console.ReadLine();
+                    renderer.RenderEnterNameForScoreboard();
+                    string name = Console.ReadLine(); //TODO: MOVE ALL Console.Readline() to the UserInputOutput
                     TopResults.List.Add(new Result(movesCount, name));
                 }
             }
@@ -85,13 +84,13 @@
                         labyrinth.TryMove(labyrinth.CurrentCell, Direction.Right);
                     break;
                 default:
-                    Console.WriteLine(UserInputAndOutput.INVALID_MOVE_MSG);
+                    renderer.RenderInvalidMove();
                     break;
             }
             
             if (moveDone == false)
             {
-                Console.WriteLine(UserInputAndOutput.INVALID_MOVE_MSG);
+                renderer.RenderInvalidMove();
             }
 
             return moveDone;
@@ -114,17 +113,16 @@
                     }
                     break;
                 case "top":
-                    Console.WriteLine(TopResults.List);
+                    renderer.RenderTopResults(TopResults.List.ToString());
                     break;
                 case "exit":
-                    Console.WriteLine(UserInputAndOutput.GOODBYE_MSG);
+                    renderer.RenderExitMessage();
                     Environment.Exit(0);
                     break;
                 case "restart":
                     break;
                 default:
-                    string errorMessage = UserInputAndOutput.INVALID_COMMAND_MSG;
-                    Console.WriteLine(errorMessage);
+                    renderer.RenderInvalidCommand();
                     break;
             }
         }

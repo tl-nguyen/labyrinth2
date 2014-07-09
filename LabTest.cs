@@ -13,7 +13,7 @@ namespace Labyrinth
         {
             while (true)
             {
-                GameEngine game = new GameEngine();
+                GameEngine game = new GameEngine(LabyrinthFactory.GetRendererInstance());
             }
         }
     }

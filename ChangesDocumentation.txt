@@ -41,3 +41,19 @@ Ilian - Cell.cs
 5. Cleaned the method IsEmpty(), fixed it to work with CellState 
 6. Small changes to Game engine class
 7. Added documentation
+
+Ilian - LabyrinthFactory.cs
+1.Refactored Cell to only be instnaced from the factory in all other classes.
+2.Added TODO, to make all instances of classes inside the Factory.
+
+Ilian - IRenderer.cs, ConsoleRenderer.cs
+1.All rendering logic inside the renderer. Its moved from UserInputAndOutput.
+2.Removed all external rendering logic.
+3.Added IRenderer field in the Labyrinth.
+4.Added IRenderer to the LabyrinthFactory.
+
+Ilian - UserInputAndOutput.cs
+1.Removed all rendering from it.
+2.Refactored all constants and static fields.
+3.Left only 1 method inside
+4.TODO: all input should come from this file, there are still some console.readline's around

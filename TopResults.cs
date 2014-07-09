@@ -23,6 +23,8 @@ namespace Labyrinth
     /// </summary>
     public class TopResults
     {
+
+        private const string SCOREBOARD_EMPTY_MSG = "The scoreboard is empty.";
         /// <summary>
         /// Maximum count of top results in the table.
         /// </summary>
@@ -69,7 +71,7 @@ namespace Labyrinth
             var output = new List<string>();
             if (this.topResults.Count == 0)
             {
-                output.Add(UserInputAndOutput.SCOREBOARD_EMPTY_MSG);
+                output.Add(SCOREBOARD_EMPTY_MSG);
             }
             else
             {
