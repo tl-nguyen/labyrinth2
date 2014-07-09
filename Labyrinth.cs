@@ -70,7 +70,7 @@
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         private ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
-            ICell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
+            ICell newCell = LabyrinthFactory.GetCellInstance(currentCell.Row, currentCell.Col, currentCell.CellValue);
 
             switch (direction)
             {
@@ -190,7 +190,7 @@
                         {
                             state = CellState.Empty;
                         }
-                        this.labyrinth[row, col] = new Cell(row, col, state);
+                        this.labyrinth[row, col] = LabyrinthFactory.GetCellInstance(row, col, state);
                     }
                 }
                 exitPathExists = ExitPathExists();
