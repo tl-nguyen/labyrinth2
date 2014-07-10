@@ -64,40 +64,6 @@
             return isGameOver;
         }
 
-        private bool TryMove(Command direction, Labyrinth labyrinth)
-        {
-            bool moveDone = false;
-            switch (direction)
-            {
-                case Command.Up:
-                    moveDone =
-                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Up);
-                    break;
-                case Command.Down:
-                    moveDone =
-                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Down);
-                    break;
-                case Command.Left:
-                    moveDone =
-                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Left);
-                    break;
-                case Command.Right:
-                    moveDone =
-                        labyrinth.TryMove(labyrinth.CurrentCell, Direction.Right);
-                    break;
-                default:
-                    renderer.RenderInvalidMove();
-                    break;
-            }
-            
-            if (moveDone == false)
-            {
-                renderer.RenderInvalidMove();
-            }
-
-            return moveDone;
-        }
-
         private void ProccessInput(Command input, Labyrinth labyrinth, ref int movesCount)
         {
             switch (input)
@@ -107,10 +73,14 @@
                 case Command.Left:
                 case Command.Right:
                     bool moveDone =
-                        this.TryMove(input, labyrinth);
+                        this.input.TryMove(input, labyrinth);
                     if (moveDone == true)
                     {
                         movesCount++;
+                    }
+                    else
+                    {
+                        renderer.RenderInvalidMove();
                     }
                     break;
                 case Command.Top:
