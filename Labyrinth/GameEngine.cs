@@ -8,12 +8,14 @@
     {
         private IRenderer renderer;
         private IUserInput input;
+        private IMoveChecker moveChecker;
         public GameEngine(IRenderer renderer, IUserInput input)
         {
             this.input = input;
             this.renderer = renderer;
             ILabyrinth labyrinth = LabyrinthFactory.GetLabyrinthInstance();
-
+            this.moveChecker = LabyrinthFactory.GetMoveCheckerInstance();
+           
             renderer.RenderWelcomeMessage();
 
             TopResults.List.Parse(FileManager.LoadFromFile());
@@ -73,7 +75,7 @@
                 case Command.Left:
                 case Command.Right:
                     bool moveDone =
-                        this.input.TryMove(input, labyrinth);
+                        moveChecker.TryMove(input, labyrinth);
                     if (moveDone == true)
                     {
                         movesCount++;

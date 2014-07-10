@@ -37,5 +37,10 @@
         {
             return new Labyrinth();
         }
+
+        public static IMoveChecker GetMoveCheckerInstance()
+        {
+            return new MoveCheker();
+        }
     }
 }
