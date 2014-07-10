@@ -63,7 +63,7 @@
         {
             Console.WriteLine(INVALID_MOVE_MSG); ;
         }
-        public void RenderLabyrinth(Labyrinth labyrinth)
+        public void RenderLabyrinth(ILabyrinth labyrinth)
         {
             int labyrinthSize = Labyrinth.LABYRINTH_SIZE;
             for (int row = 0; row < labyrinthSize; row++)

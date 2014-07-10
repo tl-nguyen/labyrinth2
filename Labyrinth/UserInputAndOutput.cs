@@ -36,7 +36,8 @@ namespace Labyrinth
             string inputLine = Console.ReadLine();
             return inputLine.Trim();
         }
-        public bool TryMove(Command direction, Labyrinth labyrinth)
+
+        public bool TryMove(Command direction, ILabyrinth labyrinth)
         {
             bool moveDone = false;
             switch (direction)

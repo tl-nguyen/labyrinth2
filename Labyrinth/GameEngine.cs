@@ -12,7 +12,7 @@
         {
             this.input = input;
             this.renderer = renderer;
-            Labyrinth labyrinth = new Labyrinth();
+            ILabyrinth labyrinth = LabyrinthFactory.GetLabyrinthInstance();
 
             renderer.RenderWelcomeMessage();
 
@@ -22,7 +22,7 @@
             UpdateUserInput(labyrinth);
 
         }
-        private void UpdateUserInput(Labyrinth labyrinth)
+        private void UpdateUserInput(ILabyrinth labyrinth)
         {
             Command input = Command.InvalidInput;
             int movesCount = 0;
@@ -48,7 +48,7 @@
                 }
             }
         }
-        private bool IsGameOver(Labyrinth labyrinth)
+        private bool IsGameOver(ILabyrinth labyrinth)
         {
             bool isGameOver = false;
             int currentRow = labyrinth.CurrentCell.Row;
@@ -64,7 +64,7 @@
             return isGameOver;
         }
 
-        private void ProccessInput(Command input, Labyrinth labyrinth, ref int movesCount)
+        private void ProccessInput(Command input, ILabyrinth labyrinth, ref int movesCount)
         {
             switch (input)
             {

@@ -26,7 +26,7 @@
   <Class Name="Labyrinth.GameEngine" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAADAggA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAADAgAA=</HashCode>
       <FileName>GameEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -43,6 +43,7 @@
       <HashCode>QAAAAAAEAEAAAQAAAAEAAAAAAAILQAAAAAAAAAAAQgA=</HashCode>
       <FileName>Labyrinth.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Labyrinth.LabyrinthFactory" Collapsed="true">
     <Position X="4" Y="1.5" Width="1.5" />
@@ -69,7 +70,7 @@
   <Class Name="Labyrinth.UserInputAndOutput" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>UserInputAndOutput.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -91,7 +92,7 @@
   <Interface Name="Labyrinth.IUserInput" Collapsed="true">
     <Position X="4" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>IUserInput.cs</FileName>
     </TypeIdentifier>
   </Interface>

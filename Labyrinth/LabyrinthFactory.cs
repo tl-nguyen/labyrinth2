@@ -32,5 +32,10 @@
         {
             return new UserInputAndOutput();
         }
+
+        public static ILabyrinth GetLabyrinthInstance()
+        {
+            return new Labyrinth();
+        }
     }
 }

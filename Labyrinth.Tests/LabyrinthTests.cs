@@ -9,8 +9,7 @@
         [TestMethod]
         public void TestMethod1()
         {
-            var labyrinth = new Labyrinth();
-            
+            var labyrinth = LabyrinthFactory.GetLabyrinthInstance();
         }
     }
 }

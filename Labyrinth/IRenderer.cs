@@ -8,7 +8,7 @@
 
     public interface IRenderer
     {
-        void RenderLabyrinth(Labyrinth labyrinth);
+        void RenderLabyrinth(ILabyrinth labyrinth);
 
         void RenderPromptInput();
 

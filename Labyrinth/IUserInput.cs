@@ -5,6 +5,6 @@
         Command GetInput();
         string GetPlayerName();
 
-        bool TryMove(Command input, Labyrinth labyrinth);
+        bool TryMove(Command input, ILabyrinth labyrinth);
     }
 }

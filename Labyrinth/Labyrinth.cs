@@ -7,15 +7,30 @@
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>
-    public class Labyrinth
+    public class Labyrinth : ILabyrinth
     {
-        public const int LABYRINTH_SIZE = 7;
+        public const int LABYRINTH_SIZE = 10;
 
         private readonly int labyrintStartRow = LABYRINTH_SIZE / 2;
         private readonly int labyrinthStartCol = LABYRINTH_SIZE / 2;
         private ICell[,] labyrinth;
+        private ICell currentCell;
 
-        public ICell CurrentCell;
+        public ICell CurrentCell
+        {
+            get
+            {
+                return this.currentCell;
+            }
+            private set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("the current cell cannot be null");
+                }
+                this.currentCell = value;
+            }
+        }
 
         public Labyrinth()
         {
@@ -170,7 +185,7 @@
         /// <summary>
         /// Generating the labyrinth for the game
         /// </summary>
-        private void GenerateLabyrinth()
+        public void GenerateLabyrinth()
         {
             Random rand = new Random();
             this.labyrinth = new Cell[LABYRINTH_SIZE, LABYRINTH_SIZE];
