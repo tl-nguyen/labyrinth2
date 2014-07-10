@@ -17,8 +17,8 @@
         private const string ENTER_NAME_FOR_SCOREBOARD_MSG = "Please enter" +
             "your name for the top scoreboard: ";
         private const string GOODBYE_MSG = "Good Bye";
-        private const string GET_INPUT_MSG = "Enter your move (L=left," +
-            "R-right, U=up, D=down): ";
+        private const string GET_INPUT_MSG = "Enter your move (A=left," +
+            "D-right, W=up, S=down): ";
         private const string WELLCOME_MSG = "Welcome to “Labirinth” game." +
             " Please try to escape." +
             " Use 'top' to view the top scoreboard," +
