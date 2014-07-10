@@ -56,4 +56,8 @@ Ilian - UserInputAndOutput.cs
 1.Removed all rendering from it.
 2.Refactored all constants and static fields.
 3.Left only 1 method inside
-4.TODO: all input should come from this file, there are still some console.readline's around
+4.Made IUserInput interface
+5.Made Command enumeration to use instead of strings
+6.Implimented concrete IUserInput by refactoring the UserInputAndOutput.cs
+7.Class is no longer static
+8.Added IUserInput to the Factory

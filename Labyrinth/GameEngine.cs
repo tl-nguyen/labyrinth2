@@ -7,8 +7,10 @@
     public class GameEngine    
     {
         private IRenderer renderer;
-        public GameEngine(IRenderer renderer)
+        private IUserInput input;
+        public GameEngine(IRenderer renderer, IUserInput input)
         {
+            this.input = input;
             this.renderer = renderer;
             Labyrinth labyrinth = new Labyrinth();
 
@@ -22,26 +24,26 @@
         }
         private void UpdateUserInput(Labyrinth labyrinth)
         {
-            string input = string.Empty;
+            Command input = Command.InvalidInput;
             int movesCount = 0;
 
-            while (!this.IsGameOver(labyrinth) && input != "restart")
+            while (!this.IsGameOver(labyrinth) && input != Command.Restart)
             {
                 renderer.RenderLabyrinth(labyrinth);
                 renderer.RenderPromptInput();
-                input = UserInputAndOutput.GetInput();
+                input = this.input.GetInput();
                 renderer.Clear();
                 this.ProccessInput(input, labyrinth, ref movesCount);
                 
             }
 
-            if (input != "restart")
+            if (input != Command.Restart)
             {
                 renderer.RenderWinMessage(movesCount);
                 if (TopResults.List.IsTopResult(movesCount))
                 {
                     renderer.RenderEnterNameForScoreboard();
-                    string name = Console.ReadLine(); //TODO: MOVE ALL Console.Readline() to the UserInputOutput
+                    string name = this.input.GetPlayerName(); 
                     TopResults.List.Add(new Result(movesCount, name));
                 }
             }
@@ -62,24 +64,24 @@
             return isGameOver;
         }
 
-        private bool TryMove(string direction, Labyrinth labyrinth)
+        private bool TryMove(Command direction, Labyrinth labyrinth)
         {
             bool moveDone = false;
             switch (direction)
             {
-                case "u":
+                case Command.Up:
                     moveDone =
                         labyrinth.TryMove(labyrinth.CurrentCell, Direction.Up);
                     break;
-                case "d":
+                case Command.Down:
                     moveDone =
                         labyrinth.TryMove(labyrinth.CurrentCell, Direction.Down);
                     break;
-                case "l":
+                case Command.Left:
                     moveDone =
                         labyrinth.TryMove(labyrinth.CurrentCell, Direction.Left);
                     break;
-                case "r":
+                case Command.Right:
                     moveDone =
                         labyrinth.TryMove(labyrinth.CurrentCell, Direction.Right);
                     break;
@@ -96,30 +98,29 @@
             return moveDone;
         }
 
-        private void ProccessInput(string input, Labyrinth labyrinth, ref int movesCount)
+        private void ProccessInput(Command input, Labyrinth labyrinth, ref int movesCount)
         {
-            string inputToLower = input.ToLower();
-            switch (inputToLower)
+            switch (input)
             {
-                case "u":
-                case "d":
-                case "l":
-                case "r":
+                case Command.Up:
+                case Command.Down:
+                case Command.Left:
+                case Command.Right:
                     bool moveDone =
-                        this.TryMove(inputToLower, labyrinth);
+                        this.TryMove(input, labyrinth);
                     if (moveDone == true)
                     {
                         movesCount++;
                     }
                     break;
-                case "top":
+                case Command.Top:
                     renderer.RenderTopResults(TopResults.List.ToString());
                     break;
-                case "exit":
+                case Command.Exit:
                     renderer.RenderExitMessage();
                     Environment.Exit(0);
                     break;
-                case "restart":
+                case Command.Restart:
                     break;
                 default:
                     renderer.RenderInvalidCommand();

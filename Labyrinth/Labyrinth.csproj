@@ -56,9 +56,11 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="IRenderer.cs" />
+    <Compile Include="IUserInput.cs" />
     <Compile Include="LabyrinthFactory.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="GameEngine.cs" />

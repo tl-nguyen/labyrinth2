@@ -27,5 +27,10 @@
         {
             return new ConsoleRenderer();
         }
+
+        public static IUserInput GetUserInputInstance()
+        {
+            return new UserInputAndOutput();
+        }
     }
 }
