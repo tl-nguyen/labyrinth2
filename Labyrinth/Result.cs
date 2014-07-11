@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
 
+    [Serializable]
     class Result: IComparable<Result>
     {
         private int movesCount; 

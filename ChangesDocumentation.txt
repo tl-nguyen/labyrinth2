@@ -20,6 +20,12 @@
 15. Created LoadFromFile and TopResults.Parse() for loading the previously saved score sheet - for now it uses strings not serialized data. I will try to changed it later.
 16. Added loading the scores-sheet in the GameEngine.cs.
 17. Added documentation in the FileManager.cs and TopResults.cs.
+18. Removed from TopResults class the Singleton pattern and made according documentation changes;
+19. Made TopResults class to be instantiated only form the LabyrinthFactory class - added method and documentation;
+20. Made TopResults and result serializable;
+21. Removed FileManager class and replaced it with FileSerializationManager class which serializes the top result table into file using binary serialization;
+22. Made FileSerializationManager class to be instantiated only form the LabyrinthFactory class - added method and documentation;
+23. Small changes in GameEngine to support the changes in the other classes.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

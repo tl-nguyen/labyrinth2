@@ -12,7 +12,9 @@
         {
             while (true)
             {
-                GameEngine game = new GameEngine(LabyrinthFactory.GetRendererInstance(), LabyrinthFactory.GetUserInputInstance());
+                GameEngine game = new GameEngine(
+                    LabyrinthFactory.GetRendererInstance(),
+                    LabyrinthFactory.GetUserInputInstance());
             }
         }
     }
