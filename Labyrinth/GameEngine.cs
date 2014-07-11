@@ -9,18 +9,20 @@
         private IRenderer renderer;
         private IUserInput input;
         private Player player;
+        private TopResults table;
 
         public GameEngine(IRenderer renderer, IUserInput input)
         {
             this.input = input;
             this.renderer = renderer;
             this.player = LabyrinthFactory.GetPlayerInstance(LabyrinthFactory.GetLabyrinthInstance());
-
+            this.table = LabyrinthFactory.GetTopResultsInstance();
+            this.table.Changed += (sender, e) =>
+            {
+                LabyrinthFactory.GetSerializationManagerInstance().Serialize(sender);
+            };
+            
             renderer.RenderWelcomeMessage();
-
-            TopResults.List.Parse(FileManager.LoadFromFile());
-            TopResults.List.Changed += new ChangedTopResultsEventHandler(FileManager.SaveToFile);
-
             UpdateUserInput();
 
         }
@@ -41,11 +43,11 @@
             if (input != Command.Restart)
             {
                 renderer.RenderWinMessage(movesCount);
-                if (TopResults.List.IsTopResult(movesCount))
+                if (this.table.IsTopResult(movesCount))
                 {
                     renderer.RenderEnterNameForScoreboard();
                     string name = this.input.GetPlayerName(); 
-                    TopResults.List.Add(new Result(movesCount, name));
+                    this.table.Add(new Result(movesCount, name));
                 }
             }
         }
@@ -85,7 +87,7 @@
                     }
                     break;
                 case Command.Top:
-                    renderer.RenderTopResults(TopResults.List.ToString());
+                    renderer.RenderTopResults(this.table.ToString());
                     break;
                 case Command.Exit:
                     renderer.RenderExitMessage();

@@ -21,10 +21,14 @@ namespace Labyrinth
     /// <summary>
     /// Represents a table with the top results
     /// </summary>
+    [Serializable]
     public class TopResults
     {
+        /// <summary>
+        /// String representing an empty top results table.
+        /// </summary>
+        private const string EmptyMessage = "The scoreboard is empty.";
 
-        private const string SCOREBOARD_EMPTY_MSG = "The scoreboard is empty.";
         /// <summary>
         /// Maximum count of top results in the table.
         /// </summary>
@@ -36,17 +40,9 @@ namespace Labyrinth
         private List<Result> topResults;
 
         /// <summary>
-        /// Initializes static members of the <see cref="TopResults"/> class.
+        /// Initializes a new instance of the <see cref="TopResults"/> class.
         /// </summary>
-        static TopResults()
-        {
-            List = new TopResults();
-        }
-
-        /// <summary>
-        /// Prevents a default instance of the <see cref="TopResults"/> class from being created.
-        /// </summary>
-        private TopResults()
+        public TopResults()
         {
             this.topResults = new List<Result>();
             this.topResults.Capacity = TopResults.MaxCount;
@@ -58,11 +54,6 @@ namespace Labyrinth
         public event ChangedTopResultsEventHandler Changed;
 
         /// <summary>
-        /// Gets the list of top results.
-        /// </summary>
-        public static TopResults List { get; private set; }
-
-        /// <summary>
         /// Converts the result table into string.
         /// </summary>
         /// <returns>String representing the converted results table.</returns>
@@ -71,7 +62,7 @@ namespace Labyrinth
             var output = new List<string>();
             if (this.topResults.Count == 0)
             {
-                output.Add(SCOREBOARD_EMPTY_MSG);
+                output.Add(TopResults.EmptyMessage);
             }
             else
             {
@@ -121,27 +112,6 @@ namespace Labyrinth
 
             this.topResults.Sort();
             this.OnChanged(EventArgs.Empty);
-        }
-
-        /// <summary>
-        /// Parses the string to this instance of <see cref="TopResults.cs"/> class.
-        /// </summary>
-        /// <param name="list">String representing the top results list converted to string.</param>
-        internal void Parse(string list)
-        {
-            this.topResults = new List<Result>();
-            this.topResults.Capacity = TopResults.MaxCount;
-            var lines = list.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < lines.Length; i++)
-            {
-                var start = lines[i].IndexOf(". ");
-                var middle = lines[i].IndexOf(" --> ");
-                var end = lines[i].IndexOf(" moves");
-                var result = new Result(
-                    int.Parse(lines[i].Substring(middle + 5, end - middle - 5)),
-                    lines[i].Substring(start + 2, middle - start - 2));
-                this.topResults.Add(result);
-            }
         }
 
         /// <summary>
