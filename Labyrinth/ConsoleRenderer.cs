@@ -63,14 +63,14 @@
         {
             Console.WriteLine(INVALID_MOVE_MSG); ;
         }
-        public void RenderLabyrinth(ILabyrinth labyrinth)
+        public void RenderLabyrinth(ICell[,] labyrinth)
         {
             int labyrinthSize = Labyrinth.LABYRINTH_SIZE;
             for (int row = 0; row < labyrinthSize; row++)
             {
                 for (int col = 0; col < labyrinthSize; col++)
                 {
-                    ICell cell = labyrinth.GetCell(row, col);
+                    ICell cell = labyrinth[row, col];
                     switch (cell.CellValue)
                     {
                         case CellState.Empty: Console.Write(EMPTY_CELL + " ");

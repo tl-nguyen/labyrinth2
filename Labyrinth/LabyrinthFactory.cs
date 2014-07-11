@@ -33,14 +33,14 @@
             return new UserInputAndOutput();
         }
 
-        public static ILabyrinth GetLabyrinthInstance()
+        public static Labyrinth GetLabyrinthInstance()
         {
             return new Labyrinth();
         }
 
-        public static IMoveHandler GetMoveHandlerInstance()
+        public static Player GetPlayerInstance(Labyrinth labyrinth)
         {
-            return new MoveHandler();
+            return new Player(labyrinth);
         }
     }
 }

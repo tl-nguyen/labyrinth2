@@ -8,35 +8,34 @@
     {
         private IRenderer renderer;
         private IUserInput input;
-        private IMoveHandler moveHandler;
+        private Player player;
+
         public GameEngine(IRenderer renderer, IUserInput input)
         {
             this.input = input;
             this.renderer = renderer;
-            ILabyrinth labyrinth = LabyrinthFactory.GetLabyrinthInstance();
-            this.moveHandler = LabyrinthFactory.GetMoveHandlerInstance();
-           
+            this.player = LabyrinthFactory.GetPlayerInstance(LabyrinthFactory.GetLabyrinthInstance());
+
             renderer.RenderWelcomeMessage();
 
             TopResults.List.Parse(FileManager.LoadFromFile());
             TopResults.List.Changed += new ChangedTopResultsEventHandler(FileManager.SaveToFile);
 
-            UpdateUserInput(labyrinth);
+            UpdateUserInput();
 
         }
-        private void UpdateUserInput(ILabyrinth labyrinth)
+        private void UpdateUserInput()
         {
             Command input = Command.InvalidInput;
             int movesCount = 0;
 
-            while (!this.IsGameOver(labyrinth) && input != Command.Restart)
+            while (!this.IsGameOver(this.player) && input != Command.Restart)
             {
-                renderer.RenderLabyrinth(labyrinth);
+                renderer.RenderLabyrinth(this.player.Labyrinth);
                 renderer.RenderPromptInput();
                 input = this.input.GetInput();
                 renderer.Clear();
-                this.ProccessInput(input, labyrinth, ref movesCount);
-                
+                this.ProccessInput(input, ref movesCount);
             }
 
             if (input != Command.Restart)
@@ -50,11 +49,11 @@
                 }
             }
         }
-        private bool IsGameOver(ILabyrinth labyrinth)
+        private bool IsGameOver(Player player)
         {
             bool isGameOver = false;
-            int currentRow = labyrinth.CurrentCell.Row;
-            int currentCol = labyrinth.CurrentCell.Col;
+            int currentRow = player.CurrentCell.Row;
+            int currentCol = player.CurrentCell.Col;
             if (currentRow == 0 ||
                 currentCol == 0 ||
                 currentRow == Labyrinth.LABYRINTH_SIZE - 1 ||
@@ -66,7 +65,7 @@
             return isGameOver;
         }
 
-        private void ProccessInput(Command input, ILabyrinth labyrinth, ref int movesCount)
+        private void ProccessInput(Command input, ref int movesCount)
         {
             switch (input)
             {
@@ -75,7 +74,7 @@
                 case Command.Left:
                 case Command.Right:
                     bool moveDone =
-                        moveHandler.TryMove(input, labyrinth);
+                        this.player.MoveAction(input);
                     if (moveDone == true)
                     {
                         movesCount++;
