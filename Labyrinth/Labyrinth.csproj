@@ -60,7 +60,7 @@
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="ILabyrinth.cs" />
-    <Compile Include="IMoveChecker.cs" />
+    <Compile Include="IMoveHandler.cs" />
     <Compile Include="IRenderer.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="LabyrinthFactory.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="ICell.cs" />
     <Compile Include="LabTest.cs" />
     <Compile Include="Labyrinth.cs" />
-    <Compile Include="MoveCheker.cs" />
+    <Compile Include="MoveHandler.cs" />
     <Compile Include="TopResults.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>

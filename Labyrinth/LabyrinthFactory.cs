@@ -38,9 +38,9 @@
             return new Labyrinth();
         }
 
-        public static IMoveChecker GetMoveCheckerInstance()
+        public static IMoveHandler GetMoveHandlerInstance()
         {
-            return new MoveCheker();
+            return new MoveHandler();
         }
     }
 }

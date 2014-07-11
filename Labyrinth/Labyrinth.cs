@@ -34,6 +34,7 @@
 
         public Labyrinth()
         {
+            this.labyrinth = new Cell[LABYRINTH_SIZE, LABYRINTH_SIZE];
             GenerateLabyrinth();
             this.CurrentCell = labyrinth[labyrintStartRow, labyrintStartRow];
         }
@@ -188,7 +189,7 @@
         public void GenerateLabyrinth()
         {
             Random rand = new Random();
-            this.labyrinth = new Cell[LABYRINTH_SIZE, LABYRINTH_SIZE];
+            
 
             bool exitPathExists = false;
             while (!exitPathExists)
