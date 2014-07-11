@@ -13,34 +13,6 @@ namespace Labyrinth
         public ICell[,] Labyrinth { get; set; }
         public ICell CurrentCell { get; protected set; }
 
-        public bool MoveAction(Command direction)
-        {
-            bool moveDone = false;
-            switch (direction)
-            {
-                case Command.Up:
-                    moveDone =
-                        TryMove(this.CurrentCell, Direction.Up);
-                    break;
-                case Command.Down:
-                    moveDone =
-                        TryMove(this.CurrentCell, Direction.Down);
-                    break;
-                case Command.Left:
-                    moveDone =
-                        TryMove(this.CurrentCell, Direction.Left);
-                    break;
-                case Command.Right:
-                    moveDone =
-                        TryMove(this.CurrentCell, Direction.Right);
-                    break;
-                default:
-                    break;
-            }
-
-            return moveDone;
-        }
-
         /// <summary>
         /// Try the next move to the new cell, if it is valid
         /// </summary>

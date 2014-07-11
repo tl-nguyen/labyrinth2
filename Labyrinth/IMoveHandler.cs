@@ -8,7 +8,6 @@ namespace Labyrinth
 {
     public interface IMoveHandler
     {
-        bool MoveAction(Command direction);
         bool TryMove(ICell currentCell, Direction direction);
     }
 }
