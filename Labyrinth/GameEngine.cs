@@ -4,6 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
+    /// <summary>
+    /// Class for generating the main logic of the game 
+    /// </summary>
     public class GameEngine    
     {
         private IRenderer renderer;
@@ -26,6 +30,9 @@
             UpdateUserInput();
 
         }
+        /// <summary>
+        /// Updates the state of user's input and renders the game according to it
+        /// </summary>
         private void UpdateUserInput()
         {
             Command input = Command.InvalidInput;
@@ -51,6 +58,11 @@
                 }
             }
         }
+        /// <summary>
+        /// Checks if the user has made his way out of the labyrinth
+        /// </summary>
+        /// <param name="player">The object which current position is checked</param>
+        /// <returns>True if the player has got out of the labyrinth, false if not</returns>
         private bool IsGameOver(Player player)
         {
             bool isGameOver = false;
@@ -66,7 +78,11 @@
 
             return isGameOver;
         }
-
+        /// <summary>
+        /// Handles the user's input
+        /// </summary>
+        /// <param name="input">The current input command of the user</param>
+        /// <param name="movesCount">The count of player's move done already</param>
         private void ProccessInput(Command input, ref int movesCount)
         {
             switch (input)

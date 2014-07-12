@@ -13,7 +13,11 @@ namespace Labyrinth
             this.Labyrinth = labyrinth.Labyrinth;
             this.CurrentCell = labyrinth.CurrentCell;
         }
-
+        /// <summary>
+        /// Checks if a move can be done using the parent's method TryMove
+        /// </summary>
+        /// <param name="direction">Current user input direction</param>
+        /// <returns>True if a move can be made, false if not</returns>
         public bool MoveAction(Command direction)
         {
             bool moveDone = false;
