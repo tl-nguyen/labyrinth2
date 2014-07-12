@@ -13,11 +13,8 @@
             GameEngine game = new GameEngine(
                       LabyrinthFactory.GetRendererInstance(),
                       LabyrinthFactory.GetUserInputInstance());
-            
-            while (!game.hasEndedGame)
-            {
-                game.UpdateUserInput();
-            }
+
+            game.Run();
         }
     }
 }

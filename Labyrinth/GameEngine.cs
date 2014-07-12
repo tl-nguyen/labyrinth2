@@ -15,9 +15,9 @@
         private Player player;
         private TopResults table;
         /// <summary>
-        /// Property used for ending the game loop in LabTest class
+        /// Property used for ending the game loop in Run method
         /// </summary>
-        public bool hasEndedGame { get; private set; }
+        private bool hasEndedGame { get; set; }
 
         public GameEngine(IRenderer renderer, IUserInput input)
         {
@@ -32,9 +32,19 @@
             renderer.RenderWelcomeMessage();
         }
         /// <summary>
+        /// Public method used to run the game 
+        /// </summary>
+        public void Run()
+        {
+            while (!this.hasEndedGame)
+            {
+                this.UpdateUserInput();
+            }
+        }
+        /// <summary>
         /// Updates the state of user's input and renders the game according to it
         /// </summary>
-        public void UpdateUserInput()
+        private void UpdateUserInput()
         {
             Command input = Command.InvalidInput;
             int movesCount = 0;
