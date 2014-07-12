@@ -10,11 +10,13 @@
     {
         static void Main()
         {
-            while (true)
+            GameEngine game = new GameEngine(
+                      LabyrinthFactory.GetRendererInstance(),
+                      LabyrinthFactory.GetUserInputInstance());
+            
+            while (!game.hasEndedGame)
             {
-                GameEngine game = new GameEngine(
-                    LabyrinthFactory.GetRendererInstance(),
-                    LabyrinthFactory.GetUserInputInstance());
+                game.UpdateUserInput();
             }
         }
     }

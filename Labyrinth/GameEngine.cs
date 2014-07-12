@@ -14,6 +14,10 @@
         private IUserInput input;
         private Player player;
         private TopResults table;
+        /// <summary>
+        /// Property used for ending the game loop in LabTest class
+        /// </summary>
+        public bool hasEndedGame { get; private set; }
 
         public GameEngine(IRenderer renderer, IUserInput input)
         {
@@ -25,15 +29,12 @@
             {
                 LabyrinthFactory.GetSerializationManagerInstance().Serialize(sender);
             };
-            
             renderer.RenderWelcomeMessage();
-            UpdateUserInput();
-
         }
         /// <summary>
         /// Updates the state of user's input and renders the game according to it
         /// </summary>
-        private void UpdateUserInput()
+        public void UpdateUserInput()
         {
             Command input = Command.InvalidInput;
             int movesCount = 0;
@@ -55,8 +56,11 @@
                     renderer.RenderEnterNameForScoreboard();
                     string name = this.input.GetPlayerName(); 
                     this.table.Add(new Result(movesCount, name));
+                    
                 }
+                this.hasEndedGame = true;
             }
+            
         }
         /// <summary>
         /// Checks if the user has made his way out of the labyrinth
