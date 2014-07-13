@@ -59,8 +59,11 @@
     <Compile Include="Command.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="ILabyrinthMoveHandler.cs" />
     <Compile Include="IMoveHandler.cs" />
+    <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderer.cs" />
+    <Compile Include="IResult.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="LabyrinthFactory.cs" />
     <Compile Include="FileSerializationManager.cs" />

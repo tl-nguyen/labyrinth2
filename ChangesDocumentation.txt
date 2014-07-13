@@ -1,4 +1,7 @@
-﻿Kalina - Ladder.cs: 
+﻿ImportantTODO(remove when done):
+*Remove LABYRINTH_SIZE constant, and refactor so it will be taken from the user, and all checks should be able to be done with the size of the matrix, not with a constant.
+
+Kalina - Ladder.cs: 
 1. Sort and organize usings and move them inside the namespace;
 2. Rename Ladder.cs to ResultsList.cs;
 3. Code formatted with Ctrl + K + D;
@@ -51,6 +54,10 @@ Ilian - Cell.cs
 Ilian - LabyrinthFactory.cs
 1.Refactored Cell to only be instnaced from the factory in all other classes.
 2.Added TODO, to make all instances of classes inside the Factory.
+3.Added most classes to factory
+4.Added ICell matrix to the factory, and replaced implementation in Labyrinth.
+5.Added Result to the factory
+6.Added instancialization of Result in the GameEngine.cs to be in the Factory.
 
 Ilian - IRenderer.cs, ConsoleRenderer.cs
 1.All rendering logic inside the renderer. Its moved from UserInputAndOutput.
@@ -67,3 +74,14 @@ Ilian - UserInputAndOutput.cs
 6.Implimented concrete IUserInput by refactoring the UserInputAndOutput.cs
 7.Class is no longer static
 8.Added IUserInput to the Factory
+
+Ilian - ILabyrinthMoveHandler.cs, IPlayer
+1. Created the interfaces to be able to replace the Player and Labyrinth in methods
+
+Ilian - Labyrinth.cs
+1.Replaced "new" initialization with Factory
+2.Renamed the matrix in all of the implementations to Matrix, to be less confusing
+
+Ilian - Player.cs
+1.Created IPlayer interface
+2.Player is no longer a move handler

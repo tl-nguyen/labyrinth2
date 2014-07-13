@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Labyrinth
 {
-    public class Player: MoveHandler
+    public class Player :  IPlayer
     {
-        public Player(Labyrinth labyrinth)
+        public ILabyrinthMoveHandler Labyrinth { get; private set; }
+        public Player(ILabyrinthMoveHandler labyrinth)
         {
-            this.Labyrinth = labyrinth.Labyrinth;
-            this.CurrentCell = labyrinth.CurrentCell;
+            this.Labyrinth = labyrinth;
         }
         /// <summary>
         /// Checks if a move can be done using the parent's method TryMove
@@ -25,19 +25,19 @@ namespace Labyrinth
             {
                 case Command.Up:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Up);
+                        this.Labyrinth.TryMove(this.Labyrinth.CurrentCell, Direction.Up);
                     break;
                 case Command.Down:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Down);
+                        this.Labyrinth.TryMove(this.Labyrinth.CurrentCell, Direction.Down);
                     break;
                 case Command.Left:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Left);
+                        this.Labyrinth.TryMove(this.Labyrinth.CurrentCell, Direction.Left);
                     break;
                 case Command.Right:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Right);
+                        this.Labyrinth.TryMove(this.Labyrinth.CurrentCell, Direction.Right);
                     break;
                 default:
                     break;

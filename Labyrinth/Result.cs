@@ -6,7 +6,7 @@
     using System.Text;
 
     [Serializable]
-    class Result: IComparable<Result>
+    public class Result : IComparable<IResult>, IResult
     {
         private int movesCount; 
         private string playerName;
@@ -24,6 +24,7 @@
                 return this.movesCount;
             }
         }
+
         public string PlayerName 
         {
             get
@@ -32,7 +33,7 @@
             }
         }
 
-        public int CompareTo(Result other)
+        public int CompareTo(IResult other)
         {
             int compareResult = this.MovesCount.CompareTo(other.MovesCount);
             return compareResult;

@@ -38,14 +38,24 @@
             return new UserInputAndOutput();
         }
 
-        public static Labyrinth GetLabyrinthInstance()
+        public static ILabyrinthMoveHandler GetLabyrinthInstance()
         {
             return new Labyrinth();
         }
 
-        public static Player GetPlayerInstance(Labyrinth labyrinth)
+        public static IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth)
         {
             return new Player(labyrinth);
+        }
+
+        public static ICell[,] GetICellMatrixInstance(int size)
+        {
+            return new Cell[size, size];
+        }
+
+        public static Result GetResultInstance(int movesCount, string playerName)
+        {
+            return new Result(movesCount, playerName);
         }
 
         /// <summary>

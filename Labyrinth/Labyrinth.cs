@@ -7,16 +7,16 @@
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>
-    public class Labyrinth : MoveHandler
+    public class Labyrinth : MoveHandler, ILabyrinthMoveHandler
     {
         private readonly int labyrintStartRow = LABYRINTH_SIZE / 2;
         private readonly int labyrinthStartCol = LABYRINTH_SIZE / 2;
 
         public Labyrinth()
         {
-            this.Labyrinth = new Cell[LABYRINTH_SIZE, LABYRINTH_SIZE];
+            this.Matrix = LabyrinthFactory.GetICellMatrixInstance(LABYRINTH_SIZE);
             GenerateLabyrinth();
-            this.CurrentCell = this.Labyrinth[labyrintStartRow, labyrintStartRow];
+            this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
         }
 
         /// <summary>
@@ -41,13 +41,13 @@
                         {
                             state = CellState.Empty;
                         }
-                        this.Labyrinth[row, col] = LabyrinthFactory.GetCellInstance(row, col, state);
+                        this.Matrix[row, col] = LabyrinthFactory.GetCellInstance(row, col, state);
                     }
                 }
                 exitPathExists = ExitPathExists();
             }
 
-            this.Labyrinth[labyrintStartRow, labyrinthStartCol].CellValue = CellState.Player;
+            this.Matrix[labyrintStartRow, labyrinthStartCol].CellValue = CellState.Player;
         }
 
 
@@ -57,7 +57,7 @@
         private bool ExitPathExists()
         {
             Queue<ICell> cellsOrder = new Queue<ICell>();
-            ICell startCell = this.Labyrinth[labyrintStartRow, labyrinthStartCol];
+            ICell startCell = this.Matrix[labyrintStartRow, labyrinthStartCol];
             cellsOrder.Enqueue(startCell);
             HashSet<ICell> visitedCells = new HashSet<ICell>();
 
