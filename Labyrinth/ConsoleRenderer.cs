@@ -15,6 +15,10 @@
             this.DialogList = dialogList;
         }
 
+        public ConsoleRenderer() : this(LabyrinthFactory.GetLanguageStringsInstance())
+        {
+        }
+
         public void RenderPromptInput()
         {
             Console.Write(DialogList.GetDialog("Input"));

@@ -28,6 +28,11 @@
             };
             renderer.RenderWelcomeMessage();
         }
+
+        public GameEngine() : this(LabyrinthFactory.GetRendererInstance(LabyrinthFactory.GetLanguageStringsInstance()), LabyrinthFactory.GetUserInputInstance())
+        {
+        }
+
         /// <summary>
         /// Public method used to run the game 
         /// </summary>
