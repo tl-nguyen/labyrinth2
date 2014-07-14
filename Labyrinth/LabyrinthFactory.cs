@@ -1,11 +1,6 @@
 ﻿namespace Labyrinth
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Runtime.Serialization.Formatters.Binary;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Returns instances of all classes for the project

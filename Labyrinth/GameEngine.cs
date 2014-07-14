@@ -1,9 +1,6 @@
 ﻿namespace Labyrinth
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// Class for generating the main logic of the game 

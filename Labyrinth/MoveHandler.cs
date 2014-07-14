@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labyrinth
+﻿namespace Labyrinth
 {
+    using System.Collections.Generic;
+
     public abstract class MoveHandler : ILabyrinthMoveHandler
     {
         public const int LABYRINTH_SIZE = 10;

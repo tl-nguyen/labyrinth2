@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
