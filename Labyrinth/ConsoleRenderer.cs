@@ -4,40 +4,35 @@
 
     public class ConsoleRenderer : IRenderer
     {
+        public ILanguageStrings DialogList { get; private set; }
+
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
         private const char PLAYER_CELL = '*';
 
-        private const string INVALID_MOVE_MSG = "Invalid move!";
-        private const string INVALID_COMMAND_MSG = "Invalid command!";
-        private const string ENTER_NAME_FOR_SCOREBOARD_MSG = "Please enter" +
-            "your name for the top scoreboard: ";
-        private const string GOODBYE_MSG = "Good Bye";
-        private const string GET_INPUT_MSG = "Enter your move (A=left," +
-            "D-right, W=up, S=down): ";
-        private const string WELLCOME_MSG = "Welcome to “Labirinth” game." + "\n" +
-            " Please try to escape." +
-            " Use 't' to view the top scoreboard," + "\n" +
-            " 'r' to start a new game and 'e' to quit the game.";
+        public ConsoleRenderer(ILanguageStrings dialogList)
+        {
+            this.DialogList = dialogList;
+        }
 
         public void RenderPromptInput()
         {
-            Console.Write(GET_INPUT_MSG);
+            Console.Write(DialogList.GetDialog("Input"));
         }
 
         public void RenderWelcomeMessage()
         {
-            Console.WriteLine(WELLCOME_MSG);
+            Console.WriteLine(DialogList.GetDialog("Welcome"));
         }
 
         public void RenderExitMessage()
         {
-            Console.WriteLine(GOODBYE_MSG);
+            Console.WriteLine(DialogList.GetDialog("GoodBye"));
         }
 
         public void RenderInvalidCommand()
         {
-            Console.WriteLine(INVALID_COMMAND_MSG);
+            Console.WriteLine(DialogList.GetDialog("InvalidCommand"));
         }
 
         public void Clear()
@@ -47,17 +42,17 @@
 
         public void RenderEnterNameForScoreboard()
         {
-            Console.WriteLine(ENTER_NAME_FOR_SCOREBOARD_MSG);
+            Console.WriteLine(DialogList.GetDialog("EnterName"));
         }
 
         public void RenderWinMessage(int movesCount)
         {
-            Console.WriteLine("Congratulations! You escaped in {0} moves.", movesCount);
+            Console.WriteLine(DialogList.GetDialog("WinMessage"), movesCount);
         }
 
         public void RenderInvalidMove()
         {
-            Console.WriteLine(INVALID_MOVE_MSG); ;
+            Console.WriteLine(DialogList.GetDialog("InvalidMove"));
         }
         public void RenderLabyrinth(ICell[,] labyrinth)
         {
@@ -76,7 +71,7 @@
                         case CellState.Player: Console.Write(PLAYER_CELL + " ");
                             break;
                         default:
-                            throw new ArgumentException("If this happens something is very wrong with the logic of PrintLabyrinth method");
+                            throw new ArgumentException(DialogList.GetDialog("AllWrong"));
                     }
                 }
                 Console.WriteLine();

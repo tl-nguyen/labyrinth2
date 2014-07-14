@@ -6,7 +6,7 @@
         static void Main()
         {
             GameEngine game = new GameEngine(
-                      LabyrinthFactory.GetRendererInstance(),
+                      LabyrinthFactory.GetRendererInstance(LabyrinthFactory.GetLanguageStringsInstance()),
                       LabyrinthFactory.GetUserInputInstance());
 
             game.Run();

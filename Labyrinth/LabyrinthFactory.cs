@@ -23,9 +23,9 @@
             return new Cell(row, col, value);
         }
 
-        public static IRenderer GetRendererInstance()
+        public static IRenderer GetRendererInstance(ILanguageStrings dialogList)
         {
-            return new ConsoleRenderer();
+            return new ConsoleRenderer(dialogList);
         }
 
         public static IUserInput GetUserInputInstance()
@@ -76,6 +76,11 @@
         public static FileSerializationManager GetSerializationManagerInstance()
         {
             return new FileSerializationManager(new BinaryFormatter(), LabyrinthFactory.TableFileName);
+        }
+
+        public static ILanguageStrings GetLanguageStringsInstance()
+        {
+            return new LanguageStrings();
         }
     }
 }
