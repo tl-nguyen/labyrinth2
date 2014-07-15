@@ -60,6 +60,7 @@
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="ILabyrinthMoveHandler.cs" />
+    <Compile Include="ILanguageStrings.cs" />
     <Compile Include="IMoveHandler.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderer.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="ICell.cs" />
     <Compile Include="LabTest.cs" />
     <Compile Include="Labyrinth.cs" />
+    <Compile Include="LanguageStrings.cs" />
     <Compile Include="Loggers\FileAppender.cs" />
     <Compile Include="Loggers\IAppender.cs" />
     <Compile Include="Loggers\ILogger.cs" />

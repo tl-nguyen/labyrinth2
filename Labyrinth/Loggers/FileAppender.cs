@@ -15,7 +15,11 @@
                 throw new ArgumentException("The inputed file name is empty or not a good format (/directory/file.name)");
             }
 
-            this.streamWriter = File.CreateText(fileName);
+            using (this.streamWriter = File.CreateText(fileName))
+            {
+
+            }
+
             this.messageCount = 0;
         }
 
@@ -27,7 +31,11 @@
         public void AddMessage(string message)
         {
             this.messageCount++;
-            this.streamWriter.WriteLine(message);
+
+            using (streamWriter)
+            {
+                this.streamWriter.WriteLine(message);
+            }
         }
     }
 }

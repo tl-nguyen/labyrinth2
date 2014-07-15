@@ -1,5 +1,6 @@
 ﻿namespace Labyrinth
 {
+    using Loggers;
     using System.Runtime.Serialization.Formatters.Binary;
 
     /// <summary>
@@ -81,6 +82,21 @@
         public static ILanguageStrings GetLanguageStringsInstance()
         {
             return new LanguageStrings();
+        }
+
+        public static IAppender GetFileAppender(string fileName)
+        {
+            return new FileAppender(fileName);
+        }
+
+        public static IAppender GetMemoryAppender()
+        {
+            return MemoryAppender.GetInstance();
+        }
+
+        public static ILogger GetSimpleLogger(IAppender appender)
+        {
+            return new SimpleLogger(appender);
         }
     }
 }
