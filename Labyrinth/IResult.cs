@@ -1,6 +1,5 @@
 namespace Labyrinth
 {
-    using System;
     public interface IResult
     {
         int MovesCount { get; }

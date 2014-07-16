@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-
 namespace Labyrinth
 {
+    using System.Collections.Generic;
+
     public interface ILabyrinthMoveHandler : IMoveHandler
     {
         ICell[,] Matrix { get; set; }

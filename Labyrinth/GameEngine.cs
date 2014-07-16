@@ -1,19 +1,21 @@
 ﻿namespace Labyrinth
 {
+    using Loggers;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// Class for generating the main logic of the game 
     /// </summary>
-    public class GameEngine    
+    public class GameEngine
     {
         private IRenderer renderer;
         private IUserInput input;
         private IPlayer player;
         private TopResults table;
+        private IAppender fileAppender;
+        private ILogger simpleLogger;
+
         /// <summary>
         /// Property used for ending the game loop in Run method
         /// </summary>
@@ -30,7 +32,16 @@
                 LabyrinthFactory.GetSerializationManagerInstance().Serialize(sender);
             };
             renderer.RenderWelcomeMessage();
+
+            this.fileAppender = new FileAppender("Log.txt");
+            this.simpleLogger = new SimpleLogger(this.fileAppender);
         }
+
+        public GameEngine()
+            : this(LabyrinthFactory.GetRendererInstance(LabyrinthFactory.GetLanguageStringsInstance()), LabyrinthFactory.GetUserInputInstance())
+        {
+        }
+
         /// <summary>
         /// Public method used to run the game 
         /// </summary>
@@ -64,9 +75,9 @@
                 if (this.table.IsTopResult(movesCount))
                 {
                     renderer.RenderEnterNameForScoreboard();
-                    string name = this.input.GetPlayerName(); 
+                    string name = this.input.GetPlayerName();
                     this.table.Add(LabyrinthFactory.GetResultInstance(movesCount, name));
-                    
+
                 }
                 this.hasEndedGame = true;
             }
@@ -98,6 +109,8 @@
         /// <param name="movesCount">The count of player's move done already</param>
         private void ProccessInput(Command input, ref int movesCount)
         {
+            simpleLogger.Log(input.ToString());
+
             switch (input)
             {
                 case Command.Up:

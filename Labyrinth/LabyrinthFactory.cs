@@ -1,11 +1,7 @@
 ﻿namespace Labyrinth
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using Loggers;
     using System.Runtime.Serialization.Formatters.Binary;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Returns instances of all classes for the project
@@ -28,9 +24,9 @@
             return new Cell(row, col, value);
         }
 
-        public static IRenderer GetRendererInstance()
+        public static IRenderer GetRendererInstance(ILanguageStrings dialogList)
         {
-            return new ConsoleRenderer();
+            return new ConsoleRenderer(dialogList);
         }
 
         public static IUserInput GetUserInputInstance()
@@ -81,6 +77,26 @@
         public static FileSerializationManager GetSerializationManagerInstance()
         {
             return new FileSerializationManager(new BinaryFormatter(), LabyrinthFactory.TableFileName);
+        }
+
+        public static ILanguageStrings GetLanguageStringsInstance()
+        {
+            return new LanguageStrings();
+        }
+
+        public static IAppender GetFileAppender(string fileName)
+        {
+            return new FileAppender(fileName);
+        }
+
+        public static IAppender GetMemoryAppender()
+        {
+            return MemoryAppender.GetInstance();
+        }
+
+        public static ILogger GetSimpleLogger(IAppender appender)
+        {
+            return new SimpleLogger(appender);
         }
     }
 }
