@@ -80,7 +80,7 @@ namespace Labyrinth
         /// </summary>
         /// <param name="currentMoves">Integer value representing the amount of moves.</param>
         /// <returns>True if a result is good enough and false if the result is not good enough to enter the results table.</returns>
-        internal bool IsTopResult(int currentMoves)
+        public bool IsTopResult(int currentMoves)
         {
             if (this.topResults.Count < TopResults.MaxCount)
             {
@@ -99,7 +99,7 @@ namespace Labyrinth
         /// Adds a new result formed form specified moves and player name in the results table.
         /// </summary>
         /// <param name="result">Player result to be added.</param>
-        internal void Add(Result result)
+        public void Add(Result result)
         {
             if (this.topResults.Count == this.topResults.Capacity)
             {
