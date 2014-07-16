@@ -29,6 +29,8 @@ Kalina - Ladder.cs:
 21. Removed FileManager class and replaced it with FileSerializationManager class which serializes the top result table into file using binary serialization;
 22. Made FileSerializationManager class to be instantiated only form the LabyrinthFactory class - added method and documentation;
 23. Small changes in GameEngine to support the changes in the other classes.
+24. Made interfaces for Result - IResult and for TopResults - ITable and refactored serialization to support this change.
+25. Added ITable to LabyrinthFactory and changed GameEngine accordingly.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

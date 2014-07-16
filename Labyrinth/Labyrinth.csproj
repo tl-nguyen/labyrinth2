@@ -65,6 +65,7 @@
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderer.cs" />
     <Compile Include="IResult.cs" />
+    <Compile Include="ITable.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="LabyrinthFactory.cs" />
     <Compile Include="FileSerializationManager.cs" />

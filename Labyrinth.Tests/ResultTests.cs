@@ -51,5 +51,23 @@
             var secondResult = new Result(2, "player2");
             Assert.AreEqual(firstResult.CompareTo(secondResult), 1);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestResultCompareToWithNull()
+        {
+            var firstResult = new Result(3, "player1");
+            Result secondResult = null;
+            firstResult.CompareTo(secondResult);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestResultCompareToDifferentObject()
+        {
+            var firstResult = new Result(3, "player1");
+            var secondResult = new Object();
+            firstResult.CompareTo(secondResult);
+        }
     }
 }

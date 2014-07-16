@@ -9,19 +9,20 @@ namespace Labyrinth
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Delegate to changed event.
     /// </summary>
     /// <param name="sender">The object firing the event</param>
     /// <param name="e">Event arguments</param>
-    public delegate void ChangedTopResultsEventHandler(object sender, EventArgs e);
+    public delegate void ChangedTableEventHandler(object sender, EventArgs e);
 
     /// <summary>
     /// Represents a table with the top results
     /// </summary>
     [Serializable]
-    public class TopResults
+    public class TopResults : ITable
     {
         /// <summary>
         /// String representing an empty top results table.
@@ -36,21 +37,21 @@ namespace Labyrinth
         /// <summary>
         /// Holds the sorted list of top results.
         /// </summary>
-        private List<Result> topResults;
+        private List<IResult> topResults;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TopResults"/> class.
         /// </summary>
         public TopResults()
         {
-            this.topResults = new List<Result>();
+            this.topResults = new List<IResult>();
             this.topResults.Capacity = TopResults.MaxCount;
         }
 
         /// <summary>
         /// Event for change in the top results list.
         /// </summary>
-        public event ChangedTopResultsEventHandler Changed;
+        public event ChangedTableEventHandler Changed;
 
         /// <summary>
         /// Converts the result table into string.
@@ -67,7 +68,7 @@ namespace Labyrinth
             {
                 for (int i = 0; i < this.topResults.Count; i++)
                 {
-                    output.Add(string.Format("{0}. {1} --> {2} moves", i + 1, this.topResults[i].PlayerName, this.topResults[i].MovesCount));
+                    output.Add(string.Format("{0}. {1}", i + 1, this.topResults[i].ToString()));
                 }
             }
 
@@ -98,7 +99,7 @@ namespace Labyrinth
         /// Adds a new result formed form specified moves and player name in the results table.
         /// </summary>
         /// <param name="result">Player result to be added.</param>
-        public void Add(Result result)
+        public void Add(IResult result)
         {
             if (this.topResults.Count == this.topResults.Capacity)
             {
@@ -123,6 +124,16 @@ namespace Labyrinth
             {
                 this.Changed(this, e);
             }
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("topResults", this.topResults, typeof(List<IResult>));
+        }
+
+        public TopResults(SerializationInfo info, StreamingContext context)
+        {
+            this.topResults = (List<IResult>)info.GetValue("topResults", typeof(List<IResult>));
         }
     }
 }

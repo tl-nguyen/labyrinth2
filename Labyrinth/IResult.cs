@@ -1,11 +1,12 @@
 namespace Labyrinth
 {
-    public interface IResult
+    using System.Runtime.Serialization;
+    public interface IResult : ISerializable
     {
         int MovesCount { get; }
 
         string PlayerName { get; }
 
-        int CompareTo(IResult other);
+        int CompareTo(object other);
     }
 }

@@ -12,7 +12,7 @@
         private IRenderer renderer;
         private IUserInput input;
         private IPlayer player;
-        private TopResults table;
+        private ITable table;
         private IAppender fileAppender;
         private ILogger simpleLogger;
 

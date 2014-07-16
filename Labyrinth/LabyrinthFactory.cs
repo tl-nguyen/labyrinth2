@@ -49,7 +49,7 @@
             return new Cell[size, size];
         }
 
-        public static Result GetResultInstance(int movesCount, string playerName)
+        public static IResult GetResultInstance(int movesCount, string playerName)
         {
             return new Result(movesCount, playerName);
         }
@@ -58,7 +58,7 @@
         /// Gets the correct instance of the <see cref="TopResults"/> class.
         /// </summary>
         /// <returns><see cref="TopResults"/> class instance</returns>
-        public static TopResults GetTopResultsInstance()
+        public static ITable GetTopResultsInstance()
         {
             try
             {
