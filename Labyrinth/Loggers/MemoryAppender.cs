@@ -36,9 +36,15 @@
             this.storage.Add(message);
         }
 
-        public List<string> GetMessages(Predicate<string> match)
+        public static List<string> GetMessages(IAppender appender, Predicate<string> match)
         {
-            return this.storage.FindAll(match);
+            MemoryAppender memoryAppender = appender as MemoryAppender;
+            if (memoryAppender == null)
+            {
+                throw new ArgumentException("The appender must be of type MemoryAppender!");
+            }
+
+            return memoryAppender.storage.FindAll(match);
         }
     }
 }

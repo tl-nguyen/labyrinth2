@@ -6,7 +6,7 @@
     public class FileAppender : IAppender
     {
         private ulong messageCount;
-        private StreamWriter streamWriter;
+        private string fileName;
 
         public FileAppender(string fileName)
         {
@@ -15,11 +15,9 @@
                 throw new ArgumentException("The inputed file name is empty or not a good format (/directory/file.name)");
             }
 
-            using (this.streamWriter = File.CreateText(fileName))
-            {
+            using (StreamWriter streamWriter = new StreamWriter(fileName, true)) { };
 
-            }
-
+            this.fileName = fileName;
             this.messageCount = 0;
         }
 
@@ -32,9 +30,9 @@
         {
             this.messageCount++;
 
-            using (streamWriter)
+            using (StreamWriter streamWriter = new StreamWriter(this.fileName, true))
             {
-                this.streamWriter.WriteLine(message);
+                streamWriter.WriteLine(message);
             }
         }
     }
