@@ -85,3 +85,22 @@ Ilian - Labyrinth.cs
 Ilian - Player.cs
 1.Created IPlayer interface
 2.Player is no longer a move handler
+
+Ivan - /Loggers - Create new folder for loggers classes and interfaces
+1. Create new interface IAppender.cs
+2. Create new interface ILogger.cs
+3. Create class MemoryAppender.cs
+4. Create class FileAppender.cs
+5. Create class SimpleLogger.cs
+
+Ivan - LabyrinthFactory.cs
+1. Add new methode GetFileAppender
+2. Add new methode GetMemoryAppender
+3. Add new methode GetSimpleLogger
+
+Ivan - GameEngine.cs
+1. Add private field fileAppender
+2. Add private field simpleLogger
+3. GameEngine constructor - add creation of FileAppender object
+4. GameEngine constructor - add creation of SimpleLogger object
+5. ProccessInput - add call of logger to log current command
