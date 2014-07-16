@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
+    <Compile Include="IResultFormatter.cs" />
+    <Compile Include="PlayerRating.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Direction.cs" />
@@ -81,6 +83,10 @@
     <Compile Include="Loggers\MemoryAppender.cs" />
     <Compile Include="MoveHandler.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="RatedResult.cs" />
+    <Compile Include="PlainResultFormatter.cs" />
+    <Compile Include="SeparatorResultFormatter.cs" />
+    <Compile Include="SimpleResult.cs" />
     <Compile Include="TopResults.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>

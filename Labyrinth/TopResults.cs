@@ -27,7 +27,7 @@ namespace Labyrinth
         /// <summary>
         /// String representing an empty top results table.
         /// </summary>
-        private const string EmptyMessage = "The scoreboard is empty.";
+        private const string EmptyMessage = "|     The scoreboard is empty.     |";
 
         /// <summary>
         /// Maximum count of top results in the table.
@@ -60,6 +60,9 @@ namespace Labyrinth
         public override string ToString()
         {
             var output = new List<string>();
+            output.Add("|----------------------------------|");
+            output.Add("|         Top Results Table        |");
+            output.Add("|----------------------------------|");
             if (this.topResults.Count == 0)
             {
                 output.Add(TopResults.EmptyMessage);
@@ -68,9 +71,11 @@ namespace Labyrinth
             {
                 for (int i = 0; i < this.topResults.Count; i++)
                 {
-                    output.Add(string.Format("{0}. {1}", i + 1, this.topResults[i].ToString()));
+                    output.Add(string.Format("| {0}. {1} |", i + 1, this.topResults[i].ToString()));
                 }
             }
+
+            output.Add("|----------------------------------|");
 
             return string.Join(Environment.NewLine, output);
         }

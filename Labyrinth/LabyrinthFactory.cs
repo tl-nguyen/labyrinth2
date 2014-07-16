@@ -51,7 +51,15 @@
 
         public static IResult GetResultInstance(int movesCount, string playerName)
         {
-            return new Result(movesCount, playerName);
+            return new RatedResult(
+                movesCount,
+                playerName,
+                LabyrinthFactory.GetResultFormatterInstance());
+        }
+
+        public static IResultFormatter GetResultFormatterInstance()
+        {
+            return new SeparatorResultFormatter("|");
         }
 
         /// <summary>

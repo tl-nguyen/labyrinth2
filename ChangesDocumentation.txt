@@ -18,19 +18,21 @@ Kalina - Ladder.cs:
 10. Added documentation for the change.
 11. Changed the argument for AddResult from int and string to Result.
 12. Made Add() and IsTopResult() internal because class Result is currently internal.
-13. Added delegate and event for change in the TopResults class.
+13. Added delegate and event for change in the TopResults class - observer design pattern.
 14. Created class FileManager and attached its SaveToFile method to the changed event of the TopResults class in the GameEngine.cs.
 15. Created LoadFromFile and TopResults.Parse() for loading the previously saved score sheet - for now it uses strings not serialized data. I will try to changed it later.
 16. Added loading the scores-sheet in the GameEngine.cs.
 17. Added documentation in the FileManager class and TopResults class.
 18. Removed from TopResults class the Singleton pattern and made according documentation changes;
 19. Made TopResults class to be instantiated only form the LabyrinthFactory class - added method and documentation;
-20. Made TopResults and result serializable;
+20. Made TopResults and Result serializable, implemented memento design pattern;
 21. Removed FileManager class and replaced it with FileSerializationManager class which serializes the top result table into file using binary serialization;
 22. Made FileSerializationManager class to be instantiated only form the LabyrinthFactory class - added method and documentation;
 23. Small changes in GameEngine to support the changes in the other classes.
 24. Made interfaces for Result - IResult and for TopResults - ITable and refactored serialization to support this change.
 25. Added ITable to LabyrinthFactory and changed GameEngine accordingly.
+26. Implemented Bridge Pattern - classes Result, SimpleResult, RatedResult, IResultFormatter, PlainResultFormatter and SeparatorResultFormatter
+27. Unit test for all my classes 100% code coverage but still to add some tests for PlainResultFormatter and SeparatorResultFormatter;
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

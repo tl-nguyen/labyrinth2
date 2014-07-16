@@ -57,8 +57,9 @@
     <Compile Include="ConsoleRendererTests.cs" />
     <Compile Include="FileSerializationManagerTests.cs" />
     <Compile Include="GameEngineTests.cs" />
-    <Compile Include="ResultTests.cs" />
+    <Compile Include="RatedResultTests.cs" />
     <Compile Include="TopResultsTests.cs" />
+    <Compile Include="SimpleResultTests.cs" />
     <Compile Include="UserInputAndOutputTests.cs" />
   </ItemGroup>
   <ItemGroup>

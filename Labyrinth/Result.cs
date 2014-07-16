@@ -4,18 +4,27 @@
     using System.Runtime.Serialization;
 
     [Serializable]
-    public class Result : IComparable, IResult
+    public abstract class Result : IComparable, IResult
     {
         private int movesCount; 
         private string playerName;
+        private IResultFormatter formatter;
 
-        public Result(int movesCount, string playerName)
+        protected Result(int movesCount, string playerName, IResultFormatter formatter)
         {
             this.movesCount = movesCount;
             this.playerName = playerName;
+            this.formatter = formatter;
         }
 
-        public int MovesCount 
+        protected Result(SerializationInfo info, StreamingContext context)
+        {
+            this.playerName = (string)info.GetValue("playerName", typeof(string));
+            this.movesCount = (int)info.GetValue("movesCount", typeof(int));
+            this.formatter = (IResultFormatter)info.GetValue("formatter", typeof(IResultFormatter));
+        }
+
+        public int MovesCount
         {
             get
             {
@@ -23,12 +32,27 @@
             }
         }
 
-        public string PlayerName 
+        public string PlayerName
         {
             get
             {
                 return this.playerName;
             }
+        }
+
+        public IResultFormatter Formatter
+        {
+            get
+            {
+                return this.formatter;
+            }
+        }
+
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("playerName", this.PlayerName, typeof(string));
+            info.AddValue("movesCount", this.MovesCount, typeof(int));
+            info.AddValue("formatter", this.formatter, typeof(IResultFormatter));
         }
 
         public int CompareTo(object obj)
@@ -44,23 +68,6 @@
             }
             int compareResult = this.MovesCount.CompareTo(other.MovesCount);
             return compareResult;
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("playerName", this.PlayerName, typeof(string));
-            info.AddValue("movesCount", this.MovesCount, typeof(int));
-        }
-
-        public Result(SerializationInfo info, StreamingContext context)
-        {
-            this.playerName = (string)info.GetValue("playerName", typeof(string));
-            this.movesCount = (int)info.GetValue("movesCount", typeof(int));
-        }
-
-        public override string ToString()
-        {
-            return string.Format("{0} --> {1} moves", this.PlayerName, this.MovesCount);
         }
     }
 }

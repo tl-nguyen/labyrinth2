@@ -17,31 +17,64 @@
         public void TestTopResultEmptyListResultsToString()
         {
             var table = new TopResults();
-            Assert.AreEqual(table.ToString(), "The scoreboard is empty.");
+            var expected =
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "|         Top Results Table        |" +
+                Environment.NewLine +
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "|     The scoreboard is empty.     |" +
+                Environment.NewLine +
+                "|----------------------------------|";
+
+            Assert.AreEqual(table.ToString(), expected);
         }
 
         [TestMethod]
         public void TestTopResultAddResult()
         {
             var table = new TopResults();
-            table.Add(new Result(5, "somePlayer"));
-            Assert.AreEqual(table.ToString(), "1. somePlayer --> 5 moves");
+            table.Add(new SimpleResult(5, "somePlayer", new PlainResultFormatter()));
+            var expected = 
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "|         Top Results Table        |" +
+                Environment.NewLine +
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "| 1. somePlayer --> 5 moves |" +
+                Environment.NewLine +
+                "|----------------------------------|";
+            Assert.AreEqual(table.ToString(), expected);
         }
 
         [TestMethod]
         public void TestTopResultAddTwoResults()
         {
             var table = new TopResults();
-            table.Add(new Result(5, "somePlayer"));
-            table.Add(new Result(7, "otherPlayer"));
-            Assert.AreEqual(table.ToString(), "1. somePlayer --> 5 moves" + Environment.NewLine + "2. otherPlayer --> 7 moves");
+            table.Add(new SimpleResult(5, "somePlayer", new PlainResultFormatter()));
+            table.Add(new SimpleResult(7, "otherPlayer", new PlainResultFormatter()));
+            var expected =
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "|         Top Results Table        |" +
+                Environment.NewLine +
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "| 1. somePlayer --> 5 moves |" +
+                Environment.NewLine +
+                "| 2. otherPlayer --> 7 moves |" +
+                Environment.NewLine +
+                "|----------------------------------|";
+            Assert.AreEqual(table.ToString(), expected);
         }
 
         [TestMethod]
         public void TestTopResultIsTopResultEmptyTable()
         {
             var table = new TopResults();
-            var current = new Result(1, "otherPlayer");
+            var current = new SimpleResult(1, "otherPlayer", new PlainResultFormatter());
             Assert.IsTrue(table.IsTopResult(current.MovesCount));
         }
 
@@ -50,13 +83,13 @@
         public void TestTopResultIsTopResultTrueFullTable()
         {
             var table = new TopResults();
-            table.Add(new Result(1, "Player1"));
-            table.Add(new Result(2, "Player2"));
-            table.Add(new Result(3, "Player3"));
-            table.Add(new Result(4, "Player4"));
-            table.Add(new Result(5, "Player5"));
-            table.Add(new Result(6, "Player6"));
-            var current = new Result(2, "otherPlayer");
+            table.Add(new SimpleResult(1, "Player1", new PlainResultFormatter()));
+            table.Add(new SimpleResult(2, "Player2", new PlainResultFormatter()));
+            table.Add(new SimpleResult(3, "Player3", new PlainResultFormatter()));
+            table.Add(new SimpleResult(4, "Player4", new PlainResultFormatter()));
+            table.Add(new SimpleResult(5, "Player5", new PlainResultFormatter()));
+            table.Add(new SimpleResult(6, "Player6", new PlainResultFormatter()));
+            var current = new SimpleResult(2, "otherPlayer", new PlainResultFormatter());
             Assert.IsTrue(table.IsTopResult(current.MovesCount));
         }
 
@@ -64,36 +97,44 @@
         public void TestTopResultIsSortedTable()
         {
             var table = new TopResults();
-            table.Add(new Result(6, "Player6"));
-            table.Add(new Result(3, "Player3"));
-            table.Add(new Result(4, "Player4"));
-            table.Add(new Result(1, "Player1"));
-            table.Add(new Result(5, "Player5"));
-            table.Add(new Result(2, "Player2"));
-            Assert.AreEqual(
-                table.ToString(),
-                "1. Player1 --> 1 moves" +
+            table.Add(new SimpleResult(6, "Player6", new PlainResultFormatter()));
+            table.Add(new SimpleResult(3, "Player3", new PlainResultFormatter()));
+            table.Add(new SimpleResult(4, "Player4", new PlainResultFormatter()));
+            table.Add(new SimpleResult(1, "Player1", new PlainResultFormatter()));
+            table.Add(new SimpleResult(5, "Player5", new PlainResultFormatter()));
+            table.Add(new SimpleResult(2, "Player2", new PlainResultFormatter()));
+            var expected =
+                "|----------------------------------|" +
                 Environment.NewLine +
-                "2. Player2 --> 2 moves" +
+                "|         Top Results Table        |" +
                 Environment.NewLine +
-                "3. Player3 --> 3 moves" +
+                "|----------------------------------|" +
                 Environment.NewLine +
-                "4. Player4 --> 4 moves" +
+                "| 1. Player1 --> 1 moves |" +
                 Environment.NewLine +
-                "5. Player5 --> 5 moves");
+                "| 2. Player2 --> 2 moves |" +
+                Environment.NewLine +
+                "| 3. Player3 --> 3 moves |" +
+                Environment.NewLine +
+                "| 4. Player4 --> 4 moves |" +
+                Environment.NewLine +
+                "| 5. Player5 --> 5 moves |" +
+                Environment.NewLine +
+                "|----------------------------------|";
+            Assert.AreEqual(table.ToString(), expected);
         }
 
         [TestMethod]
         public void TestTopResultIsTopResultFalseFullTable()
         {
             var table = new TopResults();
-            table.Add(new Result(1, "Player1"));
-            table.Add(new Result(2, "Player2"));
-            table.Add(new Result(3, "Player3"));
-            table.Add(new Result(4, "Player4"));
-            table.Add(new Result(5, "Player5"));
-            table.Add(new Result(6, "Player6"));
-            var current = new Result(7, "otherPlayer");
+            table.Add(new SimpleResult(1, "Player1", new PlainResultFormatter()));
+            table.Add(new SimpleResult(2, "Player2", new PlainResultFormatter()));
+            table.Add(new SimpleResult(3, "Player3", new PlainResultFormatter()));
+            table.Add(new SimpleResult(4, "Player4", new PlainResultFormatter()));
+            table.Add(new SimpleResult(5, "Player5", new PlainResultFormatter()));
+            table.Add(new SimpleResult(6, "Player6", new PlainResultFormatter()));
+            var current = new SimpleResult(7, "otherPlayer", new PlainResultFormatter());
             Assert.IsFalse(table.IsTopResult(current.MovesCount));
         }
 
@@ -103,7 +144,7 @@
             var table = new TopResults();
             var eventRaised = false;
             table.Changed += (object sender, EventArgs e) => { eventRaised = true; };
-            table.Add(new Result(1, "Player1"));
+            table.Add(new SimpleResult(1, "Player1", new PlainResultFormatter()));
             Assert.IsTrue(eventRaised);
         }
     }

@@ -31,12 +31,24 @@
         }
 
         [TestMethod]
-        public void TestFileSerializationManagerSerializeDeserialize()
+        public void TestFileSerializationManagerSerializeDeserializeSimpleResult()
         {
             var manager = new FileSerializationManager(new BinaryFormatter(), "test.bin");
             var table = new TopResults();
-            table.Add(new Result(2, "player"));
-            table.Add(new Result(1, "player"));
+            table.Add(new SimpleResult(2, "player", new PlainResultFormatter()));
+            table.Add(new SimpleResult(1, "player", new PlainResultFormatter()));
+            manager.Serialize(table);
+            var afterSerializationTable = manager.Deserialize();
+            Assert.AreEqual(table.ToString(), afterSerializationTable.ToString());
+        }
+
+        [TestMethod]
+        public void TestFileSerializationManagerSerializeDeserializeRatedResult()
+        {
+            var manager = new FileSerializationManager(new BinaryFormatter(), "test.bin");
+            var table = new TopResults();
+            table.Add(new RatedResult(2, "player", new SeparatorResultFormatter("|")));
+            table.Add(new RatedResult(1, "player", new SeparatorResultFormatter("|")));
             manager.Serialize(table);
             var afterSerializationTable = manager.Deserialize();
             Assert.AreEqual(table.ToString(), afterSerializationTable.ToString());

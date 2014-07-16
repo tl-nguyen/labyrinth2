@@ -8,5 +8,7 @@ namespace Labyrinth
         string PlayerName { get; }
 
         int CompareTo(object other);
+
+        //void GetObjectData(SerializationInfo info, StreamingContext context);
     }
 }
