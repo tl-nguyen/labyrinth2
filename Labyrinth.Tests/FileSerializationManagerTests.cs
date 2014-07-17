@@ -1,9 +1,9 @@
 ﻿namespace Labyrinth.Tests
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Runtime.Serialization.Formatters.Soap;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class FileSerializationManagerTests
@@ -12,6 +12,30 @@
         public void TestFileSerializationManagerConstructorCreateInstance()
         {
             var manager = new FileSerializationManager(new BinaryFormatter(), "test.bin");
+            Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestFileSerializationManagerConstructorCreateInstanceNullFormatter()
+        {
+            var manager = new FileSerializationManager(null, "test.bin");
+            Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestFileSerializationManagerConstructorCreateInstanceNullFileName()
+        {
+            var manager = new FileSerializationManager(new BinaryFormatter(), null);
+            Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestFileSerializationManagerConstructorCreateInstanceEmptyFileName()
+        {
+            var manager = new FileSerializationManager(new BinaryFormatter(), string.Empty);
             Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
         }
 
@@ -47,8 +71,9 @@
         {
             var manager = new FileSerializationManager(new BinaryFormatter(), "test.bin");
             var table = new TopResults();
-            table.Add(new RatedResult(2, "player", new SeparatorResultFormatter("|")));
-            table.Add(new RatedResult(1, "player", new SeparatorResultFormatter("|")));
+            var separator = "|";
+            table.Add(new RatedResult(2, "player", new SeparatorResultFormatter(separator)));
+            table.Add(new RatedResult(1, "player", new SeparatorResultFormatter(separator)));
             manager.Serialize(table);
             var afterSerializationTable = manager.Deserialize();
             Assert.AreEqual(table.ToString(), afterSerializationTable.ToString());

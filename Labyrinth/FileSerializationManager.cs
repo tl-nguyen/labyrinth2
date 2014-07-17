@@ -6,6 +6,7 @@
 // ********************************
 namespace Labyrinth
 {
+    using System;
     using System.IO;
     using System.Runtime.Serialization;
 
@@ -14,6 +15,16 @@ namespace Labyrinth
     /// </summary>
     public class FileSerializationManager
     {
+        /// <summary>
+        /// Field for the formatter used for serialization.
+        /// </summary>
+        private IFormatter formatter;
+
+        /// <summary>
+        /// Field for the filename of the serialized data.
+        /// </summary>
+        private string fileName;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FileSerializationManager"/> class.
         /// </summary>
@@ -28,12 +39,48 @@ namespace Labyrinth
         /// <summary>
         /// Gets the formatter used for serialization.
         /// </summary>
-        public IFormatter Formatter { get; private set; }
+        public IFormatter Formatter 
+        {
+            get
+            {
+                return this.formatter;
+            }
+
+            private set 
+            {
+                if (value != null)
+                {
+                    this.formatter = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("The formatter for serialization could not be null!");
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the filename of the serialized data.
         /// </summary>
-        public string FileName { get; private set; }
+        public string FileName 
+        {
+            get
+            {
+                return this.fileName;
+            }
+
+            private set
+            { 
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this.fileName = value;
+                }
+                else
+                {
+                    throw new ArgumentException("The file name have to be specified!");
+                }
+            }
+        }
 
         /// <summary>
         /// Serializes the object in a specified file using the specified formatter.

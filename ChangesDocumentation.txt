@@ -33,6 +33,7 @@ Kalina - Ladder.cs:
 25. Added ITable to LabyrinthFactory and changed GameEngine accordingly.
 26. Implemented Bridge Pattern - classes Result, SimpleResult, RatedResult, IResultFormatter, PlainResultFormatter and SeparatorResultFormatter
 27. Unit test for all my classes 100% code coverage but still to add some tests for PlainResultFormatter and SeparatorResultFormatter;
+28. Added documentation, same data validations and unit tests for PlainResultFormatter and SeparatorResultFormatter classes.
 
 Stefan - Game.cs:
 1.Rename Result list name "ladder" to "highScores";

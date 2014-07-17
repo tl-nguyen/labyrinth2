@@ -60,6 +60,8 @@
     <Compile Include="RatedResultTests.cs" />
     <Compile Include="TopResultsTests.cs" />
     <Compile Include="SimpleResultTests.cs" />
+    <Compile Include="PlainResultFormatterTests.cs" />
+    <Compile Include="SeparatorResultFormatterTests.cs" />
     <Compile Include="UserInputAndOutputTests.cs" />
   </ItemGroup>
   <ItemGroup>

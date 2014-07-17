@@ -49,17 +49,30 @@
             return new Cell[size, size];
         }
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IResult"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IResult"/> interface</returns>
         public static IResult GetResultInstance(int movesCount, string playerName)
         {
+            // return new SimpleResult(
+            //    movesCount, 
+            //    playerName, 
+            //    LabyrinthFactory.GetResultFormatterInstance());
             return new RatedResult(
                 movesCount,
                 playerName,
                 LabyrinthFactory.GetResultFormatterInstance());
         }
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IResultFormatter"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IResultFormatter"/> interface</returns>
         public static IResultFormatter GetResultFormatterInstance()
         {
-            return new SeparatorResultFormatter("|");
+            // return new PlainResultFormatter();
+             return new SeparatorResultFormatter("|");
         }
 
         /// <summary>

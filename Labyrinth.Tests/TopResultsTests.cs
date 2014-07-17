@@ -50,6 +50,14 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestTopResultAddNullResult()
+        {
+            var table = new TopResults();
+            table.Add(null);
+        }
+
+        [TestMethod]
         public void TestTopResultAddTwoResults()
         {
             var table = new TopResults();
@@ -77,7 +85,6 @@
             var current = new SimpleResult(1, "otherPlayer", new PlainResultFormatter());
             Assert.IsTrue(table.IsTopResult(current.MovesCount));
         }
-
 
         [TestMethod]
         public void TestTopResultIsTopResultTrueFullTable()

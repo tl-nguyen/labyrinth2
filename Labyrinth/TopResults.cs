@@ -49,6 +49,16 @@ namespace Labyrinth
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="TopResults"/> class.
+        /// </summary>
+        /// <param name="info">Serialization information</param>
+        /// <param name="context">Serialization streaming context</param>
+        public TopResults(SerializationInfo info, StreamingContext context)
+        {
+            this.topResults = (List<IResult>)info.GetValue("topResults", typeof(List<IResult>));
+        }
+
+        /// <summary>
         /// Event for change in the top results list.
         /// </summary>
         public event ChangedTableEventHandler Changed;
@@ -106,6 +116,11 @@ namespace Labyrinth
         /// <param name="result">Player result to be added.</param>
         public void Add(IResult result)
         {
+            if (result == null)
+            {
+                throw new ArgumentNullException("The result for adding could not be null!");
+            }
+
             if (this.topResults.Count == this.topResults.Capacity)
             {
                 this.topResults[this.topResults.Count - 1] = result;
@@ -120,6 +135,16 @@ namespace Labyrinth
         }
 
         /// <summary>
+        /// Collects data from an object for serialization.
+        /// </summary>
+        /// <param name="info">Serialization information</param>
+        /// <param name="context">Serialization streaming context</param>
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("topResults", this.topResults, typeof(List<IResult>));
+        }
+
+        /// <summary>
         /// This method fires the changed event for change in the top results.
         /// </summary>
         /// <param name="e">Event arguments</param>
@@ -129,16 +154,6 @@ namespace Labyrinth
             {
                 this.Changed(this, e);
             }
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("topResults", this.topResults, typeof(List<IResult>));
-        }
-
-        public TopResults(SerializationInfo info, StreamingContext context)
-        {
-            this.topResults = (List<IResult>)info.GetValue("topResults", typeof(List<IResult>));
         }
     }
 }

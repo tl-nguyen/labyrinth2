@@ -20,7 +20,6 @@
             Assert.AreEqual(result.PlayerName, "player");
         }
 
-
         [TestMethod]
         public void TestResultPropertyMovesCount()
         {
@@ -35,14 +34,12 @@
             Assert.AreEqual(result.Rating, PlayerRating.Master);
         }
 
-
         [TestMethod]
         public void TestResultPropertyRatingPlayer()
         {
             var result = new RatedResult(6, "player", LabyrinthFactory.GetResultFormatterInstance());
             Assert.AreEqual(result.Rating, PlayerRating.Player);
         }
-
 
         [TestMethod]
         public void TestResultPropertyRatingBeginner()
@@ -89,7 +86,7 @@
         public void TestResultCompareToDifferentObject()
         {
             var firstResult = new RatedResult(3, "player1", LabyrinthFactory.GetResultFormatterInstance());
-            var secondResult = new Object();
+            var secondResult = new object();
             firstResult.CompareTo(secondResult);
         }
     }

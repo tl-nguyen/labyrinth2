@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class SimpleResultTests
     {
@@ -14,12 +14,32 @@ namespace Labyrinth.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestSimpleResultConstructorCreateResultZeroCount()
+        {
+            var result = new SimpleResult(0, "player", new PlainResultFormatter());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestSimpleResultConstructorCreateResultEmptyName()
+        {
+            var result = new SimpleResult(5, string.Empty, new PlainResultFormatter());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestSimpleResultConstructorCreateResultNullFormatter()
+        {
+            var result = new SimpleResult(7, "player", null);
+        }
+
+        [TestMethod]
         public void TestResultPropertyPlayerName()
         {
             var result = new SimpleResult(2, "player", new PlainResultFormatter());
             Assert.AreEqual(result.PlayerName, "player");
         }
-
 
         [TestMethod]
         public void TestResultPropertyMovesCount()
@@ -32,7 +52,7 @@ namespace Labyrinth.Tests
         public void TestResultPropertyFormatter()
         {
             var result = new SimpleResult(2, "player", new PlainResultFormatter());
-            Assert.IsInstanceOfType(result.Formatter, typeof (PlainResultFormatter));
+            Assert.IsInstanceOfType(result.Formatter, typeof(PlainResultFormatter));
         }
 
         [TestMethod]
@@ -73,7 +93,7 @@ namespace Labyrinth.Tests
         public void TestResultCompareToDifferentObject()
         {
             var firstResult = new SimpleResult(3, "player1", new PlainResultFormatter());
-            var secondResult = new Object();
+            var secondResult = new object();
             firstResult.CompareTo(secondResult);
         }
     }
