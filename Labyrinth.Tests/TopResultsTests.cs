@@ -50,6 +50,23 @@
         }
 
         [TestMethod]
+        public void TestTopResultAddRatedResultLongName()
+        {
+            var table = new TopResults();
+            table.Add(new RatedResult(5, "somePlayer", new PlainResultFormatter()));
+            var expected =
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "|         Top Results Table        |" +
+                Environment.NewLine +
+                "|----------------------------------|" +
+                Environment.NewLine +
+                "| 1. somePl (Player)	 --> 5 moves |" +
+                Environment.NewLine +
+                "|----------------------------------|";
+            Assert.AreEqual(table.ToString(), expected);
+        }
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestTopResultAddNullResult()
         {

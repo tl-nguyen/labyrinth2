@@ -56,8 +56,8 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
-    <Compile Include="IResultFormatter.cs" />
-    <Compile Include="PlayerRating.cs" />
+    <Compile Include="Results\IResultFormatter.cs" />
+    <Compile Include="Results\PlayerRating.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Direction.cs" />
@@ -66,11 +66,11 @@
     <Compile Include="IMoveHandler.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderer.cs" />
-    <Compile Include="IResult.cs" />
-    <Compile Include="ITable.cs" />
+    <Compile Include="Results\IResult.cs" />
+    <Compile Include="Results\ITable.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="LabyrinthFactory.cs" />
-    <Compile Include="FileSerializationManager.cs" />
+    <Compile Include="Results\FileSerializationManager.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="ICell.cs" />
     <Compile Include="LabTest.cs" />
@@ -83,14 +83,14 @@
     <Compile Include="Loggers\MemoryAppender.cs" />
     <Compile Include="MoveHandler.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="RatedResult.cs" />
-    <Compile Include="PlainResultFormatter.cs" />
-    <Compile Include="SeparatorResultFormatter.cs" />
-    <Compile Include="SimpleResult.cs" />
-    <Compile Include="TopResults.cs">
+    <Compile Include="Results\RatedResult.cs" />
+    <Compile Include="Results\PlainResultFormatter.cs" />
+    <Compile Include="Results\SeparatorResultFormatter.cs" />
+    <Compile Include="Results\SimpleResult.cs" />
+    <Compile Include="Results\TopResults.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Result.cs" />
+    <Compile Include="Results\Result.cs" />
     <Compile Include="UserInputAndOutput.cs" />
   </ItemGroup>
   <ItemGroup>

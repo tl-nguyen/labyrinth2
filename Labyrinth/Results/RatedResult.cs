@@ -16,6 +16,11 @@ namespace Labyrinth
     public class RatedResult : Result, IResult
     {
         /// <summary>
+        /// Constant for maximum length of the player name.
+        /// </summary>
+        private const int MaxPlayerNameLength = 6;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="RatedResult"/> class.
         /// </summary>
         /// <param name="movesCount">Count of moves</param>
@@ -60,8 +65,14 @@ namespace Labyrinth
         /// <returns>String representing the result</returns>
         public override string ToString()
         {
+            string shortenedName = this.PlayerName;
+            if(this.PlayerName.Length >= RatedResult.MaxPlayerNameLength)
+            {
+                shortenedName = this.PlayerName.Substring(0, RatedResult.MaxPlayerNameLength);
+            }
+            
             return this.Formatter.Format(
-                string.Format("{0} ({1})\t", this.PlayerName, this.Rating),
+                string.Format("{0} ({1})\t", shortenedName, this.Rating),
                 this.MovesCount.ToString());
         }
 
