@@ -4,10 +4,11 @@
 // </copyright>
 //
 // ********************************
-namespace Labyrinth
+namespace Labyrinth.Results
 {
     using System;
     using System.Runtime.Serialization;
+    using Contracts;
 
     /// <summary>
     /// Class for game results with rating.

@@ -1,4 +1,4 @@
-﻿namespace Labyrinth.Loggers
+﻿namespace Labyrinth.Loggers.Contracts
 {
     using System;
     using System.Collections;

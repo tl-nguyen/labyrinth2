@@ -1,6 +1,7 @@
 ﻿namespace Labyrinth.Loggers
 {
     using System;
+    using Contracts;
 
     public class SimpleLogger : ILogger
     {

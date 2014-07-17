@@ -4,7 +4,7 @@
 // </copyright>
 //
 // ********************************
-namespace Labyrinth
+namespace Labyrinth.Results
 {
     /// <summary>
     /// Enumeration used for player's ratings in the players results

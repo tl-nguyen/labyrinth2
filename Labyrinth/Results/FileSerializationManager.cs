@@ -4,11 +4,12 @@
 // </copyright>
 //
 // ********************************
-namespace Labyrinth
+namespace Labyrinth.Results
 {
     using System;
     using System.IO;
     using System.Runtime.Serialization;
+    using Contracts;
 
     /// <summary>
     /// Class for serialization of data in a file

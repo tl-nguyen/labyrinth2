@@ -4,7 +4,7 @@
 // </copyright>
 //
 // ********************************
-namespace Labyrinth
+namespace Labyrinth.Results.Contracts
 {
     using System.Runtime.Serialization;
 

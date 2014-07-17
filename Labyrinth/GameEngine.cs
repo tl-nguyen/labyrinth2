@@ -3,6 +3,8 @@
     using Loggers;
     using System;
     using System.Collections.Generic;
+    using Results.Contracts;
+    using Loggers.Contracts;
 
     /// <summary>
     /// Class for generating the main logic of the game 

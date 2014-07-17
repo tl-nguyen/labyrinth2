@@ -2,6 +2,9 @@
 {
     using Loggers;
     using System.Runtime.Serialization.Formatters.Binary;
+    using Results;
+    using Results.Contracts;
+    using Loggers.Contracts;
 
     /// <summary>
     /// Returns instances of all classes for the project

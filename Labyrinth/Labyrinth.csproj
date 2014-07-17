@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
-    <Compile Include="Results\IResultFormatter.cs" />
+    <Compile Include="Results\Contracts\IResultFormatter.cs" />
     <Compile Include="Results\PlayerRating.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ConsoleRenderer.cs" />
@@ -66,8 +66,8 @@
     <Compile Include="IMoveHandler.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRenderer.cs" />
-    <Compile Include="Results\IResult.cs" />
-    <Compile Include="Results\ITable.cs" />
+    <Compile Include="Results\Contracts\IResult.cs" />
+    <Compile Include="Results\Contracts\ITable.cs" />
     <Compile Include="IUserInput.cs" />
     <Compile Include="LabyrinthFactory.cs" />
     <Compile Include="Results\FileSerializationManager.cs" />
@@ -77,8 +77,8 @@
     <Compile Include="Labyrinth.cs" />
     <Compile Include="LanguageStrings.cs" />
     <Compile Include="Loggers\FileAppender.cs" />
-    <Compile Include="Loggers\IAppender.cs" />
-    <Compile Include="Loggers\ILogger.cs" />
+    <Compile Include="Loggers\Contracts\IAppender.cs" />
+    <Compile Include="Loggers\Contracts\ILogger.cs" />
     <Compile Include="Loggers\SimpleLogger.cs" />
     <Compile Include="Loggers\MemoryAppender.cs" />
     <Compile Include="MoveHandler.cs" />
