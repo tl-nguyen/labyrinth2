@@ -56,16 +56,17 @@
   <ItemGroup>
     <Compile Include="Labyrinth\Cell.cs" />
     <Compile Include="Labyrinth\Commons\CellState.cs" />
+    <Compile Include="Labyrinth\Renderer\ConsoleRenderer.cs" />
+    <Compile Include="Labyrinth\Renderer\Contracts\ILanguageStrings.cs" />
+    <Compile Include="Labyrinth\Renderer\Contracts\IRenderer.cs" />
+    <Compile Include="Labyrinth\Renderer\LanguageStrings.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResultFormatter.cs" />
     <Compile Include="Labyrinth\Results\PlayerRating.cs" />
     <Compile Include="Labyrinth\Commons\Command.cs" />
-    <Compile Include="Labyrinth\ConsoleRenderer.cs" />
     <Compile Include="Labyrinth\Commons\Direction.cs" />
     <Compile Include="Labyrinth\ILabyrinthMoveHandler.cs" />
-    <Compile Include="Labyrinth\ILanguageStrings.cs" />
     <Compile Include="Labyrinth\IMoveHandler.cs" />
     <Compile Include="Labyrinth\IPlayer.cs" />
-    <Compile Include="Labyrinth\IRenderer.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResult.cs" />
     <Compile Include="Labyrinth\Results\Contracts\ITable.cs" />
     <Compile Include="Labyrinth\IUserInput.cs" />
@@ -75,7 +76,6 @@
     <Compile Include="Labyrinth\ICell.cs" />
     <Compile Include="Labyrinth\LabTest.cs" />
     <Compile Include="Labyrinth\Labyrinth.cs" />
-    <Compile Include="Labyrinth\LanguageStrings.cs" />
     <Compile Include="Labyrinth\Loggers\FileAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\IAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\ILogger.cs" />

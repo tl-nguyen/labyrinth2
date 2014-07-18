@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Commons;
-
+    
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>

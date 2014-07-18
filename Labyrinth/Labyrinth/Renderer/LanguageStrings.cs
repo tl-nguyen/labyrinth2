@@ -1,7 +1,8 @@
-﻿namespace Labyrinth
+﻿namespace Labyrinth.Renderer
 {
     using System;
     using System.Collections.Generic;
+    using Contracts;
 
     public class LanguageStrings : ILanguageStrings
     {

@@ -1,4 +1,4 @@
-﻿namespace Labyrinth
+﻿namespace Labyrinth.Renderer.Contracts
 {
     public interface ILanguageStrings
     {

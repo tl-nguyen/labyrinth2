@@ -3,7 +3,8 @@
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.IO;
-
+    using Renderer.Contracts;
+    using Renderer;
     [TestClass]
     public class ConsoleRendererTests
     {

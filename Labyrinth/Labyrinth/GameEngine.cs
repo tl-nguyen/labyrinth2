@@ -6,7 +6,8 @@
     using Results.Contracts;
     using Loggers.Contracts;
     using Commons;
-
+    using Renderer;
+    using Renderer.Contracts;
     /// <summary>
     /// Class for generating the main logic of the game 
     /// </summary>

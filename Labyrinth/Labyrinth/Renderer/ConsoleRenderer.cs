@@ -1,7 +1,8 @@
-﻿namespace Labyrinth
+﻿namespace Labyrinth.Renderer
 {
     using System;
     using Commons;
+    using Contracts;
 
     public class ConsoleRenderer : IRenderer
     {
