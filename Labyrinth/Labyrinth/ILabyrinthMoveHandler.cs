@@ -1,6 +1,7 @@
 namespace Labyrinth
 {
     using System.Collections.Generic;
+    using Commons;
 
     public interface ILabyrinthMoveHandler : IMoveHandler
     {

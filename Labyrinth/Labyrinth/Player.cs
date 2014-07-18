@@ -1,5 +1,7 @@
 ﻿namespace Labyrinth
 {
+    using Commons;
+
     public class Player :  IPlayer
     {
         public ILabyrinthMoveHandler Labyrinth { get; private set; }

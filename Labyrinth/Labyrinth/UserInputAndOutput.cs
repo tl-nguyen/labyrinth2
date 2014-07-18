@@ -1,6 +1,8 @@
 ﻿namespace Labyrinth
 {
     using System;
+    using Commons;
+
     public class UserInputAndOutput : IUserInput
     {
         //public static string GetInput()

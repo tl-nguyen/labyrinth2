@@ -55,12 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Labyrinth\Cell.cs" />
-    <Compile Include="Labyrinth\CellState.cs" />
+    <Compile Include="Labyrinth\Commons\CellState.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResultFormatter.cs" />
     <Compile Include="Labyrinth\Results\PlayerRating.cs" />
-    <Compile Include="Labyrinth\Command.cs" />
+    <Compile Include="Labyrinth\Commons\Command.cs" />
     <Compile Include="Labyrinth\ConsoleRenderer.cs" />
-    <Compile Include="Labyrinth\Direction.cs" />
+    <Compile Include="Labyrinth\Commons\Direction.cs" />
     <Compile Include="Labyrinth\ILabyrinthMoveHandler.cs" />
     <Compile Include="Labyrinth\ILanguageStrings.cs" />
     <Compile Include="Labyrinth\IMoveHandler.cs" />

@@ -1,5 +1,7 @@
 ﻿namespace Labyrinth
 {
+    using Commons;
+
     public interface ICell
     {
         int Row { get; set; }

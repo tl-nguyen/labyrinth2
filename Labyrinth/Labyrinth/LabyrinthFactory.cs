@@ -5,6 +5,7 @@
     using Results;
     using Results.Contracts;
     using Loggers.Contracts;
+    using Commons;
 
     /// <summary>
     /// Returns instances of all classes for the project

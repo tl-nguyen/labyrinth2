@@ -1,4 +1,4 @@
-﻿namespace Labyrinth
+﻿namespace Labyrinth.Commons
 {
     /// <summary>
     /// Enumeration used for handling the player's direction in the labyrinth

@@ -1,6 +1,7 @@
 ﻿namespace Labyrinth
 {
     using System;
+    using Commons;
 
     public class ConsoleRenderer : IRenderer
     {

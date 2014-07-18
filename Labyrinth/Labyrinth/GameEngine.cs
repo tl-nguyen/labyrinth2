@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using Results.Contracts;
     using Loggers.Contracts;
+    using Commons;
 
     /// <summary>
     /// Class for generating the main logic of the game 
