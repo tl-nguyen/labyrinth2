@@ -1,6 +1,7 @@
-﻿namespace Labyrinth
+﻿namespace Labyrinth.LabyrinthHandler
 {
     using System.Collections.Generic;
+    using Contracts;
     using Commons;
 
     public abstract class MoveHandler : ILabyrinthMoveHandler

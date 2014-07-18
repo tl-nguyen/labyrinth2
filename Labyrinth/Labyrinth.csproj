@@ -64,8 +64,8 @@
     <Compile Include="Labyrinth\Results\PlayerRating.cs" />
     <Compile Include="Labyrinth\Commons\Command.cs" />
     <Compile Include="Labyrinth\Commons\Direction.cs" />
-    <Compile Include="Labyrinth\ILabyrinthMoveHandler.cs" />
-    <Compile Include="Labyrinth\IMoveHandler.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\Contracts\ILabyrinthMoveHandler.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\Contracts\IMoveHandler.cs" />
     <Compile Include="Labyrinth\IPlayer.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResult.cs" />
     <Compile Include="Labyrinth\Results\Contracts\ITable.cs" />
@@ -75,13 +75,13 @@
     <Compile Include="Labyrinth\GameEngine.cs" />
     <Compile Include="Labyrinth\ICell.cs" />
     <Compile Include="Labyrinth\LabTest.cs" />
-    <Compile Include="Labyrinth\Labyrinth.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\Labyrinth.cs" />
     <Compile Include="Labyrinth\Loggers\FileAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\IAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\ILogger.cs" />
     <Compile Include="Labyrinth\Loggers\SimpleLogger.cs" />
     <Compile Include="Labyrinth\Loggers\MemoryAppender.cs" />
-    <Compile Include="Labyrinth\MoveHandler.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\MoveHandler.cs" />
     <Compile Include="Labyrinth\Player.cs" />
     <Compile Include="Labyrinth\Results\RatedResult.cs" />
     <Compile Include="Labyrinth\Results\PlainResultFormatter.cs" />

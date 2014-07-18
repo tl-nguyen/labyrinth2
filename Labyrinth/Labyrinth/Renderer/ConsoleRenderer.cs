@@ -1,6 +1,7 @@
 ﻿namespace Labyrinth.Renderer
 {
     using System;
+    using LabyrinthHandler;
     using Commons;
     using Contracts;
 

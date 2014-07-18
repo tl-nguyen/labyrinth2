@@ -1,5 +1,6 @@
 namespace Labyrinth
 {
+    using LabyrinthHandler.Contracts;
     using Commons;
 
     public interface IPlayer  

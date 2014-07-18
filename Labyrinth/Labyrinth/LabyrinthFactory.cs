@@ -2,6 +2,8 @@
 {
     using Loggers;
     using System.Runtime.Serialization.Formatters.Binary;
+    using LabyrinthHandler;
+    using LabyrinthHandler.Contracts;
     using Results;
     using Results.Contracts;
     using Loggers.Contracts;

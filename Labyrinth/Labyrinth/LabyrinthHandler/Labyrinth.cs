@@ -1,7 +1,8 @@
-﻿namespace Labyrinth
+﻿namespace Labyrinth.LabyrinthHandler
 {
     using System;
     using System.Collections.Generic;
+    using Contracts;
     using Commons;
     
     /// <summary>
