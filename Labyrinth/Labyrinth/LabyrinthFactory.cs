@@ -10,6 +10,8 @@
     using Renderer;
     using Renderer.Contracts;
     using Commons;
+    using Entities;
+    using Entities.Contracts;
 
 
     /// <summary>
@@ -127,6 +129,21 @@
         public static ILogger GetSimpleLogger(IAppender appender)
         {
             return new SimpleLogger(appender);
+        }
+
+        public static IScene GetConsoleScene(IConsoleRenderer renderer)
+        {
+            return new ConsoleScene(renderer);
+        }
+
+        public static IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer)
+        {
+            return new UiText(coords, renderer, LabyrinthFactory.GetLanguageStringsInstance());
+        }
+
+        public static LabyrinthGfk GetLabyrinthGfk(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix)
+        {
+            return new LabyrinthGfk(coords, renderer, matrix);
         }
     }
 }

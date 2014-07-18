@@ -41,10 +41,11 @@
             var fileAppender = LabyrinthFactory.GetFileAppender("Log.txt");
             this.simpleLoggerFileAppender = LabyrinthFactory.GetSimpleLogger(fileAppender);
 
-            this.scene = new ConsoleScene(this.renderer);
-            topMessageBox = new UiText(new IntPoint(0, 0), this.renderer, LabyrinthFactory.GetLanguageStringsInstance());
-            bottomMessageBox = new UiText(new IntPoint(0, 20), this.renderer, LabyrinthFactory.GetLanguageStringsInstance());
-            labyrinthGfk = new LabyrinthGfk(new IntPoint(0, 9), this.renderer, this.player.Labyrinth.Matrix);
+            this.scene = LabyrinthFactory.GetConsoleScene(this.renderer);
+            this.topMessageBox = LabyrinthFactory.GetUiText(new IntPoint(0,0), this.renderer);
+            this.bottomMessageBox = LabyrinthFactory.GetUiText(new IntPoint(0, 20), this.renderer);
+            this.labyrinthGfk = LabyrinthFactory.GetLabyrinthGfk(new IntPoint(0, 9), this.renderer, this.player.Labyrinth.Matrix);
+
             //TODO: labyrinth size refactor
             //TODO: 1 more layer of abstraction renderable entity : entity logic
             //TODO: UI Controller
