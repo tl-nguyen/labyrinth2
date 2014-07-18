@@ -3,37 +3,42 @@ using Labyrinth.Renderer.Contracts;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    public class UiText : IUiTextX
+    public class UiText : EntityX, IUiTextX
     {
-        public IntPointX TopLeft { get; set; }
         private IRendererX renderer;
         private ILanguageStrings dialogList;
         private string textField;
 
         public UiText(IntPointX coords, IRendererX renderer, ILanguageStrings dialogList)
+            : base(coords)
         {
-            this.TopLeft = coords;
             this.renderer = renderer;
             this.dialogList = dialogList;
             this.textField = "";
         }
 
-        public void SetText(string key, string[] args)
+        public void SetText(string input, string[] args)
         {
             StringBuilder sb = new StringBuilder();
-            if (args != null)
+
+            sb.AppendFormat(this.dialogList.GetDialog(input), args);
+
+            this.textField = sb.ToString();
+        }
+        public void SetText(string input, bool isKey)
+        {
+            if (isKey)
             {
-                sb.AppendFormat(this.dialogList.GetDialog(key), args);
+                this.textField = this.dialogList.GetDialog(input);
             }
             else
             {
-                sb.AppendFormat(this.dialogList.GetDialog(key));
+                this.textField = input;
             }
-            this.textField = sb.ToString();
         }
-        public void SetText(string key)
+        public void SetText(string input)
         {
-            this.SetText(key, null);
+            this.SetText(input, false);
         }
 
         public void Clear()
@@ -41,7 +46,7 @@ namespace Labyrinth.Labyrinth.experimental
             this.textField = "";
         }
 
-        public void Render()
+        override public void Render()
         {
             this.renderer.RenderEntity(this);
         }

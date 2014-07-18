@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    public class SceneX : ISceneX
+    public class ConsoleSceneX : ISceneX
     {
         private List<IRenderableX> entities;
+        private IConsoleRendererX renderer;
 
-        public SceneX()
+        public ConsoleSceneX(IConsoleRendererX renderer)
         {
+            this.renderer = renderer;
             this.entities = new List<IRenderableX>();
         }
 
         public void Render()
         {
+            this.renderer.Clear();
             foreach (IRenderableX entity in entities)
             {
                 entity.Render();

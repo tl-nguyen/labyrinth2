@@ -39,10 +39,10 @@
             var fileAppender = LabyrinthFactory.GetFileAppender("Log.txt");
             this.simpleLoggerFileAppender = LabyrinthFactory.GetSimpleLogger(fileAppender);
 
-            this.scene = new SceneX();
+            this.scene = new ConsoleSceneX(this.renderer);
             topMessageBox = new UiText(new IntPointX(0, 0), this.renderer, LabyrinthFactory.GetLanguageStringsInstance());
-            bottomMessageBox = new UiText(new IntPointX(0, 15), this.renderer, LabyrinthFactory.GetLanguageStringsInstance());
-            labyrinthGfk = new LabyrinthGfkX(new IntPointX(0, 4), this.renderer, this.player.Labyrinth.Matrix);
+            bottomMessageBox = new UiText(new IntPointX(0, 20), this.renderer, LabyrinthFactory.GetLanguageStringsInstance());
+            labyrinthGfk = new LabyrinthGfkX(new IntPointX(0, 9), this.renderer, this.player.Labyrinth.Matrix);
         }
 
         public GameEngineX()
@@ -65,7 +65,6 @@
         private void GameLoop(ref int movesCount)
         {
             this.UpdateUserInput(ref movesCount);
-            this.renderer.Clear();
             this.scene.Render();
         }
 
@@ -74,25 +73,38 @@
             this.scene.Add(this.labyrinthGfk);
             this.scene.Add(this.topMessageBox);
             this.scene.Add(this.bottomMessageBox);
-            this.topMessageBox.SetText("Welcome");
-            this.bottomMessageBox.SetText("Input");
+            this.topMessageBox.SetText("Welcome", true);
+            this.bottomMessageBox.SetText("Input", true);
             scene.Render();
         }
 
         private void GameOver(int movesCount)
         {
             this.scene.Remove(labyrinthGfk);
-            this.renderer.Clear();
             topMessageBox.SetText("WinMessage", new string[] {movesCount.ToString()});
             if (this.table.IsTopResult(movesCount))
             {
-                bottomMessageBox.SetText("EnterName");
+                bottomMessageBox.SetText("EnterName", true);
+                bottomMessageBox.SetY(1);
                 scene.Render();
                 Console.WriteLine();
                 string name = this.input.GetPlayerName();
                 this.table.Add(LabyrinthFactory.GetResultInstance(movesCount, name));
             }
             this.hasEndedGame = true;
+        }
+
+        private void Exit()
+        {
+            this.scene.Remove(labyrinthGfk);
+            this.topMessageBox.SetText("GoodBye", true);
+            this.bottomMessageBox.SetText("Press any key to exit...", false);
+            this.bottomMessageBox.SetY(1);
+            this.scene.Render();
+            if (Console.ReadKey(true) != null) //TODO: refactor
+            {
+                Environment.Exit(0);
+            } 
         }
 
         private void UpdateUserInput(ref int movesCount)
@@ -139,24 +151,23 @@
                     if (moveDone == true)
                     {
                         movesCount++;
-                        topMessageBox.Clear();
+                        this.topMessageBox.Clear();
                     }
                     else
                     {
-                        topMessageBox.SetText("InvalidMove");
+                        this.topMessageBox.SetText("InvalidMove", true);
                     }
                     break;
                 case Command.Top:
-                    //renderer.RenderTopResults(this.table.ToString());
+                    this.topMessageBox.SetText(this.table.ToString());
                     break;
                 case Command.Exit:
-                    //renderer.RenderExitMessage();
-                    Environment.Exit(0);
+                    this.Exit();
                     break;
                 case Command.Restart:
                     break;
                 default:
-                    //renderer.RenderInvalidCommand();
+                    this.topMessageBox.SetText("InvalidCommand", true);
                     break;
             }
         }

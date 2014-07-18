@@ -10,8 +10,8 @@ namespace Labyrinth.Labyrinth.experimental
     {
         public void RenderEntity(IRenderableX entity)
         {
-            int x = entity.TopLeft.x;
-            int y = entity.TopLeft.y;
+            int x = entity.TopLeft.X;
+            int y = entity.TopLeft.Y;
             Console.SetCursorPosition(x, y);
             Console.Write(entity.ToString());
         }

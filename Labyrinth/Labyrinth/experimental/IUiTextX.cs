@@ -2,8 +2,9 @@
 {
     interface IUiTextX : IRenderableX
     {
-        void SetText(string key, string[] args);
-        void SetText(string key);
+        void SetText(string input, string[] args);
+        void SetText(string input, bool isKey);
+        void SetText(string input);
         void Clear();
     }
 }

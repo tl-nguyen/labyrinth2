@@ -5,24 +5,23 @@ using Labyrinth.Commons;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    public class LabyrinthGfkX : IRenderableX
+    public class LabyrinthGfkX : EntityX, IRenderableX
     {
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
         private const char PLAYER_CELL = '*';
 
-        public IntPointX TopLeft { get; set; }
         private IRendererX renderer;
         private ICell[,] labyrinth;
 
         public LabyrinthGfkX(IntPointX coords, IRendererX renderer, ICell[,] labyrinth)
+            : base(coords)
         {
-            this.TopLeft = coords;
             this.renderer = renderer;
             this.labyrinth = labyrinth;
         }
 
-        public void Render()
+        override public void Render()
         {
             this.renderer.RenderEntity(this);
         }
