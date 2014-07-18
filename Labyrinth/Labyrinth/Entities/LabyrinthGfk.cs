@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Text;
-using Labyrinth.LabyrinthHandler;
+using Labyrinth.Renderer.Contracts;
 using Labyrinth.Commons;
+using Labyrinth.Entities.Contracts;
+using Labyrinth.LabyrinthHandler;
 
-namespace Labyrinth.Labyrinth.experimental
+namespace Labyrinth.Entities
 {
-    public class LabyrinthGfkX : EntityX, IRenderableX
+    public class LabyrinthGfk : Entity, IRenderable
     {
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
         private const char PLAYER_CELL = '*';
 
-        private IRendererX renderer;
+        private IRenderer renderer;
         private ICell[,] labyrinth;
 
-        public LabyrinthGfkX(IntPointX coords, IRendererX renderer, ICell[,] labyrinth)
+        public LabyrinthGfk(IntPoint coords, IRenderer renderer, ICell[,] labyrinth)
             : base(coords)
         {
             this.renderer = renderer;

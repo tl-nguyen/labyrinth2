@@ -35,7 +35,7 @@
 
         public static IRenderer GetRendererInstance(ILanguageStrings dialogList)
         {
-            return new ConsoleRenderer(dialogList);
+            return new ConsoleRenderer();
         }
 
         public static IUserInput GetUserInputInstance()

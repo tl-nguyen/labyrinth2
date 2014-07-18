@@ -1,32 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Labyrinth.Entities.Contracts;
+using Labyrinth.Renderer.Contracts;
 
-namespace Labyrinth.Labyrinth.experimental
+namespace Labyrinth
 {
-    public class ConsoleSceneX : ISceneX
+    public class ConsoleScene : IScene
     {
-        private List<IRenderableX> entities;
-        private IConsoleRendererX renderer;
+        private List<IRenderable> entities;
+        private IConsoleRenderer renderer;
 
-        public ConsoleSceneX(IConsoleRendererX renderer)
+        public ConsoleScene(IConsoleRenderer renderer)
         {
             this.renderer = renderer;
-            this.entities = new List<IRenderableX>();
+            this.entities = new List<IRenderable>();
         }
 
         public void Render()
         {
             this.renderer.Clear();
-            foreach (IRenderableX entity in entities)
+            foreach (IRenderable entity in entities)
             {
                 entity.Render();
             }
         }
 
-        public void Add(IRenderableX entity)
+        public void Add(IRenderable entity)
         {
             bool entityAlreadyAdded = this.CheckIfEntityExists(entity);
 
@@ -39,7 +38,7 @@ namespace Labyrinth.Labyrinth.experimental
         }
 
 
-        public void Remove(IRenderableX entity)
+        public void Remove(IRenderable entity)
         {
             bool entityFound = this.CheckIfEntityExists(entity);
 
@@ -51,7 +50,7 @@ namespace Labyrinth.Labyrinth.experimental
             this.entities.Remove(entity);
         }
 
-        public bool CheckIfEntityExists(IRenderableX entity)
+        public bool CheckIfEntityExists(IRenderable entity)
         {
             bool entityFound = false;
 

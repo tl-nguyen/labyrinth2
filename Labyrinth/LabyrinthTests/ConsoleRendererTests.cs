@@ -7,7 +7,7 @@
     using Renderer;
     [TestClass]
     public class ConsoleRendererTests
-    {
+    {/*
         LanguageStrings dialogStrings = new LanguageStrings();
 
         [TestMethod]
@@ -104,6 +104,6 @@
                     Environment.NewLine);
                 Assert.AreEqual<string>(expected, sw.ToString());
             }
-        }
+        }*/
     }
 }

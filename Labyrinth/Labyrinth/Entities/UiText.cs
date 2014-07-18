@@ -1,15 +1,17 @@
 ﻿using System.Text;
+using Labyrinth.Commons;
+using Labyrinth.Entities.Contracts;
 using Labyrinth.Renderer.Contracts;
 
-namespace Labyrinth.Labyrinth.experimental
+namespace Labyrinth.Entities
 {
-    public class UiText : EntityX, IUiTextX
+    public class UiText : Entity, IUiText
     {
-        private IRendererX renderer;
+        private IRenderer renderer;
         private ILanguageStrings dialogList;
         private string textField;
 
-        public UiText(IntPointX coords, IRendererX renderer, ILanguageStrings dialogList)
+        public UiText(IntPoint coords, IRenderer renderer, ILanguageStrings dialogList)
             : base(coords)
         {
             this.renderer = renderer;

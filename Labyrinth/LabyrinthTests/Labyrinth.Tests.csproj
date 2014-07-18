@@ -51,7 +51,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ExperimentalTests\UiTextTest.cs" />
     <Compile Include="LabyrinthTests.cs" />
     <Compile Include="LoggersAndAppendersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +63,7 @@
     <Compile Include="SimpleResultTests.cs" />
     <Compile Include="PlainResultFormatterTests.cs" />
     <Compile Include="SeparatorResultFormatterTests.cs" />
+    <Compile Include="UiTextTest.cs" />
     <Compile Include="UserInputAndOutputTests.cs" />
   </ItemGroup>
   <ItemGroup>
