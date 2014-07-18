@@ -65,7 +65,7 @@
     <Compile Include="UserInputAndOutputTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Labyrinth\Labyrinth.csproj">
+    <ProjectReference Include="..\Labyrinth.csproj">
       <Project>{810f1946-f8be-4d85-acad-6acd92fd2439}</Project>
       <Name>Labyrinth</Name>
     </ProjectReference>
