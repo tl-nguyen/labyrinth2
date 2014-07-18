@@ -14,7 +14,7 @@ namespace Labyrinth.LabyrinthHandler.Contracts
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        bool TryMove(ICell currentCell, Direction direction);
+        new bool TryMove(ICell currentCell, Direction direction);
 
         /// <summary>
         /// Return a new cell object, after the player is moved by a direction

@@ -45,7 +45,7 @@
 
         public static ILabyrinthMoveHandler GetLabyrinthInstance()
         {
-            return new Labyrinth();
+            return new LabyrinthHandler.Labyrinth();
         }
 
         public static IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth)

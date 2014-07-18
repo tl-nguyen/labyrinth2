@@ -98,8 +98,8 @@
             int currentCol = player.Labyrinth.CurrentCell.Col;
             if (currentRow == 0 ||
                 currentCol == 0 ||
-                currentRow == Labyrinth.LABYRINTH_SIZE - 1 ||
-                currentCol == Labyrinth.LABYRINTH_SIZE - 1)
+                currentRow == MoveHandler.LABYRINTH_SIZE - 1 ||
+                currentCol == MoveHandler.LABYRINTH_SIZE - 1)
             {
                 isGameOver = true;
             }
