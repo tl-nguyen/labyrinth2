@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    interface IRenderableX
+    public interface IRenderableX
     {
+        IntPointX TopLeft { get; set; }
+        void Render();
     }
 }

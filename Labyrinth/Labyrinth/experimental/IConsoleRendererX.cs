@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    class EntityX
+    public interface IConsoleRendererX : IRendererX
     {
+        void Clear();
     }
 }

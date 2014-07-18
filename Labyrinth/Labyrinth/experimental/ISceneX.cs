@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    interface ISceneX
+    public interface ISceneX
     {
+        void Render();
+
+        void Add(IRenderableX entity);
+
+        void Remove(IRenderableX entity);
+
+        bool CheckIfEntityExists(IRenderableX entity);
     }
 }

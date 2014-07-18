@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    interface IRendererX
+    public interface IRendererX
     {
+        void RenderEntity(IRenderableX entity);
     }
 }

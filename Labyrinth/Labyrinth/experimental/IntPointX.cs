@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Labyrinth.Labyrinth.experimental
 {
-    struct IntPoint
+    public struct IntPointX
     {
         public int x;
         public int y;
+
+        public IntPointX(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }
