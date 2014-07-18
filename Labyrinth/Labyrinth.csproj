@@ -54,44 +54,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
-    <Compile Include="CellState.cs" />
-    <Compile Include="Command.cs" />
-    <Compile Include="ConsoleRenderer.cs" />
-    <Compile Include="Direction.cs" />
-    <Compile Include="ILabyrinthMoveHandler.cs" />
-    <Compile Include="ILanguageStrings.cs" />
-    <Compile Include="IMoveHandler.cs" />
-    <Compile Include="IPlayer.cs" />
-    <Compile Include="IRenderer.cs" />
-    <Compile Include="IResult.cs" />
-    <Compile Include="IUserInput.cs" />
-    <Compile Include="LabyrinthFactory.cs" />
-    <Compile Include="FileSerializationManager.cs" />
-    <Compile Include="GameEngine.cs" />
-    <Compile Include="ICell.cs" />
-    <Compile Include="LabTest.cs" />
-    <Compile Include="Labyrinth.cs" />
-    <Compile Include="LanguageStrings.cs" />
-    <Compile Include="Loggers\FileAppender.cs" />
-    <Compile Include="Loggers\IAppender.cs" />
-    <Compile Include="Loggers\ILogger.cs" />
-    <Compile Include="Loggers\SimpleLogger.cs" />
-    <Compile Include="Loggers\MemoryAppender.cs" />
-    <Compile Include="MoveHandler.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="TopResults.cs">
+    <Compile Include="Labyrinth\Cell.cs" />
+    <Compile Include="Labyrinth\Commons\CellState.cs" />
+    <Compile Include="Labyrinth\Renderer\ConsoleRenderer.cs" />
+    <Compile Include="Labyrinth\Renderer\Contracts\ILanguageStrings.cs" />
+    <Compile Include="Labyrinth\Renderer\Contracts\IRenderer.cs" />
+    <Compile Include="Labyrinth\Renderer\LanguageStrings.cs" />
+    <Compile Include="Labyrinth\Results\Contracts\IResultFormatter.cs" />
+    <Compile Include="Labyrinth\Results\PlayerRating.cs" />
+    <Compile Include="Labyrinth\Commons\Command.cs" />
+    <Compile Include="Labyrinth\Commons\Direction.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\Contracts\ILabyrinthMoveHandler.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\Contracts\IMoveHandler.cs" />
+    <Compile Include="Labyrinth\IPlayer.cs" />
+    <Compile Include="Labyrinth\Results\Contracts\IResult.cs" />
+    <Compile Include="Labyrinth\Results\Contracts\ITable.cs" />
+    <Compile Include="Labyrinth\IUserInput.cs" />
+    <Compile Include="Labyrinth\LabyrinthFactory.cs" />
+    <Compile Include="Labyrinth\Results\FileSerializationManager.cs" />
+    <Compile Include="Labyrinth\GameEngine.cs" />
+    <Compile Include="Labyrinth\ICell.cs" />
+    <Compile Include="Labyrinth\LabTest.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\Labyrinth.cs" />
+    <Compile Include="Labyrinth\Loggers\FileAppender.cs" />
+    <Compile Include="Labyrinth\Loggers\Contracts\IAppender.cs" />
+    <Compile Include="Labyrinth\Loggers\Contracts\ILogger.cs" />
+    <Compile Include="Labyrinth\Loggers\SimpleLogger.cs" />
+    <Compile Include="Labyrinth\Loggers\MemoryAppender.cs" />
+    <Compile Include="Labyrinth\LabyrinthHandler\MoveHandler.cs" />
+    <Compile Include="Labyrinth\Player.cs" />
+    <Compile Include="Labyrinth\Results\RatedResult.cs" />
+    <Compile Include="Labyrinth\Results\PlainResultFormatter.cs" />
+    <Compile Include="Labyrinth\Results\SeparatorResultFormatter.cs" />
+    <Compile Include="Labyrinth\Results\SimpleResult.cs" />
+    <Compile Include="Labyrinth\Results\TopResults.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Result.cs" />
-    <Compile Include="UserInputAndOutput.cs" />
+    <Compile Include="Labyrinth\Results\Result.cs" />
+    <Compile Include="Labyrinth\UserInputAndOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="_Labyrinth-UML.cd" />
+    <None Include="LabyrinthUML.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
