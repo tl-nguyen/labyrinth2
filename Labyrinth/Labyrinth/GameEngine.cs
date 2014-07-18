@@ -18,8 +18,7 @@
         private IUserInput input;
         private IPlayer player;
         private ITable table;
-        private IAppender fileAppender;
-        private ILogger simpleLogger;
+        private ILogger simpleLoggerFileAppender;
 
         /// <summary>
         /// Property used for ending the game loop in Run method
@@ -38,8 +37,8 @@
             };
             renderer.RenderWelcomeMessage();
 
-            this.fileAppender = new FileAppender("Log.txt");
-            this.simpleLogger = new SimpleLogger(this.fileAppender);
+            var fileAppender = LabyrinthFactory.GetFileAppender("Log.txt");
+            this.simpleLoggerFileAppender = LabyrinthFactory.GetSimpleLogger(fileAppender);
         }
 
         public GameEngine()
@@ -114,7 +113,7 @@
         /// <param name="movesCount">The count of player's move done already</param>
         private void ProccessInput(Command input, ref int movesCount)
         {
-            simpleLogger.Log(input.ToString());
+            simpleLoggerFileAppender.Log(input.ToString());
 
             switch (input)
             {
