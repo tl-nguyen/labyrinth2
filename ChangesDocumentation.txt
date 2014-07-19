@@ -63,6 +63,8 @@ Ilian - LabyrinthFactory.cs
 4.Added ICell matrix to the factory, and replaced implementation in Labyrinth.
 5.Added Result to the factory
 6.Added instancialization of Result in the GameEngine.cs to be in the Factory.
+7. Added IFactory interface
+8.Added temporary class that will take over the functions of the LabyrinthFactory after all statics are removed
 
 Ilian - IRenderer.cs, ConsoleRenderer.cs
 1.All rendering logic inside the renderer. Its moved from UserInputAndOutput.
