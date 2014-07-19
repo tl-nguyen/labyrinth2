@@ -69,7 +69,7 @@
     <Compile Include="Labyrinth\IScene.cs" />
     <Compile Include="Labyrinth\Renderer\ConsoleRenderer.cs" />
     <Compile Include="Labyrinth\Entities\Contracts\IUiText.cs" />
-    <Compile Include="Labyrinth\Entities\LabyrinthGfk.cs" />
+    <Compile Include="Labyrinth\Entities\LabyrinthGraphic.cs" />
     <Compile Include="Labyrinth\ConsoleScene.cs" />
     <Compile Include="Labyrinth\Entities\UiText.cs" />
     <Compile Include="Labyrinth\Renderer\Contracts\ILanguageStrings.cs" />

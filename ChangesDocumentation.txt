@@ -116,3 +116,14 @@ Ivan - GameEngine.cs
 3. GameEngine constructor - add creation of FileAppender object
 4. GameEngine constructor - add creation of SimpleLogger object
 5. ProccessInput - add call of logger to log current command
+
+Rayan - Render logic overhaul:
+1. GameEngine.cs refactoring:
+	- split Run() into smaller, more cohesive methods
+	- added scene, topMessageBox, bottomMessageBox fields
+2. Add classes and interfaces to handle new render logic:
+	- rewrote from scratch IRenderer.cs, IConsoleRenderer, ConsoleRenderer
+	- added Entities namespace for renderable entities
+	- added IRenderable.cs, Entity.cs
+	- added IUiText.cs, LabyrinthGraphic.cs, UiText.cs interface and classes,
+		but those will be removed/rewritten when further decoupling rendering logic

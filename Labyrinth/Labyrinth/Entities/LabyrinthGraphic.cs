@@ -7,7 +7,7 @@ using Labyrinth.LabyrinthHandler;
 
 namespace Labyrinth.Entities
 {
-    public class LabyrinthGfk : Entity, IRenderable
+    public class LabyrinthGraphic : Entity, IRenderable
     {
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
@@ -16,7 +16,7 @@ namespace Labyrinth.Entities
         private IRenderer renderer;
         private ICell[,] labyrinth;
 
-        public LabyrinthGfk(IntPoint coords, IRenderer renderer, ICell[,] labyrinth)
+        public LabyrinthGraphic(IntPoint coords, IRenderer renderer, ICell[,] labyrinth)
             : base(coords)
         {
             this.renderer = renderer;
