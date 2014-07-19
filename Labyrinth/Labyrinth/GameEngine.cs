@@ -71,6 +71,7 @@
             {
                 this.GameLoop(ref movesCount);
             }
+            Console.WriteLine();
         }
 
         private void GameLoop(ref int movesCount)

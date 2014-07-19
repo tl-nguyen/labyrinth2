@@ -63,6 +63,7 @@
     <Compile Include="SimpleResultTests.cs" />
     <Compile Include="PlainResultFormatterTests.cs" />
     <Compile Include="SeparatorResultFormatterTests.cs" />
+    <Compile Include="LabyrinthFactoryTest.cs" />
     <Compile Include="UserInputAndOutputTests.cs" />
   </ItemGroup>
   <ItemGroup>
