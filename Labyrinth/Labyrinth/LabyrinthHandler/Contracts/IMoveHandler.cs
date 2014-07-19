@@ -13,13 +13,6 @@
         bool MoveAction(ILabyrinth labyrinth, Command direction);
 
         /// <summary>
-        /// Return a new cell object, after the player is moved by a direction
-        /// </summary>
-        /// <param name="currentCell">The current cell object, where the player is at</param>
-        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        ICell FindNewCellCoordinates(ICell currentCell, Direction direction);
-
-        /// <summary>
         /// Adding the successfuly moved steps to the cellsOrder queue
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>

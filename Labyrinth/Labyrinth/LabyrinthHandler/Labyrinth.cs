@@ -8,15 +8,24 @@
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>
-    public class Labyrinth : MoveHandler, ILabyrinth
+    public class Labyrinth : ILabyrinth
     {
         private readonly int labyrintStartRow;
         private readonly int labyrinthStartCol;
         private IFactory factory;
 
-        public Labyrinth(IFactory factory)
+        public ICell[,] Matrix { get; set; }
+
+        public ICell CurrentCell { get; set; }
+
+        public IMoveHandler MoveHandler { get; private set; }
+
+        public int LabyrinthSize { get; private set; }
+
+        public Labyrinth(IFactory factory, IMoveHandler moveHandler)
         {
             this.factory = factory;
+            this.MoveHandler = moveHandler;
             this.LabyrinthSize = 10;
             this.labyrinthStartCol = this.LabyrinthSize / 2;
             this.labyrintStartRow = this.LabyrinthSize / 2;
@@ -26,16 +35,10 @@
             this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
         }
 
-        public ICell[,] Matrix { get; set; }
-
-        public ICell CurrentCell { get; set; }
-
-        public int LabyrinthSize { get; private set; }
-
         /// <summary>
         /// Generating the labyrinth for the game
         /// </summary>
-        public void GenerateLabyrinth()
+        private void GenerateLabyrinth()
         {
             Random rand = new Random();
 
@@ -78,15 +81,15 @@
                 ICell currentCell = cellsOrder.Dequeue();
                 visitedCells.Add(currentCell);
 
-                if (ExitFound(this, currentCell))
+                if (this.MoveHandler.ExitFound(this, currentCell))
                 {
                     return true;
                 }
 
-                MoveTo(this, currentCell, Direction.Down, cellsOrder, visitedCells);
-                MoveTo(this, currentCell, Direction.Up, cellsOrder, visitedCells);
-                MoveTo(this, currentCell, Direction.Left, cellsOrder, visitedCells);
-                MoveTo(this, currentCell, Direction.Right, cellsOrder, visitedCells);
+                this.MoveHandler.MoveTo(this, currentCell, Direction.Down, cellsOrder, visitedCells);
+                this.MoveHandler.MoveTo(this, currentCell, Direction.Up, cellsOrder, visitedCells);
+                this.MoveHandler.MoveTo(this, currentCell, Direction.Left, cellsOrder, visitedCells);
+                this.MoveHandler.MoveTo(this, currentCell, Direction.Right, cellsOrder, visitedCells);
             }
 
             return false;

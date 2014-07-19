@@ -4,7 +4,7 @@
     using Contracts;
     using Commons;
 
-    public abstract class MoveHandler : IMoveHandler
+    public class MoveHandler : IMoveHandler
     {
         /// <summary>
         /// Checks if a move can be done using the parent's method TryMove
@@ -73,7 +73,7 @@
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        public ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
+        private ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
             ICell newCell = (ICell)currentCell.Clone();
             

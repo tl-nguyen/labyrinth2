@@ -36,7 +36,7 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing <see cref="ILabyrinth"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILabyrinth"/> interface</returns>
-        ILabyrinth GetLabyrinthInstance(IFactory factory);
+        ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler);
 
         /// <summary>
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.

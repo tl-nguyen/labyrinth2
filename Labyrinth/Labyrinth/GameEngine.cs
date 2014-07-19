@@ -31,12 +31,13 @@
         private IGameLogic gameLogic;
         private ILabyrinth labyrinth;
         private IFactory factory;
-        public GameEngine(IConsoleRenderer renderer, IUserInput input, IFactory factory)
+
+        public GameEngine(IConsoleRenderer renderer, IUserInput input, IFactory factory, IMoveHandler moveHandler)
         {
             this.input = input;
             this.renderer = renderer;
             this.factory = factory;
-            this.labyrinth = this.factory.GetLabyrinthInstance(factory);
+            this.labyrinth = this.factory.GetLabyrinthInstance(factory, moveHandler);
 
             this.table = this.factory.GetTopResultsInstance();
             
@@ -64,7 +65,7 @@
         }
 
         public GameEngine()
-            : this(new ConsoleRenderer(), new UserInputAndOutput(),new Factory())
+            : this(new ConsoleRenderer(), new UserInputAndOutput(),new Factory(), new MoveHandler())
         {
         }
 

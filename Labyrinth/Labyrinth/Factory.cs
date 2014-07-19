@@ -44,9 +44,9 @@
             return new UserInputAndOutput();
         }
 
-        public ILabyrinth GetLabyrinthInstance(IFactory factory)
+        public ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
         {
-            return new Labyrinth(factory);
+            return new Labyrinth(factory, moveHandler);
         }
 
         public ICell[,] GetICellMatrixInstance(int size)

@@ -68,7 +68,7 @@
                 case Command.Left:
                 case Command.Right:
                     bool moveDone =
-                        this.labyrinth.MoveAction(this.labyrinth, input);
+                        this.labyrinth.MoveHandler.MoveAction(this.labyrinth, input);
                     if (moveDone == true)
                     {
                         movesCount++;
