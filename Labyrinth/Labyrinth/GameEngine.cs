@@ -29,27 +29,35 @@
         private LabyrinthGraphic labyrinthGraphic;
 
         private IGameLogic gameLogic;
-
-        public GameEngine(IConsoleRenderer renderer, IUserInput input)
+        private Labyrinth labyrinth;
+        private IFactory factory;
+        public GameEngine(IConsoleRenderer renderer, IUserInput input, IFactory factory)
         {
             this.input = input;
             this.renderer = renderer;
-            this.player = LabyrinthFactory.GetPlayerInstance(LabyrinthFactory.GetLabyrinthInstance());
-            this.table = LabyrinthFactory.GetTopResultsInstance();
+            this.factory = factory;
+            this.labyrinth = new Labyrinth(this.factory);
+            this.player = factory.GetPlayerInstance(this.labyrinth);
+
+            this.table = this.factory.GetTopResultsInstance();
+            
             this.table.Changed += (sender, e) =>
             {
-                LabyrinthFactory.GetSerializationManagerInstance().Serialize(sender);
+                this.factory.GetSerializationManagerInstance().Serialize(sender);
             };
+            var fileAppender = this.factory.GetFileAppender("Log.txt");
 
-            var fileAppender = LabyrinthFactory.GetFileAppender("Log.txt");
-            this.simpleLoggerFileAppender = LabyrinthFactory.GetSimpleLogger(fileAppender);
+            this.simpleLoggerFileAppender = this.factory.GetSimpleLogger(fileAppender);
 
-            this.scene = LabyrinthFactory.GetConsoleScene(this.renderer);
-            this.topMessageBox = LabyrinthFactory.GetUiText(new IntPoint(0,0), this.renderer);
-            this.bottomMessageBox = LabyrinthFactory.GetUiText(new IntPoint(0, 20), this.renderer);
-            this.labyrinthGraphic = LabyrinthFactory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.player.Labyrinth.Matrix);
+            this.scene = this.factory.GetConsoleScene(this.renderer);
+            this.topMessageBox = this.factory.GetUiText(new IntPoint(0, 0), this.renderer);
 
-            this.gameLogic = LabyrinthFactory.GetGameLogic(this.player, this.topMessageBox, this.bottomMessageBox, this.labyrinthGraphic, this.scene, this.table, this.input);
+            this.bottomMessageBox = this.factory.GetUiText(new IntPoint(0, 20), this.renderer);
+
+            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.player.Labyrinth.Matrix);
+
+            this.gameLogic = factory.GetGameLogic(this.player, this.topMessageBox, this.bottomMessageBox, 
+                this.labyrinthGraphic, this.scene, this.table, this.input,this.factory);
             //TODO: labyrinth size refactor
             //TODO: 1 more layer of abstraction renderable entity : entity logic
             //TODO: UI Controller
@@ -57,7 +65,7 @@
         }
 
         public GameEngine()
-            : this(new ConsoleRenderer(), LabyrinthFactory.GetUserInputInstance())
+            : this(new ConsoleRenderer(), new UserInputAndOutput(),new Factory())
         {
         }
 

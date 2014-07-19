@@ -24,8 +24,10 @@
         private LabyrinthGraphic labyrinthGfk;
         private ITable table;
         private IUserInput input;
+        private IFactory factory;
 
-        public GameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input)
+        public GameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, 
+            LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
         {
             this.player = player;
             this.topMessageBox = topMessageBox;
@@ -35,6 +37,7 @@
             this.table = table;
             this.input = input;
             this.IsGameOver = false;
+            this.factory = factory;
         }
 
         /// <summary>
@@ -131,7 +134,7 @@
                 scene.Render();
                 Console.WriteLine();
                 string name = this.input.GetPlayerName();
-                this.table.Add(LabyrinthFactory.GetResultInstance(movesCount, name));
+                this.table.Add(factory.GetResultInstance(movesCount, name));
             }
 
             this.IsGameOver = true;

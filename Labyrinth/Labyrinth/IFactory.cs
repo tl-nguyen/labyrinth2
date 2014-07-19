@@ -24,7 +24,7 @@ namespace Labyrinth
 
         IUserInput GetUserInputInstance();
 
-        ILabyrinthMoveHandler GetLabyrinthInstance();
+        ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory);
 
         IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth);
 
@@ -68,6 +68,7 @@ namespace Labyrinth
 
         LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix);
 
-        IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input);
+        IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, 
+            LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
     }
 }

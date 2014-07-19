@@ -12,7 +12,6 @@
         public ICell[,] Matrix { get; set; }
 
         public ICell CurrentCell { get; set; }
-
         /// <summary>
         /// Try the next move to the new cell, if it is valid
         /// </summary>
@@ -49,7 +48,8 @@
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         public ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
-            ICell newCell = LabyrinthFactory.GetCellInstance(currentCell.Row, currentCell.Col, currentCell.CellValue);
+            //Should use factory
+            ICell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
 
             switch (direction)
             {

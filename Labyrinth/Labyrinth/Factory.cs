@@ -44,9 +44,9 @@
             return new UserInputAndOutput();
         }
 
-        public ILabyrinthMoveHandler GetLabyrinthInstance()
+        public ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory)
         {
-            return new LabyrinthHandler.Labyrinth();
+            return new LabyrinthHandler.Labyrinth(factory);
         }
 
         public IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth)
@@ -145,10 +145,11 @@
             return new LabyrinthGraphic(coords, renderer, matrix);
         }
 
-        public IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input)
+        public IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, 
+            LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
         {
             //TODO: this must get refactored and only take the game field and the UI controller! 
-            return new GameLogic(player, topMessageBox, bottomMessageBox, labyrinthGfk, scene, table, input);
+            return new GameLogic(player, topMessageBox, bottomMessageBox, labyrinthGfk, scene, table, input,factory);
         }
     }
 }

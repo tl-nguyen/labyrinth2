@@ -12,10 +12,13 @@
     {
         private readonly int labyrintStartRow = LABYRINTH_SIZE / 2;
         private readonly int labyrinthStartCol = LABYRINTH_SIZE / 2;
+        private IFactory factory;
 
-        public Labyrinth()
+        public Labyrinth(IFactory factory)
         {
-            this.Matrix = LabyrinthFactory.GetICellMatrixInstance(LABYRINTH_SIZE);
+            this.factory = factory;
+            
+            this.Matrix = factory.GetICellMatrixInstance(LABYRINTH_SIZE);
             GenerateLabyrinth();
             this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
         }
@@ -42,7 +45,7 @@
                         {
                             state = CellState.Empty;
                         }
-                        this.Matrix[row, col] = LabyrinthFactory.GetCellInstance(row, col, state);
+                        this.Matrix[row, col] = this.factory.GetCellInstance(row, col, state);
                     }
                 }
                 exitPathExists = ExitPathExists();
