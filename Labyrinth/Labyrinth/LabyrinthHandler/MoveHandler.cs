@@ -48,9 +48,9 @@
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         public ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
-            //Should use factory
-            ICell newCell = new Cell(currentCell.Row, currentCell.Col, currentCell.CellValue);
-
+            Cell copy = (Cell)currentCell;
+            Cell newCell = (Cell)copy.Clone();
+            
             switch (direction)
             {
                 case Direction.Up:

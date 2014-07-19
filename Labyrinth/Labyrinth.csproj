@@ -84,7 +84,6 @@
     <Compile Include="Labyrinth\Results\Contracts\IResult.cs" />
     <Compile Include="Labyrinth\Results\Contracts\ITable.cs" />
     <Compile Include="Labyrinth\IUserInput.cs" />
-    <Compile Include="Labyrinth\LabyrinthFactory.cs" />
     <Compile Include="Labyrinth\Results\FileSerializationManager.cs" />
     <Compile Include="Labyrinth\ICell.cs" />
     <Compile Include="Labyrinth\LabTest.cs" />

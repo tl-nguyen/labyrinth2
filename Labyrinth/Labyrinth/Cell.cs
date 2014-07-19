@@ -6,7 +6,7 @@
     /// <summary>
     /// Encapsulates the object that represents a single instance of the ICell interface
     /// </summary>
-    public class Cell : ICell
+    public class Cell : ICell,ICloneable
     {
         private int row;
         private int col;
@@ -80,6 +80,12 @@
             }
 
             return false;
+        }
+
+        public object Clone()
+        {
+            var copy = this.MemberwiseClone();
+            return copy;
         }
     }
 }

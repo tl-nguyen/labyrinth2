@@ -11,6 +11,7 @@
     using Renderer.Contracts;
     using Entities.Contracts;
     using Entities;
+    using Labyrinth.LabyrinthHandler.Contracts;
 
     /// <summary>
     /// Class that gives the game objects to different modules, and transfers commands from one class to another, allowing them to be detached.
@@ -29,14 +30,14 @@
         private LabyrinthGraphic labyrinthGraphic;
 
         private IGameLogic gameLogic;
-        private Labyrinth labyrinth;
+        private ILabyrinthMoveHandler labyrinth;
         private IFactory factory;
         public GameEngine(IConsoleRenderer renderer, IUserInput input, IFactory factory)
         {
             this.input = input;
             this.renderer = renderer;
             this.factory = factory;
-            this.labyrinth = new Labyrinth(this.factory);
+            this.labyrinth = this.factory.GetLabyrinthInstance(factory);
             this.player = factory.GetPlayerInstance(this.labyrinth);
 
             this.table = this.factory.GetTopResultsInstance();
