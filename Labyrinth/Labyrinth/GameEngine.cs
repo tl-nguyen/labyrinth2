@@ -27,8 +27,6 @@
 
         private IGameLogic gameLogic;
 
-        private bool hasEndedGame;
-
         public GameEngine(IConsoleRenderer renderer, IUserInput input)
         {
             this.input = input;
