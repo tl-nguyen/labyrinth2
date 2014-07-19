@@ -66,8 +66,8 @@ namespace Labyrinth
 
         IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer);
 
-        LabyrinthGfk GetLabyrinthGfk(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix);
+        LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix);
 
-        IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGfk labyrinthGfk, IScene scene, ITable table, IUserInput input);
+        IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input);
     }
 }

@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
     using Commons;
     using Labyrinth.Entities.Contracts;
-using Labyrinth.Entities;
+    using Labyrinth.Entities;
     using Labyrinth.Results.Contracts;
     using Labyrinth.LabyrinthHandler;
 
@@ -21,11 +21,11 @@ using Labyrinth.Entities;
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
-        private LabyrinthGfk labyrinthGfk;
+        private LabyrinthGraphic labyrinthGfk;
         private ITable table;
         private IUserInput input;
 
-        public GameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGfk labyrinthGfk, IScene scene, ITable table, IUserInput input)
+        public GameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input)
         {
             this.player = player;
             this.topMessageBox = topMessageBox;
