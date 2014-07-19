@@ -54,10 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Labyrinth\GameLogic.cs" />
+    <Compile Include="Labyrinth\Factory.cs" />
     <Compile Include="Labyrinth\Cell.cs" />
     <Compile Include="Labyrinth\Commons\CellState.cs" />
     <Compile Include="Labyrinth\Entities\Entity.cs" />
     <Compile Include="Labyrinth\GameEngine.cs" />
+    <Compile Include="Labyrinth\IFactory.cs" />
+    <Compile Include="Labyrinth\IGameLogic.cs" />
     <Compile Include="Labyrinth\Renderer\Contracts\IConsoleRenderer.cs" />
     <Compile Include="Labyrinth\Commons\IntPoint.cs" />
     <Compile Include="Labyrinth\Entities\Contracts\IRenderable.cs" />

@@ -13,11 +13,10 @@
     using Entities;
     using Entities.Contracts;
 
-
     /// <summary>
     /// Returns instances of all classes for the project
     /// </summary>
-    public class LabyrinthFactory
+    public class Factory : IFactory
     {
         /// <summary>
         /// Name of the file for serialization of the top results table.
@@ -30,32 +29,32 @@
         /// Gets the correct instance of the ICell interface
         /// </summary>
         /// <returns>ICell instance</returns>
-        public static ICell GetCellInstance(int row, int col, CellState value)
+        public ICell GetCellInstance(int row, int col, CellState value)
         {
             return new Cell(row, col, value);
         }
 
-        public static IRenderer GetRendererInstance(ILanguageStrings dialogList)
+        public IRenderer GetRendererInstance(ILanguageStrings dialogList)
         {
             return new ConsoleRenderer();
         }
 
-        public static IUserInput GetUserInputInstance()
+        public IUserInput GetUserInputInstance()
         {
             return new UserInputAndOutput();
         }
 
-        public static ILabyrinthMoveHandler GetLabyrinthInstance()
+        public ILabyrinthMoveHandler GetLabyrinthInstance()
         {
             return new LabyrinthHandler.Labyrinth();
         }
 
-        public static IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth)
+        public IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth)
         {
             return new Player(labyrinth);
         }
 
-        public static ICell[,] GetICellMatrixInstance(int size)
+        public ICell[,] GetICellMatrixInstance(int size)
         {
             return new Cell[size, size];
         }
@@ -64,7 +63,7 @@
         /// Gets the correct instance of the class implementing <see cref="IResult"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IResult"/> interface</returns>
-        public static IResult GetResultInstance(int movesCount, string playerName)
+        public IResult GetResultInstance(int movesCount, string playerName)
         {
             // return new SimpleResult(
             //    movesCount, 
@@ -73,28 +72,28 @@
             return new RatedResult(
                 movesCount,
                 playerName,
-                LabyrinthFactory.GetResultFormatterInstance());
+                this.GetResultFormatterInstance());
         }
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IResultFormatter"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IResultFormatter"/> interface</returns>
-        public static IResultFormatter GetResultFormatterInstance()
+        public IResultFormatter GetResultFormatterInstance()
         {
             // return new PlainResultFormatter();
-             return new SeparatorResultFormatter("|");
+            return new SeparatorResultFormatter("|");
         }
 
         /// <summary>
         /// Gets the correct instance of the <see cref="TopResults"/> class.
         /// </summary>
         /// <returns><see cref="TopResults"/> class instance</returns>
-        public static ITable GetTopResultsInstance()
+        public ITable GetTopResultsInstance()
         {
             try
             {
-                return (TopResults)LabyrinthFactory.GetSerializationManagerInstance().Deserialize();
+                return (TopResults)this.GetSerializationManagerInstance().Deserialize();
             }
             catch (System.IO.FileNotFoundException)
             {
@@ -106,47 +105,47 @@
         /// Gets the correct instance of the <see cref="FileSerializationManager"/> class.
         /// </summary>
         /// <returns><see cref="FileSerializationManager"/> class instance</returns>
-        public static FileSerializationManager GetSerializationManagerInstance()
+        public FileSerializationManager GetSerializationManagerInstance()
         {
-            return new FileSerializationManager(new BinaryFormatter(), LabyrinthFactory.TableFileName);
+            return new FileSerializationManager(new BinaryFormatter(), TableFileName);
         }
 
-        public static ILanguageStrings GetLanguageStringsInstance()
+        public ILanguageStrings GetLanguageStringsInstance()
         {
             return new LanguageStrings();
         }
 
-        public static IAppender GetFileAppender(string fileName)
+        public IAppender GetFileAppender(string fileName)
         {
             return new FileAppender(fileName);
         }
 
-        public static IAppender GetMemoryAppender()
+        public IAppender GetMemoryAppender()
         {
             return MemoryAppender.GetInstance();
         }
 
-        public static ILogger GetSimpleLogger(IAppender appender)
+        public ILogger GetSimpleLogger(IAppender appender)
         {
             return new SimpleLogger(appender);
         }
 
-        public static IScene GetConsoleScene(IConsoleRenderer renderer)
+        public IScene GetConsoleScene(IConsoleRenderer renderer)
         {
             return new ConsoleScene(renderer);
         }
 
-        public static IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer)
+        public IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer)
         {
-            return new UiText(coords, renderer, LabyrinthFactory.GetLanguageStringsInstance());
+            return new UiText(coords, renderer, this.GetLanguageStringsInstance());
         }
 
-        public static LabyrinthGfk GetLabyrinthGfk(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix)
+        public LabyrinthGfk GetLabyrinthGfk(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix)
         {
             return new LabyrinthGfk(coords, renderer, matrix);
         }
 
-        public static IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGfk labyrinthGfk, IScene scene, ITable table, IUserInput input)
+        public IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGfk labyrinthGfk, IScene scene, ITable table, IUserInput input)
         {
             //TODO: this must get refactored and only take the game field and the UI controller! 
             return new GameLogic(player, topMessageBox, bottomMessageBox, labyrinthGfk, scene, table, input);

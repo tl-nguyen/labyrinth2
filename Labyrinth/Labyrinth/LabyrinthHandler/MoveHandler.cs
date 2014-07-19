@@ -6,6 +6,7 @@
 
     public abstract class MoveHandler : ILabyrinthMoveHandler
     {
+        //TODO: IMPORTANT refactor this public constant, remove it, and use the actual labyrinth to get it each time, not an effectively static field that if we remove this class, we will not have if we only use ILabyrinthMoveHandler !
         public const int LABYRINTH_SIZE = 10;
 
         public ICell[,] Matrix { get; set; }
