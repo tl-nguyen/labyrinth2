@@ -12,6 +12,9 @@
     using Entities.Contracts;
     using Entities;
 
+    /// <summary>
+    /// Class that gives the game objects to different modules, and transfers commands from one class to another, allowing them to be detached.
+    /// </summary>
     public class GameEngine
     {
         private IConsoleRenderer renderer;

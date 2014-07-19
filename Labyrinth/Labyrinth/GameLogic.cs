@@ -11,9 +11,11 @@ using Labyrinth.Entities;
     using Labyrinth.Results.Contracts;
     using Labyrinth.LabyrinthHandler;
 
+    /// <summary>
+    /// Class that inherits IGameLogic, and handles input, and changes game objects
+    /// </summary>
     public class GameLogic : IGameLogic
     {
-        public bool IsGameOver { get; private set; }
 
         private IPlayer player;
         private IScene scene;
@@ -35,6 +37,14 @@ using Labyrinth.Entities;
             this.IsGameOver = false;
         }
 
+        /// <summary>
+        /// Is set to false normally, sets to true if a game ending condition is reached.
+        /// </summary>
+        public bool IsGameOver { get; private set; }
+
+        /// <summary>
+        /// Receives a Command, processes it, making modifications to the game objects, and sets IsGameOver
+        /// </summary>
         public void ProcessInput(Command input, ref int movesCount)
         {
             movesCount = ExecuteCommand(input, movesCount);
