@@ -4,40 +4,33 @@
     using Contracts;
     using Commons;
 
-    public abstract class MoveHandler : ILabyrinthMoveHandler
+    public abstract class MoveHandler : IMoveHandler
     {
-        //TODO: IMPORTANT refactor this public constant, remove it, and use the actual labyrinth to get it each time, not an effectively static field that if we remove this class, we will not have if we only use ILabyrinthMoveHandler !
-        public const int LABYRINTH_SIZE = 10;
-
-        public ICell[,] Matrix { get; set; }
-
-        public ICell CurrentCell { get; set; }
-
         /// <summary>
         /// Checks if a move can be done using the parent's method TryMove
         /// </summary>
         /// <param name="direction">Current user input direction</param>
         /// <returns>True if a move can be made, false if not</returns>
-        public bool MoveAction(Command direction)
+        public bool MoveAction(ILabyrinth labyrinth, Command direction)
         {
             bool moveDone = false;
             switch (direction)
             {
                 case Command.Up:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Up);
+                        TryMove(labyrinth, Direction.Up);
                     break;
                 case Command.Down:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Down);
+                        TryMove(labyrinth, Direction.Down);
                     break;
                 case Command.Left:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Left);
+                        TryMove(labyrinth, Direction.Left);
                     break;
                 case Command.Right:
                     moveDone =
-                        TryMove(this.CurrentCell, Direction.Right);
+                        TryMove(labyrinth, Direction.Right);
                     break;
                 default:
                     break;
@@ -51,26 +44,26 @@
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        private bool TryMove(ICell currentCell, Direction direction)
+        private bool TryMove(ILabyrinth labyrinth, Direction direction)
         {
-            ICell newCell = FindNewCellCoordinates(currentCell, direction);
+            ICell newCell = FindNewCellCoordinates(labyrinth.CurrentCell, direction);
 
             if (newCell.Row < 0 ||
                 newCell.Col < 0 ||
-                newCell.Row >= this.Matrix.GetLength(0) ||
-                newCell.Col >= this.Matrix.GetLength(1))
+                newCell.Row >= labyrinth.Matrix.GetLength(0) ||
+                newCell.Col >= labyrinth.Matrix.GetLength(1))
             {
                 return false;
             }
 
-            if (!this.Matrix[newCell.Row, newCell.Col].IsEmpty())
+            if (!labyrinth.Matrix[newCell.Row, newCell.Col].IsEmpty())
             {
                 return false;
             }
 
-            this.Matrix[newCell.Row, newCell.Col].CellValue = newCell.CellValue;
-            this.Matrix[currentCell.Row, currentCell.Col].CellValue = CellState.Empty;
-            this.CurrentCell = this.Matrix[newCell.Row, newCell.Col];
+            labyrinth.Matrix[newCell.Row, newCell.Col].CellValue = newCell.CellValue;
+            labyrinth.Matrix[labyrinth.CurrentCell.Row, labyrinth.CurrentCell.Col].CellValue = CellState.Empty;
+            labyrinth.CurrentCell = labyrinth.Matrix[newCell.Row, newCell.Col];
 
             return true;
         }
@@ -110,27 +103,27 @@
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         /// <param name="cellsOrder">the cells order for all successfully moved steps</param>
         /// <param name="visitedCells">the already visited positions</param>
-        public void MoveTo(ICell currentCell, Direction direction,
+        public void MoveTo(ILabyrinth labyrinth, ICell currentCell, Direction direction,
             Queue<ICell> cellsOrder, HashSet<ICell> visitedCells)
         {
             ICell newCell = FindNewCellCoordinates(currentCell, direction);
 
             if (newCell.Row < 0 ||
                 newCell.Col < 0 ||
-                newCell.Row >= this.Matrix.GetLength(0) ||
-                newCell.Col >= this.Matrix.GetLength(1))
+                newCell.Row >= labyrinth.Matrix.GetLength(0) ||
+                newCell.Col >= labyrinth.Matrix.GetLength(1))
             {
                 return;
             }
 
-            if (visitedCells.Contains(this.Matrix[newCell.Row, newCell.Col]))
+            if (visitedCells.Contains(labyrinth.Matrix[newCell.Row, newCell.Col]))
             {
                 return;
             }
 
-            if (this.Matrix[newCell.Row, newCell.Col].IsEmpty())
+            if (labyrinth.Matrix[newCell.Row, newCell.Col].IsEmpty())
             {
-                cellsOrder.Enqueue(this.Matrix[newCell.Row, newCell.Col]);
+                cellsOrder.Enqueue(labyrinth.Matrix[newCell.Row, newCell.Col]);
             }
         }
 
@@ -138,10 +131,10 @@
         /// Check if a given cell is the at the exit of the labyrinth
         /// </summary>
         /// <param name="cell">The given cell to check for if it's at the exit of the labyrinthor not</param>
-        public bool ExitFound(ICell cell)
+        public bool ExitFound(ILabyrinth labyrinth, ICell cell)
         {
-            if (cell.Row == LABYRINTH_SIZE - 1 ||
-                cell.Col == LABYRINTH_SIZE - 1 ||
+            if (cell.Row == labyrinth.LabyrinthSize - 1 ||
+                cell.Col == labyrinth.LabyrinthSize - 1 ||
                 cell.Row == 0 ||
                 cell.Col == 0)
             {

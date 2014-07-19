@@ -33,10 +33,10 @@ namespace Labyrinth
         IUserInput GetUserInputInstance();
 
         /// <summary>
-        /// Gets the correct instance of the class implementing <see cref="ILabyrinthMoveHandler"/> interface.
+        /// Gets the correct instance of the class implementing <see cref="ILabyrinth"/> interface.
         /// </summary>
-        /// <returns>The correct instance of the class implementing <see cref="ILabyrinthMoveHandler"/> interface</returns>
-        ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory);
+        /// <returns>The correct instance of the class implementing <see cref="ILabyrinth"/> interface</returns>
+        ILabyrinth GetLabyrinthInstance(IFactory factory);
 
         /// <summary>
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
@@ -112,13 +112,13 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing LabyrinthGraphic
         /// </summary>
         /// <returns>The correct instance of the class implementing LabyrinthGraphic</returns>
-        LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix);
+        LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
-        IGameLogic GetGameLogic(ILabyrinthMoveHandler labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
+        IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
             LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
     }
 }

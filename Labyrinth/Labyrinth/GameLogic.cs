@@ -18,7 +18,7 @@
     public class GameLogic : IGameLogic
     {
 
-        private ILabyrinthMoveHandler labyrinth;
+        private ILabyrinth labyrinth;
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
@@ -27,7 +27,7 @@
         private IUserInput input;
         private IFactory factory;
 
-        public GameLogic(ILabyrinthMoveHandler labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
+        public GameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
             LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
         {
             this.labyrinth = labyrinth;
@@ -68,7 +68,7 @@
                 case Command.Left:
                 case Command.Right:
                     bool moveDone =
-                        this.labyrinth.MoveAction(input);
+                        this.labyrinth.MoveAction(this.labyrinth, input);
                     if (moveDone == true)
                     {
                         movesCount++;
@@ -108,15 +108,15 @@
             }
         }
 
-        private bool IsGameFinished(ILabyrinthMoveHandler labyrinth)
+        private bool IsGameFinished(ILabyrinth labyrinth)
         {
             bool isGameOver = false;
             int currentRow = labyrinth.CurrentCell.Row;
             int currentCol = labyrinth.CurrentCell.Col;
             if (currentRow == 0 ||
                 currentCol == 0 ||
-                currentRow == MoveHandler.LABYRINTH_SIZE - 1 ||
-                currentCol == MoveHandler.LABYRINTH_SIZE - 1)
+                currentRow == labyrinth.LabyrinthSize - 1 ||
+                currentCol == labyrinth.LabyrinthSize - 1)
             {
                 isGameOver = true;
             }

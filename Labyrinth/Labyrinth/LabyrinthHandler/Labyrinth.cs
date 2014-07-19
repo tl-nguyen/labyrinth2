@@ -8,20 +8,29 @@
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>
-    public class Labyrinth : MoveHandler, ILabyrinthMoveHandler
+    public class Labyrinth : MoveHandler, ILabyrinth
     {
-        private readonly int labyrintStartRow = LABYRINTH_SIZE / 2;
-        private readonly int labyrinthStartCol = LABYRINTH_SIZE / 2;
+        private readonly int labyrintStartRow;
+        private readonly int labyrinthStartCol;
         private IFactory factory;
 
         public Labyrinth(IFactory factory)
         {
             this.factory = factory;
-            
-            this.Matrix = factory.GetICellMatrixInstance(LABYRINTH_SIZE);
+            this.LabyrinthSize = 10;
+            this.labyrinthStartCol = this.LabyrinthSize / 2;
+            this.labyrintStartRow = this.LabyrinthSize / 2;
+
+            this.Matrix = factory.GetICellMatrixInstance(this.LabyrinthSize);
             GenerateLabyrinth();
             this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
         }
+
+        public ICell[,] Matrix { get; set; }
+
+        public ICell CurrentCell { get; set; }
+
+        public int LabyrinthSize { get; private set; }
 
         /// <summary>
         /// Generating the labyrinth for the game
@@ -29,14 +38,13 @@
         public void GenerateLabyrinth()
         {
             Random rand = new Random();
-            
 
             bool exitPathExists = false;
             while (!exitPathExists)
             {
-                for (int row = 0; row < LABYRINTH_SIZE; row++)
+                for (int row = 0; row < this.LabyrinthSize; row++)
                 {
-                    for (int col = 0; col < LABYRINTH_SIZE; col++)
+                    for (int col = 0; col < this.LabyrinthSize; col++)
                     {
                         int cellRandomValue = rand.Next(0, 2);
 
@@ -70,15 +78,15 @@
                 ICell currentCell = cellsOrder.Dequeue();
                 visitedCells.Add(currentCell);
 
-                if (ExitFound(currentCell))
+                if (ExitFound(this, currentCell))
                 {
                     return true;
                 }
 
-                MoveTo(currentCell, Direction.Down, cellsOrder, visitedCells);
-                MoveTo(currentCell, Direction.Up, cellsOrder, visitedCells);
-                MoveTo(currentCell, Direction.Left, cellsOrder, visitedCells);
-                MoveTo(currentCell, Direction.Right, cellsOrder, visitedCells);
+                MoveTo(this, currentCell, Direction.Down, cellsOrder, visitedCells);
+                MoveTo(this, currentCell, Direction.Up, cellsOrder, visitedCells);
+                MoveTo(this, currentCell, Direction.Left, cellsOrder, visitedCells);
+                MoveTo(this, currentCell, Direction.Right, cellsOrder, visitedCells);
             }
 
             return false;

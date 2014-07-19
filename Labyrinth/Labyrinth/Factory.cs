@@ -44,7 +44,7 @@
             return new UserInputAndOutput();
         }
 
-        public ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory)
+        public ILabyrinth GetLabyrinthInstance(IFactory factory)
         {
             return new Labyrinth(factory);
         }
@@ -135,12 +135,12 @@
             return new UiText(coords, renderer, this.GetLanguageStringsInstance());
         }
 
-        public LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix)
+        public LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth)
         {
-            return new LabyrinthGraphic(coords, renderer, matrix);
+            return new LabyrinthGraphic(coords, renderer, labyrinth);
         }
 
-        public IGameLogic GetGameLogic(ILabyrinthMoveHandler labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
+        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
             LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
         {
             //TODO: this must get refactored and only take the game field and the UI controller! 

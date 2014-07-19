@@ -29,7 +29,7 @@
         private LabyrinthGraphic labyrinthGraphic;
 
         private IGameLogic gameLogic;
-        private ILabyrinthMoveHandler labyrinth;
+        private ILabyrinth labyrinth;
         private IFactory factory;
         public GameEngine(IConsoleRenderer renderer, IUserInput input, IFactory factory)
         {
@@ -53,7 +53,7 @@
 
             this.bottomMessageBox = this.factory.GetUiText(new IntPoint(0, 20), this.renderer);
 
-            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.labyrinth.Matrix);
+            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.labyrinth);
 
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.topMessageBox, this.bottomMessageBox, 
                 this.labyrinthGraphic, this.scene, this.table, this.input,this.factory);

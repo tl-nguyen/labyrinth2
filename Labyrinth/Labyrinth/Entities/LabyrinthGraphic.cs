@@ -4,6 +4,7 @@ using Labyrinth.Renderer.Contracts;
 using Labyrinth.Commons;
 using Labyrinth.Entities.Contracts;
 using Labyrinth.LabyrinthHandler;
+using Labyrinth.LabyrinthHandler.Contracts;
 
 namespace Labyrinth.Entities
 {
@@ -14,9 +15,9 @@ namespace Labyrinth.Entities
         private const char PLAYER_CELL = '*';
 
         private IRenderer renderer;
-        private ICell[,] labyrinth;
+        private ILabyrinth labyrinth;
 
-        public LabyrinthGraphic(IntPoint coords, IRenderer renderer, ICell[,] labyrinth)
+        public LabyrinthGraphic(IntPoint coords, IRenderer renderer, ILabyrinth labyrinth)
             : base(coords)
         {
             this.renderer = renderer;
@@ -32,12 +33,12 @@ namespace Labyrinth.Entities
         {
             StringBuilder sb = new StringBuilder();
 
-            int labyrinthSize = MoveHandler.LABYRINTH_SIZE;
+            int labyrinthSize = this.labyrinth.LabyrinthSize;
             for (int row = 0; row < labyrinthSize; row++)
             {
                 for (int col = 0; col < labyrinthSize; col++)
                 {
-                    ICell cell = this.labyrinth[row, col];
+                    ICell cell = this.labyrinth.Matrix[row, col];
                     switch (cell.CellValue)
                     {
                         case CellState.Empty:
