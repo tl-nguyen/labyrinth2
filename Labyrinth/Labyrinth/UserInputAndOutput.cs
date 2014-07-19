@@ -3,9 +3,6 @@
     using System;
     using Commons;
 
-    /// <summary>
-    /// Concrete implimentation of IUserInput that receives commands from the console, and returns them as an enumeration ( or string )
-    /// </summary>
     public class UserInputAndOutput : IUserInput
     {
         //public static string GetInput()
@@ -14,11 +11,6 @@
         //    return inputLine;
         //}
         //TODO: Refactor strings
-
-        /// <summary>
-        /// Gets the user input, and returns it as a Command
-        /// </summary>
-        /// <returns>Command</returns>
         public Command GetInput()
         {
             var inputLine = Console.ReadKey();
@@ -37,10 +29,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the player name from the user
-        /// </summary>
-        /// <returns>the player name as a string</returns>
         public string GetPlayerName()
         {
             string inputLine = Console.ReadLine();

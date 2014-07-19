@@ -145,11 +145,5 @@
         {
             return new LabyrinthGfk(coords, renderer, matrix);
         }
-
-        public static IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, LabyrinthGfk labyrinthGfk, IScene scene, ITable table, IUserInput input)
-        {
-            //TODO: this must get refactored and only take the game field and the UI controller! 
-            return new GameLogic(player, topMessageBox, bottomMessageBox, labyrinthGfk, scene, table, input);
-        }
     }
 }

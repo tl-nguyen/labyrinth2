@@ -63,8 +63,6 @@ Ilian - LabyrinthFactory.cs
 4.Added ICell matrix to the factory, and replaced implementation in Labyrinth.
 5.Added Result to the factory
 6.Added instancialization of Result in the GameEngine.cs to be in the Factory.
-7. Added IFactory interface
-8.Added temporary class that will take over the functions of the LabyrinthFactory after all statics are removed
 
 Ilian - IRenderer.cs, ConsoleRenderer.cs
 1.All rendering logic inside the renderer. Its moved from UserInputAndOutput.
@@ -92,11 +90,6 @@ Ilian - Labyrinth.cs
 Ilian - Player.cs
 1.Created IPlayer interface
 2.Player is no longer a move handler
-
-Ilian - IGameLogic.cs, GameLogic.cs
-1.Created an interface with only ProcessInput and IsGameOver public methods
-2.Created concrete implementation
-3.Moved logic from the GameEngine to the GameLogic
 
 Ivan - /Loggers - Create new folder for loggers classes and interfaces
 1. Create new interface IAppender.cs
