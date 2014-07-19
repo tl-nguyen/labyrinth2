@@ -15,19 +15,39 @@ namespace Labyrinth
     public interface IFactory
     {
         /// <summary>
-        /// Gets the correct instance of the ICell interface
+        /// Gets the correct instance of the class implementing <see cref="ICell"/> interface.
         /// </summary>
-        /// <returns>ICell instance</returns>
+        /// <returns>The correct instance of the class implementing <see cref="ICell"/> interface</returns>
         ICell GetCellInstance(int row, int col, CellState value);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IRenderer"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
         IRenderer GetRendererInstance(ILanguageStrings dialogList);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IUserInput"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IUserInput"/> interface</returns>
         IUserInput GetUserInputInstance();
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="ILabyrinthMoveHandler"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="ILabyrinthMoveHandler"/> interface</returns>
         ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IPlayer"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IPlayer"/> interface</returns>
         IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth);
 
+        /// <summary>
+        /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
+        /// </summary>
+        /// <returns>The correct matrix instance of the class implementing <see cref="ICell"/> interface</returns>
         ICell[,] GetICellMatrixInstance(int size);
 
         /// <summary>
@@ -54,20 +74,56 @@ namespace Labyrinth
         /// <returns><see cref="FileSerializationManager"/> class instance</returns>
         FileSerializationManager GetSerializationManagerInstance();
 
+
+
+
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="ILanguageStrings"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="ILanguageStrings"/> interface</returns>
         ILanguageStrings GetLanguageStringsInstance();
 
+        /// <summary>
+        /// Gets the correct instance of the file class implementing <see cref="IAppender"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the file class implementing <see cref="IAppender"/> interface</returns>
         IAppender GetFileAppender(string fileName);
 
+        /// <summary>
+        /// Gets the correct instance of the memory class implementing <see cref="IAppender"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the memory class implementing <see cref="IAppender"/> interface</returns>
         IAppender GetMemoryAppender();
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="ILogger"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="ILogger"/> interface</returns>
         ILogger GetSimpleLogger(IAppender appender);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IScene"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IScene"/> interface</returns>
         IScene GetConsoleScene(IConsoleRenderer renderer);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IUiText"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IUiText"/> interface</returns>
         IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing LabyrinthGraphic
+        /// </summary>
+        /// <returns>The correct instance of the class implementing LabyrinthGraphic</returns>
         LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ICell[,] matrix);
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
         IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, 
             LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
     }
