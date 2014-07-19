@@ -67,7 +67,7 @@
         public void TestCellValue()
         {
             Cell cell = new Cell(3, 5, CellState.Wall);
-            Assert.Equals(CellState.Wall, cell.CellValue);
+            Assert.AreEqual(CellState.Wall, cell.CellValue);
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@
         {
             Cell cell = new Cell(3, 5, CellState.Wall);
             cell.CellValue = CellState.Player;
-            Assert.Equals(CellState.Player, cell.CellValue);
+            Assert.AreEqual(CellState.Player, cell.CellValue);
         }
     }
 }
