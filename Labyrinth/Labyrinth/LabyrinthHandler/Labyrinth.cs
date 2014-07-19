@@ -22,11 +22,11 @@
 
         public int LabyrinthSize { get; private set; }
 
-        public Labyrinth(IFactory factory, IMoveHandler moveHandler)
+        public Labyrinth(IFactory factory, IMoveHandler moveHandler, int labyrinthSize = 10)
         {
             this.factory = factory;
             this.MoveHandler = moveHandler;
-            this.LabyrinthSize = 10;
+            this.LabyrinthSize = labyrinthSize;
             this.labyrinthStartCol = this.LabyrinthSize / 2;
             this.labyrintStartRow = this.LabyrinthSize / 2;
 
