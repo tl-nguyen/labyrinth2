@@ -46,7 +46,7 @@
 
         public ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory)
         {
-            return new LabyrinthHandler.Labyrinth(factory);
+            return new Labyrinth(factory);
         }
 
         public IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth)

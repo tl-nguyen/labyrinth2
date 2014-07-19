@@ -6,7 +6,7 @@
     /// <summary>
     /// Encapsulates the object that represents a single instance of the ICell interface
     /// </summary>
-    public class Cell : ICell,ICloneable
+    public class Cell : ICell, ICloneable
     {
         private int row;
         private int col;
@@ -66,6 +66,9 @@
             }
         }
 
+        /// <summary>
+        /// Gets and sets the value of the Cell
+        /// </summary>
         public CellState CellValue { get; set; }
 
         /// <summary>
@@ -82,9 +85,13 @@
             return false;
         }
 
+        /// <summary>
+        /// Creates a deep copy of the object
+        /// </summary>
+        /// <returns>New deep copy of the object</returns>
         public object Clone()
         {
-            var copy = this.MemberwiseClone();
+            Cell copy = new Cell(this.Row, this.Col, this.CellValue);
             return copy;
         }
     }

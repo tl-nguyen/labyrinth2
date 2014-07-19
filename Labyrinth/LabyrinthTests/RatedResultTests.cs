@@ -7,6 +7,7 @@
     [TestClass]
     public class RatedResultTests
     {
+        private static Factory LabyrinthFactory = new Factory();
         [TestMethod]
         public void TestRatedResultConstructorCreateResult()
         {

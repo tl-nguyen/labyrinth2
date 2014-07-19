@@ -77,5 +77,15 @@
             cell.CellValue = CellState.Player;
             Assert.AreEqual(CellState.Player, cell.CellValue);
         }
+
+        [TestMethod]
+        public void TestClone()
+        {
+            Cell cell = new Cell(3, 5, CellState.Wall);
+            Cell copy = (Cell)cell.Clone();
+            Assert.AreEqual(cell.CellValue, copy.CellValue);
+            Assert.AreEqual(cell.Col, copy.Col);
+            Assert.AreEqual(cell.Row, copy.Row);
+        }
     }
 }
