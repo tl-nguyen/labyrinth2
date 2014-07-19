@@ -39,12 +39,6 @@ namespace Labyrinth
         ILabyrinthMoveHandler GetLabyrinthInstance(IFactory factory);
 
         /// <summary>
-        /// Gets the correct instance of the class implementing <see cref="IPlayer"/> interface.
-        /// </summary>
-        /// <returns>The correct instance of the class implementing <see cref="IPlayer"/> interface</returns>
-        IPlayer GetPlayerInstance(ILabyrinthMoveHandler labyrinth);
-
-        /// <summary>
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
         /// </summary>
         /// <returns>The correct matrix instance of the class implementing <see cref="ICell"/> interface</returns>
@@ -124,7 +118,7 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
-        IGameLogic GetGameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, 
+        IGameLogic GetGameLogic(ILabyrinthMoveHandler labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
             LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
     }
 }

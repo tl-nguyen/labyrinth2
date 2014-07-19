@@ -12,12 +12,46 @@
         public ICell[,] Matrix { get; set; }
 
         public ICell CurrentCell { get; set; }
+
+        /// <summary>
+        /// Checks if a move can be done using the parent's method TryMove
+        /// </summary>
+        /// <param name="direction">Current user input direction</param>
+        /// <returns>True if a move can be made, false if not</returns>
+        public bool MoveAction(Command direction)
+        {
+            bool moveDone = false;
+            switch (direction)
+            {
+                case Command.Up:
+                    moveDone =
+                        TryMove(this.CurrentCell, Direction.Up);
+                    break;
+                case Command.Down:
+                    moveDone =
+                        TryMove(this.CurrentCell, Direction.Down);
+                    break;
+                case Command.Left:
+                    moveDone =
+                        TryMove(this.CurrentCell, Direction.Left);
+                    break;
+                case Command.Right:
+                    moveDone =
+                        TryMove(this.CurrentCell, Direction.Right);
+                    break;
+                default:
+                    break;
+            }
+
+            return moveDone;
+        }
+
         /// <summary>
         /// Try the next move to the new cell, if it is valid
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        public bool TryMove(ICell currentCell, Direction direction)
+        private bool TryMove(ICell currentCell, Direction direction)
         {
             ICell newCell = FindNewCellCoordinates(currentCell, direction);
 

@@ -11,7 +11,7 @@
     using Renderer.Contracts;
     using Entities.Contracts;
     using Entities;
-    using Labyrinth.LabyrinthHandler.Contracts;
+    using LabyrinthHandler.Contracts;
 
     /// <summary>
     /// Class that gives the game objects to different modules, and transfers commands from one class to another, allowing them to be detached.
@@ -20,7 +20,6 @@
     {
         private IConsoleRenderer renderer;
         private IUserInput input;
-        private IPlayer player;
         private ITable table;
         private ILogger simpleLoggerFileAppender;
        
@@ -38,7 +37,6 @@
             this.renderer = renderer;
             this.factory = factory;
             this.labyrinth = this.factory.GetLabyrinthInstance(factory);
-            this.player = factory.GetPlayerInstance(this.labyrinth);
 
             this.table = this.factory.GetTopResultsInstance();
             
@@ -55,9 +53,9 @@
 
             this.bottomMessageBox = this.factory.GetUiText(new IntPoint(0, 20), this.renderer);
 
-            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.player.Labyrinth.Matrix);
+            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.labyrinth.Matrix);
 
-            this.gameLogic = factory.GetGameLogic(this.player, this.topMessageBox, this.bottomMessageBox, 
+            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.topMessageBox, this.bottomMessageBox, 
                 this.labyrinthGraphic, this.scene, this.table, this.input,this.factory);
             //TODO: labyrinth size refactor
             //TODO: 1 more layer of abstraction renderable entity : entity logic

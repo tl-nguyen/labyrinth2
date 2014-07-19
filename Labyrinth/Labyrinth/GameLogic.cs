@@ -6,10 +6,11 @@
     using System.Text;
     using System.Threading.Tasks;
     using Commons;
-    using Labyrinth.Entities.Contracts;
-    using Labyrinth.Entities;
-    using Labyrinth.Results.Contracts;
-    using Labyrinth.LabyrinthHandler;
+    using Entities.Contracts;
+    using Entities;
+    using Results.Contracts;
+    using LabyrinthHandler;
+    using LabyrinthHandler.Contracts;
 
     /// <summary>
     /// Class that inherits IGameLogic, and handles input, and changes game objects
@@ -17,7 +18,7 @@
     public class GameLogic : IGameLogic
     {
 
-        private IPlayer player;
+        private ILabyrinthMoveHandler labyrinth;
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
@@ -26,10 +27,10 @@
         private IUserInput input;
         private IFactory factory;
 
-        public GameLogic(IPlayer player, IUiText topMessageBox, IUiText bottomMessageBox, 
+        public GameLogic(ILabyrinthMoveHandler labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
             LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
         {
-            this.player = player;
+            this.labyrinth = labyrinth;
             this.topMessageBox = topMessageBox;
             this.bottomMessageBox = bottomMessageBox;
             this.labyrinthGfk = labyrinthGfk;
@@ -52,7 +53,7 @@
         {
             movesCount = ExecuteCommand(input, movesCount);
 
-            if (this.IsGameFinished(this.player) && input != Command.Restart)
+            if (this.IsGameFinished(this.labyrinth) && input != Command.Restart)
             {
                 this.GameOver(movesCount);
             }
@@ -67,7 +68,7 @@
                 case Command.Left:
                 case Command.Right:
                     bool moveDone =
-                        this.player.MoveAction(input);
+                        this.labyrinth.MoveAction(input);
                     if (moveDone == true)
                     {
                         movesCount++;
@@ -107,11 +108,11 @@
             }
         }
 
-        private bool IsGameFinished(IPlayer player)
+        private bool IsGameFinished(ILabyrinthMoveHandler labyrinth)
         {
             bool isGameOver = false;
-            int currentRow = player.Labyrinth.CurrentCell.Row;
-            int currentCol = player.Labyrinth.CurrentCell.Col;
+            int currentRow = labyrinth.CurrentCell.Row;
+            int currentCol = labyrinth.CurrentCell.Col;
             if (currentRow == 0 ||
                 currentCol == 0 ||
                 currentRow == MoveHandler.LABYRINTH_SIZE - 1 ||

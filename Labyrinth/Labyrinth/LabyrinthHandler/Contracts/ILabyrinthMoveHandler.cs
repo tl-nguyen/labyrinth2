@@ -10,13 +10,6 @@ namespace Labyrinth.LabyrinthHandler.Contracts
         ICell CurrentCell { get; set; }
 
         /// <summary>
-        /// Try the next move to the new cell, if it is valid
-        /// </summary>
-        /// <param name="currentCell">The current cell object, where the player is at</param>
-        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        new bool TryMove(ICell currentCell, Direction direction);
-
-        /// <summary>
         /// Return a new cell object, after the player is moved by a direction
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
