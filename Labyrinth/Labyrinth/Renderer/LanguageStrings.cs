@@ -24,6 +24,8 @@
                                     " 'r' to start a new game and 'e' to quit the game.");
             this.dialogList.Add("WinMessage", "Congratulations! You escaped in {0} moves.");
             this.dialogList.Add("AllWrong", "If this happens something is very wrong with the logic of PrintLabyrinth method");
+
+            this.dialogList.Add("WelcomeV2", "Welcome to “Labyrinth” game. Please try to escape. Use 't' to view the top scoreboard, 'r' to start a new game and 'e' to quit the game.");
         }
 
         public string GetDialog(string key)

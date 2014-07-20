@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Labyrinth.UI.Contracts;
 using Labyrinth.Renderer.Contracts;
 
-namespace Labyrinth
+namespace Labyrinth.UI
 {
     public class ConsoleScene : IScene
     {

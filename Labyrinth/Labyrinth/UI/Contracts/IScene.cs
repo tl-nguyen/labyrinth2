@@ -1,6 +1,4 @@
-﻿using Labyrinth.UI.Contracts;
-
-namespace Labyrinth
+﻿namespace Labyrinth.UI.Contracts
 {
     public interface IScene
     {

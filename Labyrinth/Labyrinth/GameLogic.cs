@@ -22,18 +22,18 @@
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
-        private LabyrinthGraphic labyrinthGfk;
+        private LabyrinthGraphic labyrinthGraphic;
         private ITable table;
         private IUserInput input;
         private IFactory factory;
 
-        public GameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
-            LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
+        public GameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
+            LabyrinthGraphic labyrinthGraphic, IScene scene, ITable table, IUserInput input, IFactory factory)
         {
             this.labyrinth = labyrinth;
             this.topMessageBox = topMessageBox;
             this.bottomMessageBox = bottomMessageBox;
-            this.labyrinthGfk = labyrinthGfk;
+            this.labyrinthGraphic = labyrinthGraphic;
             this.scene = scene;
             this.table = table;
             this.input = input;
@@ -97,12 +97,12 @@
 
         private void Exit()
         {
-            this.scene.Remove(labyrinthGfk);
+            this.scene.Remove(labyrinthGraphic);
             this.topMessageBox.SetText("GoodBye", true);
             this.bottomMessageBox.SetText("Press any key to exit...", false);
             this.bottomMessageBox.SetY(1);
             this.scene.Render();
-            if (Console.ReadKey(true) != null) //TODO: refactor
+            if (Console.ReadKey(true) != null)
             {
                 Environment.Exit(0);
             }
@@ -126,7 +126,7 @@
 
         private void GameOver(int movesCount)
         {
-            this.scene.Remove(labyrinthGfk);
+            this.scene.Remove(labyrinthGraphic);
             topMessageBox.SetText("WinMessage", new string[] { movesCount.ToString() });
             if (this.table.IsTopResult(movesCount))
             {

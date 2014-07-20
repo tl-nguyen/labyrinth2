@@ -58,7 +58,6 @@
 
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.topMessageBox, this.bottomMessageBox, 
                 this.labyrinthGraphic, this.scene, this.table, this.input,this.factory);
-            //TODO: labyrinth size refactor
             //TODO: 1 more layer of abstraction renderable entity : entity logic
             //TODO: UI Controller
             //TODO: Bottom messages as console
@@ -74,6 +73,10 @@
             this.Init();
 
             int movesCount = 0;
+
+            //test
+            GameConsole testConsole = new GameConsole(this.factory.GetLanguageStringsInstance());
+            testConsole.AddInput("WelcomeV2");
 
             while (!this.gameLogic.IsGameOver)
             {
