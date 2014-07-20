@@ -2,8 +2,8 @@
 {
     using Loggers;
     using System.Runtime.Serialization.Formatters.Binary;
-    using LabyrinthHandler;
-    using LabyrinthHandler.Contracts;
+    using Entities.LabyrinthHandler;
+    using Entities.LabyrinthHandler.Contracts;
     using Results;
     using Results.Contracts;
     using Loggers.Contracts;
@@ -46,7 +46,7 @@
 
         public ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
         {
-            return new LabyrinthHandler.Labyrinth(factory, moveHandler); //compiler recognizes just Labyrinth as the namespace and not type, no clue if this is th
+            return new Entities.LabyrinthHandler.Labyrinth(factory, moveHandler); //compiler recognizes just Labyrinth as the namespace and not type, no clue if this is th
         }
 
         public ICell[,] GetICellMatrixInstance(int size)
@@ -141,10 +141,10 @@
         }
 
         public IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
-            ConsoleRenderableLabyrinth labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory)
+            IScene scene, ITable table, IUserInput input, IFactory factory)
         {
             //TODO: this must get refactored and only take the game field and the UI controller! 
-            return new GameLogic(labyrinth, topMessageBox, bottomMessageBox, labyrinthGfk, scene, table, input, factory);
+            return new GameLogic(labyrinth, topMessageBox, bottomMessageBox, scene, table, input, factory);
         }
     }
 }

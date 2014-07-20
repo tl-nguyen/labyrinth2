@@ -55,13 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Labyrinth\Entities\Entity.cs" />
+    <Compile Include="Labyrinth\Entities\Contracts\IEntity.cs" />
     <Compile Include="Labyrinth\GameConsole.cs" />
     <Compile Include="Labyrinth\GameLogic.cs" />
     <Compile Include="Labyrinth\Factory.cs" />
     <Compile Include="Labyrinth\Cell.cs" />
     <Compile Include="Labyrinth\Commons\CellState.cs" />
     <Compile Include="Labyrinth\IGameConsole.cs" />
+    <Compile Include="Labyrinth\UI\ConsoleRenderableEntity.cs" />
     <Compile Include="Labyrinth\UI\ConsoleRenderableLabyrinth.cs" />
+    <Compile Include="Labyrinth\UI\ConsoleScene.cs" />
     <Compile Include="Labyrinth\UI\RenderableEntity.cs" />
     <Compile Include="Labyrinth\GameEngine.cs" />
     <Compile Include="Labyrinth\IFactory.cs" />
@@ -73,8 +77,7 @@
     <Compile Include="Labyrinth\UI\Contracts\IScene.cs" />
     <Compile Include="Labyrinth\Renderer\ConsoleRenderer.cs" />
     <Compile Include="Labyrinth\UI\Contracts\IUiText.cs" />
-    <Compile Include="Labyrinth\UI\LabyrinthGraphic.cs" />
-    <Compile Include="Labyrinth\UI\ConsoleScene.cs" />
+    <Compile Include="Labyrinth\UI\Scene.cs" />
     <Compile Include="Labyrinth\UI\UiText.cs" />
     <Compile Include="Labyrinth\Renderer\Contracts\ILanguageStrings.cs" />
     <Compile Include="Labyrinth\Renderer\LanguageStrings.cs" />
@@ -82,21 +85,21 @@
     <Compile Include="Labyrinth\Results\PlayerRating.cs" />
     <Compile Include="Labyrinth\Commons\Command.cs" />
     <Compile Include="Labyrinth\Commons\Direction.cs" />
-    <Compile Include="Labyrinth\LabyrinthHandler\Contracts\ILabyrinth.cs" />
-    <Compile Include="Labyrinth\LabyrinthHandler\Contracts\IMoveHandler.cs" />
+    <Compile Include="Labyrinth\Entities\LabyrinthHandler\Contracts\ILabyrinth.cs" />
+    <Compile Include="Labyrinth\Entities\LabyrinthHandler\Contracts\IMoveHandler.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResult.cs" />
     <Compile Include="Labyrinth\Results\Contracts\ITable.cs" />
     <Compile Include="Labyrinth\IUserInput.cs" />
     <Compile Include="Labyrinth\Results\FileSerializationManager.cs" />
     <Compile Include="Labyrinth\ICell.cs" />
     <Compile Include="Labyrinth\GameStart.cs" />
-    <Compile Include="Labyrinth\LabyrinthHandler\Labyrinth.cs" />
+    <Compile Include="Labyrinth\Entities\LabyrinthHandler\Labyrinth.cs" />
     <Compile Include="Labyrinth\Loggers\FileAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\IAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\ILogger.cs" />
     <Compile Include="Labyrinth\Loggers\SimpleLogger.cs" />
     <Compile Include="Labyrinth\Loggers\MemoryAppender.cs" />
-    <Compile Include="Labyrinth\LabyrinthHandler\MoveHandler.cs" />
+    <Compile Include="Labyrinth\Entities\LabyrinthHandler\MoveHandler.cs" />
     <Compile Include="Labyrinth\Results\RatedResult.cs" />
     <Compile Include="Labyrinth\Results\PlainResultFormatter.cs" />
     <Compile Include="Labyrinth\Results\SeparatorResultFormatter.cs" />

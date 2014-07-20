@@ -1,5 +1,5 @@
 ﻿using System;
-using Labyrinth.LabyrinthHandler;
+using Labyrinth.Entities.LabyrinthHandler;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -33,7 +33,7 @@ namespace Labyrinth.Tests
         public void TestLabyrinthInstance()
         {
             MoveHandler testHandler = new MoveHandler();
-            LabyrinthHandler.Labyrinth testLab = new LabyrinthHandler.Labyrinth(testFactory, testHandler);
+            Entities.LabyrinthHandler.Labyrinth testLab = new Entities.LabyrinthHandler.Labyrinth(testFactory, testHandler);
             var factLabyrinth = testFactory.GetLabyrinthInstance(testFactory, testHandler);
 
             Object.Equals(testLab, factLabyrinth);

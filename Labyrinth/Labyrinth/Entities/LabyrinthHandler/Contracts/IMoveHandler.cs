@@ -1,4 +1,4 @@
-﻿namespace Labyrinth.LabyrinthHandler.Contracts
+﻿namespace Labyrinth.Entities.LabyrinthHandler.Contracts
 {
     using Commons;
     using System.Collections.Generic;

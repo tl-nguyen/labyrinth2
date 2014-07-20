@@ -1,6 +1,7 @@
 ﻿using Labyrinth.Commons;
 using Labyrinth.UI.Contracts;
 using Labyrinth.Renderer.Contracts;
+using Labyrinth.Entities.Contracts;
 
 namespace Labyrinth.UI
 {
@@ -10,9 +11,11 @@ namespace Labyrinth.UI
 
         public IntPoint TopLeft { get; set; }
         public dynamic Graphic { get; protected set; }
+        protected IEntity entity;
 
-        public RenderableEntity(IntPoint coords, IRenderer renderer)
+        public RenderableEntity(IEntity entity, IntPoint coords, IRenderer renderer)
         {
+            this.entity = entity;
             this.TopLeft = coords;
             this.renderer = renderer;
         }

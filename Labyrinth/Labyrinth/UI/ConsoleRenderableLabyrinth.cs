@@ -3,8 +3,8 @@ using System.Text;
 using Labyrinth.Renderer.Contracts;
 using Labyrinth.Commons;
 using Labyrinth.UI.Contracts;
-using Labyrinth.LabyrinthHandler;
-using Labyrinth.LabyrinthHandler.Contracts;
+using Labyrinth.Entities.LabyrinthHandler;
+using Labyrinth.Entities.LabyrinthHandler.Contracts;
 
 namespace Labyrinth.UI
 {
@@ -17,7 +17,7 @@ namespace Labyrinth.UI
         private ILabyrinth labyrinth;
 
         public ConsoleRenderableLabyrinth(IntPoint coords, IRenderer renderer, ILabyrinth labyrinth)
-            : base(coords, renderer)
+            : base(labyrinth, coords, renderer)
         {
             this.labyrinth = labyrinth;
             this.Graphic = this.GenerateStringGraphic();
@@ -25,8 +25,11 @@ namespace Labyrinth.UI
 
         override public void Render()
         {
-            this.UpdateGraphic();
-            this.renderer.RenderEntity(this);
+            if (this.labyrinth.Active)
+            {
+                this.UpdateGraphic();
+                this.renderer.RenderEntity(this);
+            }
         }
 
         private void UpdateGraphic()

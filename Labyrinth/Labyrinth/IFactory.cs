@@ -4,7 +4,7 @@ namespace Labyrinth
     using Commons;
     using UI;
     using UI.Contracts;
-    using LabyrinthHandler.Contracts;
+    using Entities.LabyrinthHandler.Contracts;
     using Loggers;
     using Loggers.Contracts;
     using Renderer;
@@ -119,6 +119,6 @@ namespace Labyrinth
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
         IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
-            ConsoleRenderableLabyrinth labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
+            IScene scene, ITable table, IUserInput input, IFactory factory);
     }
 }

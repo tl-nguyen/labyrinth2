@@ -9,8 +9,8 @@
     using UI.Contracts;
     using UI;
     using Results.Contracts;
-    using LabyrinthHandler;
-    using LabyrinthHandler.Contracts;
+    using Entities.LabyrinthHandler;
+    using Entities.LabyrinthHandler.Contracts;
 
     /// <summary>
     /// Class that inherits IGameLogic, and handles input, and changes game objects
@@ -22,18 +22,16 @@
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
-        private ConsoleRenderableLabyrinth labyrinthGraphic;
         private ITable table;
         private IUserInput input;
         private IFactory factory;
 
         public GameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
-            ConsoleRenderableLabyrinth labyrinthGraphic, IScene scene, ITable table, IUserInput input, IFactory factory)
+            IScene scene, ITable table, IUserInput input, IFactory factory)
         {
             this.labyrinth = labyrinth;
             this.topMessageBox = topMessageBox;
             this.bottomMessageBox = bottomMessageBox;
-            this.labyrinthGraphic = labyrinthGraphic;
             this.scene = scene;
             this.table = table;
             this.input = input;
@@ -97,7 +95,7 @@
 
         private void Exit()
         {
-            this.scene.Remove(labyrinthGraphic);
+            this.labyrinth.Deactivate();
             this.topMessageBox.SetText("GoodBye", true);
             this.bottomMessageBox.SetText("Press any key to exit...", false);
             this.bottomMessageBox.SetY(1);
@@ -126,7 +124,7 @@
 
         private void GameOver(int movesCount)
         {
-            this.scene.Remove(labyrinthGraphic);
+            this.labyrinth.Deactivate();
             topMessageBox.SetText("WinMessage", new string[] { movesCount.ToString() });
             if (this.table.IsTopResult(movesCount))
             {

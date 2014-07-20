@@ -1,14 +1,16 @@
-﻿namespace Labyrinth.LabyrinthHandler
+﻿using System;
+using System.Collections.Generic;
+using Labyrinth.Commons;
+using Labyrinth.Entities;
+using Labyrinth.Entities.LabyrinthHandler.Contracts;
+
+namespace Labyrinth.Entities.LabyrinthHandler
 {
-    using System;
-    using System.Collections.Generic;
-    using Contracts;
-    using Commons;
     
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>
-    public class Labyrinth : ILabyrinth
+    public class Labyrinth : Entity, ILabyrinth
     {
         private const int DEFAULT_SIZE = 10;
         private readonly int labyrintStartRow;

@@ -2,17 +2,22 @@
 using Labyrinth.Commons;
 using Labyrinth.UI.Contracts;
 using Labyrinth.Renderer.Contracts;
+using Labyrinth.Entities;
 
 namespace Labyrinth.UI
 {
-    public class UiText : RenderableEntity, IUiText
+    public class UiText : IUiText
     {
+        public IntPoint TopLeft { get; set; }
+        public dynamic Graphic { get; protected set; }
+
+        private IRenderer renderer;
         private ILanguageStrings dialogList;
         private string textField;
 
         public UiText(IntPoint coords, IRenderer renderer, ILanguageStrings dialogList)
-            : base(coords, renderer)
         {
+            this.TopLeft = coords;
             this.renderer = renderer;
             this.dialogList = dialogList;
             this.textField = "";
@@ -47,7 +52,7 @@ namespace Labyrinth.UI
             this.textField = "";
         }
 
-        override public void Render()
+        public void Render()
         {
             this.UpdateGraphic();
             this.renderer.RenderEntity(this);
@@ -56,6 +61,16 @@ namespace Labyrinth.UI
         private void UpdateGraphic()
         {
             this.Graphic = this.textField;
+        }
+
+        public void SetX(int x)
+        {
+            this.TopLeft.X = x;
+        }
+
+        public void SetY(int y)
+        {
+            this.TopLeft.Y = y;
         }
     }
 }

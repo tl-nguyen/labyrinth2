@@ -3,7 +3,7 @@
     using Loggers;
     using System;
     using System.Collections.Generic;
-    using LabyrinthHandler;
+    using Entities.LabyrinthHandler;
     using Results.Contracts;
     using Loggers.Contracts;
     using Commons;
@@ -11,7 +11,7 @@
     using Renderer.Contracts;
     using UI.Contracts;
     using UI;
-    using LabyrinthHandler.Contracts;
+    using Entities.LabyrinthHandler.Contracts;
 
     /// <summary>
     /// Class that gives the game objects to different modules, and transfers commands from one class to another, allowing them to be detached.
@@ -57,7 +57,7 @@
             this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.labyrinth);
 
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.topMessageBox, this.bottomMessageBox, 
-                this.labyrinthGraphic, this.scene, this.table, this.input,this.factory);
+                this.scene, this.table, this.input,this.factory);
             //TODO: 1 more layer of abstraction renderable entity : entity logic
             //TODO: UI Controller
             //TODO: Bottom messages as console
