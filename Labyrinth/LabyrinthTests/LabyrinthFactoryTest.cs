@@ -1,10 +1,9 @@
-﻿using System;
-using Labyrinth.Entities.LabyrinthHandler;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-
-namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests
 {
+    using System;
+    using Labyrinth.LabyrinthHandler;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class LabyrinthFactoryTest
     {
@@ -33,7 +32,7 @@ namespace Labyrinth.Tests
         public void TestLabyrinthInstance()
         {
             MoveHandler testHandler = new MoveHandler();
-            Entities.LabyrinthHandler.Labyrinth testLab = new Entities.LabyrinthHandler.Labyrinth(testFactory, testHandler);
+            Entities.Labyrinth testLab = new Entities.Labyrinth(testFactory, testHandler);
             var factLabyrinth = testFactory.GetLabyrinthInstance(testFactory, testHandler);
 
             Object.Equals(testLab, factLabyrinth);

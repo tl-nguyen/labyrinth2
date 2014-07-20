@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using Labyrinth.Commons;
-using Labyrinth.Entities.Contracts;
-
-namespace Labyrinth.Entities.LabyrinthHandler.Contracts
+namespace Labyrinth.Entities.Contracts
 {
+    using System.Collections.Generic;
+    using Commons;
+    using LabyrinthHandler.Contracts;
+
     public interface ILabyrinth : IEntity
     {
         ICell[,] Matrix { get; set; }

@@ -3,7 +3,6 @@
     using Loggers;
     using System;
     using System.Collections.Generic;
-    using Entities.LabyrinthHandler;
     using Results.Contracts;
     using Loggers.Contracts;
     using Commons;
@@ -11,7 +10,10 @@
     using Renderer.Contracts;
     using UI.Contracts;
     using UI;
-    using Entities.LabyrinthHandler.Contracts;
+    using LabyrinthHandler;
+    using LabyrinthHandler.Contracts;
+    using Entities;
+    using Entities.Contracts;
 
     /// <summary>
     /// Class that gives the game objects to different modules, and transfers commands from one class to another, allowing them to be detached.
@@ -73,10 +75,6 @@
             this.Init();
 
             int movesCount = 0;
-
-            //test
-            GameConsole testConsole = new GameConsole(this.factory.GetLanguageStringsInstance());
-            testConsole.AddInput("WelcomeV2");
 
             while (!this.gameLogic.IsGameOver)
             {

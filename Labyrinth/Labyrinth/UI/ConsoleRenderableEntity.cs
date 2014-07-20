@@ -1,10 +1,10 @@
-﻿using Labyrinth.Commons;
-using Labyrinth.UI.Contracts;
-using Labyrinth.Renderer.Contracts;
-using Labyrinth.Entities.Contracts;
-
-namespace Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
+    using Commons;
+    using UI.Contracts;
+    using Renderer.Contracts;
+    using Entities.Contracts;
+
     public abstract class ConsoleRenderableEntity : RenderableEntity
     {
         public ConsoleRenderableEntity(IEntity entity, IntPoint coords, IRenderer renderer)

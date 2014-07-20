@@ -2,8 +2,8 @@
 {
     using Loggers;
     using System.Runtime.Serialization.Formatters.Binary;
-    using Entities.LabyrinthHandler;
-    using Entities.LabyrinthHandler.Contracts;
+    using LabyrinthHandler;
+    using LabyrinthHandler.Contracts;
     using Results;
     using Results.Contracts;
     using Loggers.Contracts;
@@ -12,6 +12,8 @@
     using Commons;
     using UI;
     using UI.Contracts;
+    using Entities.Contracts;
+    using Entities;
 
     /// <summary>
     /// Returns instances of all classes for the project
@@ -46,7 +48,7 @@
 
         public ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
         {
-            return new Entities.LabyrinthHandler.Labyrinth(factory, moveHandler); //compiler recognizes just Labyrinth as the namespace and not type, no clue if this is th
+            return new Entities.Labyrinth(factory, moveHandler); //compiler recognizes just Labyrinth as the namespace and not type, no clue if this is th
         }
 
         public ICell[,] GetICellMatrixInstance(int size)

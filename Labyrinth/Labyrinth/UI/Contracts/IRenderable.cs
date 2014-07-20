@@ -1,7 +1,7 @@
-﻿using Labyrinth.Commons;
-
-namespace Labyrinth.UI.Contracts
+﻿namespace Labyrinth.UI.Contracts
 {
+    using Labyrinth.Commons;
+
     public interface IRenderable
     {
         IntPoint TopLeft { get; set; }

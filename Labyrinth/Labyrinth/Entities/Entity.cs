@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Labyrinth.Entities.Contracts;
-
-namespace Labyrinth.Entities
+﻿namespace Labyrinth.Entities
 {
+    using Entities.Contracts;
+
     public abstract class Entity : IEntity
     {
         public bool Active { get; private set; }

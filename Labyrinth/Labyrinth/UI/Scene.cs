@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Labyrinth.UI.Contracts;
-using Labyrinth.Renderer.Contracts;
-
-namespace Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
+    using System;
+    using System.Collections.Generic;
+    using UI.Contracts;
+    using Renderer.Contracts;
     /// <summary>
     /// Holds a list of the renderable entities
     /// </summary>

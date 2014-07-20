@@ -1,11 +1,11 @@
-﻿using System.Text;
-using System.Collections;
-using System.Collections.Generic;
-using Labyrinth.Renderer.Contracts;
-
-namespace Labyrinth
+﻿namespace Labyrinth.Entities
 {
-    public class GameConsole
+    using System.Text;
+    using System.Collections;
+    using System.Collections.Generic;
+    using Renderer.Contracts;
+
+    public class GameConsole : Entity
     {
         private const int DEFAULT_LINE_LENGTH = 60;
         private const int DEFAULT_LINES_MAX_COUNT = 100;

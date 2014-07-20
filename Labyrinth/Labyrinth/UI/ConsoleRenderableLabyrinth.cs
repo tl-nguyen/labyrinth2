@@ -1,14 +1,15 @@
-﻿using System;
-using System.Text;
-using Labyrinth.Renderer.Contracts;
-using Labyrinth.Commons;
-using Labyrinth.UI.Contracts;
-using Labyrinth.Entities.LabyrinthHandler;
-using Labyrinth.Entities.LabyrinthHandler.Contracts;
-
-namespace Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
-    public class ConsoleRenderableLabyrinth : RenderableEntity, IRenderable
+    using System;
+    using System.Text;
+    using Renderer.Contracts;
+    using Commons;
+    using UI.Contracts;
+    using LabyrinthHandler;
+    using LabyrinthHandler.Contracts;
+    using Entities.Contracts;
+
+    public class ConsoleRenderableLabyrinth : ConsoleRenderableEntity, IRenderable
     {
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
@@ -23,20 +24,7 @@ namespace Labyrinth.UI
             this.Graphic = this.GenerateStringGraphic();
         }
 
-        override public void Render()
-        {
-            if (this.labyrinth.Active)
-            {
-                this.UpdateGraphic();
-                this.renderer.RenderEntity(this);
-            }
-        }
-
-        private void UpdateGraphic()
-        {
-            this.Graphic = this.GenerateStringGraphic();
-        }
-        private string GenerateStringGraphic()
+        override protected string GenerateStringGraphic()
         {
             StringBuilder sb = new StringBuilder();
 

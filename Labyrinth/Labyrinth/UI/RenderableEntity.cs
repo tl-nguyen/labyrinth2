@@ -1,10 +1,10 @@
 ﻿using Labyrinth.Commons;
 using Labyrinth.UI.Contracts;
 using Labyrinth.Renderer.Contracts;
-using Labyrinth.Entities.Contracts;
-
 namespace Labyrinth.UI
 {
+    using Entities.Contracts;
+
     public abstract class RenderableEntity : IRenderable
     {
         protected IRenderer renderer;

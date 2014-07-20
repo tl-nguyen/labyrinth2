@@ -1,9 +1,9 @@
-﻿using System;
-using Labyrinth.Renderer.Contracts;
-using Labyrinth.UI.Contracts;
-
-namespace Labyrinth.Renderer
+﻿namespace Labyrinth.Renderer
 {
+    using System;
+    using Renderer.Contracts;
+    using UI.Contracts;
+
     public class ConsoleRenderer : IConsoleRenderer
     {
         public void RenderEntity(IRenderable entity)

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Labyrinth.Commons;
-using Labyrinth.Entities;
-using Labyrinth.Entities.LabyrinthHandler.Contracts;
-
-namespace Labyrinth.Entities.LabyrinthHandler
+﻿namespace Labyrinth.Entities
 {
-    
+    using System;
+    using System.Collections.Generic;
+    using Commons;
+    using Entities;
+    using Entities.Contracts;
+    using LabyrinthHandler.Contracts;
+
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>

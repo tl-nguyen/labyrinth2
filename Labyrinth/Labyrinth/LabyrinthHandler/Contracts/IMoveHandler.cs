@@ -1,6 +1,7 @@
-﻿namespace Labyrinth.Entities.LabyrinthHandler.Contracts
+﻿namespace Labyrinth.LabyrinthHandler.Contracts
 {
     using Commons;
+    using Entities.Contracts;
     using System.Collections.Generic;
 
     public interface IMoveHandler

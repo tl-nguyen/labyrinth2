@@ -1,11 +1,11 @@
-﻿using System.Text;
-using Labyrinth.Commons;
-using Labyrinth.UI.Contracts;
-using Labyrinth.Renderer.Contracts;
-using Labyrinth.Entities;
-
-namespace Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
+    using System.Text;
+    using Commons;
+    using UI.Contracts;
+    using Renderer.Contracts;
+    using Entities;
+
     public class UiText : IUiText
     {
         public IntPoint TopLeft { get; set; }

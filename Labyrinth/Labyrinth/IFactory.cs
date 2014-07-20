@@ -4,13 +4,15 @@ namespace Labyrinth
     using Commons;
     using UI;
     using UI.Contracts;
-    using Entities.LabyrinthHandler.Contracts;
+    using LabyrinthHandler.Contracts;
     using Loggers;
     using Loggers.Contracts;
     using Renderer;
     using Renderer.Contracts;
     using Results;
     using Results.Contracts;
+    using Entities;
+    using Entities.Contracts;
 
     public interface IFactory
     {

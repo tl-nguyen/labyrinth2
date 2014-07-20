@@ -9,8 +9,10 @@
     using UI.Contracts;
     using UI;
     using Results.Contracts;
-    using Entities.LabyrinthHandler;
-    using Entities.LabyrinthHandler.Contracts;
+    using LabyrinthHandler;
+    using LabyrinthHandler.Contracts;
+    using Entities;
+    using Entities.Contracts;
 
     /// <summary>
     /// Class that inherits IGameLogic, and handles input, and changes game objects
