@@ -11,7 +11,7 @@ namespace Labyrinth.Renderer
             int x = entity.TopLeft.X;
             int y = entity.TopLeft.Y;
             Console.SetCursorPosition(x, y);
-            Console.Write(entity.ToString());
+            Console.Write(entity.Graphic.ToString());
         }
 
         public void Clear()

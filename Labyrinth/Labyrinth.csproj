@@ -40,6 +40,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -60,7 +61,8 @@
     <Compile Include="Labyrinth\Cell.cs" />
     <Compile Include="Labyrinth\Commons\CellState.cs" />
     <Compile Include="Labyrinth\IGameConsole.cs" />
-    <Compile Include="Labyrinth\UI\Entity.cs" />
+    <Compile Include="Labyrinth\UI\ConsoleRenderableLabyrinth.cs" />
+    <Compile Include="Labyrinth\UI\RenderableEntity.cs" />
     <Compile Include="Labyrinth\GameEngine.cs" />
     <Compile Include="Labyrinth\IFactory.cs" />
     <Compile Include="Labyrinth\IGameLogic.cs" />

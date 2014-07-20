@@ -5,14 +5,13 @@ using Labyrinth.Renderer.Contracts;
 
 namespace Labyrinth.UI
 {
-    public class UiText : Entity, IUiText
+    public class UiText : RenderableEntity, IUiText
     {
-        private IRenderer renderer;
         private ILanguageStrings dialogList;
         private string textField;
 
         public UiText(IntPoint coords, IRenderer renderer, ILanguageStrings dialogList)
-            : base(coords)
+            : base(coords, renderer)
         {
             this.renderer = renderer;
             this.dialogList = dialogList;
@@ -50,12 +49,13 @@ namespace Labyrinth.UI
 
         override public void Render()
         {
+            this.UpdateGraphic();
             this.renderer.RenderEntity(this);
         }
 
-        public override string ToString()
+        private void UpdateGraphic()
         {
-            return this.textField;
+            this.Graphic = this.textField;
         }
     }
 }

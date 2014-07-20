@@ -22,13 +22,13 @@
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
-        private LabyrinthGraphic labyrinthGraphic;
+        private ConsoleRenderableLabyrinth labyrinthGraphic;
         private ITable table;
         private IUserInput input;
         private IFactory factory;
 
         public GameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
-            LabyrinthGraphic labyrinthGraphic, IScene scene, ITable table, IUserInput input, IFactory factory)
+            ConsoleRenderableLabyrinth labyrinthGraphic, IScene scene, ITable table, IUserInput input, IFactory factory)
         {
             this.labyrinth = labyrinth;
             this.topMessageBox = topMessageBox;

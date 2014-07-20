@@ -135,13 +135,13 @@
             return new UiText(coords, renderer, this.GetLanguageStringsInstance());
         }
 
-        public LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth)
+        public ConsoleRenderableLabyrinth GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth)
         {
-            return new LabyrinthGraphic(coords, renderer, labyrinth);
+            return new ConsoleRenderableLabyrinth(coords, renderer, labyrinth);
         }
 
-        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
-            LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input,IFactory factory)
+        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
+            ConsoleRenderableLabyrinth labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory)
         {
             //TODO: this must get refactored and only take the game field and the UI controller! 
             return new GameLogic(labyrinth, topMessageBox, bottomMessageBox, labyrinthGfk, scene, table, input, factory);

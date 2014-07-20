@@ -8,28 +8,32 @@ using Labyrinth.LabyrinthHandler.Contracts;
 
 namespace Labyrinth.UI
 {
-    public class LabyrinthGraphic : Entity, IRenderable
+    public class ConsoleRenderableLabyrinth : RenderableEntity, IRenderable
     {
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
         private const char PLAYER_CELL = '*';
 
-        private IRenderer renderer;
         private ILabyrinth labyrinth;
 
-        public LabyrinthGraphic(IntPoint coords, IRenderer renderer, ILabyrinth labyrinth)
-            : base(coords)
+        public ConsoleRenderableLabyrinth(IntPoint coords, IRenderer renderer, ILabyrinth labyrinth)
+            : base(coords, renderer)
         {
-            this.renderer = renderer;
             this.labyrinth = labyrinth;
+            this.Graphic = this.GenerateStringGraphic();
         }
 
         override public void Render()
         {
+            this.UpdateGraphic();
             this.renderer.RenderEntity(this);
         }
 
-        public override string ToString()
+        private void UpdateGraphic()
+        {
+            this.Graphic = this.GenerateStringGraphic();
+        }
+        private string GenerateStringGraphic()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -44,10 +48,10 @@ namespace Labyrinth.UI
                         case CellState.Empty:
                             sb.Append(EMPTY_CELL + " ");
                             break;
-                        case CellState.Wall: 
+                        case CellState.Wall:
                             sb.Append(WALL_CELL + " ");
                             break;
-                        case CellState.Player: 
+                        case CellState.Player:
                             sb.Append(PLAYER_CELL + " ");
                             break;
                         default:

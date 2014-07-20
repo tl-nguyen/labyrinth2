@@ -112,13 +112,13 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing LabyrinthGraphic
         /// </summary>
         /// <returns>The correct instance of the class implementing LabyrinthGraphic</returns>
-        LabyrinthGraphic GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth);
+        ConsoleRenderableLabyrinth GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
-        IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox, 
-            LabyrinthGraphic labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
+        IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
+            ConsoleRenderableLabyrinth labyrinthGfk, IScene scene, ITable table, IUserInput input, IFactory factory);
     }
 }

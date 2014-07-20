@@ -26,7 +26,7 @@
         private IScene scene;
         private IUiText topMessageBox;
         private IUiText bottomMessageBox;
-        private LabyrinthGraphic labyrinthGraphic;
+        private ConsoleRenderableLabyrinth labyrinthGraphic;
 
         private IGameLogic gameLogic;
         private ILabyrinth labyrinth;
