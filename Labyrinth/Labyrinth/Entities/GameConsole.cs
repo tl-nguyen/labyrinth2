@@ -1,11 +1,12 @@
 ﻿namespace Labyrinth.Entities
 {
+    using System;
     using System.Text;
-    using System.Collections;
     using System.Collections.Generic;
     using Renderer.Contracts;
+    using Contracts;
 
-    public class GameConsole : Entity
+    public class GameConsole : Entity, IGameConsole
     {
         private const int DEFAULT_LINE_LENGTH = 60;
         private const int DEFAULT_LINES_MAX_COUNT = 100;
@@ -13,20 +14,34 @@
         private ILanguageStrings dialogList;
         private int lineLength;
         private int linesMaxCount;
-        private Queue linesQueue;
+        private Queue<string> lines;
 
         public GameConsole(ILanguageStrings dialogList, int linesCount, int lineLength)
         {
             this.dialogList = dialogList;
             this.linesMaxCount = linesCount;
             this.lineLength = lineLength;
-            this.linesQueue = new Queue();
+            this.lines = new Queue<string>();
         }
         public GameConsole(ILanguageStrings dialogList)
             : this(dialogList, DEFAULT_LINES_MAX_COUNT, DEFAULT_LINE_LENGTH)
         {
         }
 
+        public string[] GetLastLines(int numberOfLines)
+        {
+            int outputLinesCount = Math.Min(numberOfLines, this.lines.Count);
+            string[] output = new string[outputLinesCount];
+
+            string[] linesCopy = new string[this.lines.Count];
+            this.lines.CopyTo(linesCopy, 0);
+            int numberOfLinesToSkip = this.lines.Count - outputLinesCount;
+            for (int i = 0; i < outputLinesCount; i++)
+            {
+                output[i] = linesCopy[i + numberOfLinesToSkip];
+            }
+            return output;
+        }
         public void AddInput(string key, string[] args)
         {
             string input = this.GetInput(key);
@@ -54,7 +69,7 @@
         }
         private List<string> GetLines(string input)
         {
-            Queue words = new Queue(this.GetWords(input));
+            Queue<string> words = new Queue<string>(this.GetWords(input));
 
             List<string> lines = new List<string>();
 
@@ -84,18 +99,18 @@
         }
         private void EnqueueInput(string input)
         {
-            List<string> lines = GetLines(input);
+            List<string> linesList = GetLines(input);
 
-            foreach (string line in lines)
+            foreach (string line in linesList)
             {
-                this.linesQueue.Enqueue(line);
+                this.lines.Enqueue(line);
             }
 
-            if (this.linesQueue.Count > this.linesMaxCount)
+            if (this.lines.Count > this.linesMaxCount)
             {
-                while (this.linesQueue.Count > this.linesMaxCount)
+                while (this.lines.Count > this.linesMaxCount)
                 {
-                    this.linesQueue.Dequeue();
+                    this.lines.Dequeue();
                 }
             }
         }

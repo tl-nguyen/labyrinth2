@@ -22,18 +22,16 @@
 
         private ILabyrinth labyrinth;
         private IScene scene;
-        private IUiText topMessageBox;
-        private IUiText bottomMessageBox;
+        private IGameConsole gameConsole;
         private ITable table;
         private IUserInput input;
         private IFactory factory;
 
-        public GameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
+        public GameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
             IScene scene, ITable table, IUserInput input, IFactory factory)
         {
             this.labyrinth = labyrinth;
-            this.topMessageBox = topMessageBox;
-            this.bottomMessageBox = bottomMessageBox;
+            this.gameConsole = gameConsole;
             this.scene = scene;
             this.table = table;
             this.input = input;
@@ -72,15 +70,14 @@
                     if (moveDone == true)
                     {
                         movesCount++;
-                        this.topMessageBox.Clear();
                     }
                     else
                     {
-                        this.topMessageBox.SetText("InvalidMove", true);
+                        this.gameConsole.AddInput("InvalidMove");
                     }
                     break;
                 case Command.Top:
-                    this.topMessageBox.SetText(this.table.ToString());
+                    //this.topMessageBox.SetText(this.table.ToString()); //TODO: Implement new show top results method
                     break;
                 case Command.Exit:
                     this.Exit();
@@ -88,7 +85,7 @@
                 case Command.Restart:
                     break;
                 default:
-                    this.topMessageBox.SetText("InvalidCommand", true);
+                    this.gameConsole.AddInput("InvalidCommand");
                     break;
             }
 
@@ -98,9 +95,7 @@
         private void Exit()
         {
             this.labyrinth.Deactivate();
-            this.topMessageBox.SetText("GoodBye", true);
-            this.bottomMessageBox.SetText("Press any key to exit...", false);
-            this.bottomMessageBox.SetY(1);
+            this.gameConsole.AddInput("GoodBye");
             this.scene.Render();
             if (Console.ReadKey(true) != null)
             {
@@ -127,11 +122,10 @@
         private void GameOver(int movesCount)
         {
             this.labyrinth.Deactivate();
-            topMessageBox.SetText("WinMessage", new string[] { movesCount.ToString() });
+            this.gameConsole.AddInput("WinMessage", new string[] { movesCount.ToString() });
             if (this.table.IsTopResult(movesCount))
             {
-                bottomMessageBox.SetText("EnterName", true);
-                bottomMessageBox.SetY(1);
+                this.gameConsole.AddInput("EnterName");
                 scene.Render();
                 Console.WriteLine();
                 string name = this.input.GetPlayerName();

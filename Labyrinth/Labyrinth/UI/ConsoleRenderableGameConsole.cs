@@ -1,5 +1,6 @@
 ﻿namespace Labyrinth.UI
 {
+    using System.Text;
     using Renderer.Contracts;
     using Commons;
     using Entities.Contracts;
@@ -24,7 +25,16 @@
 
         override protected string GenerateStringGraphic()
         {
-            return gameConsole.ToString();
+            int linesCount = this.visibleLinesCount;
+            string[] lines = this.gameConsole.GetLastLines(linesCount);
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                sb.AppendLine(lines[i]);
+            }
+            return sb.ToString();
         }
     }
 }

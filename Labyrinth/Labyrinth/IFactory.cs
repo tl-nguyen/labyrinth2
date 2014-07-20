@@ -105,12 +105,6 @@ namespace Labyrinth
         IScene GetConsoleScene(IConsoleRenderer renderer);
 
         /// <summary>
-        /// Gets the correct instance of the class implementing <see cref="IUiText"/> interface.
-        /// </summary>
-        /// <returns>The correct instance of the class implementing <see cref="IUiText"/> interface</returns>
-        IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer);
-
-        /// <summary>
         /// Gets the correct instance of the class implementing LabyrinthGraphic
         /// </summary>
         /// <returns>The correct instance of the class implementing LabyrinthGraphic</returns>
@@ -120,7 +114,7 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
-        IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
+        IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
             IScene scene, ITable table, IUserInput input, IFactory factory);
     }
 }

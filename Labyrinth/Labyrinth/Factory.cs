@@ -132,21 +132,15 @@
             return new ConsoleScene(renderer);
         }
 
-        public IUiText GetUiText(IntPoint coords, IConsoleRenderer renderer)
-        {
-            return new UiText(coords, renderer, this.GetLanguageStringsInstance());
-        }
-
         public ConsoleRenderableLabyrinth GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth)
         {
             return new ConsoleRenderableLabyrinth(coords, renderer, labyrinth);
         }
 
-        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IUiText topMessageBox, IUiText bottomMessageBox,
-            IScene scene, ITable table, IUserInput input, IFactory factory)
+        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole, IScene scene,
+            ITable table, IUserInput input, IFactory factory)
         {
-            //TODO: this must get refactored and only take the game field and the UI controller! 
-            return new GameLogic(labyrinth, topMessageBox, bottomMessageBox, scene, table, input, factory);
+            return new GameLogic(labyrinth, gameConsole, scene, table, input, factory);
         }
     }
 }

@@ -26,8 +26,8 @@
         private ILogger simpleLoggerFileAppender;
        
         private IScene scene;
-        private IUiText topMessageBox;
-        private IUiText bottomMessageBox;
+        private IGameConsole gameConsole;
+        private ConsoleRenderableGameConsole gameConsoleGraphic;
         private ConsoleRenderableLabyrinth labyrinthGraphic;
 
         private IGameLogic gameLogic;
@@ -52,17 +52,11 @@
             this.simpleLoggerFileAppender = this.factory.GetSimpleLogger(fileAppender);
 
             this.scene = this.factory.GetConsoleScene(this.renderer);
-            this.topMessageBox = this.factory.GetUiText(new IntPoint(0, 0), this.renderer);
+            this.gameConsole = new GameConsole(this.factory.GetLanguageStringsInstance());//TODO: use factory
+            this.gameConsoleGraphic = new ConsoleRenderableGameConsole(new IntPoint(0, 11), this.renderer, this.gameConsole, 11);//TODO: use factory
+            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 0), this.renderer, this.labyrinth);
 
-            this.bottomMessageBox = this.factory.GetUiText(new IntPoint(0, 20), this.renderer);
-
-            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 9), this.renderer, this.labyrinth);
-
-            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.topMessageBox, this.bottomMessageBox, 
-                this.scene, this.table, this.input,this.factory);
-            //TODO: 1 more layer of abstraction renderable entity : entity logic
-            //TODO: UI Controller
-            //TODO: Bottom messages as console
+            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.scene, this.table, this.input,this.factory);
         }
 
         public GameEngine()
@@ -92,10 +86,9 @@
         private void Init()
         {
             this.scene.Add(this.labyrinthGraphic);
-            this.scene.Add(this.topMessageBox);
-            this.scene.Add(this.bottomMessageBox);
-            this.topMessageBox.SetText("Welcome", true);
-            this.bottomMessageBox.SetText("Input", true);
+            this.scene.Add(this.gameConsoleGraphic);
+            this.gameConsole.AddInput("Welcome");
+            this.gameConsole.AddInput("Input");
             scene.Render();
         }
 

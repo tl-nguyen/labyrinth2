@@ -15,7 +15,7 @@
             this.dialogList.Add("InvalidMove", "Invalid move!");
             this.dialogList.Add("InvalidCommand", "Invalid command!");
             this.dialogList.Add("EnterName", "Please enter your name for the top scoreboard:");
-            this.dialogList.Add("GoodBye", "Good Bye");
+            this.dialogList.Add("GoodBye", "Good Bye" + "\n" + "Press any key to exit..." + "\n");
             this.dialogList.Add("Input", "Enter your move (A-left, D-right, W-up, S-down)");
             this.dialogList.Add("Welcome",
                                     "Welcome to “Labirinth” game." + "\n" +

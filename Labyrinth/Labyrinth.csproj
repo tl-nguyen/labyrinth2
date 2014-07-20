@@ -78,9 +78,7 @@
     <Compile Include="Labyrinth\Renderer\Contracts\IRenderer.cs" />
     <Compile Include="Labyrinth\UI\Contracts\IScene.cs" />
     <Compile Include="Labyrinth\Renderer\ConsoleRenderer.cs" />
-    <Compile Include="Labyrinth\UI\Contracts\IUiText.cs" />
     <Compile Include="Labyrinth\UI\Scene.cs" />
-    <Compile Include="Labyrinth\UI\UiText.cs" />
     <Compile Include="Labyrinth\Renderer\Contracts\ILanguageStrings.cs" />
     <Compile Include="Labyrinth\Renderer\LanguageStrings.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResultFormatter.cs" />
