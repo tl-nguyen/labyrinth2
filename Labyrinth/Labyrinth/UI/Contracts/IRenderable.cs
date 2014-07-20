@@ -1,6 +1,6 @@
 ﻿using Labyrinth.Commons;
 
-namespace Labyrinth.Entities.Contracts
+namespace Labyrinth.UI.Contracts
 {
     public interface IRenderable
     {

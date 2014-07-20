@@ -2,8 +2,8 @@ namespace Labyrinth
 {
     using System.Runtime.Serialization.Formatters.Binary;
     using Commons;
-    using Entities;
-    using Entities.Contracts;
+    using UI;
+    using UI.Contracts;
     using LabyrinthHandler.Contracts;
     using Loggers;
     using Loggers.Contracts;

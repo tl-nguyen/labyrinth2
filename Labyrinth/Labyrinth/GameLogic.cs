@@ -6,8 +6,8 @@
     using System.Text;
     using System.Threading.Tasks;
     using Commons;
-    using Entities.Contracts;
-    using Entities;
+    using UI.Contracts;
+    using UI;
     using Results.Contracts;
     using LabyrinthHandler;
     using LabyrinthHandler.Contracts;

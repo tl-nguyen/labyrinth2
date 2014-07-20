@@ -10,8 +10,8 @@
     using Renderer;
     using Renderer.Contracts;
     using Commons;
-    using Entities;
-    using Entities.Contracts;
+    using UI;
+    using UI.Contracts;
 
     /// <summary>
     /// Returns instances of all classes for the project

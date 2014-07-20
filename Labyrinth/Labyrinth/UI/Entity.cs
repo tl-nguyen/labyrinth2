@@ -1,7 +1,7 @@
 ﻿using Labyrinth.Commons;
-using Labyrinth.Entities.Contracts;
+using Labyrinth.UI.Contracts;
 
-namespace Labyrinth.Entities
+namespace Labyrinth.UI
 {
     public abstract class Entity : IRenderable
     {

@@ -1,9 +1,9 @@
 ﻿using System.Text;
 using Labyrinth.Commons;
-using Labyrinth.Entities.Contracts;
+using Labyrinth.UI.Contracts;
 using Labyrinth.Renderer.Contracts;
 
-namespace Labyrinth.Entities
+namespace Labyrinth.UI
 {
     public class UiText : Entity, IUiText
     {

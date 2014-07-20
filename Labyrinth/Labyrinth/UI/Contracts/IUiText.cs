@@ -1,4 +1,4 @@
-﻿namespace Labyrinth.Entities.Contracts
+﻿namespace Labyrinth.UI.Contracts
 {
     public interface IUiText : IRenderable
     {

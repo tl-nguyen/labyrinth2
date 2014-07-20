@@ -2,11 +2,11 @@
 using System.Text;
 using Labyrinth.Renderer.Contracts;
 using Labyrinth.Commons;
-using Labyrinth.Entities.Contracts;
+using Labyrinth.UI.Contracts;
 using Labyrinth.LabyrinthHandler;
 using Labyrinth.LabyrinthHandler.Contracts;
 
-namespace Labyrinth.Entities
+namespace Labyrinth.UI
 {
     public class LabyrinthGraphic : Entity, IRenderable
     {

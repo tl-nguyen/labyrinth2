@@ -10,6 +10,7 @@
     /// </summary>
     public class Labyrinth : ILabyrinth
     {
+        private const int DEFAULT_SIZE = 10;
         private readonly int labyrintStartRow;
         private readonly int labyrinthStartCol;
         private IFactory factory;
@@ -22,7 +23,7 @@
 
         public int LabyrinthSize { get; private set; }
 
-        public Labyrinth(IFactory factory, IMoveHandler moveHandler, int labyrinthSize = 10)
+        public Labyrinth(IFactory factory, IMoveHandler moveHandler, int labyrinthSize)
         {
             this.factory = factory;
             this.MoveHandler = moveHandler;
@@ -33,6 +34,10 @@
             this.Matrix = factory.GetICellMatrixInstance(this.LabyrinthSize);
             GenerateLabyrinth();
             this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
+        }
+        public Labyrinth(IFactory factory, IMoveHandler moveHandler)
+            : this(factory, moveHandler, DEFAULT_SIZE)
+        {
         }
 
         /// <summary>

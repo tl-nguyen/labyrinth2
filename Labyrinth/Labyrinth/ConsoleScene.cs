@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Labyrinth.Entities.Contracts;
+using Labyrinth.UI.Contracts;
 using Labyrinth.Renderer.Contracts;
 
 namespace Labyrinth

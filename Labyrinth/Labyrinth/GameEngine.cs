@@ -9,8 +9,8 @@
     using Commons;
     using Renderer;
     using Renderer.Contracts;
-    using Entities.Contracts;
-    using Entities;
+    using UI.Contracts;
+    using UI;
     using LabyrinthHandler.Contracts;
 
     /// <summary>

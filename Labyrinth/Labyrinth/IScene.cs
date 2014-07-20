@@ -1,4 +1,4 @@
-﻿using Labyrinth.Entities.Contracts;
+﻿using Labyrinth.UI.Contracts;
 
 namespace Labyrinth
 {

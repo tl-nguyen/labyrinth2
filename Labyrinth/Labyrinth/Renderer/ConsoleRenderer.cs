@@ -1,6 +1,6 @@
 ﻿using System;
 using Labyrinth.Renderer.Contracts;
-using Labyrinth.Entities.Contracts;
+using Labyrinth.UI.Contracts;
 
 namespace Labyrinth.Renderer
 {
