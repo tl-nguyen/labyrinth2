@@ -85,7 +85,7 @@
     <Compile Include="Labyrinth\IUserInput.cs" />
     <Compile Include="Labyrinth\Results\FileSerializationManager.cs" />
     <Compile Include="Labyrinth\ICell.cs" />
-    <Compile Include="Labyrinth\LabTest.cs" />
+    <Compile Include="Labyrinth\GameStart.cs" />
     <Compile Include="Labyrinth\LabyrinthHandler\Labyrinth.cs" />
     <Compile Include="Labyrinth\Loggers\FileAppender.cs" />
     <Compile Include="Labyrinth\Loggers\Contracts\IAppender.cs" />

@@ -8,77 +8,68 @@ namespace Labyrinth.Tests
     [TestClass]
     public class LabyrinthFactoryTest
     {
-        //[TestMethod]
-        //public void TestCellInstance()
-        //{
-        //    int row = 3;
-        //    int col = 3;
-        //    ICell testCell = new Cell(row, col, Commons.CellState.Empty);
-        //    var factCell = LabyrinthFactory.GetCellInstance(row, col, Commons.CellState.Empty);
+        Factory testFactory = new Factory();
+        [TestMethod]
+        public void TestCellInstance()
+        {
+            int row = 3;
+            int col = 3;
+            ICell testCell = new Cell(row, col, Commons.CellState.Empty);
+            var factCell = testFactory.GetCellInstance(row, col, Commons.CellState.Empty);
 
-        //    Object.Equals(testCell, factCell);
-        //}
+            Object.Equals(testCell, factCell);
+        }
 
-        //[TestMethod]
-        //public void TestUserInputOutputInstance()
-        //{
-        //    UserInputAndOutput userIO = new UserInputAndOutput();
-        //    var factUser = LabyrinthFactory.GetUserInputInstance();
+        [TestMethod]
+        public void TestUserInputOutputInstance()
+        {
+            UserInputAndOutput userIO = new UserInputAndOutput();
+            var factUser = testFactory.GetUserInputInstance();
 
-        //    Object.Equals(userIO, factUser);
-        //}
+            Object.Equals(userIO, factUser);
+        }
 
-        //[TestMethod]
-        //public void TestLabyrinthInstance()
-        //{
-        //    LabyrinthHandler.Labyrinth testLab = new LabyrinthHandler.Labyrinth();
-        //    var factLabyrinth = LabyrinthFactory.GetLabyrinthInstance();
+        [TestMethod]
+        public void TestLabyrinthInstance()
+        {
+            MoveHandler testHandler = new MoveHandler();
+            LabyrinthHandler.Labyrinth testLab = new LabyrinthHandler.Labyrinth(testFactory, testHandler);
+            var factLabyrinth = testFactory.GetLabyrinthInstance(testFactory, testHandler);
 
-        //    Object.Equals(testLab, factLabyrinth);
-        //}
+            Object.Equals(testLab, factLabyrinth);
+        }
 
-        //[TestMethod]
-        //public void TestPlayerInstance()
-        //{
-        //    LabyrinthHandler.Labyrinth testLab = new LabyrinthHandler.Labyrinth();
-        //    Player testPlayer = new Player(testLab);
-        //    var factPlayer = LabyrinthFactory.GetPlayerInstance(testLab);
+        [TestMethod]
+        public void TestCellMatrixInstance()
+        {
+            int size = 4;
+            ICell[,] testMatrix = new Cell[size, size];
 
-        //    Object.Equals(testLab, factPlayer);
-        //}
+            var factMatrix = testFactory.GetICellMatrixInstance(size);
 
-        //[TestMethod]
-        //public void TestCellMatrixInstance()
-        //{
-        //    int size = 4;
-        //    ICell[,] testMatrix = new Cell[size, size];
+            Object.Equals(testMatrix, factMatrix);
+        }
 
-        //    var factMatrix = LabyrinthFactory.GetICellMatrixInstance(size);
+        [TestMethod]
+        public void TestCellMatrixRows()
+        {
+            int size = 4;
+            ICell[,] testMatrix = new Cell[size, size];
+            
+            var factMatrix = testFactory.GetICellMatrixInstance(size);
 
-        //    Object.Equals(testMatrix, factMatrix);
-        //}
+            Assert.AreEqual(testMatrix.GetLength(0), factMatrix.GetLength(0));
+        }
 
-        //[TestMethod]
-        //public void TestCellMatrixRows()
-        //{
-        //    int size = 4;
-        //    ICell[,] testMatrix = new Cell[size, size];
+        [TestMethod]
+        public void TestCellMatrixCols()
+        {
+            int size = 4;
+            ICell[,] testMatrix = new Cell[size, size];
 
-        //    var factMatrix = LabyrinthFactory.GetICellMatrixInstance(size);
+            var factMatrix = testFactory.GetICellMatrixInstance(size);
 
-        //    Assert.AreEqual(testMatrix.GetLength(0), factMatrix.GetLength(0));
-        //}
-
-        //[TestMethod]
-        //public void TestCellMatrixCols()
-        //{
-        //    int size = 4;
-        //    ICell[,] testMatrix = new Cell[size, size];
-
-        //    var factMatrix = LabyrinthFactory.GetICellMatrixInstance(size);
-
-        //    Assert.AreEqual(testMatrix.GetLength(1), factMatrix.GetLength(1));
-        //}
-
+            Assert.AreEqual(testMatrix.GetLength(1), factMatrix.GetLength(1));
+        }
     }
 }
