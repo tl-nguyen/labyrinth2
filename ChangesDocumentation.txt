@@ -130,3 +130,4 @@ Rayan - Render logic overhaul:
 	- added IRenderable.cs, Entity.cs
 	- added IUiText.cs, LabyrinthGraphic.cs, UiText.cs interface and classes,
 		but those will be removed/rewritten when further decoupling rendering logic
+test
