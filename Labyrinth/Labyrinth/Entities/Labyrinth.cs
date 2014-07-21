@@ -45,7 +45,7 @@
         /// <summary>
         /// Generating the labyrinth for the game
         /// </summary>
-        private void GenerateLabyrinth()
+        public void GenerateLabyrinth()
         {
             Random rand = new Random();
 

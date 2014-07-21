@@ -83,6 +83,8 @@
                     this.Exit();
                     break;
                 case Command.Restart:
+                    this.labyrinth.GenerateLabyrinth();
+                    movesCount = 0;
                     break;
                 default:
                     this.gameConsole.AddInput("InvalidCommand");

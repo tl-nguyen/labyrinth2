@@ -13,5 +13,10 @@ namespace Labyrinth.Entities.Contracts
         IMoveHandler MoveHandler { get; }
 
         int LabyrinthSize { get; }
+
+         /// <summary>
+        /// Generating the labyrinth for the game
+        /// </summary>
+        void GenerateLabyrinth();
     }
 }

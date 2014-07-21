@@ -1,7 +1,4 @@
-﻿ImportantTODO(remove when done):
-*Remove LABYRINTH_SIZE constant, and refactor so it will be taken from the user, and all checks should be able to be done with the size of the matrix, not with a constant.
-
-Kalina - Ladder.cs: 
+﻿Kalina - Ladder.cs: 
 1. Sort and organize usings and move them inside the namespace;
 2. Rename Ladder.cs to ResultsList.cs;
 3. Code formatted with Ctrl + K + D;
@@ -67,7 +64,7 @@ Ilian - LabyrinthFactory.cs
 6.Added instancialization of Result in the GameEngine.cs to be in the Factory.
 7. Added IFactory interface
 8.Added temporary class that will take over the functions of the LabyrinthFactory after all statics are removed
-9.LabyrinthFactory delet
+9.LabyrinthFactory deleted
 
 Ilian - IRenderer.cs, ConsoleRenderer.cs
 1.All rendering logic inside the renderer. Its moved from UserInputAndOutput.
@@ -91,6 +88,7 @@ Ilian - ILabyrinthMoveHandler.cs, IPlayer
 Ilian - Labyrinth.cs
 1.Replaced "new" initialization with Factory
 2.Renamed the matrix in all of the implementations to Matrix, to be less confusing
+3.Made void GenerateLabyrinth() public and in the ILabyrinth interface, to implement restart functionality.
 
 Ilian - Player.cs
 1.Created IPlayer interface
@@ -100,6 +98,7 @@ Ilian - IGameLogic.cs, GameLogic.cs
 1.Created an interface with only ProcessInput and IsGameOver public methods
 2.Created concrete implementation
 3.Moved logic from the GameEngine to the GameLogic
+4.Added functionality for Restart.
 
 Ivan - /Loggers - Create new folder for loggers classes and interfaces
 1. Create new interface IAppender.cs
