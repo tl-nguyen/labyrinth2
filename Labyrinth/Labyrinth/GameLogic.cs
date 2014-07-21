@@ -88,7 +88,7 @@
                     this.Quit();
                     break;
                 case Command.Restart:
-                    this.Restart(); //TODO: look at method comment
+                    this.Restart();
                     break;
                 default:
                     this.gameConsole.AddInput("InvalidCommand");
@@ -154,10 +154,6 @@
             }
         }
 
-        /*
-        * TODO: fix unwanted behaviour(player graphic is shown at correct place,
-        * but player's actual position is the old position)
-        */
         private void Restart()
         {
             this.labyrinth.GenerateLabyrinth();

@@ -70,6 +70,7 @@
             }
 
             this.Matrix[labyrintStartRow, labyrinthStartCol].CellValue = CellState.Player;
+            this.CurrentCell = this.Matrix[labyrintStartRow, labyrinthStartCol];
         }
 
 
