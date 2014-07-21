@@ -15,11 +15,13 @@
         /// <summary>
         /// Receives a Command, processes it, making modifications to the game objects, and sets IsGameOver
         /// </summary>
-        void ProcessInput(Command command, ref int movesCount);
+        void ProcessInput(Command command);
 
         /// <summary>
         /// Is set to false normally, sets to true if a game ending condition is reached.
         /// </summary>
-        bool IsGameOver { get; }
+        bool Terminate { get; }
+
+        void Update();
     }
 }

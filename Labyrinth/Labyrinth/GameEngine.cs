@@ -78,17 +78,15 @@
         {
             this.Init();
 
-            int movesCount = 0;
-
-            while (!this.gameLogic.IsGameOver)
+            while (!this.gameLogic.Terminate)
             {
-                this.GameLoop(ref movesCount);
+                this.GameLoop(); ;
             }
         }
 
-        private void GameLoop(ref int movesCount)
+        private void GameLoop()
         {
-            this.UpdateUserInput(ref movesCount);
+            this.gameLogic.Update();
             this.scene.Render();
         }
 
@@ -101,14 +99,6 @@
             this.gameConsole.AddInput("Welcome");
             this.gameConsole.AddInput("Input");
             scene.Render();
-        }
-
-        private void UpdateUserInput(ref int movesCount)
-        {
-            Command input = Command.InvalidInput;
-
-            input = this.input.GetInput();
-            this.gameLogic.ProcessInput(input, ref movesCount);
         }
     }
 }

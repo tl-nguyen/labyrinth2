@@ -10,6 +10,7 @@
         private const string HORIZONTAL_LINE = "|----------------------------------|";
         private const string TITLE = "|         Top Results Table        |";
         private const string TABLE_IS_EMPTY = "|     The scoreboard is empty.     |";
+
         private IResultsTable table;
 
         public ResultsTableConsoleGraphic(IResultsTable table, IntPoint coords, IRenderer renderer)
