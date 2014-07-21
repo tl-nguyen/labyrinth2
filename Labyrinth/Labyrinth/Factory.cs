@@ -132,9 +132,9 @@
             return new ConsoleScene(renderer);
         }
 
-        public ConsoleRenderableLabyrinth GetLabyrinthGraphic(ILabyrinth labyrinth, IntPoint coords, IConsoleRenderer renderer)
+        public IConsoleGraphicFactory GetConsoleGraphicFactory()
         {
-            return new ConsoleRenderableLabyrinth(labyrinth, coords, renderer);
+            return new ConsoleGraphicFactory();
         }
 
         public IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole, IScene scene,

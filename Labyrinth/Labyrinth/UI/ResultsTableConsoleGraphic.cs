@@ -4,11 +4,11 @@
     using Commons;
     using Renderer.Contracts;
 
-    public class ConsoleRenderableResults : ConsoleRenderableEntity
+    public class ResultsTableConsoleGraphic : EntityConsoleGraphic
     {
         private IResultsTable table;
 
-        public ConsoleRenderableResults(IResultsTable table, IntPoint coords, IRenderer renderer)
+        public ResultsTableConsoleGraphic(IResultsTable table, IntPoint coords, IRenderer renderer)
             : base(table, coords, renderer)
         {
             this.table = table;

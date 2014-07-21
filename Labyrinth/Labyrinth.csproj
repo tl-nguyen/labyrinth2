@@ -67,11 +67,11 @@
     <Compile Include="Labyrinth\Entities\Contracts\IGameConsole.cs" />
     <Compile Include="Labyrinth\LabyrinthHandler\Contracts\IMoveHandler.cs" />
     <Compile Include="Labyrinth\UI\ConsoleGraphicFactory.cs" />
-    <Compile Include="Labyrinth\UI\ConsoleRenderableEntity.cs" />
-    <Compile Include="Labyrinth\UI\ConsoleRenderableGameConsole.cs" />
-    <Compile Include="Labyrinth\UI\ConsoleRenderableLabyrinth.cs" />
+    <Compile Include="Labyrinth\UI\EntityConsoleGraphic.cs" />
+    <Compile Include="Labyrinth\UI\GameConsoleConsoleGraphic.cs" />
+    <Compile Include="Labyrinth\UI\LabyrinthConsoleGraphic.cs" />
     <Compile Include="Labyrinth\UI\ConsoleScene.cs" />
-    <Compile Include="Labyrinth\UI\ConsoleRenderableResults.cs" />
+    <Compile Include="Labyrinth\UI\ResultsTableConsoleGraphic.cs" />
     <Compile Include="Labyrinth\UI\Contracts\IConsoleGraphicFactory.cs" />
     <Compile Include="Labyrinth\UI\RenderableEntity.cs" />
     <Compile Include="Labyrinth\GameEngine.cs" />

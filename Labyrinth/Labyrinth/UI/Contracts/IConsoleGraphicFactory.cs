@@ -7,6 +7,16 @@
 
     public interface IConsoleGraphicFactory
     {
+        IntPoint GetCoordinates(int x, int y);
+
+        IConsoleRenderer GetConsoleRenderer();
+
+        IScene GetConsoleScene(IConsoleRenderer consoleRenderer);
+
         IRenderable GetLabyrinthConsoleGraphic(ILabyrinth labyrinth, IntPoint coords, IRenderer renderer);
+
+        IRenderable GetResultsTableConsoleGraphic(IResultsTable table, IntPoint coords, IRenderer renderer);
+
+        IRenderable GetGameConsoleGraphic(IGameConsole gameConsole, IntPoint coords, IRenderer renderer);
     }
 }

@@ -5,20 +5,20 @@
     using Commons;
     using Entities.Contracts;
 
-    public class ConsoleRenderableGameConsole : ConsoleRenderableEntity
+    public class GameConsoleConsoleGraphic : EntityConsoleGraphic
     {
         private const int DEFAULT_VISIBLE_LINES_COUNT = 15;
 
         private IGameConsole gameConsole;
         private int visibleLinesCount;
 
-        public ConsoleRenderableGameConsole(IGameConsole gameConsole, IntPoint coords, IRenderer renderer, int visibleLines)
+        public GameConsoleConsoleGraphic(IGameConsole gameConsole, IntPoint coords, IRenderer renderer, int visibleLines)
             : base(gameConsole, coords, renderer)
         {
             this.gameConsole = gameConsole;
             this.visibleLinesCount = visibleLines;
         }
-        public ConsoleRenderableGameConsole(IGameConsole gameConsole, IntPoint coords, IRenderer renderer)
+        public GameConsoleConsoleGraphic(IGameConsole gameConsole, IntPoint coords, IRenderer renderer)
             : this (gameConsole, coords, renderer, DEFAULT_VISIBLE_LINES_COUNT)
         {
         }

@@ -5,9 +5,9 @@
     using Renderer.Contracts;
     using Entities.Contracts;
 
-    public abstract class ConsoleRenderableEntity : RenderableEntity
+    public abstract class EntityConsoleGraphic : RenderableEntity
     {
-        public ConsoleRenderableEntity(IEntity entity, IntPoint coords, IRenderer renderer)
+        public EntityConsoleGraphic(IEntity entity, IntPoint coords, IRenderer renderer)
             :base(entity, coords, renderer)
         {
         }

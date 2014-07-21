@@ -105,10 +105,10 @@ namespace Labyrinth
         IScene GetConsoleScene(IConsoleRenderer renderer);
 
         /// <summary>
-        /// Gets the correct instance of the class implementing LabyrinthGraphic
+        /// Gets the correct instance of the class implementing <see cref="IConsoleGraphicFactory"/> interface.
         /// </summary>
-        /// <returns>The correct instance of the class implementing LabyrinthGraphic</returns>
-        ConsoleRenderableLabyrinth GetLabyrinthGraphic(ILabyrinth labyrinth, IntPoint coords, IConsoleRenderer renderer);
+        /// <returns>The correct instance of the class implementing ConsoleGraphicFactory</returns>
+        IConsoleGraphicFactory GetConsoleGraphicFactory();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.

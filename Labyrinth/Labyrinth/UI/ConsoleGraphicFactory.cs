@@ -1,12 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labyrinth.Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
-    class ConsoleGraphicFactory
+    using Contracts;
+    using Commons;
+    using Entities.Contracts;
+    using Renderer.Contracts;
+    using Renderer;
+
+    public class ConsoleGraphicFactory : IConsoleGraphicFactory
     {
+        public IntPoint GetCoordinates(int x, int y)
+        {
+            return new IntPoint(x, y);
+        }
+
+        public IConsoleRenderer GetConsoleRenderer()
+        {
+            return new ConsoleRenderer();
+        }
+
+        public IScene GetConsoleScene(Renderer.Contracts.IConsoleRenderer consoleRenderer)
+        {
+            return new ConsoleScene(consoleRenderer);
+        }
+
+        public IRenderable GetLabyrinthConsoleGraphic(ILabyrinth labyrinth, IntPoint coords, IRenderer renderer)
+        {
+            return new LabyrinthConsoleGraphic(labyrinth, coords, renderer);
+        }
+
+        public IRenderable GetResultsTableConsoleGraphic(IResultsTable table, IntPoint coords, IRenderer renderer)
+        {
+            return new ResultsTableConsoleGraphic(table, coords, renderer);
+        }
+
+        public IRenderable GetGameConsoleGraphic(IGameConsole gameConsole, IntPoint coords, IRenderer renderer)
+        {
+            return new GameConsoleConsoleGraphic(gameConsole, coords, renderer);
+        }
     }
 }
