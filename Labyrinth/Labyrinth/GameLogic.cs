@@ -47,8 +47,28 @@
         public bool Exit { get; private set; }
 
         /// <summary>
-        /// Receives a Command, processes it, making modifications to the game objects, and sets IsGameOver
+        /// Receives a Command, processes it and updates the game entities accordingly
         /// </summary>
+        public void Update()
+        {
+            if (this.isTopResult == false)
+            {
+                this.UpdateUserInput();
+            }
+            else
+            {
+                this.RecordTopResult();
+            }
+        }
+
+        private void UpdateUserInput()
+        {
+            Command input = Command.InvalidInput;
+
+            input = this.input.GetInput();
+            this.ProcessInput(input);
+        }
+
         private void ProcessInput(Command input)
         {
             this.ExecuteCommand(input);
@@ -96,6 +116,26 @@
             }
         }
 
+        private void ShowTopResults()
+        {
+            if (this.resultsTable.Active == false)
+            {
+                this.resultsTable.Activate();
+                this.labyrinth.Deactivate();
+            }
+            else
+            {
+                this.resultsTable.Deactivate();
+                this.labyrinth.Activate();
+            }
+        }
+
+        private void Restart()
+        {
+            this.labyrinth.GenerateLabyrinth();
+            this.movesCount = 0;
+        }
+
         private void Quit()
         {
             this.gameConsole.AddInput("GoodBye");
@@ -138,46 +178,6 @@
             string name = this.input.GetPlayerName();
             this.resultsTable.Table.Add(factory.GetResultInstance(this.movesCount, name));
             this.Quit();
-        }
-
-        private void ShowTopResults()
-        {
-            if (this.resultsTable.Active == false)
-            {
-                this.resultsTable.Activate();
-                this.labyrinth.Deactivate();
-            }
-            else
-            {
-                this.resultsTable.Deactivate();
-                this.labyrinth.Activate();
-            }
-        }
-
-        private void Restart()
-        {
-            this.labyrinth.GenerateLabyrinth();
-            this.movesCount = 0;
-        }
-
-        private void UpdateUserInput()
-        {
-            Command input = Command.InvalidInput;
-
-            input = this.input.GetInput();
-            this.ProcessInput(input);
-        }
-
-        public void Update()
-        {
-            if (this.isTopResult == false)
-            {
-                this.UpdateUserInput();
-            }
-            else
-            {
-                this.RecordTopResult();
-            }
         }
     }
 }
