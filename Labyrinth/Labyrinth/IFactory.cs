@@ -108,7 +108,7 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing LabyrinthGraphic
         /// </summary>
         /// <returns>The correct instance of the class implementing LabyrinthGraphic</returns>
-        ConsoleRenderableLabyrinth GetLabyrinthGraphic(IntPoint coords, IConsoleRenderer renderer, ILabyrinth labyrinth);
+        ConsoleRenderableLabyrinth GetLabyrinthGraphic(ILabyrinth labyrinth, IntPoint coords, IConsoleRenderer renderer);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.

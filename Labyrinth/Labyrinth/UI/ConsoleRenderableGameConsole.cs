@@ -12,14 +12,14 @@
         private IGameConsole gameConsole;
         private int visibleLinesCount;
 
-        public ConsoleRenderableGameConsole(IntPoint coords, IRenderer renderer, IGameConsole gameConsole, int visibleLines)
+        public ConsoleRenderableGameConsole(IGameConsole gameConsole, IntPoint coords, IRenderer renderer, int visibleLines)
             : base(gameConsole, coords, renderer)
         {
             this.gameConsole = gameConsole;
             this.visibleLinesCount = visibleLines;
         }
-        public ConsoleRenderableGameConsole(IntPoint coords, IRenderer renderer, IGameConsole gameConsole)
-            : this (coords, renderer, gameConsole, DEFAULT_VISIBLE_LINES_COUNT)
+        public ConsoleRenderableGameConsole(IGameConsole gameConsole, IntPoint coords, IRenderer renderer)
+            : this (gameConsole, coords, renderer, DEFAULT_VISIBLE_LINES_COUNT)
         {
         }
 

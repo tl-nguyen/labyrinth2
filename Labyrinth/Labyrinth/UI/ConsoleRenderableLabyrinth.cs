@@ -9,7 +9,7 @@
     using LabyrinthHandler.Contracts;
     using Entities.Contracts;
 
-    public class ConsoleRenderableLabyrinth : ConsoleRenderableEntity, IRenderable
+    public class ConsoleRenderableLabyrinth : ConsoleRenderableEntity
     {
         private const char EMPTY_CELL = '-';
         private const char WALL_CELL = 'X';
@@ -17,7 +17,7 @@
 
         private ILabyrinth labyrinth;
 
-        public ConsoleRenderableLabyrinth(IntPoint coords, IRenderer renderer, ILabyrinth labyrinth)
+        public ConsoleRenderableLabyrinth(ILabyrinth labyrinth, IntPoint coords, IRenderer renderer)
             : base(labyrinth, coords, renderer)
         {
             this.labyrinth = labyrinth;

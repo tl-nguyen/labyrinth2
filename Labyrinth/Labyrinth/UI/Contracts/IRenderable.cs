@@ -1,6 +1,6 @@
 ﻿namespace Labyrinth.UI.Contracts
 {
-    using Labyrinth.Commons;
+    using Commons;
 
     public interface IRenderable
     {

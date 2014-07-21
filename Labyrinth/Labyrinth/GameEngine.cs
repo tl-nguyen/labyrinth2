@@ -25,14 +25,18 @@
         private ITable table;
         private ILogger simpleLoggerFileAppender;
        
-        private IScene scene;
+        
         private IGameConsole gameConsole;
-        private ConsoleRenderableGameConsole gameConsoleGraphic;
-        private ConsoleRenderableLabyrinth labyrinthGraphic;
+        
 
         private IGameLogic gameLogic;
         private ILabyrinth labyrinth;
         private IFactory factory;
+
+        private IScene scene;
+        private ConsoleRenderableGameConsole gameConsoleGraphic;
+        private ConsoleRenderableLabyrinth labyrinthGraphic;
+        //private ConsoleRenderableResults tableGraphic;
 
         public GameEngine(IConsoleRenderer renderer, IUserInput input, IFactory factory, IMoveHandler moveHandler)
         {
@@ -53,8 +57,8 @@
 
             this.scene = this.factory.GetConsoleScene(this.renderer);
             this.gameConsole = new GameConsole(this.factory.GetLanguageStringsInstance());//TODO: use factory
-            this.gameConsoleGraphic = new ConsoleRenderableGameConsole(new IntPoint(0, 11), this.renderer, this.gameConsole, 11);//TODO: use factory
-            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(new IntPoint(0, 0), this.renderer, this.labyrinth);
+            this.gameConsoleGraphic = new ConsoleRenderableGameConsole(this.gameConsole, new IntPoint(0, 11), this.renderer, 11);//TODO: use factory
+            this.labyrinthGraphic = this.factory.GetLabyrinthGraphic(this.labyrinth, new IntPoint(0, 0), this.renderer);
 
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.scene, this.table, this.input,this.factory);
         }
