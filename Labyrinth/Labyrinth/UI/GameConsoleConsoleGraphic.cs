@@ -7,7 +7,7 @@
 
     public class GameConsoleConsoleGraphic : EntityConsoleGraphic
     {
-        private const int DEFAULT_VISIBLE_LINES_COUNT = 15;
+        private const int DEFAULT_VISIBLE_LINES_COUNT = 10;
 
         private IGameConsole gameConsole;
         private int visibleLinesCount;

@@ -129,7 +129,6 @@
             {
                 this.gameConsole.AddInput("EnterName");
                 scene.Render();
-                Console.WriteLine();
                 string name = this.input.GetPlayerName();
                 this.table.Add(factory.GetResultInstance(movesCount, name));
             }

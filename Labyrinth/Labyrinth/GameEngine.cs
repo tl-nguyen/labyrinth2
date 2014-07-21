@@ -58,10 +58,10 @@
             this.renderer = this.consoleGraphicFactory.GetConsoleRenderer();
             this.scene = this.factory.GetConsoleScene(this.renderer);
 
-            this.gameConsoleGraphic = this.consoleGraphicFactory.GetGameConsoleGraphic(this.gameConsole, 
-                this.consoleGraphicFactory.GetCoordinates(0, 15), this.renderer);
             this.labyrinthGraphic = this.consoleGraphicFactory.GetLabyrinthConsoleGraphic(this.labyrinth,
-                this.consoleGraphicFactory.GetCoordinates(0, 0), this.renderer);
+                this.consoleGraphicFactory.GetCoordinates(0, 1), this.renderer);
+            this.gameConsoleGraphic = this.consoleGraphicFactory.GetGameConsoleGraphic(this.gameConsole,
+                this.consoleGraphicFactory.GetCoordinates(0, this.labyrinth.LabyrinthSize + 2), this.renderer);
 
 
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.scene, this.table, this.input,this.factory);
@@ -82,7 +82,6 @@
             {
                 this.GameLoop(ref movesCount);
             }
-            Console.WriteLine();
         }
 
         private void GameLoop(ref int movesCount)
