@@ -13,15 +13,13 @@
     public interface IGameLogic
     {
         /// <summary>
-        /// Receives a Command, processes it, making modifications to the game objects, and sets IsGameOver
+        /// Receives a Command, processes it and updates the game entities accordingly
         /// </summary>
-        void ProcessInput(Command command);
+        void Update();
 
         /// <summary>
         /// Is set to false normally, sets to true if a game ending condition is reached.
         /// </summary>
-        bool Terminate { get; }
-
-        void Update();
+        bool Exit { get; }
     }
 }

@@ -65,12 +65,11 @@
             this.tableGraphic = this.consoleGraphicFactory.GetResultsTableConsoleGraphic(this.resultsTable,
                 this.consoleGraphicFactory.GetCoordinates(0, 1), this.renderer);
 
-
-            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.scene, this.resultsTable, this.input,this.factory);
+            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.resultsTable, this.input, this.factory);
         }
 
         public GameEngine()
-            : this(new UserInputAndOutput(),new Factory(), new MoveHandler())
+            : this(new UserInput(),new Factory(), new MoveHandler())
         {
         }
 
@@ -78,10 +77,12 @@
         {
             this.Init();
 
-            while (!this.gameLogic.Terminate)
+            while (!this.gameLogic.Exit)
             {
                 this.GameLoop(); ;
             }
+
+            this.ExitApplication();
         }
 
         private void GameLoop()
@@ -99,6 +100,14 @@
             this.gameConsole.AddInput("Welcome");
             this.gameConsole.AddInput("Input");
             scene.Render();
+        }
+
+        private void ExitApplication()
+        {
+            if (Console.ReadKey(true) != null)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

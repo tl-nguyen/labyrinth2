@@ -26,31 +26,30 @@
         private IUserInput input;
         private IFactory factory;
         private int movesCount;
-
-        private IScene scene; //temporary, untill we finish redistributing responsibilites, so that GameLogic doesn't work with rendering
+        private bool isTopResult;
 
         public GameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
-            IScene scene, IResultsTable resultsTable, IUserInput input, IFactory factory)
+            IResultsTable resultsTable, IUserInput input, IFactory factory)
         {
             this.labyrinth = labyrinth;
             this.gameConsole = gameConsole;
-            this.scene = scene;
             this.resultsTable = resultsTable;
             this.input = input;
-            this.Terminate = false;
+            this.Exit = false;
             this.factory = factory;
             this.movesCount = 0;
+            this.isTopResult = false;
         }
 
         /// <summary>
         /// Is set to false normally, sets to true if a game ending condition is reached.
         /// </summary>
-        public bool Terminate { get; private set; }
+        public bool Exit { get; private set; }
 
         /// <summary>
         /// Receives a Command, processes it, making modifications to the game objects, and sets IsGameOver
         /// </summary>
-        public void ProcessInput(Command input)
+        private void ProcessInput(Command input)
         {
             this.ExecuteCommand(input);
 
@@ -68,30 +67,28 @@
                 case Command.Down:
                 case Command.Left:
                 case Command.Right:
-                    bool moveDone =
-                        this.labyrinth.MoveHandler.MoveAction(this.labyrinth, input);
-                    if (moveDone == true)
+                    if (this.labyrinth.Active)
                     {
-                        this.movesCount++;
-                    }
-                    else
-                    {
-                        this.gameConsole.AddInput("InvalidMove");
+                        bool moveDone =
+                            this.labyrinth.MoveHandler.MoveAction(this.labyrinth, input);
+                        if (moveDone == true)
+                        {
+                            this.movesCount++;
+                        }
+                        else
+                        {
+                            this.gameConsole.AddInput("InvalidMove");
+                        }
                     }
                     break;
                 case Command.Top:
-                    this.ShowTopResults(); //TODO: look at method comment
+                    this.ShowTopResults();
                     break;
                 case Command.Exit:
-                    this.Exit();
+                    this.Quit();
                     break;
                 case Command.Restart:
-                    /*
-                     * TODO: fix unwanted behaviour(player graphic is shown at correct place,
-                     * but player's actual position is the old position)
-                     */
-                    this.labyrinth.GenerateLabyrinth();
-                    this.movesCount = 0;
+                    this.Restart(); //TODO: look at method comment
                     break;
                 default:
                     this.gameConsole.AddInput("InvalidCommand");
@@ -99,15 +96,10 @@
             }
         }
 
-        private void Exit()
+        private void Quit()
         {
-            this.labyrinth.Deactivate();
             this.gameConsole.AddInput("GoodBye");
-            this.scene.Render();
-            if (Console.ReadKey(true) != null)
-            {
-                Environment.Exit(0);
-            }
+            this.Exit = true;
         }
 
         private bool IsGameFinished(ILabyrinth labyrinth)
@@ -128,25 +120,48 @@
 
         private void GameOver()
         {
-            this.labyrinth.Deactivate();
+            this.ShowTopResults();
             this.gameConsole.AddInput("WinMessage", new string[] { this.movesCount.ToString() });
             if (this.resultsTable.Table.IsTopResult(this.movesCount))
             {
                 this.gameConsole.AddInput("EnterName");
-                scene.Render();
-                string name = this.input.GetPlayerName();
-                this.resultsTable.Table.Add(factory.GetResultInstance(this.movesCount, name));
+                this.isTopResult = true;
             }
-
-            this.Terminate = true;
+            else
+            {
+                this.Quit();
+            }
         }
-        /*
-         * TODO: use bool flag to decide whether to activate table, deactive labyrinth or vice versa
-         */
+
+        private void RecordTopResult()
+        {
+            string name = this.input.GetPlayerName();
+            this.resultsTable.Table.Add(factory.GetResultInstance(this.movesCount, name));
+            this.Quit();
+        }
+
         private void ShowTopResults()
         {
-            this.resultsTable.Activate();
-            this.labyrinth.Deactivate();
+            if (this.resultsTable.Active == false)
+            {
+                this.resultsTable.Activate();
+                this.labyrinth.Deactivate();
+            }
+            else
+            {
+                this.resultsTable.Deactivate();
+                this.labyrinth.Activate();
+            }
+        }
+
+        /*
+        * TODO: fix unwanted behaviour(player graphic is shown at correct place,
+        * but player's actual position is the old position)
+        */
+        private void Restart()
+        {
+            this.labyrinth.GenerateLabyrinth();
+            this.movesCount = 0;
         }
 
         private void UpdateUserInput()
@@ -159,7 +174,14 @@
 
         public void Update()
         {
-            this.UpdateUserInput();
+            if (this.isTopResult == false)
+            {
+                this.UpdateUserInput();
+            }
+            else
+            {
+                this.RecordTopResult();
+            }
         }
     }
 }

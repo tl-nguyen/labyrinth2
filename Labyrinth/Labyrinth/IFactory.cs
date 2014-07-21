@@ -115,6 +115,6 @@ namespace Labyrinth
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
         IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
-            IScene scene, IResultsTable resultsTable, IUserInput input, IFactory factory);
+            IResultsTable resultsTable, IUserInput input, IFactory factory);
     }
 }

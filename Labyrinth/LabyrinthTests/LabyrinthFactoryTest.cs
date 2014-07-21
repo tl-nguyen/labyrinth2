@@ -22,7 +22,7 @@
         [TestMethod]
         public void TestUserInputOutputInstance()
         {
-            UserInputAndOutput userIO = new UserInputAndOutput();
+            UserInput userIO = new UserInput();
             var factUser = testFactory.GetUserInputInstance();
 
             Object.Equals(userIO, factUser);

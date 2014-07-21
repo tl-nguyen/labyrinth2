@@ -9,7 +9,7 @@
         [TestMethod]
         public void TestMethod1()
         {
-            UserInputAndOutput testIO = new UserInputAndOutput();
+            UserInput testIO = new UserInput();
         }
     }
 }

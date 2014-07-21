@@ -43,7 +43,7 @@
 
         public IUserInput GetUserInputInstance()
         {
-            return new UserInputAndOutput();
+            return new UserInput();
         }
 
         public ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
@@ -142,10 +142,10 @@
             return new ConsoleGraphicFactory();
         }
 
-        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole, IScene scene,
+        public IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
             IResultsTable resultsTable, IUserInput input, IFactory factory)
         {
-            return new GameLogic(labyrinth, gameConsole, scene, resultsTable, input, factory);
+            return new GameLogic(labyrinth, gameConsole, resultsTable, input, factory);
         }
     }
 }
