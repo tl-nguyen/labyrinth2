@@ -59,10 +59,10 @@ namespace Labyrinth
         IResultFormatter GetResultFormatterInstance();
 
         /// <summary>
-        /// Gets the correct instance of the <see cref="TopResults"/> class.
+        /// Gets the correct instance of the <see cref="ResultsTable"/> class.
         /// </summary>
-        /// <returns><see cref="TopResults"/> class instance</returns>
-        ITable GetTopResultsInstance();
+        /// <returns><see cref="ResultsTable"/> class instance</returns>
+        IResultsTable GetTopResultsTableInstance();
 
         /// <summary>
         /// Gets the correct instance of the <see cref="FileSerializationManager"/> class.
@@ -115,6 +115,6 @@ namespace Labyrinth
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
         IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
-            IScene scene, ITable table, IUserInput input, IFactory factory);
+            IScene scene, IResultsTable resultsTable, IUserInput input, IFactory factory);
     }
 }

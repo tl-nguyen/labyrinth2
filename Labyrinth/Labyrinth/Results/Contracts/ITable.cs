@@ -18,6 +18,8 @@ namespace Labyrinth.Results.Contracts
         /// </summary>
         event ChangedTableEventHandler Changed;
 
+        string[] GetTopResultsStrings();
+
         /// <summary>
         /// Checks if currentMoves is good enough to enter the table.
         /// </summary>

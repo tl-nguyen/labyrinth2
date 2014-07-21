@@ -83,10 +83,15 @@
         }
 
         /// <summary>
-        /// Gets the correct instance of the <see cref="TopResults"/> class.
+        /// Gets the correct instance of the <see cref="ResultsTable"/> class.
         /// </summary>
-        /// <returns><see cref="TopResults"/> class instance</returns>
-        public ITable GetTopResultsInstance()
+        /// <returns><see cref="ResultsTable"/> class instance</returns>
+        public IResultsTable GetTopResultsTableInstance()
+        {
+            ITable table = this.GetTopResultsInstance();
+            return new ResultsTable(table);
+        }
+        private ITable GetTopResultsInstance()
         {
             try
             {
@@ -138,9 +143,9 @@
         }
 
         public IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole, IScene scene,
-            ITable table, IUserInput input, IFactory factory)
+            IResultsTable resultsTable, IUserInput input, IFactory factory)
         {
-            return new GameLogic(labyrinth, gameConsole, scene, table, input, factory);
+            return new GameLogic(labyrinth, gameConsole, scene, resultsTable, input, factory);
         }
     }
 }

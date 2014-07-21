@@ -28,7 +28,7 @@ namespace Labyrinth.Results
         /// <summary>
         /// String representing an empty top results table.
         /// </summary>
-        private const string EmptyMessage = "|     The scoreboard is empty.     |";
+        //private const string EmptyMessage = "|     The scoreboard is empty.     |";
 
         /// <summary>
         /// Maximum count of top results in the table.
@@ -65,6 +65,28 @@ namespace Labyrinth.Results
         public event ChangedTableEventHandler Changed;
 
         /// <summary>
+        /// Returns a List of strings, containing the top results.
+        /// If none are recorded, populates the list with only one string, 
+        /// "".
+        /// </summary>
+        /// <returns>Strings List representing the converted results table.</returns>
+        public string[] GetTopResultsStrings()
+        {
+            int resultsListCount = this.topResults.Count;
+
+            string[] output = new string[resultsListCount];
+            if (resultsListCount > 1)
+            {
+                for (int i = 0; i < resultsListCount; i++)
+                {
+                    output[i] = this.topResults[i].ToString();
+                }
+            }
+
+            return output;
+        }
+        /*
+        /// <summary>
         /// Converts the result table into string.
         /// </summary>
         /// <returns>String representing the converted results table.</returns>
@@ -89,7 +111,7 @@ namespace Labyrinth.Results
             output.Add("|----------------------------------|");
 
             return string.Join(Environment.NewLine, output);
-        }
+        }*/
 
         /// <summary>
         /// Checks if a given amount of moves is good enough to enter the results table.

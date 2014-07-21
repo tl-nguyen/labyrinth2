@@ -21,19 +21,20 @@
     {
 
         private ILabyrinth labyrinth;
-        private IScene scene;
         private IGameConsole gameConsole;
-        private ITable table;
+        private IResultsTable resultsTable;
         private IUserInput input;
         private IFactory factory;
 
+        private IScene scene; //temporary, untill we finish redistributing responsibilites, so that GameLogic doesn't work with rendering
+
         public GameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
-            IScene scene, ITable table, IUserInput input, IFactory factory)
+            IScene scene, IResultsTable resultsTable, IUserInput input, IFactory factory)
         {
             this.labyrinth = labyrinth;
             this.gameConsole = gameConsole;
             this.scene = scene;
-            this.table = table;
+            this.resultsTable = resultsTable;
             this.input = input;
             this.IsGameOver = false;
             this.factory = factory;
@@ -77,12 +78,16 @@
                     }
                     break;
                 case Command.Top:
-                    //this.topMessageBox.SetText(this.table.ToString()); //TODO: Implement new show top results method
+                    this.ShowTopResults(); //TODO: look at method comment
                     break;
                 case Command.Exit:
                     this.Exit();
                     break;
                 case Command.Restart:
+                    /*
+                     * TODO: fix unwanted behaviour(player graphic is shown at correct place,
+                     * but player's actual position is the old position)
+                     */
                     this.labyrinth.GenerateLabyrinth();
                     movesCount = 0;
                     break;
@@ -125,15 +130,23 @@
         {
             this.labyrinth.Deactivate();
             this.gameConsole.AddInput("WinMessage", new string[] { movesCount.ToString() });
-            if (this.table.IsTopResult(movesCount))
+            if (this.resultsTable.Table.IsTopResult(movesCount))
             {
                 this.gameConsole.AddInput("EnterName");
                 scene.Render();
                 string name = this.input.GetPlayerName();
-                this.table.Add(factory.GetResultInstance(movesCount, name));
+                this.resultsTable.Table.Add(factory.GetResultInstance(movesCount, name));
             }
 
             this.IsGameOver = true;
+        }
+        /*
+         * TODO: use bool flag to decide whether to activate table, deactive labyrinth or vice versa
+         */
+        private void ShowTopResults()
+        {
+            this.resultsTable.Activate();
+            this.labyrinth.Deactivate();
         }
     }
 }

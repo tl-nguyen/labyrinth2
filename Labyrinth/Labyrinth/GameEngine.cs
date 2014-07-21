@@ -25,11 +25,11 @@
 
         private IConsoleRenderer renderer;
         
-        private ITable table;
         private ILogger simpleLoggerFileAppender;
         private IGameConsole gameConsole;
         private IGameLogic gameLogic;
         private ILabyrinth labyrinth;
+        private IResultsTable resultsTable;
         
 
         private IConsoleGraphicFactory consoleGraphicFactory;
@@ -44,9 +44,9 @@
             this.factory = factory;
             this.labyrinth = this.factory.GetLabyrinthInstance(factory, moveHandler);
             this.gameConsole = new GameConsole(this.factory.GetLanguageStringsInstance());//TODO: use factory
-            this.table = this.factory.GetTopResultsInstance();
+            this.resultsTable = this.factory.GetTopResultsTableInstance();
             
-            this.table.Changed += (sender, e) =>
+            this.resultsTable.Table.Changed += (sender, e) =>
             {
                 this.factory.GetSerializationManagerInstance().Serialize(sender);
             };
@@ -62,9 +62,11 @@
                 this.consoleGraphicFactory.GetCoordinates(0, 1), this.renderer);
             this.gameConsoleGraphic = this.consoleGraphicFactory.GetGameConsoleGraphic(this.gameConsole,
                 this.consoleGraphicFactory.GetCoordinates(0, this.labyrinth.LabyrinthSize + 2), this.renderer);
+            this.tableGraphic = this.consoleGraphicFactory.GetResultsTableConsoleGraphic(this.resultsTable,
+                this.consoleGraphicFactory.GetCoordinates(0, 1), this.renderer);
 
 
-            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.scene, this.table, this.input,this.factory);
+            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.scene, this.resultsTable, this.input,this.factory);
         }
 
         public GameEngine()
@@ -92,8 +94,10 @@
 
         private void Init()
         {
+            this.resultsTable.Deactivate();
             this.scene.Add(this.labyrinthGraphic);
             this.scene.Add(this.gameConsoleGraphic);
+            this.scene.Add(this.tableGraphic);
             this.gameConsole.AddInput("Welcome");
             this.gameConsole.AddInput("Input");
             scene.Render();
