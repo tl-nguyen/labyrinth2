@@ -85,33 +85,6 @@ namespace Labyrinth.Results
 
             return output;
         }
-        /*
-        /// <summary>
-        /// Converts the result table into string.
-        /// </summary>
-        /// <returns>String representing the converted results table.</returns>
-        public override string ToString()
-        {
-            var output = new List<string>();
-            output.Add("|----------------------------------|");
-            output.Add("|         Top Results Table        |");
-            output.Add("|----------------------------------|");
-            if (this.topResults.Count == 0)
-            {
-                output.Add(TopResults.EmptyMessage);
-            }
-            else
-            {
-                for (int i = 0; i < this.topResults.Count; i++)
-                {
-                    output.Add(string.Format("| {0}. {1} |", i + 1, this.topResults[i].ToString()));
-                }
-            }
-
-            output.Add("|----------------------------------|");
-
-            return string.Join(Environment.NewLine, output);
-        }*/
 
         /// <summary>
         /// Checks if a given amount of moves is good enough to enter the results table.
