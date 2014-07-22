@@ -1,17 +1,6 @@
 ﻿namespace Labyrinth
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Commons;
-    using UI.Contracts;
-    using UI;
-    using Results.Contracts;
-    using LabyrinthHandler;
-    using LabyrinthHandler.Contracts;
-    using Entities;
     using Entities.Contracts;
 
     /// <summary>
@@ -19,7 +8,6 @@
     /// </summary>
     public class GameLogic : IGameLogic
     {
-
         private ILabyrinth labyrinth;
         private IGameConsole gameConsole;
         private IResultsTable resultsTable;
@@ -101,15 +89,19 @@
                         }
                     }
                     break;
+
                 case Command.Top:
                     this.ShowTopResults();
                     break;
+
                 case Command.Exit:
                     this.Quit();
                     break;
+
                 case Command.Restart:
                     this.Restart();
                     break;
+
                 default:
                     this.gameConsole.AddInput("InvalidCommand");
                     break;
@@ -176,7 +168,7 @@
         private void RecordTopResult()
         {
             string name = this.input.GetPlayerName();
-            this.resultsTable.Table.Add(factory.GetResultInstance(this.movesCount, name));
+            this.resultsTable.Table.Add(this.factory.GetResultInstance(this.movesCount, name));
             this.Quit();
         }
     }

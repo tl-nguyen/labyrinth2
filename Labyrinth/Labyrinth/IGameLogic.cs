@@ -1,12 +1,5 @@
 ﻿namespace Labyrinth
 {
-    using Commons;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Interface that handles input, and changes game objects
     /// </summary>

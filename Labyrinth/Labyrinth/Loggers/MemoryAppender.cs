@@ -1,8 +1,8 @@
 ﻿namespace Labyrinth.Loggers
 {
+    using Contracts;
     using System;
     using System.Collections.Generic;
-    using Contracts;
 
     public class MemoryAppender : IAppender
     {

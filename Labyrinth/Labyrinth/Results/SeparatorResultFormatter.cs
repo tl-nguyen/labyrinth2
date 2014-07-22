@@ -6,9 +6,9 @@
 // ********************************
 namespace Labyrinth.Results
 {
+    using Contracts;
     using System;
     using System.Runtime.Serialization;
-    using Contracts;
 
     /// <summary>
     /// Class for result formatter with specified separator.

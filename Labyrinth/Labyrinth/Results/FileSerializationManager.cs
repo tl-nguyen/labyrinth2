@@ -9,7 +9,6 @@ namespace Labyrinth.Results
     using System;
     using System.IO;
     using System.Runtime.Serialization;
-    using Contracts;
 
     /// <summary>
     /// Class for serialization of data in a file
@@ -40,14 +39,14 @@ namespace Labyrinth.Results
         /// <summary>
         /// Gets the formatter used for serialization.
         /// </summary>
-        public IFormatter Formatter 
+        public IFormatter Formatter
         {
             get
             {
                 return this.formatter;
             }
 
-            private set 
+            private set
             {
                 if (value != null)
                 {
@@ -63,7 +62,7 @@ namespace Labyrinth.Results
         /// <summary>
         /// Gets the filename of the serialized data.
         /// </summary>
-        public string FileName 
+        public string FileName
         {
             get
             {
@@ -71,7 +70,7 @@ namespace Labyrinth.Results
             }
 
             private set
-            { 
+            {
                 if (!string.IsNullOrEmpty(value))
                 {
                     this.fileName = value;

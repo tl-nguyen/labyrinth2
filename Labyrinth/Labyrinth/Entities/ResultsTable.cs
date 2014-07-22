@@ -1,7 +1,7 @@
 ﻿namespace Labyrinth.Entities
 {
-    using Results.Contracts;
     using Contracts;
+    using Results.Contracts;
 
     public class ResultsTable : Entity, IResultsTable
     {

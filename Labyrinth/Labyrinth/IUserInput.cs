@@ -18,6 +18,5 @@
         /// </summary>
         /// <returns>the player name as a string</returns>
         string GetPlayerName();
-
     }
 }

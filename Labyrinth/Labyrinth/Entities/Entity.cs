@@ -10,11 +10,12 @@
         {
             this.Active = active;
         }
+
         public Entity()
             : this(true)
         {
         }
-        
+
         public void Activate()
         {
             this.Active = true;

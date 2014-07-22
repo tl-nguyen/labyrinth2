@@ -1,13 +1,13 @@
 ﻿namespace Labyrinth.Renderer
 {
+    using Contracts;
     using System;
     using System.Collections.Generic;
-    using Contracts;
 
     public class LanguageStrings : ILanguageStrings
     {
         private readonly Dictionary<string, string> dialogList;
- 
+
         public LanguageStrings()
         {
             this.dialogList = new Dictionary<string, string>();

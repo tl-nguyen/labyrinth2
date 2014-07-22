@@ -1,11 +1,10 @@
 ﻿namespace Labyrinth.Entities
 {
-    using System;
-    using System.Collections.Generic;
     using Commons;
-    using Entities;
     using Entities.Contracts;
     using LabyrinthHandler.Contracts;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
@@ -37,6 +36,7 @@
             GenerateLabyrinth();
             this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
         }
+
         public Labyrinth(IFactory factory, IMoveHandler moveHandler)
             : this(factory, moveHandler, DEFAULT_SIZE)
         {
@@ -72,7 +72,6 @@
             this.Matrix[labyrintStartRow, labyrinthStartCol].CellValue = CellState.Player;
             this.CurrentCell = this.Matrix[labyrintStartRow, labyrinthStartCol];
         }
-
 
         /// <summary>
         /// Check if the generated labyrinth has an exit or not

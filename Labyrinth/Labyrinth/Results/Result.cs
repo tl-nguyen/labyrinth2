@@ -6,9 +6,9 @@
 // ********************************
 namespace Labyrinth.Results
 {
+    using Contracts;
     using System;
     using System.Runtime.Serialization;
-    using Contracts;
 
     /// <summary>
     /// Abstract class for game results.
@@ -19,7 +19,7 @@ namespace Labyrinth.Results
         /// <summary>
         /// Field for player moves count.
         /// </summary>
-        private int movesCount; 
+        private int movesCount;
 
         /// <summary>
         /// Field for player name.

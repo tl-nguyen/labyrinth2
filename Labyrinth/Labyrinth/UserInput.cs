@@ -1,7 +1,7 @@
 ﻿namespace Labyrinth
 {
-    using System;
     using Commons;
+    using System;
 
     /// <summary>
     /// Concrete implimentation of IUserInput that receives commands from the console, and returns them as an enumeration ( or string )

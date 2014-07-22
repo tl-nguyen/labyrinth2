@@ -1,7 +1,7 @@
 ﻿namespace Labyrinth
 {
-    using System;
     using Commons;
+    using System;
 
     /// <summary>
     /// Encapsulates the object that represents a single instance of the ICell interface

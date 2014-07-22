@@ -1,19 +1,19 @@
 ﻿namespace Labyrinth
 {
-    using Loggers;
-    using System.Runtime.Serialization.Formatters.Binary;
+    using Commons;
+    using Entities;
+    using Entities.Contracts;
     using LabyrinthHandler;
     using LabyrinthHandler.Contracts;
-    using Results;
-    using Results.Contracts;
+    using Loggers;
     using Loggers.Contracts;
     using Renderer;
     using Renderer.Contracts;
-    using Commons;
+    using Results;
+    using Results.Contracts;
+    using System.Runtime.Serialization.Formatters.Binary;
     using UI;
     using UI.Contracts;
-    using Entities.Contracts;
-    using Entities;
 
     /// <summary>
     /// Returns instances of all classes for the project
@@ -63,8 +63,8 @@
         public IResult GetResultInstance(int movesCount, string playerName)
         {
             // return new SimpleResult(
-            //    movesCount, 
-            //    playerName, 
+            //    movesCount,
+            //    playerName,
             //    LabyrinthFactory.GetResultFormatterInstance());
             return new RatedResult(
                 movesCount,
@@ -91,6 +91,7 @@
             ITable table = this.GetTopResultsInstance();
             return new ResultsTable(table);
         }
+
         private ITable GetTopResultsInstance()
         {
             try
@@ -146,6 +147,11 @@
             IResultsTable resultsTable, IUserInput input, IFactory factory)
         {
             return new GameLogic(labyrinth, gameConsole, resultsTable, input, factory);
+        }
+
+        public IMoveHandler GetMoveHandlerInstance()
+        {
+            return new MoveHandler();
         }
     }
 }

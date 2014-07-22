@@ -2,7 +2,7 @@
 {
     using Results.Contracts;
 
-    public interface IResultsTable :IEntity
+    public interface IResultsTable : IEntity
     {
         ITable Table { get; }
     }

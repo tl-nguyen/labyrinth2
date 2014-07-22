@@ -6,11 +6,11 @@
 // ********************************
 namespace Labyrinth.Results
 {
+    using Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
-    using Contracts;
 
     /// <summary>
     /// Delegate to changed event.
@@ -66,7 +66,7 @@ namespace Labyrinth.Results
 
         /// <summary>
         /// Returns a List of strings, containing the top results.
-        /// If none are recorded, populates the list with only one string, 
+        /// If none are recorded, populates the list with only one string,
         /// "".
         /// </summary>
         /// <returns>Strings List representing the converted results table.</returns>

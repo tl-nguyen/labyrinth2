@@ -1,8 +1,8 @@
 ﻿namespace Labyrinth.Loggers
 {
+    using Contracts;
     using System;
     using System.IO;
-    using Contracts;
 
     public class FileAppender : IAppender
     {

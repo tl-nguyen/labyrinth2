@@ -1,19 +1,11 @@
 ﻿namespace Labyrinth
 {
-    using Loggers;
-    using System;
-    using System.Collections.Generic;
-    using Results.Contracts;
-    using Loggers.Contracts;
-    using Commons;
-    using Renderer;
-    using Renderer.Contracts;
-    using UI.Contracts;
-    using UI;
-    using LabyrinthHandler;
-    using LabyrinthHandler.Contracts;
     using Entities;
     using Entities.Contracts;
+    using Loggers.Contracts;
+    using Renderer.Contracts;
+    using System;
+    using UI.Contracts;
 
     /// <summary>
     /// Class that gives the game objects to different modules, and transfers commands from one class to another, allowing them to be detached.
@@ -24,13 +16,12 @@
         private IUserInput input;
 
         private IConsoleRenderer renderer;
-        
+
         private ILogger simpleLoggerFileAppender;
         private IGameConsole gameConsole;
         private IGameLogic gameLogic;
         private ILabyrinth labyrinth;
         private IResultsTable resultsTable;
-        
 
         private IConsoleGraphicFactory consoleGraphicFactory;
         private IScene scene;
@@ -38,14 +29,14 @@
         private IRenderable labyrinthGraphic;
         private IRenderable tableGraphic;
 
-        public GameEngine(IUserInput input, IFactory factory, IMoveHandler moveHandler)
+        public GameEngine(IFactory factory)
         {
-            this.input = input;
             this.factory = factory;
-            this.labyrinth = this.factory.GetLabyrinthInstance(factory, moveHandler);
+            this.input = this.factory.GetUserInputInstance();
+            this.labyrinth = this.factory.GetLabyrinthInstance(factory, this.factory.GetMoveHandlerInstance());
             this.gameConsole = new GameConsole(this.factory.GetLanguageStringsInstance());//TODO: use factory
             this.resultsTable = this.factory.GetTopResultsTableInstance();
-            
+
             this.resultsTable.Table.Changed += (sender, e) =>
             {
                 this.factory.GetSerializationManagerInstance().Serialize(sender);
@@ -69,7 +60,7 @@
         }
 
         public GameEngine()
-            : this(new UserInput(),new Factory(), new MoveHandler())
+            : this(new Factory())
         {
         }
 

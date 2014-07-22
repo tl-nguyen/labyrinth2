@@ -1,9 +1,9 @@
 ﻿namespace Labyrinth.LabyrinthHandler
 {
-    using System.Collections.Generic;
-    using Contracts;
     using Commons;
+    using Contracts;
     using Entities.Contracts;
+    using System.Collections.Generic;
 
     public class MoveHandler : IMoveHandler
     {
@@ -21,18 +21,22 @@
                     moveDone =
                         TryMove(labyrinth, Direction.Up);
                     break;
+
                 case Command.Down:
                     moveDone =
                         TryMove(labyrinth, Direction.Down);
                     break;
+
                 case Command.Left:
                     moveDone =
                         TryMove(labyrinth, Direction.Left);
                     break;
+
                 case Command.Right:
                     moveDone =
                         TryMove(labyrinth, Direction.Right);
                     break;
+
                 default:
                     break;
             }
@@ -77,18 +81,21 @@
         private ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
             ICell newCell = (ICell)currentCell.Clone();
-            
+
             switch (direction)
             {
                 case Direction.Up:
                     newCell.Row -= 1;
                     break;
+
                 case Direction.Down:
                     newCell.Row += 1;
                     break;
+
                 case Direction.Left:
                     newCell.Col -= 1;
                     break;
+
                 case Direction.Right:
                     newCell.Col += 1;
                     break;

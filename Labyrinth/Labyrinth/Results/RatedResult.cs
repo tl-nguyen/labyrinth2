@@ -6,9 +6,9 @@
 // ********************************
 namespace Labyrinth.Results
 {
+    using Contracts;
     using System;
     using System.Runtime.Serialization;
-    using Contracts;
 
     /// <summary>
     /// Class for game results with rating.
@@ -67,11 +67,11 @@ namespace Labyrinth.Results
         public override string ToString()
         {
             string shortenedName = this.PlayerName;
-            if(this.PlayerName.Length >= RatedResult.MaxPlayerNameLength)
+            if (this.PlayerName.Length >= RatedResult.MaxPlayerNameLength)
             {
                 shortenedName = this.PlayerName.Substring(0, RatedResult.MaxPlayerNameLength);
             }
-            
+
             return this.Formatter.Format(
                 string.Format("{0} ({1})\t", shortenedName, this.Rating),
                 this.MovesCount.ToString());

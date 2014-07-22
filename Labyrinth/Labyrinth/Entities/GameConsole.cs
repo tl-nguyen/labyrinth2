@@ -1,10 +1,10 @@
 ﻿namespace Labyrinth.Entities
 {
-    using System;
-    using System.Text;
-    using System.Collections.Generic;
-    using Renderer.Contracts;
     using Contracts;
+    using Renderer.Contracts;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
 
     public class GameConsole : Entity, IGameConsole
     {
@@ -23,6 +23,7 @@
             this.lineLength = lineLength;
             this.lines = new Queue<string>();
         }
+
         public GameConsole(ILanguageStrings dialogList)
             : this(dialogList, DEFAULT_LINES_MAX_COUNT, DEFAULT_LINE_LENGTH)
         {
@@ -42,6 +43,7 @@
             }
             return output;
         }
+
         public void AddInput(string key, string[] args)
         {
             string input = this.GetInput(key);
@@ -50,6 +52,7 @@
             input = sb.ToString();
             this.EnqueueInput(input);
         }
+
         public void AddInput(string key)
         {
             string input = this.GetInput(key);
@@ -61,12 +64,14 @@
             string input = this.dialogList.GetDialog(key);
             return input;
         }
+
         private string[] GetWords(string input)
         {
             char[] whiteSpace = { ' ' };
             string[] words = input.Split(whiteSpace);
             return words;
         }
+
         private List<string> GetLines(string input)
         {
             Queue<string> words = new Queue<string>(this.GetWords(input));
@@ -97,6 +102,7 @@
 
             return lines;
         }
+
         private void EnqueueInput(string input)
         {
             List<string> linesList = GetLines(input);

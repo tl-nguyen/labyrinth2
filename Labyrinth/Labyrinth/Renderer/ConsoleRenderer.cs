@@ -1,7 +1,7 @@
 ﻿namespace Labyrinth.Renderer
 {
-    using System;
     using Renderer.Contracts;
+    using System;
     using UI.Contracts;
 
     public class ConsoleRenderer : IConsoleRenderer

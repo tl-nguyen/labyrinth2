@@ -1,18 +1,14 @@
 namespace Labyrinth
 {
-    using System.Runtime.Serialization.Formatters.Binary;
     using Commons;
-    using UI;
-    using UI.Contracts;
+    using Entities;
+    using Entities.Contracts;
     using LabyrinthHandler.Contracts;
-    using Loggers;
     using Loggers.Contracts;
-    using Renderer;
     using Renderer.Contracts;
     using Results;
     using Results.Contracts;
-    using Entities;
-    using Entities.Contracts;
+    using UI.Contracts;
 
     public interface IFactory
     {
@@ -27,6 +23,12 @@ namespace Labyrinth
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
         IRenderer GetRendererInstance(ILanguageStrings dialogList);
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IMoveHandler"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
+        IMoveHandler GetMoveHandlerInstance();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IUserInput"/> interface.
@@ -69,10 +71,6 @@ namespace Labyrinth
         /// </summary>
         /// <returns><see cref="FileSerializationManager"/> class instance</returns>
         FileSerializationManager GetSerializationManagerInstance();
-
-
-
-
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="ILanguageStrings"/> interface.
