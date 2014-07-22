@@ -75,12 +75,9 @@ namespace Labyrinth.Results
             int resultsListCount = this.topResults.Count;
 
             string[] output = new string[resultsListCount];
-            if (resultsListCount > 1)
+            for (int i = 0; i < resultsListCount; i++)
             {
-                for (int i = 0; i < resultsListCount; i++)
-                {
-                    output[i] = this.topResults[i].ToString();
-                }
+                output[i] = this.topResults[i].ToString();
             }
 
             return output;
