@@ -12,12 +12,12 @@
         private IGameConsole gameConsole;
         private IResultsTable resultsTable;
         private IUserInput input;
-        private IFactory factory;
+        private IResultFactory factory;
         private int movesCount;
         private bool isTopResult;
 
         public GameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
-            IResultsTable resultsTable, IUserInput input, IFactory factory)
+            IResultsTable resultsTable, IUserInput input, IResultFactory factory)
         {
             this.labyrinth = labyrinth;
             this.gameConsole = gameConsole;

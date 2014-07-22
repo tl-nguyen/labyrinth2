@@ -10,7 +10,7 @@ namespace Labyrinth
     using Results.Contracts;
     using UI.Contracts;
 
-    public interface IFactory
+    public interface IFactory : IResultFactory
     {
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="ICell"/> interface.
@@ -47,12 +47,6 @@ namespace Labyrinth
         /// </summary>
         /// <returns>The correct matrix instance of the class implementing <see cref="ICell"/> interface</returns>
         ICell[,] GetICellMatrixInstance(int size);
-
-        /// <summary>
-        /// Gets the correct instance of the class implementing <see cref="IResult"/> interface.
-        /// </summary>
-        /// <returns>The correct instance of the class implementing <see cref="IResult"/> interface</returns>
-        IResult GetResultInstance(int movesCount, string playerName);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IResultFormatter"/> interface.

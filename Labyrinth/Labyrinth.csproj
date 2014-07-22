@@ -65,6 +65,7 @@
     <Compile Include="Labyrinth\Cell.cs" />
     <Compile Include="Labyrinth\Commons\CellState.cs" />
     <Compile Include="Labyrinth\Entities\Contracts\IGameConsole.cs" />
+    <Compile Include="Labyrinth\IResultFactory.cs" />
     <Compile Include="Labyrinth\LabyrinthHandler\Contracts\IMoveHandler.cs" />
     <Compile Include="Labyrinth\UI\ConsoleGraphicFactory.cs" />
     <Compile Include="Labyrinth\UI\EntityConsoleGraphic.cs" />
