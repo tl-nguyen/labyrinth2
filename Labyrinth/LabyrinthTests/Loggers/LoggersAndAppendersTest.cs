@@ -1,11 +1,8 @@
-﻿namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests.Loggers
 {
-    using System;
-    using System.Text;
-    using System.Collections.Generic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Loggers;
-    using Loggers.Contracts;
+    using Labyrinth.Loggers.Contracts;
+    using Labyrinth.Loggers;
 
     /// <summary>
     /// Summary description for FileAppenderTest

@@ -1,10 +1,10 @@
-﻿namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests.Results
 {
     using System;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Runtime.Serialization.Formatters.Soap;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Results;
+    using Labyrinth.Results;
 
     [TestClass]
     public class FileSerializationManagerTests

@@ -5,7 +5,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class LabyrinthFactoryTest
+    public class FactoryTest
     {
         Factory testFactory = new Factory();
         [TestMethod]
@@ -32,7 +32,7 @@
         public void TestLabyrinthInstance()
         {
             MoveHandler testHandler = new MoveHandler();
-            Entities.Labyrinth testLab = new Entities.Labyrinth(testFactory, testHandler);
+            Labyrinth.Entities.Labyrinth testLab = new Labyrinth.Entities.Labyrinth(testFactory, testHandler);
             var factLabyrinth = testFactory.GetLabyrinthInstance(testFactory, testHandler);
 
             Object.Equals(testLab, factLabyrinth);

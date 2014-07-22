@@ -51,19 +51,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="LabyrinthTests.cs" />
-    <Compile Include="LoggersAndAppendersTest.cs" />
+    <Compile Include="Entities\LabyrinthTests.cs" />
+    <Compile Include="Loggers\LoggersAndAppendersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CellTests.cs" />
-    <Compile Include="ConsoleRendererTests.cs" />
-    <Compile Include="FileSerializationManagerTests.cs" />
+    <Compile Include="Renderer\ConsoleRendererTests.cs" />
+    <Compile Include="Results\FileSerializationManagerTests.cs" />
     <Compile Include="GameEngineTests.cs" />
-    <Compile Include="RatedResultTests.cs" />
-    <Compile Include="TopResultsTests.cs" />
-    <Compile Include="SimpleResultTests.cs" />
-    <Compile Include="PlainResultFormatterTests.cs" />
-    <Compile Include="SeparatorResultFormatterTests.cs" />
-    <Compile Include="LabyrinthFactoryTest.cs" />
+    <Compile Include="Results\RatedResultTests.cs" />
+    <Compile Include="Results\TopResultsTests.cs" />
+    <Compile Include="Results\SimpleResultTests.cs" />
+    <Compile Include="Results\PlainResultFormatterTests.cs" />
+    <Compile Include="Results\SeparatorResultFormatterTests.cs" />
+    <Compile Include="FactoryTest.cs" />
     <Compile Include="UserInputAndOutputTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +72,10 @@
       <Name>Labyrinth</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="LabyrinthHandler\" />
+    <Folder Include="UI\" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

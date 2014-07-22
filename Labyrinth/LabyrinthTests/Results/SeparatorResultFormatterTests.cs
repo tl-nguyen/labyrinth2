@@ -1,8 +1,8 @@
-﻿namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests.Results
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Results;
+    using Labyrinth.Results;
 
     [TestClass]
     public class SeparatorResultFormatterTests

@@ -1,4 +1,4 @@
-﻿namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests.Entities
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

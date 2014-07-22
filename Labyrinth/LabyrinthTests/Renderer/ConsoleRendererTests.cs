@@ -1,10 +1,10 @@
-﻿namespace Labyrinth.Tests
+﻿namespace Labyrinth.Tests.Renderer
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.IO;
-    using Renderer.Contracts;
-    using Renderer;
+    using Labyrinth.Renderer.Contracts;
+    using Labyrinth.Renderer;
     [TestClass]
     public class ConsoleRendererTests
     {/*
