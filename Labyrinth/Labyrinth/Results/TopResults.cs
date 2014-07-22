@@ -65,11 +65,10 @@ namespace Labyrinth.Results
         public event ChangedTableEventHandler Changed;
 
         /// <summary>
-        /// Returns a List of strings, containing the top results.
-        /// If none are recorded, populates the list with only one string,
-        /// "".
+        /// Returns an array of strings, containing the top results.
+        /// If none are recorded, returns empty array.
         /// </summary>
-        /// <returns>Strings List representing the converted results table.</returns>
+        /// <returns>Strings array representing the converted results table.</returns>
         public string[] GetTopResultsStrings()
         {
             int resultsListCount = this.topResults.Count;
