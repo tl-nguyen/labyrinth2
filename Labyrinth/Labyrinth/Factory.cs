@@ -48,7 +48,7 @@
 
         public ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
         {
-            return new Entities.Labyrinth(factory, moveHandler); //compiler recognizes just Labyrinth as the namespace and not type, no clue if this is th
+            return new LabyrinthPlayField(factory, moveHandler);
         }
 
         public ICell[,] GetICellMatrixInstance(int size)

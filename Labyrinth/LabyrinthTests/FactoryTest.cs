@@ -32,7 +32,7 @@
         public void TestLabyrinthInstance()
         {
             MoveHandler testHandler = new MoveHandler();
-            Labyrinth.Entities.Labyrinth testLab = new Labyrinth.Entities.Labyrinth(testFactory, testHandler);
+            Labyrinth.Entities.LabyrinthPlayField testLab = new Labyrinth.Entities.LabyrinthPlayField(testFactory, testHandler);
             var factLabyrinth = testFactory.GetLabyrinthInstance(testFactory, testHandler);
 
             Object.Equals(testLab, factLabyrinth);
