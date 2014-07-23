@@ -64,13 +64,16 @@
         {
         }
 
+        /// <summary>
+        /// Starts the game.
+        /// </summary>
         public void Run()
         {
             this.Init();
 
             while (!this.gameLogic.Exit)
             {
-                this.GameLoop(); ;
+                this.GameLoop();
             }
 
             this.ExitApplication();
@@ -95,10 +98,11 @@
 
         private void ExitApplication()
         {
-            if (Console.ReadKey(true) != null)
-            {
+            //TODO: IMPORTANT the GameEngine must not know that we are using the console! I have commented this, if you have other logic that must be done here, add methods to the IUserInput
+            //if (Console.ReadKey(true) != null)
+            //{
                 Environment.Exit(0);
-            }
+            //}
         }
     }
 }
