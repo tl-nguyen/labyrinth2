@@ -108,9 +108,9 @@ Ivan - /Loggers - Create new folder for loggers classes and interfaces
 5. Create class SimpleLogger.cs
 
 Ivan - LabyrinthFactory.cs
-1. Add new methode GetFileAppender
-2. Add new methode GetMemoryAppender
-3. Add new methode GetSimpleLogger
+1. Add new method GetFileAppender
+2. Add new method GetMemoryAppender
+3. Add new method GetSimpleLogger
 
 Ivan - GameEngine.cs
 1. Add private field fileAppender
@@ -129,3 +129,26 @@ Rayan - Render logic overhaul:
 	- added IRenderable.cs, Entity.cs
 	- added IUiText.cs, LabyrinthGraphic.cs, UiText.cs interface and classes,
 		but those will be removed/rewritten when further decoupling rendering logic
+
+TL - LabyrinthPlayField.cs - This class deals with the game play-field
+1. Variables, methods name refactoring
+2. Make LABYRINTH_SIZE constant a property, and it's setted using constructor
+3. Export specific movements methods to the new MoveHandler class
+4. LabyrinthPlayField implements ILabyrinth interface
+5. Add MoveHandler object to LabyrinthPlayField class as Strategy, using constructor injection
+6. Add Documentation
+7. Add Unit tests
+
+TL - MoveHandler.cs - This class deals with all the movements around the game play-field
+1. MoveHandler implements IMoveHandler interface
+2. Add Method MoveAction to check if the move is valid or not
+3. Import from LaybirinthPlayField all the movement methods
+4. Add Documentation
+
+TL - LanguageStrings.cs - This class deals with all the diaglogs in the game
+1. LanguageStrings implements ILanguageStrings interface
+2. Import all the game dialogs to the dialogList dictionary
+3. Add GetDialog method to pull some dialog from the dialogList
+4. Add Documentation
+
+

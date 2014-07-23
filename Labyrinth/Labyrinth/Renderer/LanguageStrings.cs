@@ -28,6 +28,11 @@
             this.dialogList.Add("WelcomeV2", "Welcome to “Labyrinth” game. Please try to escape. Use 't' to view the top scoreboard, 'r' to start a new game and 'e' to quit the game.");
         }
 
+        /// <summary>
+        /// Get a diaglog from the dialogList
+        /// </summary>
+        /// <param name="key">The dialog key that you want to get</param>
+        /// <returns>The wanted dialog</returns>
         public string GetDialog(string key)
         {
             if (this.dialogList.ContainsKey(key))
