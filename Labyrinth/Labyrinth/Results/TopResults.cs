@@ -28,7 +28,6 @@ namespace Labyrinth.Results
         /// <summary>
         /// String representing an empty top results table.
         /// </summary>
-        //private const string EmptyMessage = "|     The scoreboard is empty.     |";
 
         /// <summary>
         /// Maximum count of top results in the table.

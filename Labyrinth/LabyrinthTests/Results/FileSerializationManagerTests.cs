@@ -21,7 +21,6 @@
         public void TestFileSerializationManagerConstructorCreateInstanceNullFormatter()
         {
             var manager = new FileSerializationManager(null, "test.bin");
-            Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
         }
 
         [TestMethod]
@@ -29,7 +28,6 @@
         public void TestFileSerializationManagerConstructorCreateInstanceNullFileName()
         {
             var manager = new FileSerializationManager(new BinaryFormatter(), null);
-            Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
         }
 
         [TestMethod]
@@ -37,7 +35,6 @@
         public void TestFileSerializationManagerConstructorCreateInstanceEmptyFileName()
         {
             var manager = new FileSerializationManager(new BinaryFormatter(), string.Empty);
-            Assert.IsInstanceOfType(manager, typeof(FileSerializationManager));
         }
 
         [TestMethod]
