@@ -23,18 +23,11 @@
         {
         }
 
-        override protected string GenerateStringGraphic()
+        override protected string[] GenerateStringGraphic()
         {
             int linesCount = this.visibleLinesCount;
-            string[] lines = this.gameConsole.GetLastLines(linesCount);
-
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < lines.Length; i++)
-            {
-                sb.AppendLine(lines[i]);
-            }
-            return sb.ToString();
+            string[] graphic = this.gameConsole.GetLastLines(linesCount);
+            return graphic;
         }
     }
 }

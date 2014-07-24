@@ -56,11 +56,11 @@
             this.scene = this.factory.GetConsoleScene(this.renderer);
 
             this.labyrinthGraphic = this.consoleGraphicFactory.GetLabyrinthConsoleGraphic(this.labyrinth,
-                this.consoleGraphicFactory.GetCoordinates(0, 1), this.renderer);
+                this.consoleGraphicFactory.GetCoordinates(2, 1), this.renderer);
             this.gameConsoleGraphic = this.consoleGraphicFactory.GetGameConsoleGraphic(this.gameConsole,
-                this.consoleGraphicFactory.GetCoordinates(0, this.labyrinth.LabyrinthSize + 2), this.renderer);
+                this.consoleGraphicFactory.GetCoordinates(2, this.labyrinth.LabyrinthSize + 2), this.renderer);
             this.tableGraphic = this.consoleGraphicFactory.GetResultsTableConsoleGraphic(this.resultsTable,
-                this.consoleGraphicFactory.GetCoordinates(0, 1), this.renderer);
+                this.consoleGraphicFactory.GetCoordinates(2, 1), this.renderer);
 
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.resultsTable, this.input, this.factory);
         }

@@ -18,8 +18,15 @@
         {
             int x = entity.TopLeft.X;
             int y = entity.TopLeft.Y;
-            Console.SetCursorPosition(x, y);
-            Console.Write(entity.Graphic.ToString());
+            string[] entityGraphic = entity.Graphic;
+            int entityGrapicLines = entityGraphic.Length;
+            for (int i = 0; i < entityGrapicLines; i++)
+            {
+                Console.SetCursorPosition(x, y + i);
+                Console.Write(entityGraphic[i]);
+            }
+            //Console.SetCursorPosition(x, y);
+            //Console.Write(entity.Graphic.ToString());
         }
 
         public void Clear()

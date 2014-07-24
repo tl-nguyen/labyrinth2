@@ -73,7 +73,7 @@ namespace Labyrinth.Results
             }
 
             return this.Formatter.Format(
-                string.Format("{0} ({1})\t", shortenedName, this.Rating),
+                string.Format("{0} ({1})", shortenedName, this.Rating),
                 this.MovesCount.ToString());
         }
 

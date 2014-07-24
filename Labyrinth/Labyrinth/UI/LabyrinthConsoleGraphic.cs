@@ -24,13 +24,13 @@
             this.Graphic = this.GenerateStringGraphic();
         }
 
-        override protected string GenerateStringGraphic()
+        override protected string[] GenerateStringGraphic()
         {
-            StringBuilder sb = new StringBuilder();
-
             int labyrinthSize = this.labyrinth.LabyrinthSize;
+            string[] graphic = new string[labyrinthSize];
             for (int row = 0; row < labyrinthSize; row++)
             {
+                StringBuilder sb = new StringBuilder();
                 for (int col = 0; col < labyrinthSize; col++)
                 {
                     ICell cell = this.labyrinth.Matrix[row, col];
@@ -49,10 +49,9 @@
                             throw new ArgumentException("invalid cell value");
                     }
                 }
-                sb.AppendLine();
+                graphic[row] = sb.ToString();
             }
-
-            return sb.ToString();
+            return graphic;
         }
     }
 }

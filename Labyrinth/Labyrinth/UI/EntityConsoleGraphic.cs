@@ -26,6 +26,6 @@
             this.Graphic = this.GenerateStringGraphic();
         }
 
-        protected abstract string GenerateStringGraphic();
+        protected abstract string[] GenerateStringGraphic();
     }
 }

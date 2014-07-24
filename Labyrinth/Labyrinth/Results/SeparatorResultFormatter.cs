@@ -55,7 +55,7 @@ namespace Labyrinth.Results
         /// <returns>String representing the formatted result.</returns>
         public string Format(string name, string moves)
         {
-            return string.Format("{2} {0} {2} {1} moves", name, moves, this.separator);
+            return string.Format("{0,-17} {2} {1,3} moves {2}", name, moves, this.separator);//TODO: maybe move this magic number 17 somewhere as a variable
         }
 
         /// <summary>

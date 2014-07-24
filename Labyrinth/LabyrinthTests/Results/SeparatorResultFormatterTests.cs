@@ -26,7 +26,7 @@
         {
             var formatter = new SeparatorResultFormatter("|");
             var actual = formatter.Format("player", "2");
-            var expected = "| player | 2 moves";
+            var expected = "player            |   2 moves |";
             Assert.AreEqual(actual, expected);
         }
     }

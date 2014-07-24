@@ -7,6 +7,7 @@
 
     public class ResultsTableConsoleGraphic : EntityConsoleGraphic
     {
+        private const int WIDTH = 35;
         private const string HORIZONTAL_LINE = "|----------------------------------|";
         private const string TITLE = "|         Top Results Table        |";
         private const string TABLE_IS_EMPTY = "|     The scoreboard is empty.     |";
@@ -20,29 +21,45 @@
             this.Graphic = this.GenerateStringGraphic();
         }
 
-        override protected string GenerateStringGraphic()
+        override protected string[] GenerateStringGraphic()
         {
-            StringBuilder sb = new StringBuilder();
             string[] results = this.table.Table.GetTopResultsStrings();
-
-            sb.AppendLine(ResultsTableConsoleGraphic.HORIZONTAL_LINE);
-            sb.AppendLine(ResultsTableConsoleGraphic.TITLE);
-            sb.AppendLine(ResultsTableConsoleGraphic.HORIZONTAL_LINE);
-
             int resultsCount = results.Length;
-            for (int i = 0; i < resultsCount; i++)
-            {
-                sb.AppendFormat("| {0}. {1} |", i + 1, results[i]);
-                sb.AppendLine();
-            }
-            if (resultsCount == 0)
-            {
-                sb.AppendLine(ResultsTableConsoleGraphic.TABLE_IS_EMPTY);
-            }
-            sb.AppendLine(ResultsTableConsoleGraphic.HORIZONTAL_LINE);
+            bool tableIsEmpty = resultsCount == 0;
 
-            string output = sb.ToString();
-            return output;
+            int extraLines = 4;
+            if(tableIsEmpty)
+            {
+                extraLines++; //one more line for "table is empty" message
+            }
+
+            string[] graphic = new string[resultsCount + extraLines];
+            int currentLine = 0;
+
+            graphic[currentLine] = ResultsTableConsoleGraphic.HORIZONTAL_LINE;
+            currentLine++;
+            graphic[currentLine] = ResultsTableConsoleGraphic.TITLE;
+            currentLine++;
+            graphic[currentLine] = ResultsTableConsoleGraphic.HORIZONTAL_LINE;
+            currentLine++;
+
+            if (tableIsEmpty)
+            {
+                graphic[currentLine] = ResultsTableConsoleGraphic.TABLE_IS_EMPTY;
+                currentLine++;
+            }
+            else
+            {
+                for (int i = 0; i < resultsCount; i++)
+                {
+                    graphic[currentLine] = string.Format("| {0}. {1}", i + 1, results[i]);
+                    currentLine++;
+                }
+            }
+
+            graphic[currentLine] = ResultsTableConsoleGraphic.HORIZONTAL_LINE;
+
+            return graphic;
         }
     }
 }

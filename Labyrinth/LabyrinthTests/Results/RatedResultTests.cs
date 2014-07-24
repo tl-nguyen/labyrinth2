@@ -96,7 +96,7 @@
         public void TestRatedResultToString()
         {
             var result = new RatedResult(3, "player1", new SeparatorResultFormatter("|"));
-            var expected = "| player (Master)\t | 3 moves";
+            var expected = "player (Master)   |   3 moves |";
             var actual = result.ToString();
             Assert.AreEqual(actual, expected);
         }
