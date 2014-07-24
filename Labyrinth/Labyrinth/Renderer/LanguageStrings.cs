@@ -18,7 +18,7 @@
             this.dialogList.Add("GoodBye", "Good Bye" + "\n" + "Press any key to exit..." + "\n");
             this.dialogList.Add("Input", "Enter your move (A-left, D-right, W-up, S-down)");
             this.dialogList.Add("Welcome",
-                                    "Welcome to “Labirinth” game." + "\n" +
+                                    "Welcome to “Labyrinth” game." + "\n" +
                                     " Please try to escape." +
                                     " Use 't' to view the top scoreboard," + "\n" +
                                     " 'r' to start a new game and 'e' to quit the game.");

@@ -64,7 +64,7 @@
     <Compile Include="Results\PlainResultFormatterTests.cs" />
     <Compile Include="Results\SeparatorResultFormatterTests.cs" />
     <Compile Include="FactoryTest.cs" />
-    <Compile Include="UserInputAndOutputTests.cs" />
+    <Compile Include="UserInputConsoleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labyrinth.csproj">

@@ -4,12 +4,12 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class UserInputAndOutputTests
+    public class UserInputConsoleTests
     {
         [TestMethod]
         public void TestMethod1()
         {
-            UserInput testIO = new UserInput();
+            UserInputConsole testIO = new UserInputConsole();
         }
     }
 }

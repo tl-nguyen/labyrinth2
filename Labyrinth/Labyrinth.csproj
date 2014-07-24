@@ -113,7 +113,7 @@
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Labyrinth\Results\Result.cs" />
-    <Compile Include="Labyrinth\UserInput.cs" />
+    <Compile Include="Labyrinth\UserInputConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

@@ -43,7 +43,7 @@
 
         public IUserInput GetUserInputInstance()
         {
-            return new UserInput();
+            return new UserInputConsole();
         }
 
         public ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)

@@ -6,6 +6,14 @@
 
     public class ConsoleRenderer : IConsoleRenderer
     {
+        public void Init(int window_width, int window_height)
+        {
+            Console.WindowWidth = window_width;
+            Console.WindowHeight = window_height;
+
+            Console.BufferWidth = Console.WindowWidth;
+            Console.BufferHeight = Console.WindowHeight;
+        }
         public void RenderEntity(IRenderable entity)
         {
             int x = entity.TopLeft.X;
