@@ -4,6 +4,7 @@
     using Loggers;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using System.Collections.Generic;
     using System.IO;
 
     /// <summary>
@@ -16,6 +17,7 @@
         private const string TestMessage = "Loggers Test";
         private const ulong DefaultCount = 0;
 
+        private Factory factory;
         private IAppender fileAppender;
         private IAppender memoryAppender;
         private ILogger simpleLoggerFileAppender;
@@ -24,10 +26,11 @@
         [TestInitialize()]
         public void TestInitializeInstances()
         {
-            this.fileAppender = LabyrinthFactory.GetFileAppender(FileName);
-            this.memoryAppender = LabyrinthFactory.GetMemoryAppender();
-            this.simpleLoggerFileAppender = LabyrinthFactory.GetSimpleLogger(this.fileAppender);
-            this.simpleLoggerMemoryAppender = LabyrinthFactory.GetSimpleLogger(this.memoryAppender);
+            this.factory = new Factory();
+            this.fileAppender = factory.GetFileAppender(FileName);
+            this.memoryAppender = factory.GetMemoryAppender();
+            this.simpleLoggerFileAppender = factory.GetSimpleLogger(this.fileAppender);
+            this.simpleLoggerMemoryAppender = factory.GetSimpleLogger(this.memoryAppender);
         }
 
         [TestMethod]
@@ -41,25 +44,42 @@
         [ExpectedException(typeof(ArgumentException))]
         public void TestFileAppenderNullCreation()
         {
-            var fileAppender = LabyrinthFactory.GetFileAppender(string.Empty);
+            var fileAppender = factory.GetFileAppender(string.Empty);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestSimpleLoggerWithFileAppenderNullCreation()
         {
-            var simpleLogger = LabyrinthFactory.GetSimpleLogger(null);
+            var simpleLogger = factory.GetSimpleLogger(null);
         }
 
         [TestMethod]
         public void TestSimpleLoggerWithFileAppenderLog()
         {
-            File.Delete(FileName);
             this.simpleLoggerFileAppender.Log(TestMessage);
             var stream = new StreamReader(FileName);
             var readedMessage = stream.ReadLine();
+            stream.Close();
             var result = readedMessage.Contains(TestMessage);
             Assert.AreEqual(true, result, "The SimpleLoggerWithFileAppender does not write correctly in the file!");
+        }
+
+        [TestMethod]
+        public void TestSimpleLoggerWithMemoryAppenderLog()
+        {
+            this.simpleLoggerMemoryAppender.Log(TestMessage);
+            var messages = MemoryAppender.GetMessages(memoryAppender, (x => x == x));
+            var result = messages[0].Contains(TestMessage);
+            Assert.AreEqual(true, result, "The SimpleLoggerWithMemoryAppender does not write correctly!");
+        }
+
+        [TestMethod]
+        public void TestSimpleLoggerWithMemoryAppenderMessageCount()
+        {
+            this.simpleLoggerMemoryAppender.Log(TestMessage);
+            var result = memoryAppender.MessageCount;
+            Assert.AreEqual(2u, result, "The SimpleLoggerWithMemoryAppender does not count messages correctly!");
         }
     }
 }
