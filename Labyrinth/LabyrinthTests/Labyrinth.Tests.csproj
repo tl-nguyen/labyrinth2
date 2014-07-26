@@ -57,6 +57,7 @@
     <Compile Include="Entities\LabyrinthPlayFieldTests.cs" />
     <Compile Include="Entities\GameConsoleTests.cs" />
     <Compile Include="IGame.cs" />
+    <Compile Include="LabyrinthHandler\MockLabyrinth.cs" />
     <Compile Include="LabyrinthHandler\MoveHandlerTests.cs" />
     <Compile Include="Loggers\LoggersAndAppendersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

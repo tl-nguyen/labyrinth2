@@ -7,7 +7,7 @@
     public interface IMoveHandler
     {
         /// <summary>
-        /// Checks if a move can be done using the parent's method TryMove
+        /// Checks if a move can be done
         /// </summary>
         /// <param name="direction">Current user input direction</param>
         /// <returns>True if a move can be made, false if not</returns>
