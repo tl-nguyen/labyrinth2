@@ -169,7 +169,7 @@
         /// Gets the correct instance of the class implementing <see cref="ILogger"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILogger"/> interface</returns>
-        /// <param name="appender">A non null </param>
+        /// <param name="appender">A non null <see cref="IAppender"/></param>
         public ILogger GetSimpleLogger(IAppender appender)
         {
             if (appender == null)

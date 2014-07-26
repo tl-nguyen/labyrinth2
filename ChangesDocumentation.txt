@@ -205,5 +205,7 @@ Ilian - Moq
 Ilian - StyleCop and Tests:
 1.Full Cell and Factory tests
 2.Full documentation on all files in Commons folder
-3.Full documentation on Factory
-4.Full documentation on Cell class
+3.Full documentation + StyleCop on Factory 
+4.Full documentation + StyleCop on Cell class
+5.Full documentation + StyleCop on GameEngine
+6.Full documentation + StyleCop on ICell IFactory IGameLogic IResultFactory 
