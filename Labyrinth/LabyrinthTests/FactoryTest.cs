@@ -25,7 +25,7 @@
             int row = 3;
             int col = 3;
             ICell testCell = new Cell(row, col, Commons.CellState.Empty);
-            var factCell = this.testFactory.GetCellInstance(row, col, Commons.CellState.Empty);
+            var factCell = this.testFactory.GetICellInstance(row, col, Commons.CellState.Empty);
 
             Assert.AreEqual(testCell.CellValue, factCell.CellValue);
             Assert.AreEqual(testCell.Row, factCell.Row);
@@ -35,7 +35,7 @@
         [TestMethod]
         public void TestGetUserInputInstanceCorrectInstance()
         {
-            var actual = this.testFactory.GetUserInputInstance();
+            var actual = this.testFactory.GetIUserInputInstance();
 
             Assert.IsInstanceOfType(actual, typeof(UserInputConsole));
         }
@@ -43,7 +43,7 @@
         [TestMethod]
         public void TestLabyrinthInstanceGetsCorrectInstance()
         {
-            var actual = this.testFactory.GetLabyrinthInstance(this.testFactory, this.testFactory.GetMoveHandlerInstance());
+            var actual = this.testFactory.GetILabyrinthPlayFieldInstance(this.testFactory, this.testFactory.GetIMoveHandlerInstance());
 
             Assert.IsInstanceOfType(actual, typeof(LabyrinthPlayField));
         }
@@ -53,7 +53,7 @@
         public void TestLabyrinthInstanceNullFactory()
         {
             var testHandler = new Mock<IMoveHandler>();
-            var actual = this.testFactory.GetLabyrinthInstance(null, testHandler.Object);
+            var actual = this.testFactory.GetILabyrinthPlayFieldInstance(null, testHandler.Object);
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@
         public void TestLabyrinthInstanceNullMoveHandler()
         {
             var testHandler = new Mock<IMoveHandler>();
-            var actual = this.testFactory.GetLabyrinthInstance(this.testFactory, null);
+            var actual = this.testFactory.GetILabyrinthPlayFieldInstance(this.testFactory, null);
         }
 
         [TestMethod]
@@ -99,7 +99,7 @@
         [TestMethod]
         public void TestGetConsoleGraphicFactoryGetsCorrectInstance()
         {
-            var actual = this.testFactory.GetConsoleGraphicFactory();
+            var actual = this.testFactory.GetIConsoleGraphicFactoryInstance();
 
             Assert.IsInstanceOfType(actual, typeof(ConsoleGraphicFactory));
         }
@@ -108,7 +108,7 @@
         public void TestGetConsoleSceneGetsCorrectInstance()
         {
             var renderer = new Mock<IConsoleRenderer>();
-            var actual = this.testFactory.GetConsoleScene(renderer.Object);
+            var actual = this.testFactory.GetISceneInstance(renderer.Object);
 
             Assert.IsInstanceOfType(actual, typeof(ConsoleScene));
         }
@@ -121,7 +121,7 @@
             var resultTable = new Mock<IResultsTable>();
             var userInput = new Mock<IUserInput>();
             var factory = new Mock<IResultFactory>();
-            var actual = this.testFactory.GetGameLogic(playField.Object, gameConsole.Object, resultTable.Object, userInput.Object, factory.Object);
+            var actual = this.testFactory.GetIGameLogicInstance(playField.Object, gameConsole.Object, resultTable.Object, userInput.Object, factory.Object);
 
             Assert.IsInstanceOfType(actual, typeof(GameLogic));
         }
@@ -134,7 +134,7 @@
             var resultTable = new Mock<IResultsTable>();
             var userInput = new Mock<IUserInput>();
             var factory = new Mock<IResultFactory>();
-            var actual = this.testFactory.GetGameLogic(null, gameConsole.Object, resultTable.Object, userInput.Object, factory.Object);
+            var actual = this.testFactory.GetIGameLogicInstance(null, gameConsole.Object, resultTable.Object, userInput.Object, factory.Object);
         }
 
         [TestMethod]
@@ -145,7 +145,7 @@
             var resultTable = new Mock<IResultsTable>();
             var userInput = new Mock<IUserInput>();
             var factory = new Mock<IResultFactory>();
-            var actual = this.testFactory.GetGameLogic(playField.Object, null, resultTable.Object, userInput.Object, factory.Object);
+            var actual = this.testFactory.GetIGameLogicInstance(playField.Object, null, resultTable.Object, userInput.Object, factory.Object);
         }
 
         [TestMethod]
@@ -156,7 +156,7 @@
             var gameConsole = new Mock<IGameConsole>();
             var userInput = new Mock<IUserInput>();
             var factory = new Mock<IResultFactory>();
-            var actual = this.testFactory.GetGameLogic(playField.Object, gameConsole.Object, null, userInput.Object, factory.Object);
+            var actual = this.testFactory.GetIGameLogicInstance(playField.Object, gameConsole.Object, null, userInput.Object, factory.Object);
         }
 
         [TestMethod]
@@ -167,7 +167,7 @@
             var gameConsole = new Mock<IGameConsole>();
             var resultTable = new Mock<IResultsTable>();
             var factory = new Mock<IResultFactory>();
-            var actual = this.testFactory.GetGameLogic(playField.Object, gameConsole.Object, resultTable.Object, null, factory.Object);
+            var actual = this.testFactory.GetIGameLogicInstance(playField.Object, gameConsole.Object, resultTable.Object, null, factory.Object);
         }
 
         [TestMethod]
@@ -178,13 +178,13 @@
             var gameConsole = new Mock<IGameConsole>();
             var resultTable = new Mock<IResultsTable>();
             var userInput = new Mock<IUserInput>();
-            var actual = this.testFactory.GetGameLogic(playField.Object, gameConsole.Object, resultTable.Object, userInput.Object, null);
+            var actual = this.testFactory.GetIGameLogicInstance(playField.Object, gameConsole.Object, resultTable.Object, userInput.Object, null);
         }
 
         [TestMethod]
         public void TestGetILanguageStringsCorrectInstance()
         {
-            var actual = this.testFactory.GetLanguageStringsInstance();
+            var actual = this.testFactory.GetILanguageStringsInstance();
 
             Assert.IsInstanceOfType(actual, typeof(LanguageStrings));
         }
@@ -192,7 +192,7 @@
         [TestMethod]
         public void TestGetMoveHandlerCorrectInstance()
         {
-            var actual = this.testFactory.GetMoveHandlerInstance();
+            var actual = this.testFactory.GetIMoveHandlerInstance();
 
             Assert.IsInstanceOfType(actual, typeof(MoveHandler));
         }
@@ -201,7 +201,7 @@
         public void TestGetRendererInstanceCorrectInstance()
         {
             var langStrings = new Mock<ILanguageStrings>();
-            var actual = this.testFactory.GetRendererInstance(langStrings.Object);
+            var actual = this.testFactory.GetIRendererInstance(langStrings.Object);
 
             Assert.IsInstanceOfType(actual, typeof(ConsoleRenderer));
         }
@@ -210,13 +210,13 @@
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestGetRendererInstanceWithNull()
         {
-            var actual = this.testFactory.GetRendererInstance(null);
+            var actual = this.testFactory.GetIRendererInstance(null);
         }
 
         [TestMethod]
         public void TestGetResultFormatterInstanceCorrectInstance()
         {
-            var actual = this.testFactory.GetResultFormatterInstance();
+            var actual = this.testFactory.GetIResultFormatterInstance();
 
             Assert.IsInstanceOfType(actual, typeof(SeparatorResultFormatter));
         }
@@ -224,7 +224,7 @@
         [TestMethod]
         public void TestGetResultInstanceCorrectInstance()
         {
-            var actual = this.testFactory.GetResultInstance(1, "sa");
+            var actual = this.testFactory.GetIResultInstance(1, "sa");
 
             Assert.IsInstanceOfType(actual, typeof(RatedResult));
         }
@@ -232,7 +232,7 @@
         [TestMethod]
         public void TestGetSerializationManagerInstanceCorrectInstance()
         {
-            var actual = this.testFactory.GetSerializationManagerInstance();
+            var actual = this.testFactory.GetFileSerializationManagerInstance();
 
             Assert.IsInstanceOfType(actual, typeof(FileSerializationManager));
         }
@@ -240,7 +240,7 @@
         [TestMethod]
         public void TestGetTopResultsTableInstanceCorrectInstance()
         {
-            var actual = this.testFactory.GetTopResultsTableInstance();
+            var actual = this.testFactory.GetIResultsTableInstance();
 
             Assert.IsInstanceOfType(actual, typeof(ResultsTable));
         }
@@ -249,7 +249,7 @@
         public void TestGetSimpleLoggerCorrectInstance()
         {
             var appender = new Mock<IAppender>();
-            var actual = this.testFactory.GetSimpleLogger(appender.Object);
+            var actual = this.testFactory.GetSimpleILoggerInstance(appender.Object);
 
             Assert.IsInstanceOfType(actual, typeof(SimpleLogger));
         }
@@ -258,7 +258,7 @@
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestGetSimpleLoggerWithNull()
         {
-            var actual = this.testFactory.GetSimpleLogger(null);
+            var actual = this.testFactory.GetSimpleILoggerInstance(null);
         }
 
         [TestMethod]

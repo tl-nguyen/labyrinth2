@@ -80,7 +80,7 @@
                         {
                             state = CellState.Empty;
                         }
-                        this.Matrix[row, col] = this.factory.GetCellInstance(row, col, state);
+                        this.Matrix[row, col] = this.factory.GetICellInstance(row, col, state);
                     }
                 }
                 exitPathExists = ExitPathExists();

@@ -27,10 +27,10 @@
         public void TestInitializeInstances()
         {
             this.factory = new Factory();
-            this.fileAppender = factory.GetFileAppender(FileName);
-            this.memoryAppender = factory.GetMemoryAppender();
-            this.simpleLoggerFileAppender = factory.GetSimpleLogger(this.fileAppender);
-            this.simpleLoggerMemoryAppender = factory.GetSimpleLogger(this.memoryAppender);
+            this.fileAppender = factory.GetFileIAppenderInstance(FileName);
+            this.memoryAppender = factory.GetMemoryIAppenderInstance();
+            this.simpleLoggerFileAppender = factory.GetSimpleILoggerInstance(this.fileAppender);
+            this.simpleLoggerMemoryAppender = factory.GetSimpleILoggerInstance(this.memoryAppender);
         }
 
         [TestMethod]
@@ -44,14 +44,14 @@
         [ExpectedException(typeof(ArgumentException))]
         public void TestFileAppenderNullCreation()
         {
-            var fileAppender = factory.GetFileAppender(string.Empty);
+            var fileAppender = factory.GetFileIAppenderInstance(string.Empty);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestSimpleLoggerWithFileAppenderNullCreation()
         {
-            var simpleLogger = factory.GetSimpleLogger(null);
+            var simpleLogger = factory.GetSimpleILoggerInstance(null);
         }
 
         [TestMethod]
