@@ -260,5 +260,21 @@
         {
             var actual = this.testFactory.GetSimpleLogger(null);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestGetIGameConsoleWithNull()
+        {
+            var actual = this.testFactory.GetIGameConsoleInstance(null);
+        }
+
+        [TestMethod]
+        public void TestGetIGameConsoleCorrectInstance()
+        {
+            var languageStrings = new Mock<ILanguageStrings>();
+            var actual = this.testFactory.GetIGameConsoleInstance(languageStrings.Object);
+
+            Assert.IsInstanceOfType(actual, typeof(GameConsole));
+        }
     }
 }

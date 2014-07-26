@@ -233,6 +233,21 @@
         }
 
         /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IGameConsole"/> interface.
+        /// </summary>
+        /// <param name="languageStrings">A non null value of <see cref="ILanguageStrings"/></param>
+        /// <returns>The correct instance of the class implementing <see cref="IGameConsole"/> interface</returns>
+        public IGameConsole GetIGameConsoleInstance(ILanguageStrings languageStrings)
+        {
+            if (languageStrings == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return new GameConsole(languageStrings);
+        }
+
+        /// <summary>
         /// Private method
         /// </summary>
         /// <returns>Returns the correct <see cref="ITable"/> instance</returns>

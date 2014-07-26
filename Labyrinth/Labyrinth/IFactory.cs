@@ -125,5 +125,12 @@ namespace Labyrinth
         /// <param name="input">A non null value of <see cref="IUserInput"/></param>
         /// <param name="factory">A non null value of <see cref="IResultFactory"/></param>
         IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory);
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IGameConsole"/> interface.
+        /// </summary>
+        /// <param name="languageStrings">A non null value of <see cref="ILanguageStrings"/></param>
+        /// <returns>The correct instance of the class implementing <see cref="IGameConsole"/> interface</returns>
+        IGameConsole GetIGameConsoleInstance(ILanguageStrings languageStrings);
     }
 }

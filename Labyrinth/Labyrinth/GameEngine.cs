@@ -62,8 +62,7 @@
             this.input = this.factory.GetUserInputInstance();
             this.labyrinth = this.factory.GetLabyrinthInstance(factory, this.factory.GetMoveHandlerInstance());
 
-            // TODO: use factory
-            this.gameConsole = new GameConsole(this.factory.GetLanguageStringsInstance());
+            this.gameConsole = this.factory.GetIGameConsoleInstance(this.factory.GetLanguageStringsInstance());
             this.resultsTable = this.factory.GetTopResultsTableInstance();
 
             this.resultsTable.Table.Changed += (sender, e) =>
