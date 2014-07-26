@@ -11,6 +11,11 @@
     public abstract class Result : IComparable, IResult
     {
         /// <summary>
+        /// String constant to replace missing player's name.
+        /// </summary>
+        private const string AnonymousPlayer = "Anonymous";
+
+        /// <summary>
         /// Field for player moves count.
         /// </summary>
         private int movesCount;
@@ -91,7 +96,7 @@
                 }
                 else
                 {
-                    throw new ArgumentException("The player name could not be null or empty!");
+                    this.playerName = Result.AnonymousPlayer;
                 }
             }
         }

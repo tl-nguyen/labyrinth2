@@ -22,10 +22,11 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void TestSimpleResultConstructorCreateResultEmptyName()
         {
             var result = new SimpleResult(5, string.Empty, new PlainResultFormatter());
+            var expected = "Anonymous";
+            Assert.AreEqual(result.PlayerName, expected);
         }
 
         [TestMethod]
