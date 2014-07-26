@@ -5,14 +5,23 @@
     using Renderer.Contracts;
     using Entities.Contracts;
 
-    public abstract class EntityConsoleGraphic : RenderableEntity
+    public abstract class EntityConsoleGraphic : IRenderable
     {
+        protected IEntity entity;
+        protected IRenderer renderer;
+
+        public IntPoint TopLeft { get; set; }
+        public dynamic Graphic { get; protected set; }
+        
+
         public EntityConsoleGraphic(IEntity entity, IntPoint coords, IRenderer renderer)
-            :base(entity, coords, renderer)
         {
+            this.entity = entity;
+            this.TopLeft = coords;
+            this.renderer = renderer;
         }
 
-        override public void Render()
+        public void Render()
         {
             if (this.entity.Active)
             {

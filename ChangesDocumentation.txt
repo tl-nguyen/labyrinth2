@@ -130,6 +130,51 @@ Rayan - Render logic overhaul:
 	- added IUiText.cs, LabyrinthGraphic.cs, UiText.cs interface and classes,
 		but those will be removed/rewritten when further decoupling rendering logic
 
+Rayan - IEntity.cs, Entity.cs, ResultsTable.cs, Labyrinth.cs refactor
+1. Entity abstract class, holds bool Active property, to be set with Activate()
+	and Deactivate() methods, will be used as a bool state flag 
+	(TODO: refactor to use state pattern)
+2. ResultsTable.cs - adapter to TopResults.cs, to inherit Entity
+3. Labyrinth.cs moved to Entities namespace and refactored to inherit Entity.cs
+
+Rayan - GameConsole.cs
+1. inherits Entity.cs
+2. replaces the functionality of the UiText.cs instances with a scrolling down
+	console-like text output
+3. add new method AddInput(), with same functionality as UiText.SetText()
+4. add new method GetLastLines(), to be used to access the string information contained
+	by the GameConsole object
+
+Rayan - IRenderable.cs, EntityConsoleGraphic.cs
+1. IRenderable.cs has X and Y coordinates, a graphic and Render() method
+2. EntityConsoleGraphic.cs implements IRenderable, uses bridge pattern, the entity is
+	the abstraction, the renderer is the implementator of the Render() method.
+	- since it's a Console graphic, the graphic is an array of strings,
+		it's children will implement the GenerateStringGraphic() method that returns string[]
+		
+Rayan - (GameConsole, Labyrinth, ResultsTable)ConsoleGraphic classes
+	- implementations of the GenerateStringGraphic() method for the 3 classes
+
+Rayan - IScene.cs, abstract Scene.cs
+1. Add(IRenderable entity) method for adding entity to it's list of entities
+2. Remove(IRenderable entity) method for removing entity from it's list of entities
+3. CheckIfEntityExists(IRenderable entity) used in above methods
+4. Render() abstract method
+
+Rayan - ConsoleScene.cs - implementation of Scene.cs for the console
+1. takes a IConsoleRenderer in it's constructor
+2. implements Render()
+
+Rayan - GameEngine.cs
+1. ExitApplication() moved to GameEngine.cs and refactored to decouple form Console
+
+Rayan - GameLogic.cs
+1. add Update() method that calls UpdateUserInput or Records top result depending on game state
+2. fixed Restart() bug
+3. renamed isGameOver field to Exit, as it's used to exit the app and not for game over logic
+4. improved Quit() functionality, to display "GoodBye" message and flag Exit as true
+5. rewrote ShowTopResults() to work with the new IEntity game objects
+
 TL - LabyrinthPlayField.cs - This class deals with the game play-field
 1. Variables, methods name refactoring
 2. Make LABYRINTH_SIZE constant a property, and it's setted using constructor
@@ -151,4 +196,4 @@ TL - LanguageStrings.cs - This class deals with all the diaglogs in the game
 3. Add GetDialog method to pull some dialog from the dialogList
 4. Add Documentation
 
-
+Rayan - tests for ConsoleGraphicFactory.cs and LanguageStrings.cs, some documentation

@@ -74,7 +74,6 @@
     <Compile Include="Labyrinth\UI\ConsoleScene.cs" />
     <Compile Include="Labyrinth\UI\ResultsTableConsoleGraphic.cs" />
     <Compile Include="Labyrinth\UI\Contracts\IConsoleGraphicFactory.cs" />
-    <Compile Include="Labyrinth\UI\RenderableEntity.cs" />
     <Compile Include="Labyrinth\GameEngine.cs" />
     <Compile Include="Labyrinth\IFactory.cs" />
     <Compile Include="Labyrinth\IGameLogic.cs" />
