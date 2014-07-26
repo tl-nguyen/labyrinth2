@@ -91,7 +91,7 @@
                     break;
 
                 case Command.Top:
-                    this.ShowTopResults();
+                    this.ToggleTopResults();
                     break;
 
                 case Command.Exit:
@@ -108,7 +108,7 @@
             }
         }
 
-        private void ShowTopResults()
+        private void ToggleTopResults()
         {
             if (this.resultsTable.Active == false)
             {
@@ -152,7 +152,7 @@
 
         private void GameOver()
         {
-            this.ShowTopResults();
+            this.ToggleTopResults();
             this.gameConsole.AddInput("WinMessage", new string[] { this.movesCount.ToString() });
             if (this.resultsTable.Table.IsTopResult(this.movesCount))
             {
@@ -161,7 +161,8 @@
             }
             else
             {
-                this.Quit();
+                this.ToggleTopResults();
+                this.Restart();
             }
         }
 
@@ -169,7 +170,9 @@
         {
             string name = this.input.GetPlayerName();
             this.resultsTable.Table.Add(this.factory.GetResultInstance(this.movesCount, name));
-            this.Quit();
+            this.Restart();
+            this.isTopResult = false;
+            this.ToggleTopResults();
         }
     }
 }

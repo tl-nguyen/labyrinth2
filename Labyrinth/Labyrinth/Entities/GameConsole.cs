@@ -14,14 +14,14 @@
         private ILanguageStrings dialogList;
         private int lineLength;
         private int linesMaxCount;
-        private Queue<string> lines;
+        private LinkedList<string> lines;
 
         public GameConsole(ILanguageStrings dialogList, int linesCount, int lineLength)
         {
             this.dialogList = dialogList;
             this.linesMaxCount = linesCount;
             this.lineLength = lineLength;
-            this.lines = new Queue<string>();
+            this.lines = new LinkedList<string>();
         }
 
         public GameConsole(ILanguageStrings dialogList)
@@ -35,12 +35,29 @@
             string[] output = new string[outputLinesCount];
 
             string[] linesCopy = new string[this.lines.Count];
+
             this.lines.CopyTo(linesCopy, 0);
             int numberOfLinesToSkip = this.lines.Count - outputLinesCount;
             for (int i = 0; i < outputLinesCount; i++)
             {
-                output[i] = linesCopy[i + numberOfLinesToSkip];
+                if (i < 4)
+                {
+                    output[i] = linesCopy[i];
+                }
+                else
+                {
+                    output[i] = linesCopy[i + numberOfLinesToSkip];
+                }
             }
+
+            //Fix for bug 1337
+            if (this.lines.Last.Value.Trim() == this.dialogList.GetDialog("EnterName").Trim())
+            {
+                this.lines.RemoveLast();
+
+                this.lines.AddLast(this.dialogList.GetDialog("NameAdded"));
+            }
+
             return output;
         }
 
@@ -109,15 +126,12 @@
 
             foreach (string line in linesList)
             {
-                this.lines.Enqueue(line);
+                this.lines.AddLast(line);
             }
 
-            if (this.lines.Count > this.linesMaxCount)
+            while (this.lines.Count > this.linesMaxCount)
             {
-                while (this.lines.Count > this.linesMaxCount)
-                {
-                    this.lines.Dequeue();
-                }
+                this.lines.RemoveFirst();
             }
         }
     }

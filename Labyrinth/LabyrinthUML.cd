@@ -1,150 +1,425 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Labyrinth.Cell" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAQACAAEAAgAAAAgAAAAAAAA=</HashCode>
-      <FileName>Cell.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.383" Collapsed="true" />
-  </Class>
-  <Class Name="Labyrinth.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="13.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAIAIAEAEAAQAAAACAQgEAAFAAIBAAAAAAAAglARAA=</HashCode>
-      <FileName>ConsoleRenderer.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="Labyrinth.FileSerializationManager" Collapsed="true">
     <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAACBAAAAAAAAAAABAAAA=</HashCode>
-      <FileName>FileSerializationManager.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAQACAAEAAgAAAAgAAAAAABA=</HashCode>
+      <FileName>Labyrinth\Cell.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Factory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAAEAAAQQAIAAACAAIAAQIAAAQAAYQCIgEgAA=</HashCode>
+      <FileName>Labyrinth\Factory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Labyrinth.GameEngine" Collapsed="true">
-    <Position X="11.75" Y="1.5" Width="1.5" />
+    <Position X="17" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABAABAAAAAAAAAAABABAAAACADAgAI=</HashCode>
-      <FileName>GameEngine.cs</FileName>
+      <HashCode>EAAQABAAAAAgAUAAAwAAAIAAAAgQABAEAACCQAAAgII=</HashCode>
+      <FileName>Labyrinth\GameEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Labyrinth.LabTest" Collapsed="true">
-    <Position X="13.5" Y="1.5" Width="1.5" />
+  <Class Name="Labyrinth.GameLogic" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>LabTest.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Labyrinth.Labyrinth" Collapsed="true">
-    <Position X="9.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAEAEAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Labyrinth.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Labyrinth.LabyrinthFactory" Collapsed="true">
-    <Position X="15.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAABAAAAQAAAAACAAAAAQAAAAQAAIAAAAAgAA=</HashCode>
-      <FileName>LabyrinthFactory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Labyrinth.MoveHandler" Collapsed="true">
-    <Position X="8.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAALQAAAAAAAAAAAQgA=</HashCode>
-      <FileName>MoveHandler.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Labyrinth.Player" Collapsed="true">
-    <Position X="7" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Player.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Labyrinth.Result" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
-      <FileName>Result.cs</FileName>
+      <HashCode>EIQAgAAAAAAgAQAAABAAAAAAAAAgAFAEIUCCAAAAAQA=</HashCode>
+      <FileName>Labyrinth\GameLogic.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Labyrinth.TopResults" Collapsed="true">
-    <Position X="13.5" Y="2.5" Width="1.5" />
+  <Class Name="Labyrinth.GameStart" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQIQAAAAAQAAAAAEBAIAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>TopResults.cs</FileName>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Labyrinth\GameStart.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Labyrinth.UserInputAndOutput" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15.25" Y="2.5" Width="1.5" />
+  <Class Name="Labyrinth.UserInputConsole" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>UserInputAndOutput.cs</FileName>
+      <FileName>Labyrinth\UserInputConsole.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="Labyrinth.Commons.IntPoint" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Labyrinth\Commons\IntPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth.Entities.Entity" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAABAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.Entities.GameConsole" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAgAAACAgACAACABBAAAAAIQIAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\GameConsole.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.Entities.LabyrinthPlayField" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAkAEAgAAAAAAEAAAAAQAIgQACAAEAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\LabyrinthPlayField.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.Entities.ResultsTable" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\ResultsTable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.LabyrinthHandler.MoveHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAJAAAAAAAAAAAAQgA=</HashCode>
+      <FileName>Labyrinth\LabyrinthHandler\MoveHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Loggers.FileAppender" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Loggers\FileAppender.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Loggers.MemoryAppender" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAIAAAAAAAAAAAAAAAAAABABAEAAAAAACAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Loggers\MemoryAppender.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Loggers.SimpleLogger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Loggers\SimpleLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Renderer.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>Labyrinth\Renderer\ConsoleRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Renderer.LanguageStrings" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Renderer\LanguageStrings.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Results.FileSerializationManager" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAABAAAAAAAAAAAAACBAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>Labyrinth\Results\FileSerializationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth.Results.PlainResultFormatter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Results\PlainResultFormatter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Results.RatedResult" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAgAAAAAAEAAAAAAAAAAgA=</HashCode>
+      <FileName>Labyrinth\Results\RatedResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.Results.Result" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEAAAABAAQAAAEAAAAgAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>Labyrinth\Results\Result.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.Results.SeparatorResultFormatter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgEAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Results\SeparatorResultFormatter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.Results.SimpleResult" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Results\SimpleResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.Results.TopResults" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIQAAAAAQAAAAAABAAAAAAgAAAAAAAAAAAAAAQAAgA=</HashCode>
+      <FileName>Labyrinth\Results\TopResults.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.UI.ConsoleGraphicFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAgAMAAAAAAIAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\ConsoleGraphicFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Labyrinth.UI.ConsoleScene" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAgAA=</HashCode>
+      <FileName>Labyrinth\UI\ConsoleScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth.UI.EntityConsoleGraphic" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQABAAAAAAABAAAAAAAAAAAAAgABAAABAAAAAAgAA=</HashCode>
+      <FileName>Labyrinth\UI\EntityConsoleGraphic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Labyrinth.UI.GameConsoleConsoleGraphic" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAABAAAAAAAAAAAgAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\GameConsoleConsoleGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth.UI.LabyrinthConsoleGraphic" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQQAAAAAAgAAAAAAgAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Labyrinth\UI\LabyrinthConsoleGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth.UI.ResultsTableConsoleGraphic" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAEAAQgAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\ResultsTableConsoleGraphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth.UI.Scene" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAABAEAAAAAAQAAABAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\Scene.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="Labyrinth.ICell" Collapsed="true">
-    <Position X="11.75" Y="3.75" Width="1.5" />
+    <Position X="17" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAgAAAAAAAA=</HashCode>
-      <FileName>ICell.cs</FileName>
+      <FileName>Labyrinth\ICell.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Labyrinth.IMoveHandler" Collapsed="true">
-    <Position X="13.5" Y="3.75" Width="1.5" />
+  <Interface Name="Labyrinth.IFactory" Collapsed="true">
+    <Position X="2.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>IMoveHandler.cs</FileName>
+      <HashCode>AAEBAAAAAEAAAQQAIAAAAAAIAAQIAAAQAAQQCIgAgAA=</HashCode>
+      <FileName>Labyrinth\IFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Labyrinth.IRenderer" Collapsed="true">
-    <Position X="15.25" Y="3.75" Width="1.5" />
+  <Interface Name="Labyrinth.IGameLogic" Collapsed="true">
+    <Position X="20.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAAAAQAEAAFAAIAAAAAAAAAghAQAA=</HashCode>
-      <FileName>IRenderer.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\IGameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.IResultFactory" Collapsed="true">
+    <Position X="2.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Labyrinth\IResultFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Labyrinth.IUserInput" Collapsed="true">
-    <Position X="11.75" Y="4.5" Width="1.5" />
+    <Position X="18.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IUserInput.cs</FileName>
+      <FileName>Labyrinth\IUserInput.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="Labyrinth.CellState" Collapsed="true">
-    <Position X="11.75" Y="5.5" Width="1.5" />
+  <Interface Name="Labyrinth.Entities.Contracts.IEntity" Collapsed="true">
+    <Position X="5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAQAAAAA=</HashCode>
-      <FileName>CellState.cs</FileName>
+      <HashCode>AAAAAAAAAABAAABAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\Contracts\IEntity.cs</FileName>
     </TypeIdentifier>
-  </Enum>
-  <Enum Name="Labyrinth.Command" Collapsed="true">
-    <Position X="13.5" Y="5.5" Width="1.5" />
+  </Interface>
+  <Interface Name="Labyrinth.Entities.Contracts.IGameConsole" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAIAAAAAAAAAAAAAAAEAAAAIAAAAKACAAAAAAAI=</HashCode>
-      <FileName>Command.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\Contracts\IGameConsole.cs</FileName>
     </TypeIdentifier>
-  </Enum>
-  <Enum Name="Labyrinth.Direction" Collapsed="true">
+  </Interface>
+  <Interface Name="Labyrinth.Entities.Contracts.ILabyrinthPlayField" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAQAAgQACAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\Contracts\ILabyrinthPlayField.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Entities.Contracts.IResultsTable" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Entities\Contracts\IResultsTable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.LabyrinthHandler.Contracts.IMoveHandler" Collapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Labyrinth\LabyrinthHandler\Contracts\IMoveHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Loggers.Contracts.IAppender" Collapsed="true">
+    <Position X="15.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Loggers\Contracts\IAppender.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Loggers.Contracts.ILogger" Collapsed="true">
     <Position X="15.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
-      <FileName>Direction.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Loggers\Contracts\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Renderer.Contracts.IConsoleRenderer" Collapsed="true">
+    <Position X="10.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Labyrinth\Renderer\Contracts\IConsoleRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Renderer.Contracts.ILanguageStrings" Collapsed="true">
+    <Position X="22.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Renderer\Contracts\ILanguageStrings.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Renderer.Contracts.IRenderer" Collapsed="true">
+    <Position X="10.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Renderer\Contracts\IRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Results.Contracts.IResult" Collapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Labyrinth\Results\Contracts\IResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Results.Contracts.IResultFormatter" Collapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\Results\Contracts\IResultFormatter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.Results.Contracts.ITable" Collapsed="true">
+    <Position X="17" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAgA=</HashCode>
+      <FileName>Labyrinth\Results\Contracts\ITable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.UI.Contracts.IConsoleGraphicFactory" Collapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAgAMAAAAAAIAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\Contracts\IConsoleGraphicFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.UI.Contracts.IRenderable" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\Contracts\IRenderable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Labyrinth.UI.Contracts.IScene" Collapsed="true">
+    <Position X="15.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Labyrinth\UI\Contracts\IScene.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Labyrinth.Commons.CellState" Collapsed="true">
+    <Position X="15.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAQAAAAA=</HashCode>
+      <FileName>Labyrinth\Commons\CellState.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Delegate Name="Labyrinth.ChangedTopResultsEventHandler" Collapsed="true">
-    <Position X="11.75" Y="6.5" Width="1.5" />
+  <Enum Name="Labyrinth.Commons.Command" Collapsed="true">
+    <Position X="17" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAIAAAAAAAAAAAAAAAEAAAAIAAAAKACAAAAAAAI=</HashCode>
+      <FileName>Labyrinth\Commons\Command.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Labyrinth.Commons.Direction" Collapsed="true">
+    <Position X="18.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Labyrinth\Commons\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Labyrinth.Results.PlayerRating" Collapsed="true">
+    <Position X="20.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Labyrinth\Results\PlayerRating.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Labyrinth.Results.ChangedTableEventHandler" Collapsed="true">
+    <Position X="15.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAACAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TopResults.cs</FileName>
+      <FileName>Labyrinth\Results\TopResults.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Font Name="Segoe UI" Size="9" />

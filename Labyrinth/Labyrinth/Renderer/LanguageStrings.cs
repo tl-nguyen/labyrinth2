@@ -13,13 +13,14 @@
             this.dialogList = new Dictionary<string, string>();
 
             this.dialogList.Add("InvalidMove", "Invalid move!");
+            this.dialogList.Add("NameAdded", "Name was added to the score board, new game started");
             this.dialogList.Add("InvalidCommand", "Invalid command!");
             this.dialogList.Add("EnterName", "Please enter your name for the top scoreboard:");
             this.dialogList.Add("GoodBye", "Good Bye" + "\n" + "Press any key to exit..." + "\n");
             this.dialogList.Add("Input", "Enter your move (A-left, D-right, W-up, S-down)");
             this.dialogList.Add("WinMessage", "Congratulations! You escaped in {0} moves.");
             this.dialogList.Add("AllWrong", "If this happens something is very wrong with the logic of PrintLabyrinth method");
-            this.dialogList.Add("Welcome", "Welcome to “Labyrinth” game. Please try to escape. Use 't' to view the top scoreboard, 'r' to start a new game and 'e' to quit the game.");
+            this.dialogList.Add("Welcome", "Welcome to “Labyrinth” game. Please try to escape. Use 't' to toogle between the top scoreboard menu and game, 'r' to start a new game and 'e' to quit the game.");
         }
 
         /// <summary>
