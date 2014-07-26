@@ -1,21 +1,28 @@
 ﻿namespace Labyrinth
 {
-    using Commons;
     using System;
+    using Commons;
 
     /// <summary>
     /// Encapsulates the object that represents a single instance of the ICell interface
     /// </summary>
     public class Cell : ICell, ICloneable
     {
+        /// <summary>
+        /// Private row field
+        /// </summary>
         private int row;
+
+        /// <summary>
+        /// Private col field
+        /// </summary>
         private int col;
 
         /// <summary>
-        /// Creates an instance of the Cell class
+        /// Initializes a new instance of the <see cref="Cell" /> class
         /// </summary>
-        /// <param name="row">Takes an integer value that is not negative</param>
-        /// <param name="col">Takes an integer value that is not negative</param>
+        /// <param name="row">row has an integer value that is not negative</param>
+        /// <param name="col">col has an integer value that is not negative</param>
         /// <param name="value">Choose a value from the CellState enumeration, that will represent the state of the created Cell</param>
         public Cell(int row, int col, CellState value)
         {
@@ -25,7 +32,7 @@
         }
 
         /// <summary>
-        /// Property for the current row. Values are integers that cannot be negative
+        /// Gets or sets current row. Values are integers that cannot be negative
         /// </summary>
         public int Row
         {
@@ -46,7 +53,7 @@
         }
 
         /// <summary>
-        /// Property for the current column. Values are integers that cannot be negative
+        /// Gets or sets the current column. Values are integers that cannot be negative
         /// </summary>
         public int Col
         {
@@ -67,7 +74,7 @@
         }
 
         /// <summary>
-        /// Gets and sets the value of the Cell
+        /// Gets or sets the value of the Cell
         /// </summary>
         public CellState CellValue { get; set; }
 

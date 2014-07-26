@@ -29,9 +29,12 @@
         // TODO: Refactor other classes, and make instances be returned only here.
 
         /// <summary>
-        /// Gets the correct instance of the ICell interface
+        /// Gets the correct instance of <see cref="ICell"/> interface
         /// </summary>
-        /// <returns>ICell instance</returns>
+        /// <param name="row">Sets the Row of the <see cref="ICell"/> that will be returned</param>
+        /// <param name="col">Sets the Col of the <see cref="ICell"/> that will be returned</param>
+        /// <param name="value">Sets the <see cref="CellState"/> of the <see cref="ICell"/> that will be returned</param>
+        /// <returns>The correct instance of the class implementing <see cref="ICell"/> interface</returns>
         public ICell GetCellInstance(int row, int col, CellState value)
         {
             return new Cell(row, col, value);
@@ -41,6 +44,7 @@
         /// Gets the correct instance of the class implementing <see cref="IRenderer"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
+        /// <param name="dialogList">Non null value of <see cref="ILanguageStrings"/></param>
         public IRenderer GetRendererInstance(ILanguageStrings dialogList)
         {
             if (dialogList == null)
@@ -64,6 +68,8 @@
         /// Gets the correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface</returns>
+        /// <param name="factory">A non null value of <see cref="IFactory"/></param>
+        /// <param name="moveHandler">A non null value of <see cref="IMoveHandler"/></param>
         public ILabyrinthPlayField GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
         {
             if (factory == null || moveHandler == null)
@@ -78,6 +84,7 @@
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
         /// </summary>
         /// <returns>The correct matrix instance of the class implementing <see cref="ICell"/> interface</returns>
+        /// <param name="size">Sets the size of the matrix</param>
         public ICell[,] GetICellMatrixInstance(int size)
         {
             return new Cell[size, size];
@@ -87,6 +94,8 @@
         /// Gets the correct instance of the class implementing <see cref="IResult"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IResult"/> interface</returns>
+        /// <param name="movesCount">Integer with the moves made</param>
+        /// <param name="playerName">String with the player name</param>
         public IResult GetResultInstance(int movesCount, string playerName)
         {
             // return new SimpleResult(
@@ -141,6 +150,7 @@
         /// Gets the correct instance of the file class implementing <see cref="IAppender"/> interface.
         /// </summary>
         /// <returns>The correct instance of the file class implementing <see cref="IAppender"/> interface</returns>
+        /// <param name="fileName">The file name as string</param>
         public IAppender GetFileAppender(string fileName)
         {
             return new FileAppender(fileName);
@@ -159,8 +169,14 @@
         /// Gets the correct instance of the class implementing <see cref="ILogger"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILogger"/> interface</returns>
+        /// <param name="appender">A non null </param>
         public ILogger GetSimpleLogger(IAppender appender)
         {
+            if (appender == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             return new SimpleLogger(appender);
         }
 
@@ -168,8 +184,14 @@
         /// Gets the correct instance of the class implementing <see cref="IScene"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IScene"/> interface</returns>
+        /// <param name="renderer">A non null value of <see cref="IConsoleRenderer"/></param>
         public IScene GetConsoleScene(IConsoleRenderer renderer)
         {
+            if (renderer == null)
+            {
+                throw new ArgumentNullException(); 
+            }
+
             return new ConsoleScene(renderer);
         }
 
@@ -186,6 +208,11 @@
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
+        /// <param name="labyrinth">A non null value of <see cref="ILabyrinthPlayField"/></param>
+        /// <param name="gameConsole">A non null value of <see cref="IGameConsole"/></param>
+        /// <param name="resultsTable">A non null value of <see cref="IResultsTable"/></param>
+        /// <param name="input">A non null value of <see cref="IUserInput"/></param>
+        /// <param name="factory">A non null value of <see cref="IResultFactory"/></param>
         public IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory)
         {
             if (labyrinth == null || gameConsole == null || resultsTable == null || input == null || factory == null)
@@ -204,9 +231,11 @@
         {
             return new MoveHandler();
         }
+
         /// <summary>
         /// Private method
         /// </summary>
+        /// <returns>Returns the correct <see cref="ITable"/> instance</returns>
         private ITable GetTopResultsInstance()
         {
             try

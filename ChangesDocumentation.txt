@@ -201,3 +201,9 @@ Rayan - tests for ConsoleGraphicFactory.cs and LanguageStrings.cs, some document
 Ilian - Moq
 1.Added Moq for testing purposes.
 2.Added complete Factory tests with Moq
+
+Ilian - StyleCop and Tests:
+1.Full Cell and Factory tests
+2.Full documentation on all files in Commons folder
+3.Full documentation on Factory
+4.Full documentation on Cell class

@@ -11,6 +11,8 @@
     using Labyrinth.Results;
     using Labyrinth.Entities;
     using Labyrinth.LabyrinthHandler.Contracts;
+    using Labyrinth.Loggers.Contracts;
+    using Labyrinth.Loggers;
 
     [TestClass]
     public class FactoryTest
@@ -241,6 +243,22 @@
             var actual = this.testFactory.GetTopResultsTableInstance();
 
             Assert.IsInstanceOfType(actual, typeof(ResultsTable));
+        }
+
+        [TestMethod]
+        public void TestGetSimpleLoggerCorrectInstance()
+        {
+            var appender = new Mock<IAppender>();
+            var actual = this.testFactory.GetSimpleLogger(appender.Object);
+
+            Assert.IsInstanceOfType(actual, typeof(SimpleLogger));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestGetSimpleLoggerWithNull()
+        {
+            var actual = this.testFactory.GetSimpleLogger(null);
         }
     }
 }
