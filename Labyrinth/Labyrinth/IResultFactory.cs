@@ -13,6 +13,6 @@
         /// <returns>The correct instance of the class implementing <see cref="IResult"/> interface</returns>
         /// <param name="movesCount">Integer with the moves made</param>
         /// <param name="playerName">String with the player name</param>
-        IResult GetResultInstance(int movesCount, string playerName);
+        IResult GetIResultInstance(int movesCount, string playerName);
     }
 }

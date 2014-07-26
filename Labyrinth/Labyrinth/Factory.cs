@@ -35,7 +35,7 @@
         /// <param name="col">Sets the Col of the <see cref="ICell"/> that will be returned</param>
         /// <param name="value">Sets the <see cref="CellState"/> of the <see cref="ICell"/> that will be returned</param>
         /// <returns>The correct instance of the class implementing <see cref="ICell"/> interface</returns>
-        public ICell GetCellInstance(int row, int col, CellState value)
+        public ICell GetICellInstance(int row, int col, CellState value)
         {
             return new Cell(row, col, value);
         }
@@ -45,7 +45,7 @@
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
         /// <param name="dialogList">Non null value of <see cref="ILanguageStrings"/></param>
-        public IRenderer GetRendererInstance(ILanguageStrings dialogList)
+        public IRenderer GetIRendererInstance(ILanguageStrings dialogList)
         {
             if (dialogList == null)
             {
@@ -59,7 +59,7 @@
         /// Gets the correct instance of the class implementing <see cref="IUserInput"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IUserInput"/> interface</returns>
-        public IUserInput GetUserInputInstance()
+        public IUserInput GetIUserInputInstance()
         {
             return new UserInputConsole();
         }
@@ -70,7 +70,7 @@
         /// <returns>The correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface</returns>
         /// <param name="factory">A non null value of <see cref="IFactory"/></param>
         /// <param name="moveHandler">A non null value of <see cref="IMoveHandler"/></param>
-        public ILabyrinthPlayField GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
+        public ILabyrinthPlayField GetILabyrinthPlayFieldInstance(IFactory factory, IMoveHandler moveHandler)
         {
             if (factory == null || moveHandler == null)
             {
@@ -96,7 +96,7 @@
         /// <returns>The correct instance of the class implementing <see cref="IResult"/> interface</returns>
         /// <param name="movesCount">Integer with the moves made</param>
         /// <param name="playerName">String with the player name</param>
-        public IResult GetResultInstance(int movesCount, string playerName)
+        public IResult GetIResultInstance(int movesCount, string playerName)
         {
             // return new SimpleResult(
             //    movesCount,
@@ -105,14 +105,14 @@
             return new RatedResult(
                 movesCount,
                 playerName,
-                this.GetResultFormatterInstance());
+                this.GetIResultFormatterInstance());
         }
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IResultFormatter"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IResultFormatter"/> interface</returns>
-        public IResultFormatter GetResultFormatterInstance()
+        public IResultFormatter GetIResultFormatterInstance()
         {
             // return new PlainResultFormatter();
             return new SeparatorResultFormatter("|");
@@ -122,7 +122,7 @@
         /// Gets the correct instance of the <see cref="ResultsTable"/> class.
         /// </summary>
         /// <returns><see cref="ResultsTable"/> class instance</returns>
-        public IResultsTable GetTopResultsTableInstance()
+        public IResultsTable GetIResultsTableInstance()
         {
             ITable table = this.GetTopResultsInstance();
             return new ResultsTable(table);
@@ -132,7 +132,7 @@
         /// Gets the correct instance of the <see cref="FileSerializationManager"/> class.
         /// </summary>
         /// <returns><see cref="FileSerializationManager"/> class instance</returns>
-        public FileSerializationManager GetSerializationManagerInstance()
+        public FileSerializationManager GetFileSerializationManagerInstance()
         {
             return new FileSerializationManager(new BinaryFormatter(), TableFileName);
         }
@@ -141,7 +141,7 @@
         /// Gets the correct instance of the class implementing <see cref="ILanguageStrings"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILanguageStrings"/> interface</returns>
-        public ILanguageStrings GetLanguageStringsInstance()
+        public ILanguageStrings GetILanguageStringsInstance()
         {
             return new LanguageStrings();
         }
@@ -151,7 +151,7 @@
         /// </summary>
         /// <returns>The correct instance of the file class implementing <see cref="IAppender"/> interface</returns>
         /// <param name="fileName">The file name as string</param>
-        public IAppender GetFileAppender(string fileName)
+        public IAppender GetFileIAppenderInstance(string fileName)
         {
             return new FileAppender(fileName);
         }
@@ -160,7 +160,7 @@
         /// Gets the correct instance of the memory class implementing <see cref="IAppender"/> interface.
         /// </summary>
         /// <returns>The correct instance of the memory class implementing <see cref="IAppender"/> interface</returns>
-        public IAppender GetMemoryAppender()
+        public IAppender GetMemoryIAppenderInstance()
         {
             return MemoryAppender.GetInstance();
         }
@@ -170,7 +170,7 @@
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILogger"/> interface</returns>
         /// <param name="appender">A non null <see cref="IAppender"/></param>
-        public ILogger GetSimpleLogger(IAppender appender)
+        public ILogger GetSimpleILoggerInstance(IAppender appender)
         {
             if (appender == null)
             {
@@ -185,7 +185,7 @@
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IScene"/> interface</returns>
         /// <param name="renderer">A non null value of <see cref="IConsoleRenderer"/></param>
-        public IScene GetConsoleScene(IConsoleRenderer renderer)
+        public IScene GetISceneInstance(IConsoleRenderer renderer)
         {
             if (renderer == null)
             {
@@ -199,7 +199,7 @@
         /// Gets the correct instance of the class implementing <see cref="IConsoleGraphicFactory"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing ConsoleGraphicFactory</returns>
-        public IConsoleGraphicFactory GetConsoleGraphicFactory()
+        public IConsoleGraphicFactory GetIConsoleGraphicFactoryInstance()
         {
             return new ConsoleGraphicFactory();
         }
@@ -213,7 +213,7 @@
         /// <param name="resultsTable">A non null value of <see cref="IResultsTable"/></param>
         /// <param name="input">A non null value of <see cref="IUserInput"/></param>
         /// <param name="factory">A non null value of <see cref="IResultFactory"/></param>
-        public IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory)
+        public IGameLogic GetIGameLogicInstance(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory)
         {
             if (labyrinth == null || gameConsole == null || resultsTable == null || input == null || factory == null)
             {
@@ -227,9 +227,24 @@
         /// Gets the correct instance of the class implementing <see cref="IMoveHandler"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
-        public IMoveHandler GetMoveHandlerInstance()
+        public IMoveHandler GetIMoveHandlerInstance()
         {
             return new MoveHandler();
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IGameConsole"/> interface.
+        /// </summary>
+        /// <param name="languageStrings">A non null value of <see cref="ILanguageStrings"/></param>
+        /// <returns>The correct instance of the class implementing <see cref="IGameConsole"/> interface</returns>
+        public IGameConsole GetIGameConsoleInstance(ILanguageStrings languageStrings)
+        {
+            if (languageStrings == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return new GameConsole(languageStrings);
         }
 
         /// <summary>
@@ -240,7 +255,7 @@
         {
             try
             {
-                return (TopResults)this.GetSerializationManagerInstance().Deserialize();
+                return (TopResults)this.GetFileSerializationManagerInstance().Deserialize();
             }
             catch (System.IO.FileNotFoundException)
             {

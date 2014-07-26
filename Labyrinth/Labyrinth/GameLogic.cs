@@ -183,7 +183,7 @@
         private void RecordTopResult()
         {
             string name = this.input.GetPlayerName();
-            this.resultsTable.Table.Add(this.factory.GetResultInstance(this.movesCount, name));
+            this.resultsTable.Table.Add(this.factory.GetIResultInstance(this.movesCount, name));
             this.Restart();
             this.isTopResult = false;
             this.ToggleTopResults();

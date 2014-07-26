@@ -59,30 +59,29 @@
             this.windowWidth = width;
             this.windowHeight = height;
             this.factory = factory;
-            this.input = this.factory.GetUserInputInstance();
-            this.labyrinth = this.factory.GetLabyrinthInstance(factory, this.factory.GetMoveHandlerInstance());
+            this.input = this.factory.GetIUserInputInstance();
+            this.labyrinth = this.factory.GetILabyrinthPlayFieldInstance(factory, this.factory.GetIMoveHandlerInstance());
 
-            // TODO: use factory
-            this.gameConsole = new GameConsole(this.factory.GetLanguageStringsInstance());
-            this.resultsTable = this.factory.GetTopResultsTableInstance();
+            this.gameConsole = this.factory.GetIGameConsoleInstance(this.factory.GetILanguageStringsInstance());
+            this.resultsTable = this.factory.GetIResultsTableInstance();
 
             this.resultsTable.Table.Changed += (sender, e) =>
             {
-                this.factory.GetSerializationManagerInstance().Serialize(sender);
+                this.factory.GetFileSerializationManagerInstance().Serialize(sender);
             };
-            var fileAppender = this.factory.GetFileAppender("Log.txt");
+            var fileAppender = this.factory.GetFileIAppenderInstance("Log.txt");
 
-            this.simpleLoggerFileAppender = this.factory.GetSimpleLogger(fileAppender);
+            this.simpleLoggerFileAppender = this.factory.GetSimpleILoggerInstance(fileAppender);
 
-            this.consoleGraphicFactory = this.factory.GetConsoleGraphicFactory();
+            this.consoleGraphicFactory = this.factory.GetIConsoleGraphicFactoryInstance();
             this.renderer = this.consoleGraphicFactory.GetConsoleRenderer();
-            this.scene = this.factory.GetConsoleScene(this.renderer);
+            this.scene = this.factory.GetISceneInstance(this.renderer);
 
             this.labyrinthGraphic = this.consoleGraphicFactory.GetLabyrinthConsoleGraphic(this.labyrinth, this.consoleGraphicFactory.GetCoordinates(2, 1), this.renderer);
             this.gameConsoleGraphic = this.consoleGraphicFactory.GetGameConsoleGraphic(this.gameConsole, this.consoleGraphicFactory.GetCoordinates(2, this.labyrinth.LabyrinthSize + 2), this.renderer);
             this.tableGraphic = this.consoleGraphicFactory.GetResultsTableConsoleGraphic(this.resultsTable, this.consoleGraphicFactory.GetCoordinates(2, 1), this.renderer);
 
-            this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.resultsTable, this.input, this.factory);
+            this.gameLogic = factory.GetIGameLogicInstance(this.labyrinth, this.gameConsole, this.resultsTable, this.input, this.factory);
         }
 
         /// <summary>

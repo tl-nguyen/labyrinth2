@@ -17,7 +17,29 @@
         private ICell currentCell;
         private IFactory factory;
 
+        public LabyrinthPlayField(IFactory factory, IMoveHandler moveHandler, int labyrinthSize)
+        {
+            this.factory = factory;
+            this.MoveHandler = moveHandler;
+            this.LabyrinthSize = labyrinthSize;
+            this.labyrinthStartCol = this.LabyrinthSize / 2;
+            this.labyrintStartRow = this.LabyrinthSize / 2;
+
+            this.Matrix = factory.GetICellMatrixInstance(this.LabyrinthSize);
+            GenerateLabyrinth();
+            this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
+        }
+
+        public LabyrinthPlayField(IFactory factory, IMoveHandler moveHandler)
+            : this(factory, moveHandler, DEFAULT_SIZE)
+        {
+        }
+
         public ICell[,] Matrix { get; set; }
+
+        public IMoveHandler MoveHandler { get; private set; }
+
+        public int LabyrinthSize { get; private set; }
 
         public ICell CurrentCell
         {
@@ -35,28 +57,6 @@
 
                 this.currentCell = value;
             }
-        }
-
-        public IMoveHandler MoveHandler { get; private set; }
-
-        public int LabyrinthSize { get; private set; }
-
-        public LabyrinthPlayField(IFactory factory, IMoveHandler moveHandler, int labyrinthSize)
-        {
-            this.factory = factory;
-            this.MoveHandler = moveHandler;
-            this.LabyrinthSize = labyrinthSize;
-            this.labyrinthStartCol = this.LabyrinthSize / 2;
-            this.labyrintStartRow = this.LabyrinthSize / 2;
-
-            this.Matrix = factory.GetICellMatrixInstance(this.LabyrinthSize);
-            GenerateLabyrinth();
-            this.CurrentCell = this.Matrix[labyrintStartRow, labyrintStartRow];
-        }
-
-        public LabyrinthPlayField(IFactory factory, IMoveHandler moveHandler)
-            : this(factory, moveHandler, DEFAULT_SIZE)
-        {
         }
 
         /// <summary>
@@ -80,7 +80,7 @@
                         {
                             state = CellState.Empty;
                         }
-                        this.Matrix[row, col] = this.factory.GetCellInstance(row, col, state);
+                        this.Matrix[row, col] = this.factory.GetICellInstance(row, col, state);
                     }
                 }
                 exitPathExists = ExitPathExists();

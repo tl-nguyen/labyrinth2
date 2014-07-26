@@ -22,26 +22,26 @@ namespace Labyrinth
         /// <param name="col">Sets the Col of the <see cref="ICell"/> that will be returned</param>
         /// <param name="value">Sets the <see cref="CellState"/> of the <see cref="ICell"/> that will be returned</param>
         /// <returns>The correct instance of the class implementing <see cref="ICell"/> interface</returns>
-        ICell GetCellInstance(int row, int col, CellState value);
+        ICell GetICellInstance(int row, int col, CellState value);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IRenderer"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
         /// <param name="dialogList">Non null value of <see cref="ILanguageStrings"/></param>
-        IRenderer GetRendererInstance(ILanguageStrings dialogList);
+        IRenderer GetIRendererInstance(ILanguageStrings dialogList);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IMoveHandler"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
-        IMoveHandler GetMoveHandlerInstance();
+        IMoveHandler GetIMoveHandlerInstance();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IUserInput"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IUserInput"/> interface</returns>
-        IUserInput GetUserInputInstance();
+        IUserInput GetIUserInputInstance();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface.
@@ -49,7 +49,7 @@ namespace Labyrinth
         /// <returns>The correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface</returns>
         /// <param name="factory">A non null value of <see cref="IFactory"/></param>
         /// <param name="moveHandler">A non null value of <see cref="IMoveHandler"/></param>
-        ILabyrinthPlayField GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler);
+        ILabyrinthPlayField GetILabyrinthPlayFieldInstance (IFactory factory, IMoveHandler moveHandler);
 
         /// <summary>
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
@@ -62,58 +62,58 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing <see cref="IResultFormatter"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IResultFormatter"/> interface</returns>
-        IResultFormatter GetResultFormatterInstance();
+        IResultFormatter GetIResultFormatterInstance();
 
         /// <summary>
         /// Gets the correct instance of the <see cref="ResultsTable"/> class.
         /// </summary>
         /// <returns><see cref="ResultsTable"/> class instance</returns>
-        IResultsTable GetTopResultsTableInstance();
+        IResultsTable GetIResultsTableInstance();
 
         /// <summary>
         /// Gets the correct instance of the <see cref="FileSerializationManager"/> class.
         /// </summary>
         /// <returns><see cref="FileSerializationManager"/> class instance</returns>
-        FileSerializationManager GetSerializationManagerInstance();
+        FileSerializationManager GetFileSerializationManagerInstance();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="ILanguageStrings"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILanguageStrings"/> interface</returns>
-        ILanguageStrings GetLanguageStringsInstance();
+        ILanguageStrings GetILanguageStringsInstance();
 
         /// <summary>
         /// Gets the correct instance of the file class implementing <see cref="IAppender"/> interface.
         /// </summary>
         /// <returns>The correct instance of the file class implementing <see cref="IAppender"/> interface</returns>
         /// <param name="fileName">The file name as string</param>
-        IAppender GetFileAppender(string fileName);
+        IAppender GetFileIAppenderInstance(string fileName);
 
         /// <summary>
         /// Gets the correct instance of the memory class implementing <see cref="IAppender"/> interface.
         /// </summary>
         /// <returns>The correct instance of the memory class implementing <see cref="IAppender"/> interface</returns>
-        IAppender GetMemoryAppender();
+        IAppender GetMemoryIAppenderInstance();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="ILogger"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="ILogger"/> interface</returns>
         /// <param name="appender">A non null <see cref="IAppender"/></param>
-        ILogger GetSimpleLogger(IAppender appender);
+        ILogger GetSimpleILoggerInstance(IAppender appender);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IScene"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IScene"/> interface</returns>
         /// <param name="renderer">A non null value of <see cref="IConsoleRenderer"/></param>
-        IScene GetConsoleScene(IConsoleRenderer renderer);
+        IScene GetISceneInstance(IConsoleRenderer renderer);
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IConsoleGraphicFactory"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing ConsoleGraphicFactory</returns>
-        IConsoleGraphicFactory GetConsoleGraphicFactory();
+        IConsoleGraphicFactory GetIConsoleGraphicFactoryInstance();
 
         /// <summary>
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
@@ -124,6 +124,13 @@ namespace Labyrinth
         /// <param name="resultsTable">A non null value of <see cref="IResultsTable"/></param>
         /// <param name="input">A non null value of <see cref="IUserInput"/></param>
         /// <param name="factory">A non null value of <see cref="IResultFactory"/></param>
-        IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory);
+        IGameLogic GetIGameLogicInstance(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory);
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IGameConsole"/> interface.
+        /// </summary>
+        /// <param name="languageStrings">A non null value of <see cref="ILanguageStrings"/></param>
+        /// <returns>The correct instance of the class implementing <see cref="IGameConsole"/> interface</returns>
+        IGameConsole GetIGameConsoleInstance(ILanguageStrings languageStrings);
     }
 }
