@@ -53,9 +53,11 @@
   <ItemGroup>
     <Compile Include="Entities\LabyrinthPlayFieldTests.cs" />
     <Compile Include="Entities\GameConsoleTests.cs" />
+    <Compile Include="LabyrinthHandler\MoveHandlerTests.cs" />
     <Compile Include="Loggers\LoggersAndAppendersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CellTests.cs" />
+    <Compile Include="Renderer\ConsoleRendererTests.cs" />
     <Compile Include="Results\FileSerializationManagerTests.cs" />
     <Compile Include="Results\RatedResultTests.cs" />
     <Compile Include="Results\TopResultsTests.cs" />
@@ -72,9 +74,7 @@
       <Name>Labyrinth</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LabyrinthHandler\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

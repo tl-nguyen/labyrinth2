@@ -2,7 +2,6 @@
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Labyrinth.UI;
     using Labyrinth.Commons;
     using Labyrinth.Renderer.Contracts;
     using Labyrinth.Renderer;

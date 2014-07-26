@@ -13,8 +13,8 @@
     /// </summary>
     public class GameEngine
     {
-        private int window_width; 
-        private int window_height;
+        private int windowWidth;
+        private int windowHeight;
 
         private IFactory factory;
         private IUserInput input;
@@ -35,8 +35,8 @@
 
         public GameEngine(int width, int height, IFactory factory)
         {
-            this.window_width = width;
-            this.window_height = height;
+            this.windowWidth = width;
+            this.windowHeight = height;
             this.factory = factory;
             this.input = this.factory.GetUserInputInstance();
             this.labyrinth = this.factory.GetLabyrinthInstance(factory, this.factory.GetMoveHandlerInstance());
@@ -65,7 +65,6 @@
             this.gameLogic = factory.GetGameLogic(this.labyrinth, this.gameConsole, this.resultsTable, this.input, this.factory);
         }
 
-        //TODO: word better
         /// <summary>
         /// Width and height units depend on the specific renderer. In the case of a Console renderer they are in console rows and cols.
         /// </summary>
@@ -97,7 +96,7 @@
 
         private void Init()
         {
-            this.renderer.Init(this.window_width, this.window_height);
+            this.renderer.Init(this.windowWidth, this.windowHeight);
             this.resultsTable.Deactivate();
             this.scene.Add(this.labyrinthGraphic);
             this.scene.Add(this.tableGraphic);

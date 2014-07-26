@@ -2,6 +2,9 @@
 {
     public interface IConsoleRenderer : IRenderer
     {
+        /// <summary>
+        /// Clears the console.
+        /// </summary>
         void Clear();
     }
 }

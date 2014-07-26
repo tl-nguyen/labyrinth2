@@ -1,7 +1,7 @@
 ﻿namespace Labyrinth.Tests
 {
     using System;
-    using LabyrinthHandler;
+    using Labyrinth.LabyrinthHandler;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
