@@ -3,8 +3,8 @@
     using System;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Runtime.Serialization.Formatters.Soap;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Labyrinth.Results;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class FileSerializationManagerTests

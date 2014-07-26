@@ -1,16 +1,10 @@
-﻿// ********************************
-// <copyright file="TopResults.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.Results
+﻿namespace Labyrinth.Results
 {
-    using Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Serialization;
+    using Contracts;
 
     /// <summary>
     /// Delegate to changed event.
@@ -25,10 +19,6 @@ namespace Labyrinth.Results
     [Serializable]
     public class TopResults : ITable
     {
-        /// <summary>
-        /// String representing an empty top results table.
-        /// </summary>
-
         /// <summary>
         /// Maximum count of top results in the table.
         /// </summary>

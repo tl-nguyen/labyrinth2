@@ -1,14 +1,8 @@
-﻿// ********************************
-// <copyright file="Result.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.Results
+﻿namespace Labyrinth.Results
 {
-    using Contracts;
     using System;
     using System.Runtime.Serialization;
+    using Contracts;
 
     /// <summary>
     /// Abstract class for game results.

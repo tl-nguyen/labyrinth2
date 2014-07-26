@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="PlayerRating.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.Results
+﻿namespace Labyrinth.Results
 {
     /// <summary>
     /// Enumeration used for player's ratings in the players results
