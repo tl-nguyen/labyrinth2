@@ -6,13 +6,13 @@
     public interface IGameLogic
     {
         /// <summary>
+        /// Gets a value indicating whether a game ending condition is reached. Default value is false.
+        /// </summary>
+        bool Exit { get; }
+
+        /// <summary>
         /// Receives a Command, processes it and updates the game entities accordingly
         /// </summary>
         void Update();
-
-        /// <summary>
-        /// Is set to false normally, sets to true if a game ending condition is reached.
-        /// </summary>
-        bool Exit { get; }
     }
 }
