@@ -208,4 +208,7 @@ Ilian - StyleCop and Tests:
 3.Full documentation + StyleCop on Factory 
 4.Full documentation + StyleCop on Cell class
 5.Full documentation + StyleCop on GameEngine
-6.Full documentation + StyleCop on ICell IFactory IGameLogic IResultFactory 
+6.Full documentation + StyleCop on ICell IFactory IGameLogic 
+7.Added tests for GameEngine constructor with bad parameters.
+8.Full documentation + StyleCop on GameLogic
+9.Over 75% code coverage tests on GameLogic 

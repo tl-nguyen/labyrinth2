@@ -71,6 +71,8 @@
     <Compile Include="FactoryTest.cs" />
     <Compile Include="LanguageStringsTest.cs" />
     <Compile Include="UI\ConsoleGraphicFactoryTests.cs" />
+    <Compile Include="GameEngineTests.cs" />
+    <Compile Include="GameLogicTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labyrinth.csproj">

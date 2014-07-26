@@ -41,6 +41,21 @@
         /// <param name="factory">A non null instance of <see cref="IFactory"/></param>
         public GameEngine(int width, int height, IFactory factory)
         {
+            if (width < 1)
+            {
+                throw new ArgumentException("The value of the width must be more than 0");
+            }
+
+            if (height < 1)
+            {
+                throw new ArgumentException("The value of the height must be more than 0");
+            }
+
+            if (factory == null)
+            {
+                throw new ArgumentNullException("The factory must not be null");
+            }
+
             this.windowWidth = width;
             this.windowHeight = height;
             this.factory = factory;
