@@ -1,5 +1,7 @@
 ﻿namespace Labyrinth
 {
+    using System;
+    using System.Runtime.Serialization.Formatters.Binary;
     using Commons;
     using Entities;
     using Entities.Contracts;
@@ -11,14 +13,13 @@
     using Renderer.Contracts;
     using Results;
     using Results.Contracts;
-    using System.Runtime.Serialization.Formatters.Binary;
     using UI;
     using UI.Contracts;
 
     /// <summary>
     /// Returns instances of all classes for the project
     /// </summary>
-    public class Factory : IFactory
+    public class Factory : IFactory, IResultFactory
     {
         /// <summary>
         /// Name of the file for serialization of the top results table.
@@ -36,21 +37,47 @@
             return new Cell(row, col, value);
         }
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IRenderer"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
         public IRenderer GetRendererInstance(ILanguageStrings dialogList)
         {
+            if (dialogList == null)
+            {
+                throw new ArgumentNullException("GetRendererInstance has a null argument");
+            }
+
             return new ConsoleRenderer();
         }
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IUserInput"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IUserInput"/> interface</returns>
         public IUserInput GetUserInputInstance()
         {
             return new UserInputConsole();
         }
 
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface</returns>
         public ILabyrinthPlayField GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler)
         {
+            if (factory == null || moveHandler == null)
+            {
+                throw new ArgumentNullException("GetLabyrinthInstance has a null argument");
+            }
+
             return new LabyrinthPlayField(factory, moveHandler);
         }
 
+        /// <summary>
+        /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
+        /// </summary>
+        /// <returns>The correct matrix instance of the class implementing <see cref="ICell"/> interface</returns>
         public ICell[,] GetICellMatrixInstance(int size)
         {
             return new Cell[size, size];
@@ -92,6 +119,94 @@
             return new ResultsTable(table);
         }
 
+        /// <summary>
+        /// Gets the correct instance of the <see cref="FileSerializationManager"/> class.
+        /// </summary>
+        /// <returns><see cref="FileSerializationManager"/> class instance</returns>
+        public FileSerializationManager GetSerializationManagerInstance()
+        {
+            return new FileSerializationManager(new BinaryFormatter(), TableFileName);
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="ILanguageStrings"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="ILanguageStrings"/> interface</returns>
+        public ILanguageStrings GetLanguageStringsInstance()
+        {
+            return new LanguageStrings();
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the file class implementing <see cref="IAppender"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the file class implementing <see cref="IAppender"/> interface</returns>
+        public IAppender GetFileAppender(string fileName)
+        {
+            return new FileAppender(fileName);
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the memory class implementing <see cref="IAppender"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the memory class implementing <see cref="IAppender"/> interface</returns>
+        public IAppender GetMemoryAppender()
+        {
+            return MemoryAppender.GetInstance();
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="ILogger"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="ILogger"/> interface</returns>
+        public ILogger GetSimpleLogger(IAppender appender)
+        {
+            return new SimpleLogger(appender);
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IScene"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IScene"/> interface</returns>
+        public IScene GetConsoleScene(IConsoleRenderer renderer)
+        {
+            return new ConsoleScene(renderer);
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IConsoleGraphicFactory"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing ConsoleGraphicFactory</returns>
+        public IConsoleGraphicFactory GetConsoleGraphicFactory()
+        {
+            return new ConsoleGraphicFactory();
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
+        public IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory)
+        {
+            if (labyrinth == null || gameConsole == null || resultsTable == null || input == null || factory == null)
+            {
+                throw new ArgumentNullException("GetGameLogic class in IFactory has some null arguments");
+            }
+
+            return new GameLogic(labyrinth, gameConsole, resultsTable, input, factory);
+        }
+
+        /// <summary>
+        /// Gets the correct instance of the class implementing <see cref="IMoveHandler"/> interface.
+        /// </summary>
+        /// <returns>The correct instance of the class implementing <see cref="IRenderer"/> interface</returns>
+        public IMoveHandler GetMoveHandlerInstance()
+        {
+            return new MoveHandler();
+        }
+        /// <summary>
+        /// Private method
+        /// </summary>
         private ITable GetTopResultsInstance()
         {
             try
@@ -102,56 +217,6 @@
             {
                 return new TopResults();
             }
-        }
-
-        /// <summary>
-        /// Gets the correct instance of the <see cref="FileSerializationManager"/> class.
-        /// </summary>
-        /// <returns><see cref="FileSerializationManager"/> class instance</returns>
-        public FileSerializationManager GetSerializationManagerInstance()
-        {
-            return new FileSerializationManager(new BinaryFormatter(), TableFileName);
-        }
-
-        public ILanguageStrings GetLanguageStringsInstance()
-        {
-            return new LanguageStrings();
-        }
-
-        public IAppender GetFileAppender(string fileName)
-        {
-            return new FileAppender(fileName);
-        }
-
-        public IAppender GetMemoryAppender()
-        {
-            return MemoryAppender.GetInstance();
-        }
-
-        public ILogger GetSimpleLogger(IAppender appender)
-        {
-            return new SimpleLogger(appender);
-        }
-
-        public IScene GetConsoleScene(IConsoleRenderer renderer)
-        {
-            return new ConsoleScene(renderer);
-        }
-
-        public IConsoleGraphicFactory GetConsoleGraphicFactory()
-        {
-            return new ConsoleGraphicFactory();
-        }
-
-        public IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole,
-            IResultsTable resultsTable, IUserInput input, IFactory factory)
-        {
-            return new GameLogic(labyrinth, gameConsole, resultsTable, input, factory);
-        }
-
-        public IMoveHandler GetMoveHandlerInstance()
-        {
-            return new MoveHandler();
         }
     }
 }

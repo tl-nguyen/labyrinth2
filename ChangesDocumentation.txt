@@ -197,3 +197,7 @@ TL - LanguageStrings.cs - This class deals with all the diaglogs in the game
 4. Add Documentation
 
 Rayan - tests for ConsoleGraphicFactory.cs and LanguageStrings.cs, some documentation
+
+Ilian - Moq
+1.Added Moq for testing purposes.
+2.Added complete Factory tests with Moq

@@ -10,6 +10,9 @@ namespace Labyrinth
     using Results.Contracts;
     using UI.Contracts;
 
+    /// <summary>
+    /// IFactory interface provides methods for getting the correct instances of the classes in Labyrinth project.
+    /// </summary>
     public interface IFactory : IResultFactory
     {
         /// <summary>
@@ -106,7 +109,6 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
-        IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole,
-            IResultsTable resultsTable, IUserInput input, IFactory factory);
+        IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory);
     }
 }
