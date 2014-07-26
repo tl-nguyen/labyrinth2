@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Labyrinth\Commons\Dialog.cs" />
     <Compile Include="Labyrinth\Entities\Contracts\IResultsTable.cs" />
     <Compile Include="Labyrinth\Entities\Entity.cs" />
     <Compile Include="Labyrinth\Entities\Contracts\IEntity.cs" />

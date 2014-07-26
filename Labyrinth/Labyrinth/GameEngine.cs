@@ -101,8 +101,8 @@
             this.scene.Add(this.labyrinthGraphic);
             this.scene.Add(this.tableGraphic);
             this.scene.Add(this.gameConsoleGraphic);
-            this.gameConsole.AddInput("Welcome");
-            this.gameConsole.AddInput("Input");
+            this.gameConsole.AddInput(Dialog.Welcome);
+            this.gameConsole.AddInput(Dialog.Input);
             scene.Render();
         }
 

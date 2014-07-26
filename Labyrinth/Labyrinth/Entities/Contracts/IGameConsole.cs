@@ -1,10 +1,12 @@
 ﻿namespace Labyrinth.Entities.Contracts
 {
+    using Labyrinth.Commons;
+
     public interface IGameConsole : IEntity
     {
-        void AddInput(string key, string[] args);
+        void AddInput(Dialog key, string[] args);
 
-        void AddInput(string key);
+        void AddInput(Dialog key);
 
         string[] GetLastLines(int numberOfLines);
     }
