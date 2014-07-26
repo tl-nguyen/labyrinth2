@@ -1,14 +1,19 @@
 ﻿namespace Labyrinth
 {
-    // smilih se nad vas kolegi, ne sym puskal obfuskatora, shtoto se zamislih, che i vie moze da imate
+    /// <summary>
+    /// Entry point of the program.
+    /// </summary>
     public class GameStart
     {
-        private const int GAME_SCREEN_COLS = 80;
-        private const int GAME_SCREEN_ROWS = 30;
+        private const int GameScreenCols = 80;
+        private const int GameScreenRows = 30;
 
+        /// <summary>
+        /// Entry method of the program.
+        /// </summary>
         public static void Main()
         {
-            GameEngine game = new GameEngine(GAME_SCREEN_COLS, GAME_SCREEN_ROWS);
+            GameEngine game = new GameEngine(GameScreenCols, GameScreenRows);
             game.Run();
         }
     }
