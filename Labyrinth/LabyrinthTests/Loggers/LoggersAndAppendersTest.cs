@@ -48,7 +48,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void TestSimpleLoggerWithFileAppenderNullCreation()
         {
             var simpleLogger = factory.GetSimpleLogger(null);
