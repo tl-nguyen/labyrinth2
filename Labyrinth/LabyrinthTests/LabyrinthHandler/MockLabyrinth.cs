@@ -1,29 +1,25 @@
 ﻿namespace Labyrinth.Tests.LabyrinthHandler
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Labyrinth.Entities;
     using Labyrinth.Entities.Contracts;
     using Labyrinth.Commons;
+    using Labyrinth.LabyrinthHandler.Contracts;
 
+    /// <summary>
+    /// This class is specially created to test the MoveHandler class
+    /// </summary>
     class MockLabyrinth : Entity, ILabyrinthPlayField
     {
-        public ICell[,] Matrix { get; set; }
-
-        public ICell CurrentCell { get; set; }
-
         public MockLabyrinth()
         {
             GenerateLabyrinth();
         }
 
-        public Labyrinth.LabyrinthHandler.Contracts.IMoveHandler MoveHandler
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public ICell[,] Matrix { get; set; }
+
+        public ICell CurrentCell { get; set; }
+
+        public IMoveHandler MoveHandler { get; set; }
 
         public int LabyrinthSize { get; set; }
 
