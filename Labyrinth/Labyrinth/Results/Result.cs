@@ -1,14 +1,8 @@
-﻿// ********************************
-// <copyright file="Result.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.Results
+﻿namespace Labyrinth.Results
 {
-    using Contracts;
     using System;
     using System.Runtime.Serialization;
+    using Contracts;
 
     /// <summary>
     /// Abstract class for game results.
@@ -16,6 +10,11 @@ namespace Labyrinth.Results
     [Serializable]
     public abstract class Result : IComparable, IResult
     {
+        /// <summary>
+        /// String constant to replace missing player's name.
+        /// </summary>
+        private const string AnonymousPlayer = "Anonymous";
+
         /// <summary>
         /// Field for player moves count.
         /// </summary>
@@ -97,7 +96,7 @@ namespace Labyrinth.Results
                 }
                 else
                 {
-                    throw new ArgumentException("The player name could not be null or empty!");
+                    this.playerName = Result.AnonymousPlayer;
                 }
             }
         }

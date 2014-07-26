@@ -1,14 +1,8 @@
-﻿// ********************************
-// <copyright file="SeparatorResultFormatter.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.Results
+﻿namespace Labyrinth.Results
 {
-    using Contracts;
     using System;
     using System.Runtime.Serialization;
+    using Contracts;
 
     /// <summary>
     /// Class for result formatter with specified separator.
@@ -55,7 +49,7 @@ namespace Labyrinth.Results
         /// <returns>String representing the formatted result.</returns>
         public string Format(string name, string moves)
         {
-            return string.Format("{0,-17} {2} {1,3} moves {2}", name, moves, this.separator);//TODO: maybe move this magic number 17 somewhere as a variable
+            return string.Format("{0,-17} {2} {1,3} moves {2}", name, moves, this.separator);
         }
 
         /// <summary>

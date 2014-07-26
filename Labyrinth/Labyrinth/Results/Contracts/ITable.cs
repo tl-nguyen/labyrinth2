@@ -18,6 +18,11 @@ namespace Labyrinth.Results.Contracts
         /// </summary>
         event ChangedTableEventHandler Changed;
 
+        /// <summary>
+        /// Returns an array of strings, containing the <see cref="IResult.cs"/>.
+        /// If none are recorded, returns empty array.
+        /// </summary>
+        /// <returns>Strings array representing the converted results table.</returns>
         string[] GetTopResultsStrings();
 
         /// <summary>
