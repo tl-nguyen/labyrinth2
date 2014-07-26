@@ -85,7 +85,7 @@
                         }
                         else
                         {
-                            this.gameConsole.AddInput("InvalidMove");
+                            this.gameConsole.AddInput(Dialog.InvalidMove);
                         }
                     }
                     break;
@@ -103,7 +103,7 @@
                     break;
 
                 default:
-                    this.gameConsole.AddInput("InvalidCommand");
+                    this.gameConsole.AddInput(Dialog.InvalidCommand);
                     break;
             }
         }
@@ -130,7 +130,7 @@
 
         private void Quit()
         {
-            this.gameConsole.AddInput("GoodBye");
+            this.gameConsole.AddInput(Dialog.GoodBye);
             this.Exit = true;
         }
 
@@ -153,10 +153,10 @@
         private void GameOver()
         {
             this.ToggleTopResults();
-            this.gameConsole.AddInput("WinMessage", new string[] { this.movesCount.ToString() });
+            this.gameConsole.AddInput(Dialog.WinMessage, new string[] { this.movesCount.ToString() });
             if (this.resultsTable.Table.IsTopResult(this.movesCount))
             {
-                this.gameConsole.AddInput("EnterName");
+                this.gameConsole.AddInput(Dialog.EnterName);
                 this.isTopResult = true;
             }
             else

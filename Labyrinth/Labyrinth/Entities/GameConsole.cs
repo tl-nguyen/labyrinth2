@@ -5,6 +5,7 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using Labyrinth.Commons;
 
     public class GameConsole : Entity, IGameConsole
     {
@@ -51,17 +52,17 @@
             }
 
             //Fix for bug 1337
-            if (this.lines.Last.Value.Trim() == this.dialogList.GetDialog("EnterName").Trim())
+            if (this.lines.Last.Value.Trim() == this.dialogList.GetDialog(Dialog.EnterName).Trim())
             {
                 this.lines.RemoveLast();
 
-                this.lines.AddLast(this.dialogList.GetDialog("NameAdded"));
+                this.lines.AddLast(this.dialogList.GetDialog(Dialog.NameAdded));
             }
 
             return output;
         }
 
-        public void AddInput(string key, string[] args)
+        public void AddInput(Dialog key, string[] args)
         {
             string input = this.GetInput(key);
             StringBuilder sb = new StringBuilder();
@@ -70,13 +71,13 @@
             this.EnqueueInput(input);
         }
 
-        public void AddInput(string key)
+        public void AddInput(Dialog key)
         {
             string input = this.GetInput(key);
             this.EnqueueInput(input);
         }
 
-        private string GetInput(string key)
+        private string GetInput(Dialog key)
         {
             string input = this.dialogList.GetDialog(key);
             return input;
