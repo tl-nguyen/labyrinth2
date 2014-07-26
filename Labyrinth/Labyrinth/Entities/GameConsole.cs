@@ -129,10 +129,10 @@
                 this.lines.AddLast(line);
             }
 
-            while (this.lines.Count > this.linesMaxCount)
-            {
-                this.lines.RemoveFirst();
-            }
+            //while (this.lines.Count > this.linesMaxCount)
+            //{
+            //    this.lines.RemoveFirst();
+            //}
         }
     }
 }
