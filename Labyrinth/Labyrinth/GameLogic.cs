@@ -1,5 +1,6 @@
 ﻿namespace Labyrinth
 {
+    using System;
     using Commons;
     using Entities.Contracts;
 
@@ -16,9 +17,21 @@
         private int movesCount;
         private bool isTopResult;
 
-        public GameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole,
-            IResultsTable resultsTable, IUserInput input, IResultFactory factory)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameLogic"/> class
+        /// </summary>
+        /// <param name="labyrinth">Receives a non null <see cref="ILabyrinthPlayField"/></param>
+        /// <param name="gameConsole">Receives a non null <see cref="IGameConsole"/></param>
+        /// <param name="resultsTable">Receives a non null <see cref="IResultsTable"/></param>
+        /// <param name="input">Receives a non null <see cref="IUserInput"/></param>
+        /// <param name="factory">Receives a non null <see cref="IResultFactory"/></param>
+        public GameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole, IResultsTable resultsTable, IUserInput input, IResultFactory factory)
         {
+            if (labyrinth == null || gameConsole == null || resultsTable == null || input == null || factory == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             this.labyrinth = labyrinth;
             this.gameConsole = gameConsole;
             this.resultsTable = resultsTable;
@@ -30,7 +43,7 @@
         }
 
         /// <summary>
-        /// Is set to false normally, sets to true if a game ending condition is reached.
+        /// Gets a value indicating whether a game ending condition is reached. Default value is false.
         /// </summary>
         public bool Exit { get; private set; }
 
@@ -88,6 +101,7 @@
                             this.gameConsole.AddInput(Dialog.InvalidMove);
                         }
                     }
+
                     break;
 
                 case Command.Top:
