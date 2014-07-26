@@ -8,7 +8,7 @@
     /// </summary>
     public class GameLogic : IGameLogic
     {
-        private ILabyrinth labyrinth;
+        private ILabyrinthPlayField labyrinth;
         private IGameConsole gameConsole;
         private IResultsTable resultsTable;
         private IUserInput input;
@@ -16,7 +16,7 @@
         private int movesCount;
         private bool isTopResult;
 
-        public GameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
+        public GameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole,
             IResultsTable resultsTable, IUserInput input, IResultFactory factory)
         {
             this.labyrinth = labyrinth;
@@ -134,7 +134,7 @@
             this.Exit = true;
         }
 
-        private bool IsGameFinished(ILabyrinth labyrinth)
+        private bool IsGameFinished(ILabyrinthPlayField labyrinth)
         {
             bool isGameOver = false;
             int currentRow = labyrinth.CurrentCell.Row;

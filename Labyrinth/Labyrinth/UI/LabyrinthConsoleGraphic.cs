@@ -15,9 +15,9 @@
         private const char WALL_CELL = 'X';
         private const char PLAYER_CELL = '*';
 
-        private ILabyrinth labyrinth;
+        private ILabyrinthPlayField labyrinth;
 
-        public LabyrinthConsoleGraphic(ILabyrinth labyrinth, IntPoint coords, IRenderer renderer)
+        public LabyrinthConsoleGraphic(ILabyrinthPlayField labyrinth, IntPoint coords, IRenderer renderer)
             : base(labyrinth, coords, renderer)
         {
             this.labyrinth = labyrinth;

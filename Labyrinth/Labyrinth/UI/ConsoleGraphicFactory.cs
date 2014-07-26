@@ -23,7 +23,7 @@
             return new ConsoleScene(consoleRenderer);
         }
 
-        public IRenderable GetLabyrinthConsoleGraphic(ILabyrinth labyrinth, IntPoint coords, IRenderer renderer)
+        public IRenderable GetLabyrinthConsoleGraphic(ILabyrinthPlayField labyrinth, IntPoint coords, IRenderer renderer)
         {
             return new LabyrinthConsoleGraphic(labyrinth, coords, renderer);
         }

@@ -91,7 +91,7 @@
     <Compile Include="Labyrinth\Results\PlayerRating.cs" />
     <Compile Include="Labyrinth\Commons\Command.cs" />
     <Compile Include="Labyrinth\Commons\Direction.cs" />
-    <Compile Include="Labyrinth\Entities\Contracts\ILabyrinth.cs" />
+    <Compile Include="Labyrinth\Entities\Contracts\ILabyrinthPlayField.cs" />
     <Compile Include="Labyrinth\Results\Contracts\IResult.cs" />
     <Compile Include="Labyrinth\Results\Contracts\ITable.cs" />
     <Compile Include="Labyrinth\IUserInput.cs" />

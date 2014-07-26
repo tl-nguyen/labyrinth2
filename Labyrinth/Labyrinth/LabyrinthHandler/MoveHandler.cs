@@ -12,7 +12,7 @@
         /// </summary>
         /// <param name="direction">Current user input direction</param>
         /// <returns>True if a move can be made, false if not</returns>
-        public bool MoveAction(ILabyrinth labyrinth, Command direction)
+        public bool MoveAction(ILabyrinthPlayField labyrinth, Command direction)
         {
             bool moveDone = false;
             switch (direction)
@@ -49,7 +49,7 @@
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        private bool TryMove(ILabyrinth labyrinth, Direction direction)
+        private bool TryMove(ILabyrinthPlayField labyrinth, Direction direction)
         {
             ICell newCell = FindNewCellCoordinates(labyrinth.CurrentCell, direction);
 
@@ -111,7 +111,7 @@
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
         /// <param name="cellsOrder">the cells order for all successfully moved steps</param>
         /// <param name="visitedCells">the already visited positions</param>
-        public void MoveTo(ILabyrinth labyrinth, ICell currentCell, Direction direction,
+        public void MoveTo(ILabyrinthPlayField labyrinth, ICell currentCell, Direction direction,
             Queue<ICell> cellsOrder, HashSet<ICell> visitedCells)
         {
             ICell newCell = FindNewCellCoordinates(currentCell, direction);
@@ -139,7 +139,7 @@
         /// Check if a given cell is the at the exit of the labyrinth
         /// </summary>
         /// <param name="cell">The given cell to check for if it's at the exit of the labyrinthor not</param>
-        public bool ExitFound(ILabyrinth labyrinth, ICell cell)
+        public bool ExitFound(ILabyrinthPlayField labyrinth, ICell cell)
         {
             if (cell.Row == labyrinth.LabyrinthSize - 1 ||
                 cell.Col == labyrinth.LabyrinthSize - 1 ||

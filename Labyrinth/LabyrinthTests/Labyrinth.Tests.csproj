@@ -52,19 +52,19 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Entities\LabyrinthPlayFieldTests.cs" />
+    <Compile Include="Entities\GameConsoleTests.cs" />
     <Compile Include="Loggers\LoggersAndAppendersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CellTests.cs" />
-    <Compile Include="Renderer\ConsoleRendererTests.cs" />
     <Compile Include="Results\FileSerializationManagerTests.cs" />
-    <Compile Include="GameEngineTests.cs" />
     <Compile Include="Results\RatedResultTests.cs" />
     <Compile Include="Results\TopResultsTests.cs" />
     <Compile Include="Results\SimpleResultTests.cs" />
     <Compile Include="Results\PlainResultFormatterTests.cs" />
     <Compile Include="Results\SeparatorResultFormatterTests.cs" />
     <Compile Include="FactoryTest.cs" />
-    <Compile Include="UserInputConsoleTests.cs" />
+    <Compile Include="LanguageStringsTest.cs" />
+    <Compile Include="UI\ConsoleGraphicFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labyrinth.csproj">
@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LabyrinthHandler\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

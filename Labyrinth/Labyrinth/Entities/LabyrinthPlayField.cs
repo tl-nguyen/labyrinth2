@@ -9,7 +9,7 @@
     /// <summary>
     /// Class representation of a single level(labyrinth) of the game
     /// </summary>
-    public class LabyrinthPlayField : Entity, ILabyrinth
+    public class LabyrinthPlayField : Entity, ILabyrinthPlayField
     {
         private const int DEFAULT_SIZE = 10;
         private readonly int labyrintStartRow;

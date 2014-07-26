@@ -37,10 +37,10 @@ namespace Labyrinth
         IUserInput GetUserInputInstance();
 
         /// <summary>
-        /// Gets the correct instance of the class implementing <see cref="ILabyrinth"/> interface.
+        /// Gets the correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface.
         /// </summary>
-        /// <returns>The correct instance of the class implementing <see cref="ILabyrinth"/> interface</returns>
-        ILabyrinth GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler);
+        /// <returns>The correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface</returns>
+        ILabyrinthPlayField GetLabyrinthInstance(IFactory factory, IMoveHandler moveHandler);
 
         /// <summary>
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.
@@ -106,7 +106,7 @@ namespace Labyrinth
         /// Gets the correct instance of the class implementing <see cref="IGameLogic"/> interface.
         /// </summary>
         /// <returns>The correct instance of the class implementing <see cref="IGameLogic"/> interface</returns>
-        IGameLogic GetGameLogic(ILabyrinth labyrinth, IGameConsole gameConsole,
+        IGameLogic GetGameLogic(ILabyrinthPlayField labyrinth, IGameConsole gameConsole,
             IResultsTable resultsTable, IUserInput input, IFactory factory);
     }
 }

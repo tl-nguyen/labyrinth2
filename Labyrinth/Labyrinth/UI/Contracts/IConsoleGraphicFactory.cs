@@ -13,7 +13,7 @@
 
         IScene GetConsoleScene(IConsoleRenderer consoleRenderer);
 
-        IRenderable GetLabyrinthConsoleGraphic(ILabyrinth labyrinth, IntPoint coords, IRenderer renderer);
+        IRenderable GetLabyrinthConsoleGraphic(ILabyrinthPlayField labyrinth, IntPoint coords, IRenderer renderer);
 
         IRenderable GetResultsTableConsoleGraphic(IResultsTable table, IntPoint coords, IRenderer renderer);
 

@@ -24,7 +24,7 @@
         private ILogger simpleLoggerFileAppender;
         private IGameConsole gameConsole;
         private IGameLogic gameLogic;
-        private ILabyrinth labyrinth;
+        private ILabyrinthPlayField labyrinth;
         private IResultsTable resultsTable;
 
         private IConsoleGraphicFactory consoleGraphicFactory;

@@ -25,8 +25,6 @@
                 Console.SetCursorPosition(x, y + i);
                 Console.Write(entityGraphic[i]);
             }
-            //Console.SetCursorPosition(x, y);
-            //Console.Write(entity.Graphic.ToString());
         }
 
         public void Clear()
