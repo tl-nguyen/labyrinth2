@@ -4,10 +4,11 @@
 // </copyright>
 //
 // ********************************
-using Labyrinth.UI.Contracts;
 
 namespace Labyrinth.Renderer.Contracts
 {
+    using Labyrinth.UI.Contracts;
+
     public interface IRenderer
     {
         /// <summary>

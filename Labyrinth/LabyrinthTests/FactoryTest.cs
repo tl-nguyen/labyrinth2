@@ -276,5 +276,11 @@
 
             Assert.IsInstanceOfType(actual, typeof(GameConsole));
         }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestGetSceneInstanceWithNull()
+        {
+            var actual = this.testFactory.GetISceneInstance(null);
+        }
     }
 }

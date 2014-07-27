@@ -113,6 +113,7 @@
                     currentLine.Append(" ");
                 }
             }
+
             if (currentLine.Length > 0)
             {
                 lines.Add(currentLine.ToString());
@@ -123,17 +124,12 @@
 
         private void EnqueueInput(string input)
         {
-            List<string> linesList = GetLines(input);
+            List<string> linesList = this.GetLines(input);
 
             foreach (string line in linesList)
             {
                 this.lines.AddLast(line);
             }
-
-            //while (this.lines.Count > this.linesMaxCount)
-            //{
-            //    this.lines.RemoveFirst();
-            //}
         }
     }
 }
