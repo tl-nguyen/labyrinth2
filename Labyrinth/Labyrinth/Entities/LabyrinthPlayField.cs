@@ -11,10 +11,29 @@
     /// </summary>
     public class LabyrinthPlayField : Entity, ILabyrinthPlayField
     {
+        /// <summary>
+        /// Default field size.
+        /// </summary>
         private const int DefaultSize = 10;
+
+        /// <summary>
+        /// Labyrinth start row.
+        /// </summary>
         private readonly int labyrintStartRow;
+
+        /// <summary>
+        /// Labyrinth end column.
+        /// </summary>
         private readonly int labyrinthStartCol;
+
+        /// <summary>
+        /// Current cell.
+        /// </summary>
         private ICell currentCell;
+
+        /// <summary>
+        /// Factory for the game.
+        /// </summary>
         private IFactory factory;
 
         /// <summary>
