@@ -11,7 +11,7 @@
     /// </summary>
     public class LabyrinthPlayField : Entity, ILabyrinthPlayField
     {
-        private const int DEFAULT_SIZE = 10;
+        private const int DefaultSize = 10;
         private readonly int labyrintStartRow;
         private readonly int labyrinthStartCol;
         private ICell currentCell;
@@ -42,7 +42,7 @@
         /// <param name="factory">The factory that is used to produce object in labyrinth</param>
         /// <param name="moveHandler">The move behavior of labyrinth</param>
         public LabyrinthPlayField(IFactory factory, IMoveHandler moveHandler)
-            : this(factory, moveHandler, DEFAULT_SIZE)
+            : this(factory, moveHandler, DefaultSize)
         {
         }
 

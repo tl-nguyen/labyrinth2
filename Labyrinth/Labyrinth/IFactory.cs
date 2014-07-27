@@ -49,7 +49,7 @@ namespace Labyrinth
         /// <returns>The correct instance of the class implementing <see cref="ILabyrinthPlayField"/> interface</returns>
         /// <param name="factory">A non null value of <see cref="IFactory"/></param>
         /// <param name="moveHandler">A non null value of <see cref="IMoveHandler"/></param>
-        ILabyrinthPlayField GetILabyrinthPlayFieldInstance (IFactory factory, IMoveHandler moveHandler);
+        ILabyrinthPlayField GetILabyrinthPlayFieldInstance(IFactory factory, IMoveHandler moveHandler);
 
         /// <summary>
         /// Gets the correct matrix instance of the class implementing <see cref="ICell"/> interface.

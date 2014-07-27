@@ -5,8 +5,6 @@ namespace Labyrinth.Entities
 
     public abstract class Entity : IEntity
     {
-        public bool Active { get; private set; }
-
         public Entity(bool active)
         {
             this.Active = active;
@@ -16,6 +14,8 @@ namespace Labyrinth.Entities
             : this(true)
         {
         }
+
+        public bool Active { get; private set; }
 
         public void Activate()
         {
