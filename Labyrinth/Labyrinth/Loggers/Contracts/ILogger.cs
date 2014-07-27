@@ -6,6 +6,9 @@
 // ********************************
 namespace Labyrinth.Loggers.Contracts
 {
+    /// <summary>
+    /// Implement this interface to cerate a new type of logger
+    /// </summary>
     public interface ILogger
     {
         void Log(string message);
