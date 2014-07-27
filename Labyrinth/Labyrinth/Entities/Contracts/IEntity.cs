@@ -1,4 +1,10 @@
-﻿namespace Labyrinth.Entities.Contracts
+﻿// ********************************
+// <copyright file="IEntity.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Entities.Contracts
 {
     public interface IEntity
     {

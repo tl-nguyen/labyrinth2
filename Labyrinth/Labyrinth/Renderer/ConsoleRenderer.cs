@@ -1,7 +1,13 @@
-﻿namespace Labyrinth.Renderer
+﻿// ********************************
+// <copyright file="ConsoleRenderer.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Renderer
 {
-    using Renderer.Contracts;
     using System;
+    using Renderer.Contracts;
     using UI.Contracts;
 
     public class ConsoleRenderer : IConsoleRenderer

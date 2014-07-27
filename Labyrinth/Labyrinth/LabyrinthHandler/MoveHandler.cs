@@ -1,15 +1,25 @@
-﻿namespace Labyrinth.LabyrinthHandler
+﻿// ********************************
+// <copyright file="MoveHandler.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.LabyrinthHandler
 {
+    using System.Collections.Generic;
     using Commons;
     using Contracts;
     using Entities.Contracts;
-    using System.Collections.Generic;
 
+    /// <summary>
+    /// Class representation the move behavior of a labyrinth
+    /// </summary>
     public class MoveHandler : IMoveHandler
     {
         /// <summary>
-        /// Checks if a move can be done using the parent's method TryMove
+        /// Checks if a move can be done
         /// </summary>
+        /// <param name="labyrinth">The current working labyrinth</param>
         /// <param name="direction">Current user input direction</param>
         /// <returns>True if a move can be made, false if not</returns>
         public bool MoveAction(ILabyrinthPlayField labyrinth, Command direction)
@@ -19,22 +29,22 @@
             {
                 case Command.Up:
                     moveDone =
-                        TryMove(labyrinth, Direction.Up);
+                        this.TryMove(labyrinth, Direction.Up);
                     break;
 
                 case Command.Down:
                     moveDone =
-                        TryMove(labyrinth, Direction.Down);
+                        this.TryMove(labyrinth, Direction.Down);
                     break;
 
                 case Command.Left:
                     moveDone =
-                        TryMove(labyrinth, Direction.Left);
+                        this.TryMove(labyrinth, Direction.Left);
                     break;
 
                 case Command.Right:
                     moveDone =
-                        TryMove(labyrinth, Direction.Right);
+                        this.TryMove(labyrinth, Direction.Right);
                     break;
 
                 default:
@@ -45,13 +55,69 @@
         }
 
         /// <summary>
-        /// Try the next move to the new cell, if it is valid
+        /// Adding the successfully moved steps to the cellsOrder queue
         /// </summary>
+        /// <param name="labyrinth">The current working labyrinth</param>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
+        /// <param name="cellsOrder">the cells order for all moved steps</param>
+        /// <param name="visitedCells">the already visited positions</param>
+        public void MoveTo(
+            ILabyrinthPlayField labyrinth,
+            ICell currentCell,
+            Direction direction,
+            Queue<ICell> cellsOrder,
+            HashSet<ICell> visitedCells)
+        {
+            ICell newCell = this.FindNewCellCoordinates(currentCell, direction);
+
+            if (newCell.Row < 0 ||
+                newCell.Col < 0 ||
+                newCell.Row >= labyrinth.Matrix.GetLength(0) ||
+                newCell.Col >= labyrinth.Matrix.GetLength(1))
+            {
+                return;
+            }
+
+            if (visitedCells.Contains(labyrinth.Matrix[newCell.Row, newCell.Col]))
+            {
+                return;
+            }
+
+            if (labyrinth.Matrix[newCell.Row, newCell.Col].IsEmpty())
+            {
+                cellsOrder.Enqueue(labyrinth.Matrix[newCell.Row, newCell.Col]);
+            }
+        }
+
+        /// <summary>
+        /// Check if a given cell is the at the exit of the labyrinth
+        /// </summary>
+        /// <param name="labyrinth">The current working labyrinth</param>
+        /// <param name="cell">The given cell to check for if it's at the exit of the labyrinth or not</param>
+        /// <returns>True if it is, false if it isn't</returns>
+        public bool ExitFound(ILabyrinthPlayField labyrinth, ICell cell)
+        {
+            if (cell.Row == labyrinth.LabyrinthSize - 1 ||
+                cell.Col == labyrinth.LabyrinthSize - 1 ||
+                cell.Row == 0 ||
+                cell.Col == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Try the next move to the new cell, if it is valid
+        /// </summary>
+        /// <param name="labyrinth">The current working labyrinth</param>
+        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
+        /// <returns>True if it is, false if it isn't</returns>
         private bool TryMove(ILabyrinthPlayField labyrinth, Direction direction)
         {
-            ICell newCell = FindNewCellCoordinates(labyrinth.CurrentCell, direction);
+            ICell newCell = this.FindNewCellCoordinates(labyrinth.CurrentCell, direction);
 
             if (newCell.Row < 0 ||
                 newCell.Col < 0 ||
@@ -78,6 +144,7 @@
         /// </summary>
         /// <param name="currentCell">The current cell object, where the player is at</param>
         /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
+        /// <returns>Return a new cell</returns>
         private ICell FindNewCellCoordinates(ICell currentCell, Direction direction)
         {
             ICell newCell = (ICell)currentCell.Clone();
@@ -102,54 +169,6 @@
             }
 
             return newCell;
-        }
-
-        /// <summary>
-        /// Adding the successfuly moved steps to the cellsOrder queue
-        /// </summary>
-        /// <param name="currentCell">The current cell object, where the player is at</param>
-        /// <param name="direction">The direction that the player want to move (up, down, left, right)</param>
-        /// <param name="cellsOrder">the cells order for all successfully moved steps</param>
-        /// <param name="visitedCells">the already visited positions</param>
-        public void MoveTo(ILabyrinthPlayField labyrinth, ICell currentCell, Direction direction,
-            Queue<ICell> cellsOrder, HashSet<ICell> visitedCells)
-        {
-            ICell newCell = FindNewCellCoordinates(currentCell, direction);
-
-            if (newCell.Row < 0 ||
-                newCell.Col < 0 ||
-                newCell.Row >= labyrinth.Matrix.GetLength(0) ||
-                newCell.Col >= labyrinth.Matrix.GetLength(1))
-            {
-                return;
-            }
-
-            if (visitedCells.Contains(labyrinth.Matrix[newCell.Row, newCell.Col]))
-            {
-                return;
-            }
-
-            if (labyrinth.Matrix[newCell.Row, newCell.Col].IsEmpty())
-            {
-                cellsOrder.Enqueue(labyrinth.Matrix[newCell.Row, newCell.Col]);
-            }
-        }
-
-        /// <summary>
-        /// Check if a given cell is the at the exit of the labyrinth
-        /// </summary>
-        /// <param name="cell">The given cell to check for if it's at the exit of the labyrinthor not</param>
-        public bool ExitFound(ILabyrinthPlayField labyrinth, ICell cell)
-        {
-            if (cell.Row == labyrinth.LabyrinthSize - 1 ||
-                cell.Col == labyrinth.LabyrinthSize - 1 ||
-                cell.Row == 0 ||
-                cell.Col == 0)
-            {
-                return true;
-            }
-
-            return false;
         }
     }
 }

@@ -1,9 +1,15 @@
-﻿namespace Labyrinth.UI
+﻿// ********************************
+// <copyright file="ConsoleScene.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.UI
 {
     using System;
     using System.Collections.Generic;
-    using UI.Contracts;
     using Renderer.Contracts;
+    using UI.Contracts;
 
     /// <summary>
     /// Implements the Render method for a ConsoleRenderer

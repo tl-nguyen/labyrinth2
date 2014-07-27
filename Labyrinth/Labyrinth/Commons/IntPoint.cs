@@ -1,4 +1,10 @@
-﻿namespace Labyrinth.Commons
+﻿// ********************************
+// <copyright file="IntPoint.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Commons
 {
     /// <summary>
     /// Provides a point with X and Y coordinates

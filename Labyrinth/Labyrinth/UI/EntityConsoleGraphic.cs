@@ -1,9 +1,15 @@
-﻿namespace Labyrinth.UI
+﻿// ********************************
+// <copyright file="EntityConsoleGraphic.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.UI
 {
     using Commons;
-    using UI.Contracts;
-    using Renderer.Contracts;
     using Entities.Contracts;
+    using Renderer.Contracts;
+    using UI.Contracts;
 
     public abstract class EntityConsoleGraphic : IRenderable
     {
