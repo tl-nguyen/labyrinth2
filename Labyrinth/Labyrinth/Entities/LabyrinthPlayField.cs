@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="LabyrinthPlayField.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.Entities
+﻿namespace Labyrinth.Entities
 {
     using System;
     using System.Collections.Generic;

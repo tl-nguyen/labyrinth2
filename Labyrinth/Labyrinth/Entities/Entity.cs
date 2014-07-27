@@ -1,9 +1,4 @@
 ﻿// ********************************
-// <copyright file="Entity.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
 namespace Labyrinth.Entities
 {
     using Entities.Contracts;

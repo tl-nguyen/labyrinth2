@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="ConsoleScene.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
     using System;
     using System.Collections.Generic;
@@ -16,18 +10,28 @@ namespace Labyrinth.UI
     /// </summary>
     public class ConsoleScene : Scene
     {
+        /// <summary>
+        /// Console renderer for the scene.
+        /// </summary>
         private IConsoleRenderer renderer;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConsoleScene" /> class.
+        /// </summary>
+        /// <param name="renderer">Renderer for the scene.</param>
         public ConsoleScene(IConsoleRenderer renderer)
             : base()
         {
             this.renderer = renderer;
         }
 
-        override public void Render()
+        /// <summary>
+        /// Renders the console scene.
+        /// </summary>
+        public override void Render()
         {
             this.renderer.Clear();
-            foreach (IRenderable entity in entities)
+            foreach (IRenderable entity in this.Entities)
             {
                 entity.Render();
             }

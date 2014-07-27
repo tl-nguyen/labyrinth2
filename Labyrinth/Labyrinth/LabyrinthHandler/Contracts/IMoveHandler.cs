@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="IMoveHandler.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.LabyrinthHandler.Contracts
+﻿namespace Labyrinth.LabyrinthHandler.Contracts
 {
     using System.Collections.Generic;
     using Commons;

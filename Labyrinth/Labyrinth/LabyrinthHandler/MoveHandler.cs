@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="MoveHandler.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.LabyrinthHandler
+﻿namespace Labyrinth.LabyrinthHandler
 {
     using System.Collections.Generic;
     using Commons;

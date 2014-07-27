@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="LabyrinthConsoleGraphic.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth.UI
+﻿namespace Labyrinth.UI
 {
     using System;
     using System.Text;
@@ -15,14 +9,37 @@ namespace Labyrinth.UI
     using Renderer.Contracts;
     using UI.Contracts;
 
+    /// <summary>
+    /// Class for console graphic of the labyrinth.
+    /// </summary>
     public class LabyrinthConsoleGraphic : EntityConsoleGraphic
     {
-        private const char EMPTY_CELL = '-';
-        private const char WALL_CELL = 'X';
-        private const char PLAYER_CELL = '*';
+        /// <summary>
+        /// Labyrinth empty cell symbol.
+        /// </summary>
+        private const char EmptyCell = '-';
 
+        /// <summary>
+        /// Labyrinth wall cell symbol.
+        /// </summary>
+        private const char WallCell = 'X';
+
+        /// <summary>
+        /// Labyrinth player cell symbol.
+        /// </summary>
+        private const char PlayerCell = '*';
+
+        /// <summary>
+        /// Labyrinth for console graphic.
+        /// </summary>
         private ILabyrinthPlayField labyrinth;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LabyrinthConsoleGraphic"/> class.
+        /// </summary>
+        /// <param name="labyrinth">Labyrinth for the graphic.</param>
+        /// <param name="coords">Console graphic coordinates.</param>
+        /// <param name="renderer">Renderer of the console graphic.</param>
         public LabyrinthConsoleGraphic(ILabyrinthPlayField labyrinth, IntPoint coords, IRenderer renderer)
             : base(labyrinth, coords, renderer)
         {
@@ -30,7 +47,11 @@ namespace Labyrinth.UI
             this.Graphic = this.GenerateStringGraphic();
         }
 
-        override protected string[] GenerateStringGraphic()
+        /// <summary>
+        /// Generates a console graphic of the labyrinth.
+        /// </summary>
+        /// <returns>String array with the graphic.</returns>
+        protected override string[] GenerateStringGraphic()
         {
             int labyrinthSize = this.labyrinth.LabyrinthSize;
             string[] graphic = new string[labyrinthSize];
@@ -43,20 +64,22 @@ namespace Labyrinth.UI
                     switch (cell.CellValue)
                     {
                         case CellState.Empty:
-                            sb.Append(EMPTY_CELL + " ");
+                            sb.Append(EmptyCell + " ");
                             break;
                         case CellState.Wall:
-                            sb.Append(WALL_CELL + " ");
+                            sb.Append(WallCell + " ");
                             break;
                         case CellState.Player:
-                            sb.Append(PLAYER_CELL + " ");
+                            sb.Append(PlayerCell + " ");
                             break;
                         default:
                             throw new ArgumentException("invalid cell value");
                     }
                 }
+
                 graphic[row] = sb.ToString();
             }
+
             return graphic;
         }
     }

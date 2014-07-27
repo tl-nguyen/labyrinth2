@@ -1,10 +1,4 @@
-﻿// ********************************
-// <copyright file="IGameLogic.cs" company="Telerik Academy">
-// Copyright (c) 2014 Telerik Academy. All rights reserved.
-// </copyright>
-//
-// ********************************
-namespace Labyrinth
+﻿namespace Labyrinth
 {
     /// <summary>
     /// Interface that handles input, and changes game objects
