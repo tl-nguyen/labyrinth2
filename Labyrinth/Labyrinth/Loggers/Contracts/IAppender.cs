@@ -6,6 +6,9 @@
 // ********************************
 namespace Labyrinth.Loggers.Contracts
 {
+    /// <summary>
+    /// Implement this interface to cerate a new type of appender
+    /// </summary>
     public interface IAppender
     {
         ulong MessageCount { get; }
