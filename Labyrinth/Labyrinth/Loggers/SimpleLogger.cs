@@ -36,7 +36,7 @@ namespace Labyrinth.Loggers
         /// <param name="message">A message to be stored</param>
         public void Log(string message)
         {
-            appender.AddMessage(DateTime.Now + " : " + message);
+            this.appender.AddMessage(DateTime.Now + " : " + message);
         }
     }
 }

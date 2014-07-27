@@ -29,6 +29,14 @@ namespace Labyrinth.Loggers
         }
 
         /// <summary>
+        /// Returns a number of currently logged messages
+        /// </summary>
+        public ulong MessageCount
+        {
+            get { return this.messageCount; }
+        }
+
+        /// <summary>
         /// This method is used to return the memory logger instanse
         /// </summary>
         /// <returns>MemoryLogger</returns>
@@ -40,24 +48,6 @@ namespace Labyrinth.Loggers
             }
 
             return instance;
-        }
-
-        /// <summary>
-        /// Returns a number of currently logged messages
-        /// </summary>
-        public ulong MessageCount
-        {
-            get { return this.messageCount; }
-        }
-
-        /// <summary>
-        /// Add a passed message to the memory storage
-        /// </summary>
-        /// <param name="message">Message to be store in a memory storage</param>
-        public void AddMessage(string message)
-        {
-            this.messageCount++;
-            this.storage.Add(message);
         }
 
         /// <summary>
@@ -75,6 +65,16 @@ namespace Labyrinth.Loggers
             }
 
             return memoryAppender.storage.FindAll(match);
+        }
+
+        /// <summary>
+        /// Add a passed message to the memory storage
+        /// </summary>
+        /// <param name="message">Message to be store in a memory storage</param>
+        public void AddMessage(string message)
+        {
+            this.messageCount++;
+            this.storage.Add(message);
         }
     }
 }

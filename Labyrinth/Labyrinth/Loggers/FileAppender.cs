@@ -26,13 +26,12 @@ namespace Labyrinth.Loggers
         {
             if (fileName == string.Empty)
             {
-                throw new ArgumentException("The inputed file name is empty or not a good format (/directory/file.name)");
+                throw new ArgumentException("The inputed file name is empty or not a good format (ex. /directory/file.name)");
             }
 
             using (StreamWriter streamWriter = new StreamWriter(fileName, false))
             {
-
-            };
+            }
 
             this.fileName = fileName;
             this.messageCount = 0;
