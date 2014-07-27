@@ -10,7 +10,7 @@
         /// <summary>
         /// Gets the user input, and returns it as a Command
         /// </summary>
-        /// <returns>Command</returns>
+        /// <returns>A command</returns>
         Command GetInput();
 
         /// <summary>

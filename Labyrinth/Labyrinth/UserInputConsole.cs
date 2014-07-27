@@ -1,21 +1,20 @@
 ﻿namespace Labyrinth
 {
-    using Commons;
     using System;
+    using Commons;
 
     /// <summary>
-    /// Concrete implimentation of IUserInput that receives commands from the console, and returns them as an enumeration ( or string )
+    /// Concrete implementation of IUserInput that receives commands from the console, and returns them as an enumeration ( or string )
     /// </summary>
     public class UserInputConsole : IUserInput
     {
         /// <summary>
         /// Gets the user input, and returns it as a Command
         /// </summary>
-        /// <returns>Command</returns>
+        /// <returns>A command</returns>
         public Command GetInput()
         {
             var inputLine = Console.ReadKey();
-            //inputLine = inputLine.Trim().ToLower();
             switch (inputLine.KeyChar)
             {
                 case 'w': return Command.Up;
