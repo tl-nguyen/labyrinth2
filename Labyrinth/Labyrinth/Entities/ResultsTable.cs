@@ -9,7 +9,6 @@
         {
             this.Table = table;
         }
-
         public ITable Table { get; private set; }
     }
 }

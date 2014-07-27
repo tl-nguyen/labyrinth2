@@ -9,8 +9,8 @@
 
     public class GameConsole : Entity, IGameConsole
     {
-        private const int DEFAULT_LINE_LENGTH = 60;
-        private const int DEFAULT_LINES_MAX_COUNT = 100;
+        private const int DefaultLineLength = 60;
+        private const int DefaultLinesMaxCount = 100;
 
         private ILanguageStrings dialogList;
         private int lineLength;
@@ -26,7 +26,7 @@
         }
 
         public GameConsole(ILanguageStrings dialogList)
-            : this(dialogList, DEFAULT_LINES_MAX_COUNT, DEFAULT_LINE_LENGTH)
+            : this(dialogList, DefaultLinesMaxCount, DefaultLineLength)
         {
         }
 
@@ -51,7 +51,7 @@
                 }
             }
 
-            //Fix for bug 1337
+            // Fix for bug 1337
             if (this.lines.Last.Value.Trim() == this.dialogList.GetDialog(Dialog.EnterName).Trim())
             {
                 this.lines.RemoveLast();
