@@ -1,4 +1,10 @@
-﻿namespace Labyrinth
+﻿// ********************************
+// <copyright file="GameStart.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth
 {
     /// <summary>
     /// Entry point of the program.

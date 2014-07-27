@@ -1,7 +1,13 @@
-﻿namespace Labyrinth.Loggers
+﻿// ********************************
+// <copyright file="SimpleLogger.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Loggers
 {
-    using Contracts;
     using System;
+    using Contracts;
 
     public class SimpleLogger : ILogger
     {

@@ -1,14 +1,29 @@
-﻿namespace Labyrinth.Renderer
+﻿// ********************************
+// <copyright file="LanguageStrings.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Renderer
 {
-    using Contracts;
     using System;
     using System.Collections.Generic;
+    using Contracts;
     using Labyrinth.Commons;
 
+    /// <summary>
+    /// Class represents all the game dialogs
+    /// </summary>
     public class LanguageStrings : ILanguageStrings
     {
+        /// <summary>
+        /// The dictionary, which contains all the game dialogs
+        /// </summary>
         private readonly Dictionary<Dialog, string> dialogList;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LanguageStrings" /> class
+        /// </summary>
         public LanguageStrings()
         {
             this.dialogList = new Dictionary<Dialog, string>();
@@ -25,7 +40,7 @@
         }
 
         /// <summary>
-        /// Get a diaglog from the dialogList
+        /// Get a dialog from the dialogList
         /// </summary>
         /// <param name="key">The dialog key that you want to get</param>
         /// <returns>The wanted dialog</returns>

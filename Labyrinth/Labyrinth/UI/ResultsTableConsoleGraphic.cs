@@ -1,9 +1,15 @@
-﻿namespace Labyrinth.UI
+﻿// ********************************
+// <copyright file="ResultsTableConsoleGraphic.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.UI
 {
-    using Entities.Contracts;
-    using Commons;
-    using Renderer.Contracts;
     using System.Text;
+    using Commons;
+    using Entities.Contracts;
+    using Renderer.Contracts;
 
     public class ResultsTableConsoleGraphic : EntityConsoleGraphic
     {

@@ -1,4 +1,10 @@
-﻿namespace Labyrinth.Entities
+﻿// ********************************
+// <copyright file="ResultsTable.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Entities
 {
     using Contracts;
     using Results.Contracts;

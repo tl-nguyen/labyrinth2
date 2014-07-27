@@ -1,9 +1,16 @@
-﻿namespace Labyrinth.UI.Contracts
+﻿// ********************************
+// <copyright file="IConsoleGraphicFactory.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.UI.Contracts
 {
-    using UI;
-    using Entities.Contracts;
+    
     using Commons;
+    using Entities.Contracts;
     using Renderer.Contracts;
+    using UI;
 
     public interface IConsoleGraphicFactory
     {

@@ -1,4 +1,10 @@
-﻿using Labyrinth.UI.Contracts;
+﻿// ********************************
+// <copyright file="IRenderer.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+using Labyrinth.UI.Contracts;
 
 namespace Labyrinth.Renderer.Contracts
 {

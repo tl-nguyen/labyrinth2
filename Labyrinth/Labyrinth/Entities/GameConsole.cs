@@ -1,11 +1,17 @@
-﻿namespace Labyrinth.Entities
+﻿// ********************************
+// <copyright file="GameConsole.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Entities
 {
-    using Contracts;
-    using Renderer.Contracts;
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using Contracts;
     using Labyrinth.Commons;
+    using Renderer.Contracts;
 
     public class GameConsole : Entity, IGameConsole
     {

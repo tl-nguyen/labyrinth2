@@ -1,8 +1,14 @@
-﻿namespace Labyrinth.Loggers
+﻿// ********************************
+// <copyright file="MemoryAppender.cs" company="Telerik Academy">
+// Copyright (c) 2014 Telerik Academy. All rights reserved.
+// </copyright>
+//
+// ********************************
+namespace Labyrinth.Loggers
 {
-    using Contracts;
     using System;
     using System.Collections.Generic;
+    using Contracts;
 
     public class MemoryAppender : IAppender
     {
