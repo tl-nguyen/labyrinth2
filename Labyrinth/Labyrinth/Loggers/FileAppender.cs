@@ -19,7 +19,7 @@ namespace Labyrinth.Loggers
         private string fileName;
 
         /// <summary>
-        /// This method initialize a new instance of the file appender
+        /// Initializes a new instance of the <see cref="FileAppender" /> class
         /// </summary>
         /// <param name="fileName">The name of a file to write</param>
         public FileAppender(string fileName)
@@ -38,7 +38,7 @@ namespace Labyrinth.Loggers
         }
 
         /// <summary>
-        /// Returns a number of currently logged messages
+        /// Gets a number of currently logged messages
         /// </summary>
         public ulong MessageCount
         {

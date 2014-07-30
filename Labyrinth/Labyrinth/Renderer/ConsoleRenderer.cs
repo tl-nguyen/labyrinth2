@@ -10,6 +10,9 @@ namespace Labyrinth.Renderer
     using Renderer.Contracts;
     using UI.Contracts;
 
+    /// <summary>
+    /// Concrete implementation of the IConsoleRenderer interface
+    /// </summary>
     public class ConsoleRenderer : IConsoleRenderer
     {
         /// <summary>
@@ -46,6 +49,10 @@ namespace Labyrinth.Renderer
             Console.BufferHeight = Console.WindowHeight;
         }
 
+        /// <summary>
+        /// Renders the object it receives
+        /// </summary>
+        /// <param name="entity">Gets a non null <see cref="IRenderable"/> implementation to render</param>
         public void RenderEntity(IRenderable entity)
         {
             int x = entity.TopLeft.X;
@@ -59,6 +66,9 @@ namespace Labyrinth.Renderer
             }
         }
 
+        /// <summary>
+        /// Clears the console.
+        /// </summary>
         public void Clear()
         {
             Console.Clear();

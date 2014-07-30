@@ -11,7 +11,7 @@ namespace Labyrinth.Loggers
     using Contracts;
 
     /// <summary>
-    /// This is a class to be used for temporaly storage of information in memory
+    /// This is a class to be used for temporary storage of information in memory
     /// </summary>
     public class MemoryAppender : IAppender
     {
@@ -20,7 +20,7 @@ namespace Labyrinth.Loggers
         private List<string> storage;
 
         /// <summary>
-        /// Private constructor is for singletone, only one instance of the memory logger will be instansiated
+        /// Prevents a default instance of the <see cref="MemoryAppender"/> class from being created.
         /// </summary>
         private MemoryAppender()
         {
@@ -29,7 +29,7 @@ namespace Labyrinth.Loggers
         }
 
         /// <summary>
-        /// Returns a number of currently logged messages
+        /// Gets a number of currently logged messages
         /// </summary>
         public ulong MessageCount
         {
@@ -37,9 +37,9 @@ namespace Labyrinth.Loggers
         }
 
         /// <summary>
-        /// This method is used to return the memory logger instanse
+        /// This method is used to return the memory logger instance
         /// </summary>
-        /// <returns>MemoryLogger</returns>
+        /// <returns>A MemoryLogger</returns>
         public static IAppender GetInstance()
         {
             if (instance == null)
@@ -53,8 +53,8 @@ namespace Labyrinth.Loggers
         /// <summary>
         /// This method is used to get all messages stored in the memory storage
         /// </summary>
-        /// <param name="appender">Instanse of the current memory appender</param>
-        /// <param name="match">Predicate to be useg as constraint to get some messages from a memory storage</param>
+        /// <param name="appender">Instance of the current memory <see cref="IAppender"/></param>
+        /// <param name="match">Predicate to be used as constraint to get some messages from a memory storage</param>
         /// <returns>List of strings that match the predicate</returns>
         public static List<string> GetMessages(IAppender appender, Predicate<string> match)
         {

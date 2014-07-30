@@ -10,16 +10,16 @@ namespace Labyrinth.Loggers
     using Contracts;
 
     /// <summary>
-    /// This class is a simple logger. It format messages by adding a current datetime to them
+    /// This class is a simple logger. It format messages by adding a current date time to them
     /// </summary>
     public class SimpleLogger : ILogger
     {
         private IAppender appender;
 
         /// <summary>
-        /// The method is used to return an instance of the simple logger
+        /// Initializes a new instance of the <see cref="SimpleLogger" /> class
         /// </summary>
-        /// <param name="appender">Simple logger need an appender to store the formated messages</param>
+        /// <param name="appender">Simple logger needs an <see cref="IAppender"/> to store the formatted messages</param>
         public SimpleLogger(IAppender appender)
         {
             if (appender == null)

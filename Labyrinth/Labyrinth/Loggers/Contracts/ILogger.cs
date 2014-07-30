@@ -11,6 +11,10 @@ namespace Labyrinth.Loggers.Contracts
     /// </summary>
     public interface ILogger
     {
+        /// <summary>
+        /// Logs the message.
+        /// </summary>
+        /// <param name="message">String value that gets logged.</param>
         void Log(string message);
     }
 }

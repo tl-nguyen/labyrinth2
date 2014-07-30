@@ -6,6 +6,9 @@
 // ********************************
 namespace Labyrinth.Renderer.Contracts
 {
+    /// <summary>
+    /// Defines an IRenderer with additional clear functionality.
+    /// </summary>
     public interface IConsoleRenderer : IRenderer
     {
         /// <summary>
